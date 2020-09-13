@@ -1,0 +1,134 @@
+
+* {
+
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+
+
+body {
+    height: 100%;
+}
+
+
+
+nav div {
+    display: block;
+    margin-left: auto;
+    padding-right: 10px;
+    font-size: 150%;
+
+    
+
+}
+a {
+    text-decoration: none;
+}
+.nav-box {
+    vertical-align: top;
+    
+
+}
+
+.list {
+    display: flex;
+    list-style-type: none;
+
+
+
+}
+
+.list li{
+    padding-left: 10px;
+    text-decoration: none;
+    font-size: 150%;
+
+}
+
+.list a {
+    text-decoration: none;
+    padding-left: 10px;
+    color: #000;
+    
+    
+}
+
+header {
+
+    background: rgba(255,255,255,0.9);
+
+}
+
+.btn {
+    background-color: rgb(15, 15, 15); /* Green */
+    border: none;
+    color: white;
+
+    padding: 15px 32px;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 6px;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+
+}
+
+.text-box {
+    display: block;
+    width: 40%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: -50px;
+
+
+}
+.welcome {
+    display: block;
+    margin-left: auto;
+    
+}
+.img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    width: 30%;
+    height: auto;
+    border-radius: 6px;
+}
+
+
+
+/* foot */ 
+.superfot {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(29, 29, 29);
+    color: white;
+    text-align: center;
+}
+/* Not found*/
+
+.not-found-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    width: 30%;
+    height: auto;
+    border-radius: 6px;
+}
+
+.not-found {
+    margin: auto;
+    width: 13%;
+ 
+
+}
+
