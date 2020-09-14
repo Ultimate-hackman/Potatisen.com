@@ -16,7 +16,7 @@ body {
 .potatisen {
     display: block;
     margin-left: auto;
-    padding-right: 10px;
+    padding-right: 5vh;
     font-size: 150%;
 
     
@@ -28,13 +28,14 @@ a {
 .nav-box {
     vertical-align: top;
     
+    
 
 }
 
 .list {
     display: flex;
     list-style-type: none;
-    padding-top: 5px;
+    
 
 
 
@@ -43,39 +44,42 @@ a {
 .list li{
     text-decoration: none;
     font-size: 150%;
+    margin-top: 1vh;
+
+
 
 }
 
 .list a {
     text-decoration: none;
-    padding-left: 10px;
+    padding-left: 2vw;
     color: white;
+    
     
     
     
 }
 
 header {
-    background: rgba(25, 29, 29);
-    height: 40px;
-
+    background: rgb(17, 17, 17);
+    height: 4vh;
 }
 
 
 .btn {
-    background-color: rgb(15, 15, 15); /* Green */
+    background-color: rgb(17, 17, 17); /* Green */
     border: none;
     color: white;
 
-    padding: 15px 32px;
+    padding: 1.5vh 1vw;
     text-decoration: none;
-    font-size: 16px;
-    border-radius: 6px;
+    font-size: 1em;
+    border-radius: 1vh;
 
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 10px;
+    margin-top: 2vh;
 
 }
 
@@ -85,7 +89,7 @@ header {
     height: auto;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: -50px;
+    margin-bottom: -5vh;
 
 }
 
@@ -96,7 +100,7 @@ header {
 .welcome {
     display: block;
     margin-left: auto;
-    padding-top: 40px;
+    padding-top: 5vh;
     
 }
 
@@ -108,10 +112,10 @@ header {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 100px;
+    margin-top: 10vh;
     width: 30%;
     height: auto;
-    border-radius: 6px;
+    border-radius: 1vh;
 }
 
 .sideimg {
@@ -120,7 +124,7 @@ header {
     margin-right: auto;
     width: 30%;
     height: auto;
-    border-radius: 6px;
+    border-radius: 1vh;
 }
 
 
@@ -131,7 +135,7 @@ header {
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: rgb(29, 29, 29);
+    background-color: rgb(17, 17, 17);
     color: white;
     text-align: center;
 }
@@ -146,7 +150,7 @@ header {
 
     width: 30%;
     height: auto;
-    border-radius: 6px;
+    border-radius: 1vh;
 }
 
 .not-found {
@@ -170,12 +174,13 @@ header {
 }
 
 
-.img2 {
+.center-img {
     display: block;
+    border-radius: 1vw;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 100px;
+    margin-top: 10vh;
+    padding-bottom: 2vh;
     width: 45%;
     height: auto;
-    border-radius: 6px;
 }
