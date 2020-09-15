@@ -232,4 +232,13 @@ header {
         font-size: 180%;
     }
 
+    .supa-text {
+        font-size: 150%;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .supa-text {
+        font-size: 150%;
+    }
 }
