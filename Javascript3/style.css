@@ -193,7 +193,7 @@ header {
 
 .img-move-om-oss {
     padding-top: 10vh;
-    padding-bottom: 4vh;
+    padding-bottom: 5vh;
 }
 
 .pdf-box {
@@ -235,9 +235,11 @@ header {
 
 
 
+@media only screen and (max-width: 736px) {
 
-
-@media only screen and (max-width: 534px) {
+    .fot {
+    bottom: 0;
+    }
     .main-text {
         display: none;
     }
@@ -246,8 +248,12 @@ header {
         display: none;
     }
 
+    .list {
+        padding-left: 5%;
+    }
+
     .list a {
-        font-size: 70%;
+        font-size: 90%;
         padding-left: 3vw;
     }
 
@@ -259,10 +265,6 @@ header {
         margin-right: auto;
     }
 
-
-    .fot {
-        bottom: 0;
-    }
 
     .center-img {
         width: 100%;
@@ -282,16 +284,6 @@ header {
         font-size: 180%;
     }
 
-    .supa-text {
-        font-size: 100%;
-    }
-
-    .James-text {
-        font-size: 100%;
-    }
-    .btn2 {
-        font-size: 150%;
-    }
 
     .pdf-box {
         margin: auto;
@@ -303,6 +295,10 @@ header {
     .img {
         width: 100%;
         border-radius: 7%;
+    }
+
+    .btn2 {
+        font-size: 100%;
     }
 }
 
@@ -318,5 +314,27 @@ header {
     .center-img {
         width: 100%;
         height: auto;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    footer {
+        display: none;
+    }
+
+    .list {
+        padding-left: 1%;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .list {
+        padding-left: 3%;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .list a {
+        font-size: 75%;
     }
 }
