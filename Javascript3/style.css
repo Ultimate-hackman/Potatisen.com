@@ -260,3 +260,21 @@ header {
         height: auto;
     }
 }
+
+
+.btn2 {
+    background-color: rgb(17, 17, 17); /* Green */
+    border: none;
+    color: white;
+
+    padding: 1.5vh 1vw;
+    text-decoration: none;
+    font-size: 3em;
+    border-radius: 1vh;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2vh;
+
+}
