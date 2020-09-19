@@ -114,7 +114,7 @@ header {
     width: 100%;
     height: auto;
 }
-.img {
+.main-img {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -186,11 +186,56 @@ header {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 10vh;
-    padding-bottom: 1vh;
     width: 45%;
     height: auto;
+    border-radius: 7%;
 }
+
+.img-move-om-oss {
+    padding-top: 10vh;
+    padding-bottom: 4vh;
+}
+
+.pdf-box {
+    margin: auto;
+    width: 40%;
+    padding: 10px;
+    padding-top: 20vh;
+}
+
+.btn2 {
+    background-color: rgb(17, 17, 17); /* Green */
+    border: none;
+    color: white;
+
+    padding: 1.5vh 1vw;
+    text-decoration: none;
+    font-size: 3em;
+    border-radius: 1vh;
+    
+    width: 100%;
+    border: 3px solid rgb(31, 31, 31);
+    padding: 1vh;
+
+}
+
+.img-move {
+    padding-bottom: 1vh;
+}
+
+.img {
+    display: block;
+    border-radius: 3%;
+
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    height: auto;
+}
+
+
+
+
 
 @media only screen and (max-width: 534px) {
     .main-text {
@@ -202,11 +247,11 @@ header {
     }
 
     .list a {
-        font-size: 60%;
-        padding-left: 6vw;
+        font-size: 70%;
+        padding-left: 3vw;
     }
 
-    .img {
+    .main-img {
         width: 70%;
         height: auto;
 
@@ -244,6 +289,21 @@ header {
     .James-text {
         font-size: 100%;
     }
+    .btn2 {
+        font-size: 150%;
+    }
+
+    .pdf-box {
+        margin: auto;
+        width: 50%;
+        padding: 10px;
+        padding-top: 25vh;
+    }
+
+    .img {
+        width: 100%;
+        border-radius: 7%;
+    }
 }
 
 
@@ -256,25 +316,7 @@ header {
     }
 
     .center-img {
-        width: 50%;
+        width: 100%;
         height: auto;
     }
-}
-
-
-.btn2 {
-    background-color: rgb(17, 17, 17); /* Green */
-    border: none;
-    color: white;
-
-    padding: 1.5vh 1vw;
-    text-decoration: none;
-    font-size: 3em;
-    border-radius: 1vh;
-
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 2vh;
-
 }
