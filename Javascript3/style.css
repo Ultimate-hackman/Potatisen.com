@@ -106,7 +106,7 @@ header {
 .welcome {
     display: block;
     margin-left: auto;
-    padding-top: 5vh;
+    padding-top: 4vh;
     
 }
 
@@ -215,7 +215,7 @@ header {
     
     width: 100%;
     border: 3px solid rgb(31, 31, 31);
-    padding: 1vh;
+    padding: 2vh;
 
 }
 
@@ -232,6 +232,7 @@ header {
     width: 80%;
     height: auto;
 }
+
 
 
 
@@ -310,11 +311,16 @@ header {
     .kony-txt {
         font-size: 90%;
     }
+    .welcome {
+        padding-top: 1vh;
+    }
 
     .center-img {
         width: 100%;
         height: auto;
     }
+
+
 }
 
 @media only screen and (max-width: 360px) {
