@@ -2,67 +2,9 @@
 * {
     margin: 0;
     font-family: 'Inter', sans-serif;
-}
-
-
-
-body {
-    height: 100%;
-}
-
-
-
-.potatisen {
-    display: block;
-    margin-left: auto;
-    padding-right: 5vh;
-    font-size: 150%;
-
-    
-
-}
-a {
     text-decoration: none;
 }
-.nav-box {
-    vertical-align: top;
-    
 
-    
-
-}
-
-.list {
-    display: flex;
-    list-style-type: none;
-    padding-top: 10px;
-    
-    
-    
-
-
-
-}
-
-.list li{
-    text-decoration: none;
-    font-size: 150%;
-    margin-top: auto;
-
-
-
-
-}
-
-.list a {
-    text-decoration: none;
-    padding-left: 2vw;
-    color: white;
-    
-    
-    
-    
-}
 
 header {
     background: rgb(17, 17, 17);
@@ -71,14 +13,42 @@ header {
 
 }
 
+.potatisen {
+    display: block;
+    margin-left: auto;
+    padding-right: 5vh;
+
+    
+
+}
+
+
+
+.list {
+
+    display: flex;
+    list-style-type: none;
+    padding-top: 10px;
+
+
+}
+
+
+.list a {
+    padding-left: 2vw;
+    color: white;
+    font-size: 150%;    
+}
+
+
+
 
 .btn {
-    background-color: rgb(17, 17, 17); /* Green */
+    background-color: rgb(17, 17, 17); /* black */
     border: none;
     color: white;
 
     padding: 1.5vh 1vw;
-    text-decoration: none;
     font-size: 1em;
     border-radius: 1vh;
 
@@ -92,42 +62,18 @@ header {
 .text-box {
     display: block;
     width: 40%;
-    height: auto;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: -5vh;
+    margin-top: 2vh;
 
 }
 
 
-
-
-
-.welcome {
-    display: block;
-    margin-left: auto;
-    padding-top: 4vh;
-    
-}
-
-.main-text {
-    width: 100%;
-    height: auto;
-}
 .main-img {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 10vh;
-    width: 30%;
-    height: auto;
-    border-radius: 1vh;
-}
-
-.sideimg {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin-top: 5vh;
     width: 30%;
     height: auto;
     border-radius: 1vh;
@@ -138,9 +84,7 @@ header {
 /* foot */ 
 .fot {
     position: fixed;
-    left: 0;
     bottom: 0;
-    width: 100%;
     background-color: rgb(17, 17, 17);
     color: white;
     text-align: center;
@@ -160,7 +104,7 @@ header {
     margin-right: auto;
 }
 
-.James-text {
+.not-found-text {
     margin-left: auto;
     margin-right: auto;
     width: 20%;
@@ -172,23 +116,14 @@ header {
 /* om oss */ 
 
 
-.text-box2 {
-    display: block;
-    width: 30%;
-    height: auto;
-    
-
-
-}
-
 
 .center-img {
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 45%;
-    height: auto;
     border-radius: 7%;
+    
 }
 
 .img-move-om-oss {
@@ -196,20 +131,21 @@ header {
     padding-bottom: 5vh;
 }
 
-.pdf-box {
+
+/* veckobrev */
+
+.veckobrev-content-box {
     margin: auto;
     width: 40%;
-    padding: 10px;
     padding-top: 20vh;
 }
 
 .btn2 {
-    background-color: rgb(17, 17, 17); /* Green */
+    background-color: rgb(17, 17, 17); /* Black */
     border: none;
     color: white;
 
     padding: 1.5vh 1vw;
-    text-decoration: none;
     font-size: 3em;
     border-radius: 1vh;
     
@@ -219,9 +155,7 @@ header {
 
 }
 
-.img-move {
-    padding-bottom: 1vh;
-}
+
 
 .img {
     display: block;
@@ -229,8 +163,9 @@ header {
 
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 2vh;
     width: 80%;
-    height: auto;
+
 }
 
 
@@ -238,9 +173,7 @@ header {
 
 @media only screen and (max-width: 736px) {
 
-    .fot {
-    bottom: 0;
-    }
+
     .main-text {
         display: none;
     }
@@ -254,13 +187,12 @@ header {
     }
 
     .list a {
-        font-size: 90%;
+        font-size: 130%;
         padding-left: 3vw;
     }
 
     .main-img {
-        width: 70%;
-        height: auto;
+        width: 80%;
 
         margin-left: auto;
         margin-right: auto;
@@ -281,8 +213,8 @@ header {
         height: auto;
     }
 
-    .welcome {
-        font-size: 180%;
+    .text-box {
+        font-size: 90%;
     }
 
 
@@ -299,53 +231,53 @@ header {
     }
 
     .btn2 {
-        font-size: 100%;
+        font-size: 50%;
     }
 }
 
 
 @media only screen and (max-width: 1024px) {
-    .supa-text {
-        font-size: 150%;
-    }
+
     .kony-txt {
         font-size: 90%;
     }
-    .welcome {
-        padding-top: 1vh;
-    }
 
     .center-img {
-        width: 50%;
+        width: 100%;
         height: auto;
     }
     .btn2  {
-        font-size: 200%;
+        font-size: 2em;
     }
 
+    .btn {
+        font-size: 3em;
+    }
     
 
 
 }
+
+@media only screen and (max-width: 375px) {
+    .list a {
+        font-size: 120%;
+    }
+
+    .footer-text {
+        font-size: 150%;
+    }
+}
+
 
 @media only screen and (max-width: 360px) {
     footer {
         display: none;
     }
 
-    .list {
-        padding-left: 1%;
-    }
-}
 
-@media only screen and (max-width: 375px) {
-    .list {
-        padding-left: 3%;
-    }
-}
-
-@media only screen and (max-width: 360px) {
     .list a {
-        font-size: 75%;
+        font-size: 130%;
+        padding-left: 3vw;
     }
 }
+
