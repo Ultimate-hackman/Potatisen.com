@@ -316,9 +316,14 @@ header {
     }
 
     .center-img {
-        width: 100%;
+        width: 50%;
         height: auto;
     }
+    .btn2  {
+        font-size: 200%;
+    }
+
+    
 
 
 }
