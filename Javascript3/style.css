@@ -40,10 +40,24 @@ header {
     font-size: 150%;    
 }
 
-
-
-
 .btn {
+    background-color: rgb(17, 17, 17); /* black */
+    border: none;
+    color: white;
+
+    padding: 1.5vh 1vw;
+    font-size: 1em;
+    border-radius: 1vh;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2vh;
+
+}
+
+
+.btn-main {
     background-color: rgb(17, 17, 17); /* black */
     border: none;
     color: white;
@@ -85,6 +99,7 @@ header {
 .fot {
     position: fixed;
     bottom: 0;
+    width: 100%;
     background-color: rgb(17, 17, 17);
     color: white;
     text-align: center;
@@ -140,6 +155,16 @@ header {
     padding-top: 20vh;
 }
 
+.btn2.div {
+    width: 50%;
+}
+
+.pdf-box {
+    margin: auto;
+    width: 40%;
+    padding: 10px;
+    padding-top: 20vh;
+}
 .btn2 {
     background-color: rgb(17, 17, 17); /* Black */
     border: none;
@@ -163,6 +188,7 @@ header {
 
     margin-left: auto;
     margin-right: auto;
+    margin-top: 2vh;
     margin-bottom: 2vh;
     width: 80%;
 
@@ -219,9 +245,6 @@ header {
 
 
     .pdf-box {
-        margin: auto;
-        width: 50%;
-        padding: 10px;
         padding-top: 25vh;
     }
 
@@ -239,32 +262,58 @@ header {
 @media only screen and (max-width: 1024px) {
 
     .kony-txt {
-        font-size: 90%;
+        font-size: 80%;
     }
 
     .center-img {
-        width: 100%;
+        width: 45%;
         height: auto;
+    }
+
+    .main-text {
+        font-size: 95%;
+        
     }
     .btn2  {
         font-size: 2em;
     }
 
-    .btn {
-        font-size: 3em;
+    .btn-main {
+        font-size: 1em;
+    }
+
+    .main-img {
+        padding-top: 0vh;
     }
     
+    .footer-text {
+        font-size: 150%;
+    }
+
+
 
 
 }
 
-@media only screen and (max-width: 375px) {
+
+
+
+@media only screen and (max-width: 414px) {
     .list a {
         font-size: 120%;
     }
+    .list li {
+        padding-right: 2.5vh;
+        margin: auto;
+    }
+
 
     .footer-text {
         font-size: 150%;
+    }
+
+    .btn2 {
+        font-size: 140%;
     }
 }
 
