@@ -34,10 +34,14 @@ header {
 }
 
 
-.list a {
+.list li {
     padding-left: 2vw;
     color: white;
     font-size: 150%;    
+}
+
+.list a {
+    color: white;
 }
 
 .btn {
