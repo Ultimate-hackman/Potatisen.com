@@ -28,19 +28,19 @@ header {
 
     display: flex;
     list-style-type: none;
-    padding-top: 10px;
+    padding-top: 1vh;
 
 
 }
 
 
 .list li {
-    padding-left: 2vw;
     color: white;
     font-size: 150%;    
 }
 
 .list a {
+    padding-left: 2vw;
     color: white;
 }
 
@@ -170,9 +170,6 @@ header {
     padding-top: 20vh;
 }
 
-.btn2.div {
-    width: 50%;
-}
 
 .pdf-box {
     margin: auto;
@@ -263,12 +260,18 @@ header {
     }
 
     .img {
-        width: 100%;
+        display: none;
+        
         border-radius: 7%;
     }
 
     .btn2 {
         font-size: 50%;
+    }
+
+    .pdf-box {
+        width: 80%;
+        height: 100%;
     }
 }
 
@@ -304,6 +307,10 @@ header {
         font-size: 80%;
     }
 
+    .list {
+        padding-left: 2vw;
+        padding-top: 1.5vh;
+    }
 
 
 
@@ -313,12 +320,15 @@ header {
 
 
 @media only screen and (max-width: 414px) {
-    .list a {
+    .list li {
+        margin: auto;
         font-size: 120%;
     }
-    .list li {
-        padding-right: 1vh;
-        margin: auto;
+
+    .list {
+        font-size: 80%;
+        padding-left: 2vw;
+        padding-top: 1.5vh;
     }
 
     .center-img {
@@ -330,8 +340,15 @@ header {
     }
 
     .btn2 {
-        font-size: 140%;
+        font-size: 200%;
     }
+
+    .btn {
+        font-size: 150%;
+    }
+
+
+
 
 }
 
@@ -341,11 +358,15 @@ header {
         display: none;
     }
 
+    .list li {
+        
+        font-size: 120%;
+    }
 
-    .list a {
-        font-size: 110%;
-        padding-right: 0%;
+    .list {
+        font-size: 70%;
         padding-left: 1vw;
     }
+
 }
 
