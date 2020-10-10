@@ -7,45 +7,58 @@
 
 
 header {
-    background: rgb(17, 17, 17);
-    height: 50px;
-    position: sticky;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.24);
+    filter: blur();
 
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+
+}
+
+
+.list {
+
+    display: flex;
+    text-align: center;
+    padding-top: 1vh;
+    height: 45px;
+    
+
+}
+
+
+.list li {
+    display: inline-block;
+    padding-left: 1.5vw;
+  
+}
+
+.list a {
+    font-size: 1.6em;
+
+    color: rgba(5, 5, 5, 0.7);
+    transition: ease-out 0.2s;
+
+}
+
+.list a:hover {
+    color: rgb(2, 2, 2);
+    cursor: pointer;
 }
 
 .potatisen {
     display: block;
     margin-left: auto;
     padding-right: 5vh;
-
-    
-
-}
-
-
-
-.list {
-
-    display: flex;
-    list-style-type: none;
-    padding-top: 1vh;
-
+    font-size: 1.6em;
 
 }
 
 
-.list li {
-    color: white;
-    font-size: 150%;    
-}
 
-.list a {
-    padding-left: 2vw;
-    color: white;
-}
 
-.btn {
-    background-color: rgb(17, 17, 17); /* black */
+.btn-hem {
+    background-color: rgba(17, 17, 17); /* black */
     border: none;
     color: white;
 
@@ -56,25 +69,15 @@ header {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 2vh;
+    margin-top: 3vh;
+    box-shadow: 0px 0px 40px;
+
+    transition: ease-out 0.2s;
 
 }
 
-
-.btn-main {
-    background-color: rgb(17, 17, 17); /* black */
-    border: none;
-    color: white;
-
-    padding: 1.5vh 1vw;
-    font-size: 1em;
-    border-radius: 1vh;
-
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 2vh;
-
+.btn-hem:hover {
+    font-size: 1.5em;
 }
 
 .text-box {
@@ -83,6 +86,7 @@ header {
     margin-left: auto;
     margin-right: auto;
     margin-top: 2vh;
+    
 
 }
 
@@ -100,6 +104,9 @@ header {
     width: 30%;
     height: auto;
     border-radius: 1vh;
+    
+
+    box-shadow: 0px 0px 30px;
 }
 
 
@@ -114,8 +121,8 @@ header {
     background-color: rgb(17, 17, 17);
     color: white;
     text-align: center;
-
-    font-size: 140%;
+    font-weight: 500;
+    font-size: 300%;
 }
 
 
@@ -147,12 +154,14 @@ header {
 
 
 
-.center-img {
+.om-oss-img {
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 45%;
     border-radius: 7%;
+    max-width: 200%;
+
     
 }
 
@@ -160,6 +169,29 @@ header {
     padding-top: 10vh;
     padding-bottom: 5vh;
 }
+
+
+.btn-om-oss {
+    background-color: rgb(17, 17, 17); /* black */
+    border: none;
+    color: white;
+
+    padding: 1.5vh 1vw;
+    font-size: 1em;
+    border-radius: 1vh;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2vh;
+
+    transition: ease-out 0.2S;
+
+}
+.btn-om-oss:hover {
+    font-size: 1.5em;   
+}
+
 
 
 /* veckobrev */
@@ -171,13 +203,12 @@ header {
 }
 
 
-.pdf-box {
+.veckobrev-content-box {
     margin: auto;
     width: 40%;
-    padding: 10px;
-    padding-top: 20vh;
-}
-.btn2 {
+    padding-top: 15vh;
+} 
+.btn-veckobrev {
     background-color: rgb(17, 17, 17); /* Black */
     border: none;
     color: white;
@@ -187,14 +218,21 @@ header {
     border-radius: 1vh;
     
     width: 100%;
-    border: 3px solid rgb(31, 31, 31);
+    border: 3px solid rgb(17, 17, 17);
     padding: 2vh;
+
+    transition: ease-out 0.2s;
 
 }
 
+.btn-veckobrev:hover {
+    background-color: rgba(17, 17, 17, 0);
+    color: rgb(17, 17, 17);
+    border: 3px solid rgb(17, 17, 17, 0.5);
+}
 
 
-.img {
+.veckobrev-img {
     display: block;
     border-radius: 3%;
 
@@ -204,9 +242,62 @@ header {
     margin-bottom: 2vh;
     width: 80%;
 
+    border: solid rgba(17, 17, 17, 0.8) 1px;
+
 }
 
 
+
+
+
+@media only screen and (max-width: 1024px) {
+
+    .veckobrev-content-box {
+        padding-top: 10vh;
+        width: 60%;
+    }
+
+    .text-box {
+        width: 60%;
+    }
+    .om-oss-txt {
+        font-size: 80%;
+        width: 100%;
+    }
+
+    .om-oss-img {
+        width: 45%;
+    }
+
+    .main-text {
+        font-size: 95%;
+        
+    }
+    .btn-veckobrev  {
+        font-size: 2em;
+    }
+
+    .btn-hem {
+        font-size: 1em;
+        margin-top: 6vh;
+    }
+
+    .main-img {
+        padding-top: 0vh;
+    }
+    
+    .fot {
+        font-size: 80%;
+    }
+
+    .list {
+        padding-left: 2vw;
+        padding-top: 1.5vh;
+    }
+
+
+
+}
 
 @media only screen and (max-width: 736px) {
 
@@ -219,8 +310,8 @@ header {
         display: none;
     }
 
-    .list {
-        padding-left: 5%;
+    .list li {
+        padding-bottom: 1.5vh;
     }
 
     .list a {
@@ -236,12 +327,9 @@ header {
     }
 
 
-    .center-img {
+    .om-oss-img {
         width: 100%;
         height: auto;
-    }
-    .kony-txt {
-        display: none;
     }
 
     .not-found-img {
@@ -265,57 +353,15 @@ header {
         border-radius: 7%;
     }
 
-    .btn2 {
+    .btn-veckobrev {
         font-size: 50%;
     }
 
-    .pdf-box {
-        width: 80%;
-        height: 100%;
-    }
+    .veckobrev-content-box {
+        width: 90%;
+
+    } 
 }
-
-
-@media only screen and (max-width: 1024px) {
-
-    .kony-txt {
-        font-size: 80%;
-    }
-
-    .center-img {
-        width: 45%;
-        height: auto;
-    }
-
-    .main-text {
-        font-size: 95%;
-        
-    }
-    .btn2  {
-        font-size: 2em;
-    }
-
-    .btn-main {
-        font-size: 1em;
-    }
-
-    .main-img {
-        padding-top: 0vh;
-    }
-    
-    .fot {
-        font-size: 80%;
-    }
-
-    .list {
-        padding-left: 2vw;
-        padding-top: 1.5vh;
-    }
-
-
-
-}
-
 
 
 
@@ -330,43 +376,46 @@ header {
         padding-left: 2vw;
         padding-top: 1.5vh;
     }
+    
 
-    .center-img {
-        width: 100%;
-    }
-
-    .fot {
-        font-size: 50%;
-    }
-
-    .btn2 {
+    .btn-veckobrev {
         font-size: 200%;
     }
 
     .btn {
+
         font-size: 150%;
     }
 
-
-
+    .potatisen {
+        display: none;
+    }
 
 }
 
 
 @media only screen and (max-width: 360px) {
-    footer {
-        display: none;
-    }
 
-    .list li {
-        
-        font-size: 120%;
-    }
 
     .list {
         font-size: 70%;
         padding-left: 1vw;
     }
+
+    .list li {  
+        font-size: 1.3em;
+    }
+
+    .text-box {
+        
+        width: 65%;
+    }
+
+    .img-move-om-oss {
+        padding-top: 4vh;
+        padding-bottom: 3vh;
+    }
+
 
 }
 
