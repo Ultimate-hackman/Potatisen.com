@@ -5,11 +5,13 @@ function weekFinder() {
 
     day -= 4
 
-    let week = Math.ceil(((month * 30.5) + day) / 7) + 1
+    let week = Math.ceil(((month * 30.5) + day) / 7) 
 
-    return week
+
+    return week + 1 // + 1 so next week
 }
 
 // finds the week-number of the next week 
 
 document.getElementById("week").innerHTML = 'Veckobrev vecka ' + weekFinder()
+

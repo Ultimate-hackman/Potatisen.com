@@ -113,21 +113,6 @@ header {
 
 
 
-/* foot */ 
-.fot {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: rgb(17, 17, 17);
-    color: white;
-    text-align: center;
-    font-weight: 500;
-    font-size: 300%;
-}
-
-
-
-
 /* Not found*/
 
 .not-found-img {
@@ -191,6 +176,7 @@ header {
 .btn-om-oss:hover {
     font-size: 1.5em;   
 }
+
 
 
 
