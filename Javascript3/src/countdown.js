@@ -1,10 +1,10 @@
 function wencesAttack(date) {
-    let target = new Date(date).getTime(); 
+    let past = new Date(date).getTime(); 
 
     setInterval(function() {
         let now = new Date().getTime();
 
-        let difference = now - target
+        let difference = now - past
 
         totalHour = Math.floor(difference / (1000 * 60 * 60));
         totalMinutes = Math.floor((difference / 1000) / 60);
@@ -15,11 +15,11 @@ function wencesAttack(date) {
         let seconds = Math.floor((difference / 1000) - totalMinutes * 60);
       
 
-         document.getElementById("countdown").innerHTML = 'Online sedan: ' + String(days) + ' dagar, ' + String(hours) + ' timmar, ' + String(minutes) + ' minuter, '+ String(seconds) + ' sekunder' 
+         document.getElementById("countdown").innerHTML = 'Online sedan: ' + days + ' dagar, ' + hours + ' timmar, ' + minutes + ' minuter, '+ seconds + ' sekunder' 
     }, 1000)
 
 
 }
 
-wencesAttack("sep 13, 2020 17:37:25")
+wencesAttack("sep 13, 2020 18:27:30")
 
