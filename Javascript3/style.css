@@ -57,8 +57,17 @@ header {
 }
 
 
+.title{
+    text-align: center;
+    font-size: 4em;
+}
 
+.main-text {
+    text-align: center;
+    font-size: 1.4em;
+}
 
+ 
 .btn-hem {
     background-color: rgba(17, 17, 17); /* black */
     border: none;
@@ -99,9 +108,9 @@ header {
 
 }
 
-.main-text {
-    font-size: 130%;
-    
+.text-box-center {
+    display: block;
+    margin-left: 20%;
 }
 
 
@@ -110,14 +119,13 @@ header {
     margin-left: auto;
     margin-right: auto;
     margin-top: 5vh;
-    width: 30%;
+    width: 50%;
     height: auto;
     border-radius: 1vh;
     
 
-    box-shadow: 0px 0px 30px;
-}
 
+}
 
 
 
@@ -188,6 +196,17 @@ header {
 
 
 
+.text-box2 {
+    display: block;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2vh;
+    
+
+}
+
+
 
 /* veckobrev */
 
@@ -244,7 +263,6 @@ header {
 
 
 
-
 @media only screen and (max-width: 1024px) {
 
     .veckobrev-content-box {
@@ -252,8 +270,34 @@ header {
         width: 60%;
     }
 
+    .title{
+        font-size: 4em;
+    }
+
+
     .text-box {
+        display: block;
         width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 1vh;
+        
+    
+    }
+
+    .main-img {
+        width: 50%;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .text-box {
+        width: 50%;
+    }
+
+    .text-box2 {
+        width: 80%;
     }
     .om-oss-txt {
         font-size: 80%;
@@ -263,11 +307,7 @@ header {
     .om-oss-img {
         width: 45%;
     }
-
-    .main-text {
-        font-size: 95%;
-        
-    }
+}
     .btn-veckobrev  {
         font-size: 2em;
     }
@@ -386,6 +426,35 @@ header {
         display: none;
     }
 
+    .title {
+        font-size: 2em;
+    }
+
+
+
+
+
+    .text-box {
+        display: block;
+        width: 70%;
+        
+    
+    }
+
+    .title {
+        font-size: 2em;
+
+        padding-left: 7vw;
+    }
+
+    .main-text {
+        font-size: 1em;
+    }
+
+    .main-img{
+        width: 100%;
+    }
+
 }
 
 
@@ -410,6 +479,29 @@ header {
         padding-top: 4vh;
         padding-bottom: 3vh;
     }
+
+    .text-box {
+        display: block;
+        width: 80%;
+        
+    
+    }
+
+    .title {
+        font-size: 2em;
+    }
+
+    .main-text {
+        font-size: 0.9em;
+    }
+
+    .main-img{
+        width:80%;
+    }
+
+
+
+    
 
 
 }
