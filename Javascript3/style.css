@@ -5,25 +5,39 @@
     text-decoration: none;
 }
 
-
+body{
+    margin:0px; 
+}
 
 
 header {
-    position: relative;
-    background-color: rgba(255, 255, 255, 0.24);
+    position: fixed;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
     filter: blur();
 
+    top: 0px;
+
+
+
+
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+
 
 }
 
 
+
+
 .list {
+
+    padding-top: 1.5vh;
+    padding-bottom: 1.5vh;
 
     display: flex;
     text-align: center;
-    padding-top: 1vh;
-    height: 45px;
+    
+
     
 
 }
@@ -58,6 +72,7 @@ header {
 
 
 .title{
+    padding-top: 5vh;
     text-align: center;
     font-size: 4em;
 }
@@ -99,11 +114,12 @@ header {
 }
 
 .text-box {
+
     display: block;
     width: 50%;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 2vh;
+    padding-top: 3vh;
     
 
 }
@@ -161,7 +177,6 @@ header {
     margin-left: auto;
     margin-right: auto;
     width: 45%;
-    border-radius: 7%;
     max-width: 200%;
 
     
@@ -201,7 +216,7 @@ header {
     width: 50%;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 2vh;
+    margin: center;
     
 
 }
@@ -210,11 +225,6 @@ header {
 
 /* veckobrev */
 
-.veckobrev-content-box {
-    margin: auto;
-    width: 40%;
-    padding-top: 20vh;
-}
 
 
 .veckobrev-content-box {
@@ -248,7 +258,7 @@ header {
 
 .veckobrev-img {
     display: block;
-    border-radius: 3%;
+    border-radius: 25px;
 
     margin-left: auto;
     margin-right: auto;
@@ -266,39 +276,20 @@ header {
 @media only screen and (max-width: 1024px) {
 
     .veckobrev-content-box {
-        padding-top: 10vh;
+        padding-top: 15vh;
         width: 60%;
-    }
-
-    .title{
-        font-size: 4em;
     }
 
 
     .text-box {
-        display: block;
-        width: 60%;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 1vh;
-        
-    
-    }
 
-    .main-img {
-        width: 50%;
-
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .text-box {
-        width: 50%;
+        margin-top: 1vh; 
     }
 
     .text-box2 {
         width: 80%;
     }
+    
     .om-oss-txt {
         font-size: 80%;
         width: 100%;
@@ -307,27 +298,14 @@ header {
     .om-oss-img {
         width: 45%;
     }
-}
+
     .btn-veckobrev  {
         font-size: 2em;
     }
 
-    .btn-hem {
-        font-size: 1em;
-        margin-top: 6vh;
-    }
 
     .main-img {
         padding-top: 0vh;
-    }
-    
-    .fot {
-        font-size: 80%;
-    }
-
-    .list {
-        padding-left: 2vw;
-        padding-top: 1.5vh;
     }
 
 
@@ -335,6 +313,7 @@ header {
 }
 
 @media only screen and (max-width: 736px) {
+
 
 
     .main-text {
