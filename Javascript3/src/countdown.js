@@ -18,9 +18,6 @@ function wencesAttack(date) {
         let seconds = Math.floor((difference / 1000) - totalMinutes * 60);
 
 
-
-
-
         // plural check
         if(days == 1) {
             c = " dag, "
@@ -45,10 +42,7 @@ function wencesAttack(date) {
         } else {
             f = " sekunder, "
         }
-
-
         
-
             document.getElementById("countdown").innerHTML = 'Online sedan: ' + days + c + hours + d + minutes + e + seconds + f
 
 
@@ -57,7 +51,7 @@ function wencesAttack(date) {
 
 }
 
-wencesAttack("sep 13, 2020 18:27:30")
+wencesAttack("sep 13, 2020 18:27:00")
 
 
 

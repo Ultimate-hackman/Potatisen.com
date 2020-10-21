@@ -5,21 +5,16 @@
     text-decoration: none;
 }
 
-body{
-    margin:0px; 
-}
 
 
 header {
     position: fixed;
     width: 100%;
     background-color: rgba(255, 255, 255, 0.5);
-    filter: blur();
+
+    backdrop-filter: blur(4px);
 
     top: 0px;
-
-
-
 
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 
@@ -30,14 +25,11 @@ header {
 
 
 .list {
-
     padding-top: 1.5vh;
     padding-bottom: 1.5vh;
 
     display: flex;
-    text-align: center;
     
-
     
 
 }
@@ -63,7 +55,6 @@ header {
 }
 
 .potatisen {
-    display: block;
     margin-left: auto;
     padding-right: 5vh;
     font-size: 1.6em;
@@ -72,6 +63,7 @@ header {
 
 
 .title{
+
     padding-top: 5vh;
     text-align: center;
     font-size: 4em;
@@ -90,43 +82,36 @@ header {
 
     padding: 1.5vh 1vw;
     font-size: 1.5em;
-    border-radius: 1vh;
+    border-radius: 10px;
 
     display: block;
     margin-left: auto;
     margin-right: auto;
     margin-top: 3vh;
-    box-shadow: 0px 0px 40px;
-
-
-
-}
-
-.btn-text {
-    color: white;
 
     transition: ease-out 0.2s;
 
+
+
 }
 
-.btn-text:hover {
-    font-size: 1.5em;
+
+.btn-hem:hover {
+    color: black;
+    background-color: rgba(255, 255, 255, 0);
+    border: 1px solid rgb(0, 0, 0);
+    
+    
 }
 
 .text-box {
 
-    display: block;
     width: 50%;
     margin-left: auto;
     margin-right: auto;
     padding-top: 3vh;
     
 
-}
-
-.text-box-center {
-    display: block;
-    margin-left: 20%;
 }
 
 
@@ -136,8 +121,6 @@ header {
     margin-right: auto;
     margin-top: 5vh;
     width: 50%;
-    height: auto;
-    border-radius: 1vh;
     
 
 
@@ -188,27 +171,6 @@ header {
 }
 
 
-.btn-om-oss {
-    background-color: rgb(17, 17, 17); /* black */
-    border: none;
-    color: white;
-
-    padding: 1.5vh 1vw;
-    font-size: 1em;
-    border-radius: 1vh;
-
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 2vh;
-
-    transition: ease-out 0.2S;
-
-}
-.btn-om-oss:hover {
-    font-size: 1.5em;   
-}
-
 
 
 .text-box2 {
@@ -216,9 +178,7 @@ header {
     width: 50%;
     margin-left: auto;
     margin-right: auto;
-    margin: center;
     
-
 }
 
 
@@ -232,17 +192,17 @@ header {
     width: 40%;
     padding-top: 15vh;
 } 
+
 .btn-veckobrev {
     background-color: rgb(17, 17, 17); /* Black */
     border: none;
     color: white;
 
-    padding: 1.5vh 1vw;
     font-size: 3em;
-    border-radius: 1vh;
+    border-radius: 10px;
     
     width: 100%;
-    border: 3px solid rgb(17, 17, 17);
+    border: 1px solid rgb(0, 0, 0);
     padding: 2vh;
 
     transition: ease-out 0.2s;
@@ -250,9 +210,9 @@ header {
 }
 
 .btn-veckobrev:hover {
-    background-color: rgba(17, 17, 17, 0);
+    background-color: rgba(0, 0, 0, 0);
     color: rgb(17, 17, 17);
-    border: 3px solid rgb(17, 17, 17, 0.5);
+
 }
 
 
@@ -266,7 +226,7 @@ header {
     margin-bottom: 2vh;
     width: 80%;
 
-    border: solid rgba(17, 17, 17, 0.8) 1px;
+    border: solid rgba(17, 17, 17) 1px;
 
 }
 

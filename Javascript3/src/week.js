@@ -3,7 +3,10 @@ function weekFinder() {
     let month = new Date().getMonth();
     let day = new Date().getDate(); 
 
-    day -= 4.2
+    day -= 3.4
+
+    day += 0
+
     let week = Math.ceil(((month * 30.5) + day) / 7) 
 
 
