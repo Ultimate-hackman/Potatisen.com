@@ -1,7 +1,6 @@
-function wencesAttack(date) {
-    let past = new Date(date).getTime(); 
-
+function countDown(date) {
     setInterval(function() {
+        let past = new Date(date).getTime(); 
         let now = new Date().getTime();
 
         let difference = now - past
@@ -19,31 +18,10 @@ function wencesAttack(date) {
 
 
         // plural check
-        if(days == 1) {
-            c = " dag, "
-        } else {
-            c = " dagar, "
-        }
+        pluralCheck(days, hours, minutes, seconds)
 
-        if(hours == 1) {
-            d = " timme, "
-        } else {
-            d = " timmar, "
-        }
-
-        if(minutes == 1) {
-            e = " minut, "
-        } else {
-            e = " minuter, "
-        }
-
-        if(seconds == 1) {
-            f = " sekund, "
-        } else {
-            f = " sekunder, "
-        }
         
-            document.getElementById("countdown").innerHTML = 'Online sedan: ' + days + c + hours + d + minutes + e + seconds + f
+            document.getElementById("countdown").innerHTML = 'Online sedan: ' + days + d + hours + h + minutes + m + seconds + s
 
 
     }, 1000)
@@ -51,7 +29,36 @@ function wencesAttack(date) {
 
 }
 
-wencesAttack("sep 13, 2020 18:27:00")
+function pluralCheck(days, hours, minutes, seconds) {
+
+    if(days == 1) {
+        d = " dag, "
+    } else {
+        d = " dagar, "
+    }
+
+    if(hours == 1) {
+        h = " timme, "
+    } else {
+        h = " timmar, "
+    }
+
+    if(minutes == 1) {
+        m = " minut, "
+    } else {
+        m = " minuter, "
+    }
+
+    if(seconds == 1) {
+        s = " sekund "
+    } else {
+        s = " sekunder "
+    }
+
+    
+}
+
+countDown("sep 13, 2020 18:27:00")
 
 
 

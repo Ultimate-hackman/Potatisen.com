@@ -7,10 +7,10 @@
 
 
 
+
 header {
     position: fixed;
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.5);
 
     backdrop-filter: blur(4px);
 
@@ -20,7 +20,6 @@ header {
 
 
 }
-
 
 
 
@@ -74,6 +73,7 @@ header {
     font-size: 1.4em;
 }
 
+
  
 .btn-hem {
     background-color: rgba(17, 17, 17); /* black */
@@ -102,6 +102,19 @@ header {
     border: 1px solid rgb(0, 0, 0);
     
     
+    
+}
+
+.btn-hem:hover .btn-text {
+    color: black;
+
+    
+    
+    
+}
+.btn-text {
+    color: white;
+
 }
 
 .text-box {
@@ -128,28 +141,6 @@ header {
 
 
 
-
-/* Not found*/
-
-.not-found-img {
-    display: block;
-
-    width: 30%;
-    height: auto;
-    border-radius: 1vh;
-
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.not-found-text {
-    margin-left: auto;
-    margin-right: auto;
-    width: 20%;
-    padding-bottom: 1vh;
- 
-
-}
 
 /* om oss */ 
 

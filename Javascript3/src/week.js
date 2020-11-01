@@ -3,7 +3,7 @@ function weekFinder() {
     let month = new Date().getMonth();
     let day = new Date().getDate(); 
 
-    day -= 3.4
+    day -= 3.3
 
     day += 0
 
