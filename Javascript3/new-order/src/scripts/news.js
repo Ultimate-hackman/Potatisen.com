@@ -17,7 +17,7 @@ export function downloadData() {
             let points = data.val();
 
             let keys = Object.keys(points)
-            // code is destroyed made change no work forgot to unmake
+            
 
             return resolve(Object.values(points).map((value) => {
                 return value.bullet;

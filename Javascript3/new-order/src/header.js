@@ -23,6 +23,10 @@ import { Link } from 'react-router-dom';
                     <li><a>Om oss</a></li>
                     </Link>
 
+                    <Link to="/Kalender">
+                    <li><a>Kalender</a></li>
+                    </Link>
+
                     <p class="potatisen"> Potatisen</p>
                 </ul>
             </nav>

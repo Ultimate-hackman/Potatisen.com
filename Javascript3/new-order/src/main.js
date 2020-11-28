@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 
-
+import countUp from './scripts/countup'
 
 import shrek from './assets/main.png';
 
@@ -24,6 +24,11 @@ function App() {
     <button class="btn-hem"><a href="/veckobrev" class="btn-text">Veckobrev</a></button>
 
     </div>
+
+    <div class="news-pad">
+    <h1> {countUp()} till julafton! God jul! 🎄  </h1>
+    </div>
+    
 
     </>
   )
