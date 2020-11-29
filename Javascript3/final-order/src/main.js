@@ -5,6 +5,7 @@ import countUp from './scripts/countup'
 
 import shrek from './assets/main.png';
 
+import dagar from './scripts/plural'
 
 
 function App() {
@@ -26,7 +27,7 @@ function App() {
     </div>
 
     <div class="news-pad">
-    <h1> {countUp()} till julafton! God jul! 🎄  </h1>
+    <h1> {countUp()} {dagar()} kvar till julafton. God jul! 🎄</h1>
     </div>
     
 

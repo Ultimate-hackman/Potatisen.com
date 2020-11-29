@@ -1,3 +1,6 @@
+import firebase from "firebase"
+import "firebase/firestore"
+ 
  var firebaseConfig = {
     apiKey: "AIzaSyCjcpVzSU2TLKdasOLYJv1LyHoiQb6v-kw",
     authDomain: "potatisen-704fb.firebaseapp.com",
@@ -8,5 +11,8 @@
     appId: "1:1021245489304:web:f7f23e9092c9be63f710ed",
     measurementId: "G-9JPRYYJRND"
   };
+
+firebase.initializeApp(firebaseConfig);
+
 
 export default firebaseConfig

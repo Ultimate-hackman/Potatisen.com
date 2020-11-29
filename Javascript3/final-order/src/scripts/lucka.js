@@ -3,8 +3,6 @@ import "firebase/firestore"
 
 import firebaseConfig from './firebase'
 
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
 
 
 export function downloadData() {
