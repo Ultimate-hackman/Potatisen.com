@@ -68,7 +68,10 @@ function Luckor() {
 
     
     
-    array.push(<div class="image-pad"><img src={src}></img></div>)
+    
+    array.push(<div class="image-box-of-day"><img src={src} class="image-of-day"></img></div>)
+    
+    
 
     return array
 

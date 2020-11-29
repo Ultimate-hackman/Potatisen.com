@@ -1,9 +1,8 @@
-import React, {Component, useState, useEffect} from 'react';
+import React from 'react';
+import ReactDoom from "react-dom"
 
 
-import countUp from './scripts/countup'
 
-import shrek from './assets/main.png';
 
 import Luckor from './scripts/luckor'
 
@@ -15,7 +14,6 @@ import firebaseConfig from './scripts/firebase'
 
 
 function Kalender() {
-
 
   
 
