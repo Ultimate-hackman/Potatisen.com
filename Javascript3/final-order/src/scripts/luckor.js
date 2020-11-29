@@ -3,7 +3,7 @@ import "firebase/firestore"
 
 
 import ImageGen from './image'
-
+import styled from 'styled-components'
 
 
 function Luckor() {
@@ -34,8 +34,8 @@ function Luckor() {
 
     
 
-    let day = (24 - countUp2());
-    let src = ImageGen(day)
+    let day = (24 - countUp2);
+    
 
 
     // generates kalander
@@ -56,7 +56,7 @@ function Luckor() {
         }
 
         if (i < day) {
-            array.push(<div class="lucka" key={i}><h1 class="luck-text">Dag {i}  {emoji}  </h1>🔴</div>)
+            array.push(<div class="lucka" key={i}><h1 class="luck-text">Dag {i}  {emoji} 🔴 </h1></div>)
         } else if (i == day) {
             array.push(<div class="lucka" key={i}><h1 class="luck-text">Dag {i}  {emoji} </h1></div>)
         } else {
@@ -69,7 +69,7 @@ function Luckor() {
     
     
     
-    array.push(<div class="image-box-of-day"><img src={src} class="image-of-day"></img></div>)
+    
     
     
 
@@ -78,11 +78,11 @@ function Luckor() {
     
 
 
-    // i don not know what this is nor do i know how to interact so no offense ill work this workflow when i understand ths workflow
+   
 
 }
 
-// bruh jag måste gå
+
 
 export default Luckor
 

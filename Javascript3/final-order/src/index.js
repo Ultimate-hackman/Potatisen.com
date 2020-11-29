@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-
+ 
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import App from './main';
@@ -10,6 +10,12 @@ import List from "./header"
 import About from './about';
 import Veckobrev from './veckobrev';
 import Kalender from './kalender'
+
+import styled from 'styled-components'
+
+const Atag = styled.a`
+
+`
 
 ReactDOM.render(
   <React.StrictMode>
