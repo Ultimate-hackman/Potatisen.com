@@ -14,7 +14,6 @@ export function downloadData() {
         ref.on('value', (data) => {
             let points = data.val();
 
-            let keys = Object.keys(points)
             
 
             return resolve(Object.values(points).map((value) => {

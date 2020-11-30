@@ -1,11 +1,9 @@
-import fetch from './fetch'
 
-import firebase from "firebase"
+
 import "firebase/firestore"
 
-import firebaseConfig from './firebase'
+import React, { useState, useEffect} from 'react';
 
-import React, {Component, useState, useEffect} from 'react';
 
 
 function ImageGen(x) {
@@ -21,6 +19,7 @@ function ImageGen(x) {
     return url
 
 }
+
 
 
 export default ImageGen;

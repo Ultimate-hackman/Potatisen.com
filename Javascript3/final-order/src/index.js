@@ -11,20 +11,14 @@ import About from './about';
 import Veckobrev from './veckobrev';
 import Kalender from './kalender'
 
-import styled from 'styled-components'
 
-const Atag = styled.a`
-
-`
 
 ReactDOM.render(
   <React.StrictMode>
     
-    
     <Router>
 
     <List />
-    
     
     <Switch>
     
@@ -34,12 +28,7 @@ ReactDOM.render(
     <Route path="/Kalender"  component={Kalender}/>
     <Route path="/index.html"  component={App}/>
     
-    
- 
     </Switch>
-
-
-    
     
     </Router>
     

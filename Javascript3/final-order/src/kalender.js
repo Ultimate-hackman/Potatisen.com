@@ -1,24 +1,25 @@
-import React, {useState} from 'react';
-import ReactDoom from "react-dom"
 
+import React, { useState, useEffect } from 'react';
 
-
+import fetch from './scripts/fetch'
 
 import Luckor from './scripts/luckor'
 
-import firebase from "firebase"
+
 import "firebase/firestore"
 
-import firebaseConfig from './scripts/firebase'
+
 import styled from 'styled-components'
 
-import ImageGen from './scripts/image'
+import countUp from './scripts/countup'
+
 
 const Popup = styled.div`
     display: ${props => props.display};
     width: 50%;
     position: absolute;
-    top: 1;
+    top: 2;
+    bottom: 4;
     left: 1;
     right: 1;
 `
@@ -35,6 +36,8 @@ const Abutton = styled.button`
     
     border: none;
     color: white;
+    
+    
 
     background-image: linear-gradient(120deg,  rgba(144,0,255,0.7540603248259861), rgba(228,14,14,0.8213457076566125));
 
@@ -50,31 +53,23 @@ const Abutton = styled.button`
     transition: ease-out 0.2s;
 `
 
-
 function Kalender() {
 
-  function countUp3() {
+  function ImageGen(x) {
+    
+    const [url, setUrl] = useState();
 
-  
+    useEffect(() => {
+        fetch(x).then(setUrl);
+    }, []);
 
-    let date = "dec 24, 2020 24:00:00"
-    
-      let future = new Date(date).getTime(); 
-      let now = new Date().getTime();
-    
-      
-      
-      let difference = future - now
-  
-      let totalDays = Math.floor(difference / (1000 * 60 * 60 * 24));
-    
-  
-  
-    return totalDays     
-    
-  }
+    console.log(url)
 
-  let day = 24 - countUp3()
+    return url
+
+}
+
+  let day = 24 - countUp()
 
   let src = ImageGen(day)
 
@@ -82,39 +77,23 @@ function Kalender() {
 
   const [display, setDisplay] = useState("none")
 
-
-  
   return (
     <>
 
-
-
-
     <div class="text-box">
 
+    <Popup display={display}><Message><h1>Dagens lucka</h1></Message><div><img src={src} class="image-of-day"></img></div> <Abutton onClick={() => setDisplay("none")}>Ok</Abutton> </Popup>
     
-
-    <h1 class="title">Julkalendern</h1>
-    <Popup display={display}><Message><h1>Dagens bild</h1></Message><div><img src={src} class="image-of-day"></img></div> <Abutton onClick={() => setDisplay("none")}>Ok </Abutton> </Popup>
-    <p class="main-text" >Här kan du snabbt och enkelt kolla dagens lucka (limited edition)</p>
+    <h1 class="title" class="title2">Julkalendern</h1>
+    <p class="main-text" >Här kan du snabbt och enkelt kolla kalendern (limited edition)</p>
     
     <div class="lucka-holder">
-        {Luckor()}
-        
+    {Luckor()}    
     </div>
-    <button onClick={() => setDisplay("")} class="btn-hem">Dagens bild</button>
+    <button onClick={() => setDisplay("")} class="btn-hem" id="christmas">Dagens lucka</button>
     
-
-
-    
-
-    
-
     </div>
-
-  
     
-
     </>
   )
 

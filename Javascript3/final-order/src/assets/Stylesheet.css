@@ -59,14 +59,20 @@ header {
 }
 
 
-
-
 .title{
+
+
+    
 
     padding-top: 5vh;
     text-align: center;
     font-size: 4em;
 }
+
+
+
+
+
 
 .main-text {
     text-align: center;
@@ -201,9 +207,9 @@ header {
 } 
 
 .btn-veckobrev {
-    background-color: rgb(17, 17, 17); /* Black */
+    background-color: rgb(255, 255, 255); /* Black */
+    color: black;
     border: none;
-    color: white;
 
     font-size: 3em;
     border-radius: 10px;
@@ -212,13 +218,14 @@ header {
     border: 1px solid rgb(0, 0, 0);
     padding: 2vh;
 
-    transition: ease-out 0.2s;
+    transition: linear 0.2s;
 
 }
 
 .btn-veckobrev:hover {
-    background-color: rgba(0, 0, 0, 0);
-    color: rgb(17, 17, 17);
+    background-image: linear-gradient(120deg,  rgba(144,0,255,0.7540603248259861), rgba(228,14,14,0.8213457076566125));
+
+    color:white;
 
 }
 
@@ -258,6 +265,18 @@ header {
 
 
     /* Kalenden */
+
+    .title2{
+    background-image: linear-gradient(120deg,  rgba(144,0,255,0.7540603248259861), rgba(228,14,14,0.8213457076566125));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    
+
+    padding-top: 5vh;
+    text-align: center;
+    font-size: 4em;
+}
 
     .lucka {
 
@@ -379,18 +398,7 @@ header {
 
     }
 
-    .lucka-stängd {
-        
-        border-radius: 5px;
-
-        
-        background-image: linear-gradient(120deg, rgba(214, 22, 8, 0.658) , rgba(187, 6, 30, 0.616));
-
-        color: rgba(43, 43, 43, 0.836);
-        
-
-        text-align: center;
-    }
+   
 
         
         

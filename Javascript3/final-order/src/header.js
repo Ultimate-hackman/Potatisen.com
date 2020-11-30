@@ -13,10 +13,10 @@ import { Link } from 'react-router-dom';
             <nav class="nav-box" >
                 <ul class="list">
                     <Link to="/">
-                    <li><a>Hem </a></li>
+                    <li><a>Hem</a></li>
                     </Link>
                     <Link to="/veckobrev">
-                    <li><a>Veckobrev </a></li>
+                    <li><a>Veckobrev</a></li>
                     </Link>
 
                     <Link to="/about">
@@ -24,10 +24,10 @@ import { Link } from 'react-router-dom';
                     </Link>
 
                     <Link to="/Kalender">
-                    <li><a>Kalender <small>🎅</small></a></li>
+                    <li><a>Kalender<small>🎅</small></a></li>
                     </Link>
 
-                    <p class="potatisen"> Potatisen</p>
+                    <p class="potatisen">Potatisen</p>
                 </ul>
             </nav>
         </header>

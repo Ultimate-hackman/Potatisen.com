@@ -8,7 +8,7 @@
 
     week += 1
 
- return <p>Veckobrev vecka {week}</p>
+ return week
 
 }
 

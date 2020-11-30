@@ -1,4 +1,4 @@
-import React, {Component, useState, useEffect} from 'react';
+import React, { useState, useEffect} from 'react';
 
 
 function Bruh() {
@@ -21,17 +21,12 @@ function Bruh() {
 
 
 
-
-
 function countDown() {
 
   
 
   let date = "sep 13, 2020 18:27:00"
   let x = true
-
-
-
   
     let past = new Date(date).getTime(); 
     let now = new Date().getTime();
@@ -58,16 +53,7 @@ function countDown() {
     let time = pluralCheck(days, hours, minutes, seconds)
 
   return <p> Online sedan: {days} {time[0]} {hours} {time[1]} {minutes} {time[2]}  {seconds} {time[3]} </p>
-  
 
-  console.log("aw")
-
-
-  
-
- 
-
-  
 }
 
 
@@ -103,7 +89,6 @@ function pluralCheck(days, hours, minutes, seconds) {
 
   
 }
-
 
 
 export default Bruh;

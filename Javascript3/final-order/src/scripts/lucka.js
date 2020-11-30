@@ -1,7 +1,7 @@
 import firebase from "firebase"
 import "firebase/firestore"
 
-import firebaseConfig from './firebase'
+
 
 
 
@@ -13,8 +13,6 @@ export function downloadData() {
       
         ref.on('value', (data) => {
             let points = data.val();
-
-            let keys = Object.keys(points)
             
 
             return resolve(Object.values(points).map((value) => {

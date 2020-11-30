@@ -1,7 +1,9 @@
 import firebase from "firebase"
 import "firebase/firestore"
 
-import firebaseConfig from './firebase'
+
+
+import countUp from './countup'
 
 
 
@@ -9,9 +11,16 @@ export default function fetch(x) {
     
     return new Promise((resolve) => {
     const storage = firebase.storage();
+
+    
+
+  
+    let day = 24 - countUp()
+
+    console.log(countUp())
    
-    console.log('kalender/' + x + '.jpg')
-     storage.ref('kalender/' + x + '.jpg').getDownloadURL().then((url) => {
+    console.log('kalender/' + day + '.jpg')
+     storage.ref('kalender/' + day + '.jpg').getDownloadURL().then((url) => {
      
      
     resolve(url);
@@ -19,10 +28,3 @@ export default function fetch(x) {
     });
   });
 }
-    
-//just want the url
-// why you run fetch from inside fetch
-// i don know
-// first problem: fetch is a js function already existing for downloading documents. rename function.
-//i no it wrong chil
-

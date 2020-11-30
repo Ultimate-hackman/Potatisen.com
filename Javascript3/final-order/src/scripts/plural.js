@@ -13,7 +13,6 @@ function dagar() {
     }
   
     return array
-
     
 }
 export default dagar
