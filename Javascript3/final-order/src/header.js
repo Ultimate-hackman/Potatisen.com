@@ -19,20 +19,20 @@ export default function List() {
         <header>
             <nav className="nav-box" >
                 <ul className="list">
-                    <Link to="/">
-                    <Item><p>Hem</p></Item>
-                    </Link>
-                    <Link to="/veckobrev">
-                    <Item><p>Veckobrev</p></Item>
-                    </Link>
+                    
+                    <Item><Link to="/"><p>Hem</p></Link></Item>
+                    
+                    
+                    <Item><Link to="/veckobrev"><p>Veckobrev</p></Link></Item>
+                    
 
-                    <Link to="/about">
-                    <Item><p>Om oss</p></Item>
-                    </Link>
+                    
+                    <Item><Link to="/about"><p>Om oss</p></Link></Item>
+                    
 
-                    <Link to="/Kalender">
-                    <Item><p>Kalender<small>🎅</small></p></Item>
-                    </Link>
+                    
+                    <Item><Link to="/Kalender"><p>Kalender<small>🎅</small></p></Link></Item>
+                    
 
                     <p className="potatisen">Potatisen</p>
                 </ul>
