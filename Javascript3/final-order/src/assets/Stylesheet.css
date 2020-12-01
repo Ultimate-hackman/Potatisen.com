@@ -1,0 +1,592 @@
+
+* {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+}
+
+
+
+header {
+    position: fixed;
+    width: 100%;
+
+    backdrop-filter: blur(4px);
+
+    top: 0px;
+
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+
+
+}
+
+
+
+.list {
+    padding-top: 1.5vh;
+    padding-bottom: 1.5vh;
+
+    display: flex;  
+}
+
+
+.list li {
+    display: inline-block;
+    padding-left: 1.5vw;
+  
+}
+
+.list p {
+    font-size: 1.3em;
+
+    color: rgba(5, 5, 5, 0.7);
+    transition: ease-out 0.2s;
+
+}
+
+.list p:hover {
+    color: rgb(2, 2, 2);
+    cursor: pointer;
+}
+
+.potatisen {
+    margin-left: auto;
+    padding-right: 5vh;
+    font-size: 1.6em;
+
+}
+
+
+.title{
+
+    padding-top: 5vh;
+    text-align: center;
+    font-size: 4em;
+}
+
+
+
+
+
+
+.main-text {
+    text-align: center;
+    font-size: 1.4em;
+}
+
+
+ 
+.btn-hem {
+    background-color: rgba(17, 17, 17); /* black */
+    border: none;
+    color: white;
+
+    padding: 1.5vh 1vw;
+    font-size: 1.5em;
+    border-radius: 10px;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3vh;
+
+    transition: ease-out 0.2s;
+
+
+
+}
+
+
+.btn-hem:hover {
+    color: black;
+    background-color: rgba(255, 255, 255, 0);
+    border: 1px solid rgb(0, 0, 0);
+    
+    
+    
+}
+
+.btn-hem:hover .btn-text {
+    color: black;
+
+    
+    
+    
+}
+.btn-text {
+    color: white;
+
+}
+
+.text-box {
+
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 3vh;
+    
+
+}
+
+
+.main-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5vh;
+    width: 50%;
+    
+
+
+}
+
+
+
+
+/* om oss */ 
+
+
+
+.om-oss-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 45%;
+    max-width: 200%;
+
+    
+}
+
+.img-move-om-oss {
+    padding-top: 10vh;
+    padding-bottom: 5vh;
+}
+
+
+
+
+.text-box2 {
+    display: block;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.foot {
+    display: block;
+    
+    border: solid 1px rgba(0, 0, 0, 0.041);
+    background-color: rgba(128, 128, 128, 0.075);
+    
+
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 15vh;
+
+    
+
+    text-align: center;
+}
+
+
+/* veckobrev */
+
+
+
+.veckobrev-content-box {
+    margin: auto;
+    width: 40%;
+    padding-top: 15vh;
+} 
+
+.btn-veckobrev {
+    background-color: rgb(255, 255, 255); /* Black */
+    color: black;
+    border: none;
+
+    font-size: 3em;
+    border-radius: 10px;
+    
+    width: 100%;
+    border: 1px solid rgb(0, 0, 0);
+    padding: 2vh;
+
+    transition: linear 0.2s;
+
+}
+
+.btn-veckobrev:hover {
+    background-image: linear-gradient(120deg,  rgba(144,0,255,0.7540603248259861), rgba(228,14,14,0.8213457076566125));
+
+    color:white;
+
+}
+
+
+.veckobrev-img {
+    display: block;
+    border-radius: 25px;
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    width: 80%;
+
+
+}
+
+.news-pad {
+    width: 20%;
+    background-color: rgba(255, 255, 255, 0.048);
+    border-radius: 10px;
+    margin-left: auto;
+    margin-top: -25%;
+
+    padding: 20px;
+
+    box-shadow: 1px 1px 8px 6px rgba(58, 58, 58, 0.096);
+    
+}
+
+
+.bullet-point {
+    display: inline;
+    text-align: right;
+    padding-right: 100%;
+}
+
+
+    /* Kalenden */
+
+    .title2{
+    background-image: linear-gradient(120deg,  rgba(144,0,255,0.7540603248259861), rgba(228,14,14,0.8213457076566125));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    
+
+    padding-top: 5vh;
+    text-align: center;
+    font-size: 4em;
+}
+
+    .lucka {
+
+        box-shadow: 1px 1px 8px 6px rgba(58, 58, 58, 0.096);
+        border-radius: 10px;
+        width: 10vw;
+
+        text-align: center;
+    }
+
+    .lucka-holder {
+        padding-top: 5vh;
+        width: 100%;
+        display: grid;
+        justify-self: auto;
+        
+
+        
+        justify-content: center;
+        
+        grid-template-columns: repeat(7, 11vw);
+        grid-template-rows: repeat(4, 6vw);
+        grid-row-gap: 4vh;
+        
+        
+    }
+
+    .lucka-stängd {
+        box-shadow: 1px 1px 8px 6px rgba(58, 58, 58, 0.062);
+        border-radius: 10px;
+        width: 10vw;
+        
+        background-image: linear-gradient(120deg, rgba(214, 22, 8, 0.658) , rgba(187, 6, 30, 0.616));
+
+        color: rgba(43, 43, 43, 0.836);
+        
+
+        text-align: center;
+    }
+
+    .image-box-of-day {
+        width: 50%;
+
+        position: absolute;
+        left: 2;
+        right: 2;
+    }
+
+    .image-of-day {
+        border-radius: 20px;
+        width: 100%;
+        box-shadow: 1px 1px 8px 6px rgba(58, 58, 58, 0.062);
+    }
+
+
+
+@media only screen and (max-width: 1024px) {
+
+    .veckobrev-content-box {
+        padding-top: 10vh;
+        width: 50%;
+    }
+
+
+
+
+    .text-box {
+
+        margin-top: 1vh; 
+    }
+
+    .text-box2 {
+        width: 80%;
+    }
+    
+    .om-oss-txt {
+        font-size: 80%;
+        width: 100%;
+    }
+
+    .om-oss-img {
+        width: 45%;
+    }
+
+    .btn-veckobrev  {
+        font-size: 2em;
+    }
+
+
+    .main-img {
+        padding-top: 0vh;
+    }
+
+    .news-pad {
+        margin-top: -40%;
+       
+        
+    }
+
+    .veckobrev-img {
+        width: 100%;
+
+    }
+
+
+    .luck-text {
+        font-size: 1.1em;
+    }
+
+    .lucka-holder {
+        padding-top: 3vh;
+        
+        grid-template-columns: repeat(7, 11vw);
+        grid-template-rows: repeat(4, 6vw);
+        grid-row-gap: 3vh;
+    }
+   
+
+}
+
+@media only screen and (max-width: 736px) {
+
+
+
+
+
+
+    .main-text {
+        display: none;
+    }
+
+    .news-pad {
+        display: none;
+        
+    }
+
+    .potatisen {
+        display: none;
+    }
+
+
+    .list a {
+        font-size: 100%;
+        padding-left: 3vw;
+    }
+
+    .main-img {
+        width: 80%;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    .om-oss-img {
+        width: 100%;
+        height: auto;
+    }
+
+    .not-found-img {
+
+        width: 60%;
+        height: auto;
+    }
+
+    .text-box {
+        font-size: 90%;
+    }
+
+
+    .pdf-box {
+        padding-top: 25vh;
+    }
+
+    .img {
+        display: none;
+        
+        border-radius: 7%;
+    }
+
+    .btn-veckobrev {
+        font-size: 50%;
+    }
+
+    .veckobrev-content-box {
+        width: 90%;
+
+    }
+
+    .lucka {
+
+        box-shadow: 1px 1px 8px 6px rgba(58, 58, 58, 0.096);
+        border-radius: 5px;
+        width: 10vw;
+        
+
+        text-align: center;
+    }
+
+
+    .luck-text {
+        font-size: 0.5em;
+    }
+    
+    
+}
+
+
+
+@media only screen and (max-width: 414px) {
+    .list li {
+        margin: auto;
+        font-size: 120%;
+    }
+
+    .list {
+        font-size: 80%;
+        padding-left: 2vw;
+        padding-top: 1.5vh;
+    }
+    
+
+    .btn-veckobrev {
+        font-size: 200%;
+    }
+
+    .btn {
+
+        font-size: 150%;
+    }
+
+    .potatisen {
+        display: none;
+    }
+
+    .title {
+        font-size: 2em;
+    }
+
+
+    
+
+
+
+
+
+    .text-box {
+        display: block;
+        width: 70%;
+        
+    
+    }
+
+    .title {
+        font-size: 2em;
+
+        padding-left: 7vw;
+    }
+
+    .main-text {
+        font-size: 1em;
+    }
+
+    .main-img{
+        width: 100%;
+    }
+
+}
+
+
+@media only screen and (max-width: 360px) {
+
+
+    .list {
+        font-size: 70%;
+        padding-left: 1vw;
+    }
+
+    .list li {  
+        font-size: 1.3em;
+    }
+
+    .text-box {
+        
+        width: 65%;
+    }
+
+    .img-move-om-oss {
+        padding-top: 4vh;
+        padding-bottom: 3vh;
+    }
+
+    .text-box {
+        display: block;
+        width: 80%;
+        
+    
+    }
+
+    .title {
+        font-size: 2em;
+    }
+
+    .main-text {
+        font-size: 0.9em;
+    }
+
+    .main-img{
+        width:80%;
+    }
+
+
+
+    
+
+
+}
+

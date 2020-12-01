@@ -1,0 +1,12 @@
+{
+  "rules": {
+    
+    "bullets": {
+      ".read": true,
+      ".write": "auth != null"
+    }
+  
+    
+    
+  }
+}
