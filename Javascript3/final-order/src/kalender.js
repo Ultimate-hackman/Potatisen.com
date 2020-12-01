@@ -64,7 +64,7 @@ export default function Kalender() {
     <h1 className="title" className="title2">Julkalendern</h1>
     <p className="main-text" >Här kan du snabbt och enkelt kolla kalendern (limited edition)</p>
     
-    <div className="lucka-holder">
+    <div className="hatch-holder">
     {Luckor()}    
     </div>
     <button onClick={() => setDisplay("")} className="btn-hem" id="christmas">Dagens lucka</button>

@@ -19,12 +19,12 @@ export default function Hatches() {
             emoji += ""
         }
 
-        let msg = <h1 className="luck-text">Dag {i}  {emoji}  </h1>
+        let msg = <h1 className="hatch-text">Dag {i}  {emoji}</h1>
 
         if (i < day || i === day ) {
-        array.push(<div className="lucka" key={i}>{msg}</div>)
+        array.push(<div className="hatch" key={i}>{msg}</div>)
         } else {
-            array.push(<div className="lucka-stängd" key={i}>{msg}</div>)
+            array.push(<div className="hatch-closed" key={i}>{msg}</div>)
         }
         
     }
