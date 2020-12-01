@@ -1,9 +1,5 @@
 import firebase from "firebase"
-import "firebase/firestore"
-
-
-
-
+import 'firebase/database'; 
 
 export function downloadData() {
     return new Promise((resolve, reject) => {
@@ -12,8 +8,7 @@ export function downloadData() {
         let ref = database.ref('bullets')
       
         ref.on('value', (data) => {
-            let points = data.val();
-            
+            let points = data.val();           
 
             return resolve(Object.values(points).map((value) => {
                 return value.bullet;

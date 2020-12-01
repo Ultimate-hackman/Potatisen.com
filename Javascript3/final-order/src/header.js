@@ -1,37 +1,43 @@
 import React from 'react';
 import './assets/Stylesheet.css'
 import { Link } from 'react-router-dom';
+import styled from 'styled-components'
 
+const Item = styled.li`
+    display: inline-block;
+    padding-left: 1.5vw;
 
+    font-size: 1.3em;
 
- function List() {
+    color: rgba(5, 5, 5, 0.7);
+`
 
+export default function List() {
     
 
     return (
         <header>
-            <nav class="nav-box" >
-                <ul class="list">
+            <nav className="nav-box" >
+                <ul className="list">
                     <Link to="/">
-                    <li><a>Hem</a></li>
+                    <Item><p>Hem</p></Item>
                     </Link>
                     <Link to="/veckobrev">
-                    <li><a>Veckobrev</a></li>
+                    <Item><p>Veckobrev</p></Item>
                     </Link>
 
                     <Link to="/about">
-                    <li><a>Om oss</a></li>
+                    <Item><p>Om oss</p></Item>
                     </Link>
 
                     <Link to="/Kalender">
-                    <li><a>Kalender<small>🎅</small></a></li>
+                    <Item><p>Kalender<small>🎅</small></p></Item>
                     </Link>
 
-                    <p class="potatisen">Potatisen</p>
+                    <p className="potatisen">Potatisen</p>
                 </ul>
             </nav>
         </header>
     )
 }
 
-export default List

@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from 'react';
+import pluralCheck from './pluralCheck'
 
-
-function Bruh() {
+export default function Bruh() {
   const [text, setText] = useState("");
 
   useEffect(() => {
@@ -19,8 +19,6 @@ function Bruh() {
 }
 
 
-
-
 function countDown() {
 
   
@@ -32,7 +30,7 @@ function countDown() {
     let now = new Date().getTime();
   
     let difference = 0
-    if (x == true) {
+    if (x === true) {
       difference = now - past
     } else {
       difference = past - now
@@ -56,39 +54,3 @@ function countDown() {
 
 }
 
-
-function pluralCheck(days, hours, minutes, seconds) {
-
-  let array = []
-
-  if(days == 1) {
-      array.push(" dag, ") 
-  } else {
-      array.push(" dagar, ")
-  }
-
-  if(hours == 1) {
-      array.push(" timme, ")
-  } else {
-      array.push(" timmar, ")
-  }
-
-  if(minutes == 1) {
-      array.push(" minut, ") 
-  } else {
-      array.push(" minuter, ") 
-  }
-
-  if(seconds == 1) {
-      array.push(" sekund ") 
-  } else {
-      array.push(" sekunder ")
-  }
-
-  return array
-
-  
-}
-
-
-export default Bruh;

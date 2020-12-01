@@ -1,7 +1,4 @@
 import React from 'react';
-
-
- 
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import App from './main';
@@ -24,7 +21,7 @@ ReactDOM.render(
     
     <Route path="/" exact component={App}/>
     <Route path="/Veckobrev" component={Veckobrev}/>
-    <Route path="/About" class="content" component={About}/>
+    <Route path="/About" component={About}/>
     <Route path="/Kalender"  component={Kalender}/>
     <Route path="/index.html"  component={App}/>
     
@@ -32,7 +29,6 @@ ReactDOM.render(
     
     </Router>
     
-
   </React.StrictMode>,
   document.getElementById('root')
 );

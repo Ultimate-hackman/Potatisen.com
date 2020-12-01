@@ -1,16 +1,8 @@
-
-import React, { useState, useEffect } from 'react';
-
-import fetch from './scripts/fetch'
-
+import React, { useState } from 'react';
 import Luckor from './scripts/luckor'
-
-
+import urlGen from './scripts/urlGen'
 import "firebase/firestore"
-
-
 import styled from 'styled-components'
-
 import countUp from './scripts/countup'
 
 
@@ -26,6 +18,7 @@ const Popup = styled.div`
 const Message = styled.h1 `
 text-emphasis-color: linear-gradient(red, blue);
 text-align: center;
+font-size: 4em;
 
 
    background: -webkit-linear-gradient(100deg, red, purple);
@@ -53,44 +46,28 @@ const Abutton = styled.button`
     transition: ease-out 0.2s;
 `
 
-function Kalender() {
-
-  function ImageGen(x) {
-    
-    const [url, setUrl] = useState();
-
-    useEffect(() => {
-        fetch(x).then(setUrl);
-    }, []);
-
-    console.log(url)
-
-    return url
-
-}
+export default function Kalender() {
 
   let day = 24 - countUp()
 
-  let src = ImageGen(day)
-
-  
+  let src = urlGen('kalender/', day, '.jpg')
 
   const [display, setDisplay] = useState("none")
 
   return (
     <>
 
-    <div class="text-box">
+    <div className="text-box">
 
-    <Popup display={display}><Message><h1>Dagens lucka</h1></Message><div><img src={src} class="image-of-day"></img></div> <Abutton onClick={() => setDisplay("none")}>Ok</Abutton> </Popup>
+    <Popup display={display}><Message>Dagens lucka</Message><div><img src={src} className="image-of-day"></img></div><Abutton onClick={() => setDisplay("none")}>Ok</Abutton></Popup>
     
-    <h1 class="title" class="title2">Julkalendern</h1>
-    <p class="main-text" >Här kan du snabbt och enkelt kolla kalendern (limited edition)</p>
+    <h1 className="title" className="title2">Julkalendern</h1>
+    <p className="main-text" >Här kan du snabbt och enkelt kolla kalendern (limited edition)</p>
     
-    <div class="lucka-holder">
+    <div className="lucka-holder">
     {Luckor()}    
     </div>
-    <button onClick={() => setDisplay("")} class="btn-hem" id="christmas">Dagens lucka</button>
+    <button onClick={() => setDisplay("")} className="btn-hem" id="christmas">Dagens lucka</button>
     
     </div>
     
@@ -99,4 +76,4 @@ function Kalender() {
 
 }
 
-export default Kalender;
+

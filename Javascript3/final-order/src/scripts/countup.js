@@ -1,10 +1,6 @@
+export default function countUp() {
 
-function countUp() {
-
- 
   let now = new Date().getTime();
-  
-    
     
   let difference = 1608850800000 - now
 
@@ -14,4 +10,3 @@ function countUp() {
 }
 
 
-export default countUp

@@ -1,44 +1,33 @@
-
-
-
 import countUp from './scripts/countup'
-
 import shrek from './assets/main.png';
-
-import dagar from './scripts/plural'
-
+import pluralCheck from './scripts/pluralCheck'
 import { Link } from 'react-router-dom';
 
-function App() {
-
-
+export default function App() {
 
   return (
     <>
 
+    <div className="text-box">
 
-    <div class="text-box">
+    <h1 className="title">Välkommen till Potatisen.com!</h1>
+    <p className="main-text">Här kan du snabbt och enkelt kolla veckobrevet utan något strul</p>
 
-    <h1 class="title">Välkommen till Potatisen.com!</h1>
-    <p class="main-text" >Här kan du snabbt och enkelt kolla veckobrevet utan något strul</p>
-
-    <img src={shrek}  alt="img" class="main-img"></img>
+    <img src={shrek}  alt="img" className="main-img"></img>
 
     <Link to="/veckobrev">
-    <button class="btn-hem"><a class="btn-text">Veckobrev</a></button>
+    <button className="btn-hem">Veckobrev</button>
     </Link>
     
     </div>
 
-    <div class="news-pad" id="christmas">
+    <div className="news-pad" id="christmas">
 
-    <h1> {countUp()} {dagar()} kvar till julafton. God jul! 🎄</h1>
+    <h1> {countUp()} {pluralCheck(countUp())[0]} kvar till julafton. God jul! 🎄</h1>
     </div>
     
-
     </>
   )
 
 }
 
-export default App;

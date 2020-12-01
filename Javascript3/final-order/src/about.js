@@ -1,32 +1,22 @@
 
 import brev from './assets/om-oss.png'
 
-
 import countDown from './scripts/countdown'
 
 
-
-function About() {
-
-  
+export default function About() {
   
   return (
     
     <>
-
-    
-    
-    <div class="text-box2">
-    <div class="img-move-om-oss"><img src={brev} class="om-oss-img"></img></div>
-  <p class="om-oss-txt">Potatisen.com grundades i september 2020 av mig, David H, med målet att göra saker som <a href="https://xn--sdermalmsskolan-8sb.com/">Södermalmsskolan.com</a> inte vågar eller vill göra som endå är användbart. Det enda nuvarande exemplet av detta är att jag delar veckobrevet till alla, vilket inte södermalmsskolan.com vill göra pågrund av sekretesskäl. Ingen reklam sedan 2020. </p>{countDown()}
-  <button class="btn-hem"><a href="/" class="btn-text">Hem</a></button> 
+    <div className="text-box2">
+    <div className="img-move-om-oss"><img src={brev} className="om-oss-img" alt="om-oss"></img></div>
+    <p className="om-oss-txt">Potatisen.com grundades i september 2020 av mig, David H, med målet att hjälpa samtliga elever på södermalmsskolan genom att skapa användbara funktioner som löser problem. Det enda nuvarande exemplet av detta är att jag delar veckobrevet, men det kan räknas med att jag tillägger mer funktioner i kommande tid. Ingen reklam sedan 2020.</p>{countDown()}
+    <button className="btn-hem">Hem</button> 
 
     </div>
-
-    
     </>
   )
 
 }
 
-export default About;

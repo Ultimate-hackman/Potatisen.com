@@ -1,16 +1,10 @@
 import React, { useState, useEffect } from 'react';
-
-
 import weekFinder from './scripts/week-count'
-
 import brev from './assets/veckobrev.png'
-
 import {downloadData} from "./scripts/news";
+import UrlGen from './scripts/urlGen'
 
-import fetchbrev from './scripts/fetchbrev'
-
-
-function Veckobrev() {
+export default function Veckobrev() {
   const [data, setData] = useState();
 
   useEffect(() => {
@@ -19,40 +13,22 @@ function Veckobrev() {
     })
   }, []);
 
-
-
-  function VeckobrevGen() {
-    
-    const [brev, setbrev] = useState();
-
-    useEffect(() => {
-        fetchbrev().then(setbrev);
-    }, []);
-
-    
-
-    return brev
-
-}
-
   
   return (
     <>
 
-
-
-    <div class="veckobrev-content-box">
-    <img src={brev} alt="veckobrev" class="veckobrev-img"></img>
+    <div className="veckobrev-content-box">
+    <img src={brev} alt="veckobrev" className="veckobrev-img"></img>
     
     
-  <a href={VeckobrevGen()} class="btn-a"> <button class="btn-veckobrev" id="week">Veckobrev vecka {weekFinder()}</button></a> 
+  <a href={UrlGen('veckobrev/', weekFinder(), '.pdf')} className="btn-a"> <button className="btn-veckobrev" id="week">Veckobrev vecka {weekFinder()}</button></a> 
 
     </div>
 
-    <div class="news-pad">
-  <h1 class="news-tag">Nyheter 📰🖊️</h1>
+    <div className="news-pad">
+  <h1 className="news-tag">Nyheter 📰🖊️</h1>
     {data?.map((data, index) => {
-      return <li key={index} class="bullet-point">{data}</li> 
+      return <li key={index} className="bullet-point">{data}</li> 
     })}
 
   </div>
@@ -62,4 +38,3 @@ function Veckobrev() {
 
 }
 
-export default Veckobrev;

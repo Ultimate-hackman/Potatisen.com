@@ -1,9 +1,7 @@
 import firebase from "firebase"
-import "firebase/firestore"
+import 'firebase/database'; 
 
 import firebaseConfig from './firebase'
-
-
 
 export function downloadData() {
     return new Promise((resolve, reject) => {
@@ -13,8 +11,6 @@ export function downloadData() {
       
         ref.on('value', (data) => {
             let points = data.val();
-
-            
 
             return resolve(Object.values(points).map((value) => {
                 return value.bullet;

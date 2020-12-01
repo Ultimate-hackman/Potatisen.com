@@ -1,4 +1,4 @@
- function weekFinder() {
+export default function weekFinder() {
     let month = new Date().getMonth();
     let day = new Date().getDate(); 
 
@@ -9,7 +9,5 @@
     week += 1
 
  return week
-
 }
 
-export default weekFinder;

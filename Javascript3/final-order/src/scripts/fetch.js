@@ -1,28 +1,15 @@
 import firebase from "firebase"
-import "firebase/firestore"
+import 'firebase/database'; 
 
 
-
-import countUp from './countup'
-
-
-
-export default function fetch(x) {
+export default function fetch(folder, file, filetype) {
     
     return new Promise((resolve) => {
     const storage = firebase.storage();
-
-    
-
-  
-    let day = 24 - countUp()
-
-    console.log(countUp())
    
-    console.log('kalender/' + day + '.jpg')
-     storage.ref('kalender/' + day + '.jpg').getDownloadURL().then((url) => {
-     
-     
+    console.log(folder + file + filetype)
+    storage.ref(folder + file + filetype).getDownloadURL().then((url) => {
+
     resolve(url);
      
     });
