@@ -8,12 +8,10 @@ import countUp from './scripts/countup'
 
 const Popup = styled.div`
     display: ${props => props.display};
-    width: 50%;
     position: absolute;
-    top: 2;
-    bottom: 4;
-    left: 1;
-    right: 1;
+    margin: auto;
+    width: 50%;
+    padding-top: 10vh;
 `
 const Message = styled.h1 `
 text-emphasis-color: linear-gradient(red, blue);
@@ -48,9 +46,7 @@ const Abutton = styled.button`
 
 export default function Kalender() {
 
-  let day = 24 - countUp()
-
-  let src = urlGen('kalender/', day, '.jpg')
+  let src = urlGen('kalender/', 24 - countUp(), '.jpg')
 
   const [display, setDisplay] = useState("none")
 
@@ -59,7 +55,7 @@ export default function Kalender() {
 
     <div className="text-box">
 
-    <Popup display={display}><Message>Dagens lucka</Message><div><img src={src} className="image-of-day"></img></div><Abutton onClick={() => setDisplay("none")}>Ok</Abutton></Popup>
+    <Popup display={display}><div><img src={src} alt={24 - countUp()} className="image-of-day"></img></div><Abutton onClick={() => setDisplay("none")}>Ok</Abutton></Popup>
     
     <h1 className="title" className="title2">Julkalendern</h1>
     <p className="main-text" >Här kan du snabbt och enkelt kolla kalendern (limited edition)</p>
@@ -75,5 +71,3 @@ export default function Kalender() {
   )
 
 }
-
-

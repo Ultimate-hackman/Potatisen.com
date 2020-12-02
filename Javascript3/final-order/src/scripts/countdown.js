@@ -50,7 +50,7 @@ function countDown() {
 
     let time = pluralCheck(days, hours, minutes, seconds)
 
-  return <p> Online sedan: {days} {time[0]} {hours} {time[1]} {minutes} {time[2]}  {seconds} {time[3]} </p>
+  return <p> Online sedan: {days} {time[0]}, {hours} {time[1]}, {minutes} {time[2]},  {seconds} {time[3]} </p>
 
 }
 

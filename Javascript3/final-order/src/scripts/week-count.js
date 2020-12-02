@@ -8,6 +8,6 @@ export default function weekFinder() {
 
     week += 1
 
- return week
+    return week
 }
 
