@@ -6,7 +6,7 @@ import styled from 'styled-components'
 
 
 
-import countUp from './scripts/countUp'
+import staticDay from './scripts/staticDayCount'
 
 
 const Popup = styled.div`
@@ -51,7 +51,7 @@ export default function Kalender() {
 
 
 
-  let src = urlGen('kalender/', 24 - countUp(), '.jpg')
+  let src = urlGen('kalender/', 24 - staticDay(), '.jpg')
 
   const [display, setDisplay] = useState("none")
 

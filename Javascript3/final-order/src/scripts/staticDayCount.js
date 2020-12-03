@@ -1,5 +1,5 @@
 
-export default function countUp() {
+export default function staticDay() {
 
     let now = new Date().getTime();
       

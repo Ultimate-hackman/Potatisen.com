@@ -1,5 +1,5 @@
 import 'firebase/database'; 
-import countUp from './countUp'
+import countUp from './staticDayCount'
 
 
 export default function Hatches() {

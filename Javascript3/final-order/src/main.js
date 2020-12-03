@@ -1,11 +1,12 @@
-import countdown from './scripts/countdown'
+
 import shrek from './assets/main.png';
 import pluralCheck from './scripts/pluralCheck'
 import { Link } from 'react-router-dom';
 
+import staticDay from './scripts/staticDayCount'
 export default function App() {
 
-  let time = countdown("dec 25, 2020 00:00:00", false)
+  let time = staticDay()
 
   return (
     <>
@@ -25,7 +26,7 @@ export default function App() {
 
     <div className="news-pad" id="christmas">
 
-    <h1> {time[0]} {pluralCheck(time)[0]} kvar till julafton. God jul! 🎄</h1>
+    <h1> {time} {pluralCheck(time)[0]} kvar till julafton. God jul! 🎄</h1>
     </div>
     
     </>
