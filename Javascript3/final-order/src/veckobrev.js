@@ -13,7 +13,8 @@ export default function Veckobrev() {
     })
   }, []);
 
-  
+  let url = UrlGen('veckobrev/', weekFinder() + 1, '.pdf')
+
   return (
     <>
 
@@ -21,7 +22,7 @@ export default function Veckobrev() {
     <img src={brev} alt="veckobrev" className="veckobrev-img"></img>
     
     
-  <a href={UrlGen('veckobrev/', weekFinder(), '.pdf')} className="btn-a"> <button className="btn-veckobrev" id="week">Veckobrev vecka {weekFinder()}</button></a> 
+  <a href={url} className="btn-a"> <button className="btn-veckobrev" id="week">Veckobrev vecka {weekFinder() + 1}</button></a> 
 
     </div>
 

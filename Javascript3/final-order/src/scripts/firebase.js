@@ -1,6 +1,5 @@
 import firebase from "firebase"
 
- 
  var firebaseConfig = {
     apiKey: "AIzaSyCjcpVzSU2TLKdasOLYJv1LyHoiQb6v-kw",
     authDomain: "potatisen-704fb.firebaseapp.com",

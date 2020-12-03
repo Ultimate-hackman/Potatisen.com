@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
-import Luckor from './scripts/luckor'
+import Luckor from './scripts/hatches'
 import urlGen from './scripts/urlGen'
 import "firebase/firestore"
 import styled from 'styled-components'
-import countUp from './scripts/countup'
+
+
+
+import countUp from './scripts/countUp'
 
 
 const Popup = styled.div`
@@ -29,8 +32,6 @@ const Abutton = styled.button`
     
     border: none;
     color: white;
-    
-    
 
     background-image: linear-gradient(120deg,  rgba(144,0,255,0.7540603248259861), rgba(228,14,14,0.8213457076566125));
 
@@ -48,9 +49,9 @@ const Abutton = styled.button`
 
 export default function Kalender() {
 
-  let day = 24 - countUp()
 
-  let src = urlGen('kalender/', day, '.jpg')
+
+  let src = urlGen('kalender/', 24 - countUp(), '.jpg')
 
   const [display, setDisplay] = useState("none")
 

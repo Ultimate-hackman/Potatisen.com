@@ -1,9 +1,11 @@
-import countUp from './scripts/countup'
+import countdown from './scripts/countdown'
 import shrek from './assets/main.png';
 import pluralCheck from './scripts/pluralCheck'
 import { Link } from 'react-router-dom';
 
 export default function App() {
+
+  let time = countdown("dec 25, 2020 00:00:00", false)
 
   return (
     <>
@@ -23,7 +25,7 @@ export default function App() {
 
     <div className="news-pad" id="christmas">
 
-    <h1> {countUp()} {pluralCheck(countUp())[0]} kvar till julafton. God jul! 🎄</h1>
+    <h1> {time[0]} {pluralCheck(time)[0]} kvar till julafton. God jul! 🎄</h1>
     </div>
     
     </>

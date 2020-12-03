@@ -4,27 +4,27 @@ function pluralCheck(days, hours, minutes, seconds) {
     let array = []
   
     if(days === 1) {
-        array.push(" dag, ") 
+        array.push("dag") 
     } else {
-        array.push(" dagar, ")
+        array.push("dagar")
     }
   
     if(hours === 1) {
-        array.push(" timme, ")
+        array.push("timme")
     } else {
-        array.push(" timmar, ")
+        array.push("timmar")
     }
   
     if(minutes === 1) {
-        array.push(" minut, ") 
+        array.push("minut") 
     } else {
-        array.push(" minuter, ") 
+        array.push("minuter") 
     }
   
     if(seconds === 1) {
-        array.push(" sekund ") 
+        array.push("sekund") 
     } else {
-        array.push(" sekunder ")
+        array.push("sekunder")
     }
   
     return array
