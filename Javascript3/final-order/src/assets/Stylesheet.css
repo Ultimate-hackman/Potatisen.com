@@ -7,65 +7,6 @@
 
 
 
-header {
-    position: fixed;
-    width: 100%;
-
-    backdrop-filter: blur(4px);
-
-    top: 0px;
-
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-
-
-}
-
-
-
-.list {
-    padding-top: 1.5vh;
-    padding-bottom: 1.5vh;
-
-    display: flex;  
-}
-
-
-.list li {
-    display: inline-block;
-    padding-left: 1.5vw;
-  
-}
-
-.list p {
-    font-size: 1.3em;
-
-    color: rgba(5, 5, 5, 0.7);
-    transition: ease-out 0.2s;
-
-}
-
-.list p:hover {
-    color: rgb(2, 2, 2);
-    cursor: pointer;
-}
-
-.potatisen {
-    margin-left: auto;
-    padding-right: 5vh;
-    font-size: 1.6em;
-
-}
-
-
-.title{
-
-    padding-top: 5vh;
-    text-align: center;
-    font-size: 4em;
-}
-
-
-
 
 
 
@@ -76,47 +17,8 @@ header {
 
 
  
-.btn-hem {
-    background-color: rgba(17, 17, 17); /* black */
-    border: none;
-    color: white;
-
-    padding: 1.5vh 1vw;
-    font-size: 1.5em;
-    border-radius: 10px;
-
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 3vh;
-
-    transition: ease-out 0.2s;
 
 
-
-}
-
-
-.btn-hem:hover {
-    color: black;
-    background-color: rgba(255, 255, 255, 0);
-    border: 1px solid rgb(0, 0, 0);
-    
-    
-    
-}
-
-.btn-hem:hover .btn-text {
-    color: black;
-
-    
-    
-    
-}
-.btn-text {
-    color: white;
-
-}
 
 .text-box {
 
@@ -201,29 +103,6 @@ header {
     padding-top: 15vh;
 } 
 
-.btn-veckobrev {
-    background-color: rgb(255, 255, 255); /* Black */
-    color: black;
-    border: none;
-
-    font-size: 3em;
-    border-radius: 10px;
-    
-    width: 100%;
-    border: 1px solid rgb(0, 0, 0);
-    padding: 2vh;
-
-    transition: linear 0.2s;
-
-}
-
-.btn-veckobrev:hover {
-    background-image: linear-gradient(120deg,  rgba(144,0,255,0.7540603248259861), rgba(228,14,14,0.8213457076566125));
-
-    color:white;
-
-}
-
 
 .veckobrev-img {
     display: block;
@@ -261,64 +140,8 @@ header {
 
     /* Kalenden */
 
-    .title2{
-    background-image: linear-gradient(120deg,  rgba(144,0,255,0.7540603248259861), rgba(228,14,14,0.8213457076566125));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 
-    
 
-    padding-top: 5vh;
-    text-align: center;
-    font-size: 4em;
-}
-
-    .lucka {
-
-        box-shadow: 1px 1px 8px 6px rgba(58, 58, 58, 0.096);
-        border-radius: 10px;
-        width: 10vw;
-
-        text-align: center;
-    }
-
-    .lucka-holder {
-        padding-top: 5vh;
-        width: 100%;
-        display: grid;
-        justify-self: auto;
-        
-
-        
-        justify-content: center;
-        
-        grid-template-columns: repeat(7, 11vw);
-        grid-template-rows: repeat(4, 6vw);
-        grid-row-gap: 4vh;
-        
-        
-    }
-
-    .lucka-stängd {
-        box-shadow: 1px 1px 8px 6px rgba(58, 58, 58, 0.062);
-        border-radius: 10px;
-        width: 10vw;
-        
-        background-image: linear-gradient(120deg, rgba(214, 22, 8, 0.658) , rgba(187, 6, 30, 0.616));
-
-        color: rgba(43, 43, 43, 0.836);
-        
-
-        text-align: center;
-    }
-
-    .image-box-of-day {
-        width: 50%;
-
-        position: absolute;
-        left: 2;
-        right: 2;
-    }
 
     .image-of-day {
         border-radius: 20px;
@@ -366,9 +189,7 @@ header {
     }
 
     .news-pad {
-        margin-top: -40%;
-       
-        
+        margin-top: -40%; 
     }
 
     .veckobrev-img {

@@ -1,11 +1,6 @@
+export default function staticDay(date) {
 
-export default function staticDay() {
-
-    let now = new Date().getTime();
-      
-    let difference = 1608850800000 - now
-  
-    let totalDays = Math.floor(difference / (1000 * 60 * 60 * 24));
+    let totalDays = Math.floor((new Date(date).getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24));
   
     return totalDays
   }
