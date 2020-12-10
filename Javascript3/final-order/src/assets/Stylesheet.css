@@ -100,7 +100,7 @@
 .veckobrev-content-box {
     margin: auto;
     width: 40%;
-    padding-top: 15vh;
+    padding-top: 7vh;
 } 
 
 
@@ -153,7 +153,7 @@
 @media only screen and (max-width: 1024px) {
 
     .veckobrev-content-box {
-        padding-top: 10vh;
+        padding-top: 7vh;
         width: 50%;
     }
 

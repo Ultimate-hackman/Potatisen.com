@@ -23,6 +23,7 @@ const Funtitle = styled(Title) `
     background-image: linear-gradient(120deg,  rgba(144,0,255,0.7540603248259861), rgba(228,14,14,0.8213457076566125));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    padding-top: 0vh;
 
 `
 
@@ -51,6 +52,10 @@ const PopBtn = styled(Btn)`
   transition: ease-out 0.2s;
 `;
 
+const KalenderBox = styled(ContentBox) `
+padding-top: 0vh;
+`
+
 
 
 export default function Kalender() {
@@ -73,7 +78,7 @@ export default function Kalender() {
         </Popup>
 
 
-      <ContentBox>
+      <KalenderBox>
         <Funtitle>
           Julkalendern
         </Funtitle>
@@ -88,7 +93,7 @@ export default function Kalender() {
           Dagens lucka
         </Btn>
 
-      </ContentBox>
+      </KalenderBox>
     </>
   );
 }
