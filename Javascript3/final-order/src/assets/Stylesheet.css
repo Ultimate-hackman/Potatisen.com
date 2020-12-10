@@ -132,9 +132,8 @@
 
 
 .bullet-point {
-    display: inline;
+    display: flex;
     text-align: right;
-    padding-right: 100%;
 }
 
 

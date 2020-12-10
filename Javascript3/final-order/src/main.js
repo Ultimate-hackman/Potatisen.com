@@ -21,7 +21,7 @@ export default function App() {
     <Title >Välkommen till Potatisen.com!</Title>
     <Title sub>Här kan du snabbt och enkelt kolla veckobrevet utan något strul</Title>
 
-    <img src={shrek}  alt="img" className="main-img"></img>
+    <img src="https://cdn.discordapp.com/attachments/688322560957743190/786279776468992071/shrek.png"  alt="img" className="main-img"></img>
 
     <Link to="/veckobrev">
     <Btn>Veckobrev</Btn>

@@ -10,7 +10,7 @@ const Bar = styled.ul `
 
     display: flex;
     
-    position: fixed;
+    
     width: 100%;
 
     backdrop-filter: blur(4px);
@@ -38,6 +38,7 @@ const Potatisen = styled(Item) `
 
     margin-left: auto;
     padding-right: 8vh;
+    color: rgb(2, 2, 2);
 `
 
 

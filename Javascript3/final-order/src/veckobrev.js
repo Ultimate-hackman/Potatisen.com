@@ -71,6 +71,7 @@ export default function Veckobrev() {
 
     <NewsPad>
   <h1>Nyheter 📰🖊️</h1>
+  
   {data?.map((data, index) =>{
     return <li key={index} className="bullet-point">{data}</li> 
   })}
