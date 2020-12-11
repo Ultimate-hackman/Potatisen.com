@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Luckor from "../components/hatches";
+import Hatches from "../components/hatches";
 import useDownloadUrl from "../lib/firebase/useDowloadUrl";
-import "firebase/firestore";
+import firebase from '../lib/firebase/firebase'
 import Header from '../components/header'
 
 import styled from "styled-components";
@@ -89,7 +89,7 @@ export default function Kalender() {
           Här kan du snabbt och enkelt kolla kalendern (limited edition)
         </Title>
 
-        <Calendar>{Luckor()}</Calendar>
+        <Calendar>{Hatches()}</Calendar>
         <Btn 
           onClick={() => setDisplay("")}
         >

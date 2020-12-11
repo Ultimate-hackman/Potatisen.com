@@ -1,6 +1,9 @@
 import firebase from "firebase"
+import 'firebase/auth';
+import 'firebase/storage';
+import 'firebase/firestore';
 
- var firebaseConfig = {
+ var firebaseConfig: any = {
     apiKey: "AIzaSyCjcpVzSU2TLKdasOLYJv1LyHoiQb6v-kw",
     authDomain: "potatisen-704fb.firebaseapp.com",
     databaseURL: "https://potatisen-704fb.firebaseio.com",
