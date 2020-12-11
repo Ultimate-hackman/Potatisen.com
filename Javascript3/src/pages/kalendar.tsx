@@ -11,6 +11,7 @@ import ContentBox from '../styles/contentBox'
 import staticDay from "../lib/time/staticDayCount";
 import GlobalStyle from "../theme/GlobalStyles"
 
+import img from '../styles/img'
 
 const Calendar = styled.div `
 padding-top: 5vh;
@@ -42,6 +43,13 @@ const Popup = styled.div`
   padding-top: 12vh;
 `;
 
+const ImgToday = styled(img) `
+border-radius: 20px;
+width: 100%;
+box-shadow: 1px 1px 8px 6px rgba(58, 58, 58, 0.062);
+
+`
+
 const PopBtn = styled(Btn)`
   border: none;
 
@@ -72,7 +80,7 @@ export default function Kalender() {
  
         <Popup display={display}>
           <div>
-            <img
+            <ImgToday
               src={imageSrc} 
               className="image-of-day"
             />
