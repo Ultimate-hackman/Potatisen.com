@@ -1,6 +1,5 @@
 
 import styled  from "styled-components";
-import Image from 'next/image'
 const Img = styled.img`
     display: block;
     margin-left: auto;
