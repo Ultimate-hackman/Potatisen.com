@@ -14,6 +14,10 @@ export default function About() {
     margin-left: auto;
     margin-right: auto;
     padding-top: 3vh;
+
+    @media only screen and (max-width: 1024px) {
+        width: 75%;     
+    }
     `
     let time = countDown("sep 13, 2020 18:27:00", true)
     let plural = pluralCheck(time[0], time[1], time[2], time[3])

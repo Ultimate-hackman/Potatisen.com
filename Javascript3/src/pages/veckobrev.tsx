@@ -17,7 +17,7 @@ import React, { useState, useEffect } from 'react';
 
 const VeckoImg = styled(Img) `
 width: 25%;
-padding-top: 10vh;
+padding-top: 15vh;
 
 `
 
@@ -26,7 +26,7 @@ const BtnVeckobrev = styled(Btn)`
     color: black;
     border: none;
 
-    font-size: 3em;
+    font-size: 2.5em;
     border-radius: 10px;
     
     width: 40%;
