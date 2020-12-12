@@ -1,0 +1,1 @@
+{"ast":null,"code":"import styled from \"styled-components\";\nconst ContentBox = styled.div.withConfig({\n  displayName: \"contentBox__ContentBox\",\n  componentId: \"avcuuw-0\"\n})([\"padding-top:2vh;width:50%;margin-left:auto;margin-right:auto;\"]);\nexport default ContentBox;","map":null,"metadata":{},"sourceType":"module"}

@@ -1,0 +1,1 @@
+{"ast":null,"code":"import styled from \"styled-components\";\nconst Img = styled.img`\n    display: block;\n    margin-left: auto;\n    margin-right: auto;\n    margin-top: 5vh;\n    width: 25%;\n`;\nexport default Img;","map":null,"metadata":{},"sourceType":"module"}

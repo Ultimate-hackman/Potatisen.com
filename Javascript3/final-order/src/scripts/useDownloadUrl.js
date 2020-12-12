@@ -1,6 +1,13 @@
+<<<<<<< Updated upstream:Javascript3/final-order/src/scripts/useDownloadUrl.js
 import firebase from "firebase"
 import 'firebase/database'; 
 import 'firebase/storage';  
+=======
+import firebase from "./firebase"
+import 'firebase/auth';
+import 'firebase/storage';
+import 'firebase/firestore';
+>>>>>>> Stashed changes:Javascript3/src/lib/firebase/useDowloadUrl.ts
 
 import React, { useState, useEffect} from 'react';
 

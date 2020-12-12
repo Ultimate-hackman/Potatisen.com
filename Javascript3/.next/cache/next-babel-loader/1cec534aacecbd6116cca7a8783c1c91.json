@@ -1,0 +1,1 @@
+{"ast":null,"code":"var GlobalStyle;","map":{"version":3,"sources":["C:/Users/david/Desktop/potatisen/src/styles/GlobalStyle.tsx"],"names":["GlobalStyle"],"mappings":"AAEA,IAAMA,WAAN","sourcesContent":["import { createGlobalStyle } from \"styled-components\";\r\n\r\nconst GlobalStyle "]},"metadata":{},"sourceType":"module"}
