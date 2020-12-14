@@ -28,7 +28,10 @@ function HatchMake({ i }) {
   
   let day = 24 - countUp("dec 25, 2020 00:00:00");
 
+  day += 1
+
   let emoji: string = "";
+  let alert: string = "";
 
   let array = [15, 16, 17]
 
@@ -39,17 +42,20 @@ function HatchMake({ i }) {
     case 24:
       emoji += "🎄";
       break;
-
   }
 
   if(i> 14 && i<18) {
     emoji += "📡";
+    alert += "distansundervisning"
   }
 
-  let msg = (
+  let msg = (  
+  <>
     <Text>
-      Dag {i} {emoji}
+      Dag {i} {emoji} 
     </Text>
+    <small>{alert}</small>
+    </>
   );
 
   if (i <= day) {
@@ -64,7 +70,7 @@ function HatchMake({ i }) {
   } else {
     return (
       <HatchClose key={i}>
-        {msg}
+        {msg} 
       </HatchClose>
     );
   }
