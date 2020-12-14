@@ -32,7 +32,6 @@ function HatchMake({ i }) {
   
   let day = 24 - countUp("dec 25, 2020 00:00:00");
 
-  day += 1
 
   let emoji: string = "";
   let alert: string = "";
