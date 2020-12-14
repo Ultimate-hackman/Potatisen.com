@@ -49,7 +49,7 @@ function HatchMake({ i }) {
 
     return (
       
-      <Hatch key={i} onClick={() => window.open(src)}>
+      <Hatch onClick={() => window.open(src)}key={src}>
           {msg}    
       </Hatch>
       
