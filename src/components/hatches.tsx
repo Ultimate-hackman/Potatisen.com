@@ -48,7 +48,7 @@ function HatchMake({ i }) {
 
   if(i> 14 && i<18 && i >= day) {
     emoji += "📡";
-    alert += "distansundervisning"
+    alert += "distans"
   }
 
   let msg = (  
