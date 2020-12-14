@@ -19,7 +19,11 @@ color: rgba(43, 43, 43, 0.836);
 
 const Text = styled(Title) `
   font-size: 1.6vw;
-  padding-top: 0.1vh;
+  padding-top: 0vh;
+`
+
+const Alert = styled(Text) `
+font-size: 1.2vw;
 `
 
 function HatchMake({ i }) {
@@ -32,8 +36,6 @@ function HatchMake({ i }) {
 
   let emoji: string = "";
   let alert: string = "";
-
-  let array = [15, 16, 17]
 
   switch (i) {
     case 18:
@@ -56,7 +58,7 @@ function HatchMake({ i }) {
     <Text>
       Dag {i} {emoji} 
     </Text>
-    <small>{alert}</small>
+    <Alert>{alert}</Alert>
     </>
   );
 
