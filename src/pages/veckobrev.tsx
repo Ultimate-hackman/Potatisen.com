@@ -42,8 +42,25 @@ const BtnVeckobrev = styled(Btn)`
     
 `
 
+const Bullet = styled.li `
+list-style-type:none;
+`
+
 export default function veckobrev() {
     const database = firebase.firestore();
+    let array: any = new Array()
+    const [data, setData] = useState(undefined);
+  
+    useEffect(() => {
+      database.collection('news').get().then((snapshot) =>{
+        snapshot.docs.forEach(doc => {
+            array.push(doc.data().name)
+  
+        })
+      
+    setData(array)
+    })
+    }, []);
 
     const url = useDownloadUrl(`veckobrev/${weekFinder(4, 18) + 1}.pdf`);
     return (
@@ -52,6 +69,13 @@ export default function veckobrev() {
         <Header/>
         <VeckoImg src="https://cdn.discordapp.com/attachments/688322560957743190/786315067352154172/veckobrev.edcc5d03.png"></VeckoImg>
         <a href={url} > <BtnVeckobrev>Veckobrev vecka {weekFinder(4, 18) + 1}</BtnVeckobrev> </a>
+
+        <NewsPad>
+        <h1>Nyheter 📰🖊️</h1>  
+        {data?.map((data, index) =>{
+         return <Bullet key={index} className="bullet-point">{data}</Bullet> 
+      })}
+  </NewsPad>
         </>
     )
 }
