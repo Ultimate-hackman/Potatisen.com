@@ -1,5 +1,8 @@
 import staticDayCount from '../lib/time/staticDayCount'
 import weekFinder from '../lib/time/weekCount'
+import React, { useState, useEffect } from 'react';
+import firebase from '../lib/firebase/firebase'
+import useDownloadUrl from '../lib/firebase/useDownloadUrl'
 
 import styled  from "styled-components"; 
 
@@ -40,12 +43,15 @@ const BtnVeckobrev = styled(Btn)`
 `
 
 export default function veckobrev() {
+    const database = firebase.firestore();
+
+    const url = useDownloadUrl(`veckobrev/${weekFinder(4, 18) + 1}.pdf`);
     return (
         <>
         <GlobalStyle/>
         <Header/>
         <VeckoImg src="https://cdn.discordapp.com/attachments/688322560957743190/786315067352154172/veckobrev.edcc5d03.png"></VeckoImg>
-        <a href={"poo"} > <BtnVeckobrev>Veckobrev vecka {weekFinder(4, 18) + 1}</BtnVeckobrev> </a>
+        <a href={url} > <BtnVeckobrev>Veckobrev vecka {weekFinder(4, 18) + 1}</BtnVeckobrev> </a>
         </>
     )
 }
