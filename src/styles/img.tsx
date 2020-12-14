@@ -7,7 +7,7 @@ const Img = styled.img`
     margin-top: 5vh;
     width: 25%;
 
-    @media only screen and (max-width: 1024px) {
+    @media screen and (max-width: 1024px) {
         width: 35%;    
     }
 `;
