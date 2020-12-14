@@ -2,6 +2,7 @@ export default function weekFinder(weekday, hour) {
     let month = new Date().getMonth();
     let day = new Date().getDate();
 
+
    
     day -= weekday - (hour/24)
 

@@ -68,7 +68,7 @@ export default function veckobrev() {
         <GlobalStyle/>
         <Header/>
         <VeckoImg src="https://cdn.discordapp.com/attachments/688322560957743190/786315067352154172/veckobrev.edcc5d03.png"></VeckoImg>
-        <a href={url} > <BtnVeckobrev>Veckobrev vecka {weekFinder(4, 18) + 1}</BtnVeckobrev> </a>
+        <a href={url} > <BtnVeckobrev>Veckobrev vecka {weekFinder(4, 18)}</BtnVeckobrev> </a>
 
         <NewsPad>
         <h1>Nyheter 📰🖊️</h1>  

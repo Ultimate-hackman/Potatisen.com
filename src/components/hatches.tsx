@@ -30,6 +30,8 @@ function HatchMake({ i }) {
 
   let emoji: string = "";
 
+  let array = [15, 16, 17]
+
   switch (i) {
     case 18:
       emoji += "🏫";
@@ -37,6 +39,11 @@ function HatchMake({ i }) {
     case 24:
       emoji += "🎄";
       break;
+
+  }
+
+  if(i> 14 && i<18) {
+    emoji += "📡";
   }
 
   let msg = (

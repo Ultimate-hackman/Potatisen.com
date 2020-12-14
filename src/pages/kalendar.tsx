@@ -69,8 +69,7 @@ const PopBtn = styled(Btn)`
 export default function Kalender() {
   const [display, setDisplay] = useState("none");
   const [src, setSrc] = useState(24 - staticDay("dec 25, 2020 00:00:00"));
-
-  const imageSrc = useDownloadUrl(`kalender/${src}.jpg`);
+console.log(src)
 
   return (
     <>
@@ -81,8 +80,7 @@ export default function Kalender() {
         <Popup display={display}>
           <div>
             <ImgToday
-              src={imageSrc} 
-              className="image-of-day"
+              src={useDownloadUrl(`kalender/${src}.jpg`)}
             />
           </div>
           <PopBtn onClick={() => setDisplay("none")}>Ok</PopBtn>
