@@ -27,7 +27,7 @@ export default function About() {
     width: 50%;
 
     @media only screen and (max-width: 1024px) {
-        width: 75%;     
+        width: 60%;     
     }
     ` 
     return (
