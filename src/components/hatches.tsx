@@ -38,9 +38,11 @@ function HatchMake({ i }) {
   switch (i) {
     case 18:
       emoji += "🏫";
+      alert += "skolavslutning"
       break;
     case 24:
       emoji += "🎄";
+      alert += "Julafton"
       break;
   }
 
