@@ -1,5 +1,4 @@
 import "firebase/database";
-import countUp from "../lib/time/staticDayCount";
 import useDownloadUrl from "../lib/firebase/useDownloadUrl";
 import styled from "styled-components";
 import Title from '../styles/title'
@@ -30,7 +29,7 @@ function HatchMake({ i }) {
 
   const src = useDownloadUrl(`kalender/${i}.jpg`);
   
-  let day = 24 - countUp("dec 25, 2020 00:00:00");
+  let day = new Date().getDate()
 
 
   let emoji: string = "";
