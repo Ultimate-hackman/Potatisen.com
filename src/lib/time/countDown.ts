@@ -1,5 +1,6 @@
 import React, { useState, useEffect} from 'react';
 import pluralCheck from './pluralCheck'
+import mainTime from './mainTime'
 
 export default function Bruh(date: any, type: any) {
   const [text, setText] = useState("");
@@ -24,7 +25,7 @@ export default function Bruh(date: any, type: any) {
 function countDown(date, type) {
   
     let past = new Date(date).getTime(); 
-    let now = new Date().getTime();
+    let now = mainTime().getTime();
 
     let output = []
   

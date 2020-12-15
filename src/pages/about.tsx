@@ -15,7 +15,7 @@ export default function About() {
     margin-right: auto;
     padding-top: 3vh;
 
-    @media only screen and (max-width: 1024px) {
+    @media all and (max-width: 1024px) {
         width: 75%;     
     }
     `
@@ -26,7 +26,7 @@ export default function About() {
     const AboutImg = styled(Img) `
     width: 50%;
 
-    @media only screen and (max-width: 1024px) {
+    @media all and (max-width: 1024px) {
         width: 60%;     
     }
     ` 

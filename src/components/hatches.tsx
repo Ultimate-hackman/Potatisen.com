@@ -3,6 +3,8 @@ import useDownloadUrl from "../lib/firebase/useDownloadUrl";
 import styled from "styled-components";
 import Title from '../styles/title'
 
+import mainTime from '../lib/time/mainTime'
+
 const Hatch = styled.div `
 box-shadow: 1px 1px 8px 6px rgba(58, 58, 58, 0.096);
 border-radius: 10px;
@@ -29,7 +31,7 @@ function HatchMake({ i }) {
 
   const src = useDownloadUrl(`kalender/${i}.jpg`);
   
-  let day = new Date().getDate()
+  let day = mainTime().getDate()
 
 
   let emoji: string = "";
