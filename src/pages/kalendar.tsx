@@ -89,10 +89,10 @@ console.log(src)
 
       <ContentBox>
         <Funtitle>
-          Julkalendern
+        Provschema
         </Funtitle>
         <Title sub>
-          Här kan du snabbt och enkelt kolla kalendern (limited edition)
+        Prov komma skall
         </Title>
 
         <Calendar>{Hatches()}</Calendar>

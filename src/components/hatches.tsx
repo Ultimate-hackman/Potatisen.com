@@ -2,6 +2,7 @@ import "firebase/database";
 import useDownloadUrl from "../lib/firebase/useDownloadUrl";
 import styled from "styled-components";
 import Title from '../styles/title'
+import { Console } from "console";
 
 const Hatch = styled.div `
 box-shadow: 1px 1px 8px 6px rgba(58, 58, 58, 0.096);
@@ -25,63 +26,49 @@ const Alert = styled(Text) `
 font-size: 1.2vw;
 `
 
+const monthsLenght = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+
+const dataSet = [[2020, 12, 24, "NO", "jul"], [2020, 12, 20, "NO", "Xd poop"], [2020, 12, 1, "NO", "Random monkey event"]]
+
+
+let day = new Date().getDate()
+let time = new Date()
+
+
+
+
 function HatchMake({ i }) {
 
-  const src = useDownloadUrl(`kalender/${i}.jpg`);
+  const monthLenght = monthsLenght[new Date().getMonth()]
+
+  if (i > monthLenght) {
+    i -= monthLenght
+  }
+
+  let customMessage: string = ""
   
-  let day = new Date().getDate()
+
+  console.log(new Date().getMonth())
 
 
-  let emoji: string = "";
-  let alert: string = "";
-
-  switch (i) {
-    case 18:
-      emoji += "🏫";
-      alert += "skolavslutning"
-      break;
-    case 24:
-      emoji += "🎄";
-      alert += "Julafton"
-      break;
+  for (let n = 0; n < dataSet.length; n++) {
+    if (i === dataSet[n][2]) {
+      customMessage += String(dataSet[n][4])
+    } else {
+    }
   }
-
-  if(i>= 14 && i<18 && i >= day) {
-    emoji += "📡";
-    alert += "distans"
-  }
-
-  let msg = (  
-  <>
-    <Text>
-      Dag {i} {emoji} 
-    </Text>
-    <Alert>{alert}</Alert>
-    </>
-  );
-
-  if (i <= day) {
-
+  
     return (
-      
-      <Hatch onClick={() => window.open(src)}key={src}>
-          {msg}    
-      </Hatch>
-      
-    );
-  } else {
-    return (
-      <HatchClose key={i}>
-        {msg} 
-      </HatchClose>
-    );
-  }
+      <Hatch>{i} <Alert> {customMessage}</Alert></Hatch>
+    )
+
+
 }
 
 export default function Hatches() {
 
   return Array.from({ length: 24 }).map((_, index) => {
-    return <HatchMake i={index + 1} />;
+    return <HatchMake i={  (index + day) } />;
   });
 }
 
