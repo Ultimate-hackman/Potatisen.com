@@ -9,7 +9,10 @@ const NewsPad = styled.div `
     padding: 20px;
     box-shadow: 1px 1px 8px 6px rgba(58, 58, 58, 0.096);
 
-    @media all and (max-width: 1024px) {
+
+
+    @media only screen and (max-height: 1024px) {
+
         margin-top: -35%;        
     }
 
