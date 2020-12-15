@@ -16,7 +16,7 @@ const NewsPad = styled.div `
         margin-top: -35%;        
     }
 
-    @media all and (max-height: 736px) {
+    @media all and (max-width: 736px) {
         display: none;
     }
 `
