@@ -9,7 +9,7 @@ const Img = styled.img`
 
 
 
-    @media screen and (max-height: 1024px) {
+    @media screen and (max-width: 768px) {
 
         width: 35%;    
     }
