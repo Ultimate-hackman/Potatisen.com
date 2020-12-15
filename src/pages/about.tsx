@@ -15,7 +15,7 @@ export default function About() {
     margin-right: auto;
     padding-top: 3vh;
 
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-height: 768px) {
         width: 75%;     
     }
     `

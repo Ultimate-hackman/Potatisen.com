@@ -11,12 +11,12 @@ const NewsPad = styled.div `
 
 
 
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-height: 768px) {
 
         margin-top: -35%;        
     }
 
-    @media all and (max-width: 736px) {
+    @media all and (max-height: 736px) {
         display: none;
     }
 `
