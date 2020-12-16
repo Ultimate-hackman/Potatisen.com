@@ -33,7 +33,7 @@ export default function Home() {
         </Title>
         <Question src="https://cdn.discordapp.com/attachments/688322560957743190/788822693277335552/question.png"></Question>
 
-        <Link href="/veckobrev">
+        <Link href="/">
         <Btn>Hem</Btn>
        </Link>
 
