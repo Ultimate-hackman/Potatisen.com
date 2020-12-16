@@ -8,7 +8,7 @@ const Bar = styled.ul `
     display: flex;
     
     
-    width: 100%;
+
 
     backdrop-filter: blur(4px);
 
