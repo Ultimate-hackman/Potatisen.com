@@ -42,7 +42,7 @@ export default function veckobrev() {
     })
     }, []);
 
-    const url = useDownloadUrl(`veckobrev/${weekFinder(4, 18) + 1}.pdf`);
+    const url = useDownloadUrl(`veckobrev/${weekFinder(5, 17) + 1}.pdf`);
     return (
         <>
 
