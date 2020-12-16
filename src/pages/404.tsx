@@ -1,8 +1,6 @@
 import Head from 'next/head'
 import styled from "styled-components";
 
-import staticDayCount from '../lib/time/staticDayCount'
-import pluralCheck from '../lib/time/pluralCheck'
 
 import GlobalStyle from '../theme/GlobalStyles'
 import Link from 'next/link'
