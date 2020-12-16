@@ -19,7 +19,7 @@ width: 15%;
 `
 
 export default function Home() {
-  let time = staticDayCount("dec 25, 2020 00:00:00")
+
   return (
     <>
 
