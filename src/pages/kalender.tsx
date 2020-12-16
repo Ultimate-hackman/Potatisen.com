@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import Hatches from "../components/hatches"; //
 import useDownloadUrl from "../lib/firebase/useDownloadUrl";
-import firebase from '../lib/firebase/firebase'
+
 import Header from '../components/header'
 
 import styled from "styled-components";
-import Btn from '../styles/button'
+import Btn from '../styles/btn'
 import Title from '../styles/title'
 import ContentBox from '../styles/contentBox' //
 import staticDay from "../lib/time/staticDayCount";

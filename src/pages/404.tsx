@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import styled from "styled-components";
 
 
@@ -9,7 +8,8 @@ import Header from '../components/header'
 import NewsPad from '../styles/newsPad'
 import Title from '../styles/title'
 import Img from '../styles/img'
-import Btn from '../styles/button'
+import Btn from '../styles/btn'
+
 
 
 const Question = styled(Img) `
@@ -29,7 +29,7 @@ export default function Home() {
         <Title sub>
         Sidan gick inte att hitta 
         </Title>
-        <Question src="https://cdn.discordapp.com/attachments/688322560957743190/788822693277335552/question.png"></Question>
+        <Question src="https://media.discordapp.net/attachments/688322560957743190/788822693277335552/question.png"></Question>
 
         <Link href="/">
         <Btn>Hem</Btn>

@@ -1,5 +1,3 @@
-import Head from 'next/head'
-import styled from "styled-components";
 
 import staticDayCount from '../lib/time/staticDayCount'
 import pluralCheck from '../lib/time/pluralCheck'
@@ -11,7 +9,7 @@ import Header from '../components/header'
 import NewsPad from '../styles/newsPad'
 import Title from '../styles/title'
 import Img from '../styles/img'
-import Btn from '../styles/button'
+import Btn from '../styles/btn'
 
 
 export default function Home() {

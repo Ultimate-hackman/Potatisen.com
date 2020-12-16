@@ -1,7 +1,7 @@
 
 import pluralCheck from '../lib/time/pluralCheck'
 import countDown from '../lib/time/countDown'
-import Btn from '../styles/button'
+import Btn from '../styles/btn'
 import GlobalStyle from "../theme/GlobalStyles"
 import Header from '../components/header'
 import Link from 'next/link'
