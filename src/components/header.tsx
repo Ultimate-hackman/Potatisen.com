@@ -40,14 +40,23 @@ const Potatisen = styled(Item) `
     color: rgb(2, 2, 2);
 `
 
-export default function header() {
+export default function header(props) {
+    let name: string =  ""
+    if (props.title === undefined) {
+        name += "Potatisen.com"
+    } else {
+        name += "‧ Potatisen.com"
+    }
     return (
     <>
+    <head>  
+    <title>{props.title} {name}</title>
+    </head>
     <Bar> 
     <Link href="/"><Item>Hem</Item></Link>
     <Link href="/veckobrev"><Item>Veckobrev</Item></Link>
     <Link href="/about"><Item>Om oss</Item></Link>
-    <Link href="/kalendar"><Item>Kalender<small>🎅</small></Item></Link>
+    <Link href="/kalender"><Item>Kalender<small>🎅</small></Item></Link>
 
 
     <Potatisen>Potatisen</Potatisen>

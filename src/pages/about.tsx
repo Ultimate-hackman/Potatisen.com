@@ -7,6 +7,8 @@ import Header from '../components/header'
 import Link from 'next/link'
 import styled from "styled-components";
 import Img from '../styles/img'
+import Router, { resolveHref } from 'next/dist/next-server/lib/router/router'
+import { useRouter } from 'next/router'
 export default function About() {
 
     const Container = styled.div `
@@ -33,14 +35,12 @@ export default function About() {
     return (
       
       <>
-        <head>
-      <title>Potatisen.com</title>
-      </head>
+
       <GlobalStyle/>
-      <Header />
+      <Header title="Om oss"/>
       <Container>
       <AboutImg src='https://cdn.discordapp.com/attachments/688322560957743190/786656997482823680/om-oss.png' className="om-oss-img" alt="om-oss"></AboutImg>
-      <p>Potatisen.com grundades i september 2020 av mig, David H, med målet att hjälpa samtliga elever på södermalmsskolan genom att skapa användbara funktioner som löser problem. Det enda nuvarande exemplet av detta är att jag delar veckobrevet, men det kan räknas med att jag tillägger mer funktioner i kommande tid. Ingen reklam sedan 2020.</p> Online sedan: {time[0]} {plural[0]}, {time[1]} {plural[1]}, {time[2]} {plural[2]}, {time[3]} {plural[3]}
+      <p> Potatisen.com grundades i september 2020 av mig, David H, med målet att hjälpa samtliga elever på södermalmsskolan genom att skapa användbara funktioner som löser problem. Det enda nuvarande exemplet av detta är att jag delar veckobrevet, men det kan räknas med att jag tillägger mer funktioner i kommande tid. Ingen reklam sedan 2020.</p> Online sedan: {time[0]} {plural[0]}, {time[1]} {plural[1]}, {time[2]} {plural[2]}, {time[3]} {plural[3]}
       <Link href="/"><Btn>Hem</Btn></Link>
   
       </Container>

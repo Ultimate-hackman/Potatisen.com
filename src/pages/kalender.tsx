@@ -73,12 +73,10 @@ console.log(src)
 
   return (
     <>
-      <head>
-      <title>Potatisen.com</title>
-      </head>
+
     <GlobalStyle/>
 
-    <Header/>
+    <Header title="Kalender"/>
  
         <Popup display={display}>
           <div>
