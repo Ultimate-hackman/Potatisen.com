@@ -65,6 +65,9 @@ export default function veckobrev() {
     const url = useDownloadUrl(`veckobrev/${weekFinder(4, 18) + 1}.pdf`);
     return (
         <>
+      <head>
+      <title>Potatisen.com</title>
+      </head>
         <GlobalStyle/>
         <Header/>
         <VeckoImg src="https://cdn.discordapp.com/attachments/688322560957743190/786315067352154172/veckobrev.edcc5d03.png"></VeckoImg>

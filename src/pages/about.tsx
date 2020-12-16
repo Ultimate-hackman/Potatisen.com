@@ -33,6 +33,9 @@ export default function About() {
     return (
       
       <>
+        <head>
+      <title>Potatisen.com</title>
+      </head>
       <GlobalStyle/>
       <Header />
       <Container>

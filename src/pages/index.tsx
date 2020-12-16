@@ -18,6 +18,9 @@ export default function Home() {
   let time = staticDayCount("dec 25, 2020 00:00:00")
   return (
     <>
+    <head>
+      <title>Potatisen.com</title>
+    </head>
         <GlobalStyle/>
         <Header/>
         <Title>

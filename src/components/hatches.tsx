@@ -84,6 +84,6 @@ export default function Hatches() {
 
   return Array.from({ length: 24 }).map((_, index) => {
     return <HatchMake i={index + 1} />;
-  });
+     });
 }
 

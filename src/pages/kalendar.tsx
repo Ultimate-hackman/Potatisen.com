@@ -73,6 +73,9 @@ console.log(src)
 
   return (
     <>
+      <head>
+      <title>Potatisen.com</title>
+      </head>
     <GlobalStyle/>
 
     <Header/>
