@@ -92,7 +92,7 @@ console.log(src)
         Provschema
         </Funtitle>
         <Title sub>
-        Prov komma skall
+        Här kan du snabbt kolla kommande prov
         </Title>
 
         <Calendar>{Hatches()}</Calendar>

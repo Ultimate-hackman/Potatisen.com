@@ -5,14 +5,15 @@ import Title from '../styles/title'
 import { Console } from "console";
 import React, { useState, useEffect } from 'react';
 import firebase from '../lib/firebase/firebase'
-
+import months from '../lib/time/findMonth'
 const Hatch = styled.div `
 box-shadow: 1px 1px 8px 6px rgba(58, 58, 58, 0.096);
 border-radius: 10px;
 width: 10vw;
 text-align: center;
-background-color: ${props => props.color};
+background-color: ${props => props.color} ;
 `
+
 const HatchClose = styled(Hatch) `
 
 background-image: linear-gradient(120deg, rgba(214, 22, 8, 0.658) , rgba(187, 6, 30, 0.616));
@@ -31,8 +32,6 @@ font-size: 1.2vw;
 
 const monthsLenght = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
-const dataSet = [[2020, 12, 24, "NO", "jul"], [2020, 12, 20, "NO", "Xd poop"], [2020, 12, 1, "NO", "Random monkey event"]]
-
 
 let day = new Date().getDate()
 
@@ -43,10 +42,11 @@ function HatchMake({ i }) {
 
 const database = firebase.firestore();
 let array: any = new Array()
-const [color, setColor] = useState("white")
+let currentMonth = new Date().getMonth()
+
 const [info, setInfo] = useState(undefined);
 const [subject, setSubject] = useState(undefined);
-
+const [color, setColor] = useState(undefined)
 
 useEffect(() => {
   database.collection('prov').get().then((snapshot) =>{
@@ -58,9 +58,23 @@ useEffect(() => {
 
 array.map((_, index) => {
   if (i === array[index][2]) {
-    setInfo(array[index][4])
-    setSubject(array[index][3])
-    setColor("red")
+    setInfo(array[index][5])
+    setSubject(array[index][4])
+
+    switch(subject) {
+      case "No":
+        setColor("#15e71588")
+        break;
+      case "So":
+        setColor("#1d1b1b55")
+        break;
+        case "Ma":
+          setColor("#4652ff")
+        
+    }
+
+    
+    
 
   } else {
 
@@ -71,10 +85,15 @@ array.map((_, index) => {
 }, []);
 
 
-  const monthLenght = monthsLenght[new Date().getMonth()]
+  const monthLenght = monthsLenght[currentMonth]
 
   if (i > monthLenght) {
     i -= monthLenght
+    if (currentMonth === 11) {
+      currentMonth -= 11
+    } else {
+      currentMonth += 1
+    }
   }
 
 
@@ -83,7 +102,7 @@ array.map((_, index) => {
 
   
     return (
-      <Hatch color = {color}>{i} <Alert> {info}  </Alert> {subject}</Hatch>
+      <Hatch color = {color}>{i} {months[currentMonth]} {subject} <Alert> {info}  </Alert> </Hatch>
     )
 
 
