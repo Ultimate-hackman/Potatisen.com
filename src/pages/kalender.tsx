@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Hatches from "../components/hatches"; //
+import Hatches from "../components/hatches"; 
 import useDownloadUrl from "../lib/firebase/useDownloadUrl";
 
 import Header from '../components/header'
@@ -7,7 +7,7 @@ import Header from '../components/header'
 import styled from "styled-components";
 import Btn from '../styles/btn'
 import Title from '../styles/title'
-import ContentBox from '../styles/contentBox' //
+import ContentBox from '../styles/contentBox' 
 import staticDay from "../lib/time/staticDayCount";
 import GlobalStyle from "../theme/GlobalStyles"
 
@@ -34,7 +34,7 @@ const Funtitle = styled(Title) `
 
 const Popup = styled.div`
   display: ${(props) => props.display};
-  width: 25%;
+  
   position: absolute;
 
   left: 50%;
@@ -45,7 +45,14 @@ const Popup = styled.div`
 
 const ImgToday = styled(img) `
 border-radius: 20px;
-width: 100%;
+height: 30rem;
+width: 30rem;
+
+
+@media only screen and (max-height: 768px) {
+height: 15rem;
+width: 15rem;  
+}
 box-shadow: 1px 1px 8px 6px rgba(58, 58, 58, 0.062);
 
 `
@@ -68,7 +75,7 @@ const PopBtn = styled(Btn)`
 
 export default function Kalender() {
   const [display, setDisplay] = useState("none");
-  const [src, setSrc] = useState(24 - staticDay("dec 25, 2020 00:00:00"));
+  const [src, setSrc] = useState(15);
 console.log(src)
 
   return (
