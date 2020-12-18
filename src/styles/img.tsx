@@ -7,10 +7,7 @@ const Img = styled.img`
     margin-top: 5vh;
     width: 25%;
 
-
-
     @media screen and (max-height: 768px) {
-
         width: 35%;    
     }
 `;

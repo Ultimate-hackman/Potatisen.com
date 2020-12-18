@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 import GlobalStyle from '../theme/GlobalStyles'
 import Link from 'next/link'
 import Header from '../components/header'

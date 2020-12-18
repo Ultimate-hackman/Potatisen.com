@@ -7,8 +7,7 @@ import Header from '../components/header'
 import Link from 'next/link'
 import styled from "styled-components";
 import Img from '../styles/img'
-import Router, { resolveHref } from 'next/dist/next-server/lib/router/router'
-import { useRouter } from 'next/router'
+
 export default function About() {
 
     const Container = styled.div `

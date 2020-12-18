@@ -1,6 +1,6 @@
 function pluralCheck(days, hours, minutes, seconds) {
 
-    let array = []
+    let array = new Array()
   
     if(Math.abs(days) === 1) { 
         array.push("dag")

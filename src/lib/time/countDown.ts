@@ -22,39 +22,25 @@ export default function Bruh(date: any, type: any) {
 }
 
 
-function countDown(date, type) {
+function countDown(date, identity) {
   
-    let past = new Date(date).getTime(); 
-    let now = mainTime().getTime();
+    let past: number = new Date(date).getTime(); 
+    let now: number = mainTime().getTime();
+  
+    let difference: number = identity? now - past : past - now
 
-    let output = []
-  
-    let difference;
-
-    if (type === true) {
-      difference = now - past
-    } else {
-      difference = past - now
-    }
-  
-    let totalHour = Math.floor(difference / (1000 * 60 * 60));
-    let totalMinutes = Math.floor((difference / 1000) / 60);
-    let totaldays = Math.floor(difference / (1000 * 60 * 60 * 24));
-    let totalMonths = Math.floor(difference / (1000 * 60 * 60 * 24 * 31));
+    let totalHour: number = Math.floor(difference / (1000 * 60 * 60));
+    let totalMinutes: number = Math.floor((difference / 1000) / 60);
+    let totaldays: number = Math.floor(difference / (1000 * 60 * 60 * 24));
+    let totalMonths: number = Math.floor(difference / (1000 * 60 * 60 * 24 * 31));
     
     
-    let days = Math.floor(difference / (1000 * 60 * 60 * 24) - totalMonths);
-    let hours = Math.floor((((difference / 1000) / 60) / 60) - totaldays * 24);
-    let minutes = Math.floor(((difference / 1000) / 60) - totalHour * 60);
-    let seconds = Math.floor((difference / 1000) - totalMinutes * 60);
+    let days: number = Math.floor(difference / (1000 * 60 * 60 * 24) - totalMonths);
+    let hours: number = Math.floor((((difference / 1000) / 60) / 60) - totaldays * 24);
+    let minutes: number = Math.floor(((difference / 1000) / 60) - totalHour * 60);
+    let seconds: number = Math.floor((difference / 1000) - totalMinutes * 60);
 
-    output.push(days)
-    output.push(hours)
-    output.push(minutes)
-    output.push(seconds)
-
-
-  return output 
+  return new Array(days, hours, minutes, seconds)
 
 }
 

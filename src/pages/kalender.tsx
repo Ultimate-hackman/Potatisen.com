@@ -94,7 +94,6 @@ console.log(src)
           <PopBtn onClick={() => setDisplay("none")}>Ok</PopBtn>
         </Popup>
 
-
       <ContentBox>
         <Funtitle>
           Julkalendern

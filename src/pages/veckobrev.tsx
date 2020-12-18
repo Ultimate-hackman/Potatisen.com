@@ -44,7 +44,6 @@ export default function veckobrev() {
 
     let weekMsg = new String()
     if (url == undefined) {
-        
         weekMsg += "Veckobrevet hittades inte"
     } else {
         weekMsg += "Veckobrev vecka " + (weekFinder(4, 17) + 1)
