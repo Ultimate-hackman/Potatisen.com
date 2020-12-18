@@ -40,13 +40,14 @@ export default function veckobrev() {
     })
     }, []);
 
-    const url = useDownloadUrl(`veckobrev/${weekFinder(1, 12) + 1}.pdf`);
+    const url = useDownloadUrl(`veckobrev/${weekFinder(4, 17) + 1}.pdf`);
 
     let weekMsg = new String()
     if (url == undefined) {
+        
         weekMsg += "Veckobrevet hittades inte"
     } else {
-        weekMsg += "Veckobrev vecka " + (weekFinder(1, 12) + 1)
+        weekMsg += "Veckobrev vecka " + (weekFinder(4, 17) + 1)
     }
 
 
