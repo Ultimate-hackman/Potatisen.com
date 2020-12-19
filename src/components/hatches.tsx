@@ -1,11 +1,14 @@
 import "firebase/database";
-import useDownloadUrl from "../lib/firebase/useDownloadUrl";
 import styled from "styled-components";
 import Title from '../styles/title'
-import { Console } from "console";
 import React, { useState, useEffect } from 'react';
+
+import colorFinder from '../lib/kalendar/colorFinder'
 import firebase from '../lib/firebase/firebase'
 import months from '../lib/time/findMonth'
+
+import monthCheck from '../lib/time/monthUpdate'
+
 const Hatch = styled.div `
 box-shadow: 1px 1px 8px 6px rgba(58, 58, 58, 0.096);
 border-radius: 10px;
@@ -30,23 +33,24 @@ const Alert = styled(Text) `
 font-size: 1.2vw;
 `
 
-const monthsLenght = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-
-
 let day = new Date().getDate()
-
-
+const database = firebase.firestore();
 
 
 function HatchMake({ i }) {
 
-const database = firebase.firestore();
 let array: any = new Array()
 let currentMonth = new Date().getMonth()
 
+
+// states
 const [info, setInfo] = useState(undefined);
 const [subject, setSubject] = useState(undefined);
 const [color, setColor] = useState(undefined)
+const [start, setStart] = useState(undefined)
+const [end, setEnd] = useState(undefined)
+
+const date = monthCheck(i, currentMonth)
 
 useEffect(() => {
   database.collection('prov').get().then((snapshot) =>{
@@ -54,55 +58,30 @@ useEffect(() => {
         array.push(doc.data().prov)
 
     })
-  
 
-array.map((_, index) => {
+
+array?.map((_, index) => {
+  // checks if day has test
+
   if (i === array[index][2]) {
+    // sets info
     setInfo(array[index][5])
     setSubject(array[index][4])
+    setStart(array[index][3].start)
+    setEnd(array[index][3].end)
 
-    switch(subject) {
-      case "No":
-        setColor("#15e71588")
-        break;
-      case "So":
-        setColor("#1d1b1b55")
-        break;
-        case "Ma":
-          setColor("#4652ff")
-        
-    }
-
-    
-    
-
-  } else {
-
-  }
+    // color
+    setColor(colorFinder(array[index][4]))
+  } 
 
 })
+
 })
 }, []);
 
 
-  const monthLenght = monthsLenght[currentMonth]
-
-  if (i > monthLenght) {
-    i -= monthLenght
-    if (currentMonth === 11) {
-      currentMonth -= 11
-    } else {
-      currentMonth += 1
-    }
-  }
-
-
-  console.log(new Date().getMonth())
-
-
-  
     return (
-      <Hatch color = {color}>{i} {months[currentMonth]} {subject} <Alert> {info}  </Alert> </Hatch>
+      <Hatch color = {color}>{date[0]} {months[date[1]]} {subject} <Alert> {info}  </Alert> {start} - {end} </Hatch>
     )
 
 

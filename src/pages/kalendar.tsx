@@ -1,20 +1,18 @@
-import React, { useState } from "react";
+import React, { useState }from "react";
 import Hatches from "../components/hatches"; //
-import useDownloadUrl from "../lib/firebase/useDownloadUrl";
-import firebase from '../lib/firebase/firebase'
 import Header from '../components/header'
 
 import styled from "styled-components";
-import Btn from '../styles/button'
 import Title from '../styles/title'
-import ContentBox from '../styles/contentBox' //
+import ContentBox from '../styles/contentBox' 
 import staticDay from "../lib/time/staticDayCount";
 import GlobalStyle from "../theme/GlobalStyles"
 
-import img from '../styles/img'
+
+
 
 const Calendar = styled.div `
-padding-top: 5vh;
+padding-top: 3vh;
 display: grid;
 justify-self: auto;
 justify-content: center;
@@ -24,51 +22,26 @@ grid-template-rows: repeat(4, 6vw);
 grid-row-gap: 4vh;
 `
 
-const Funtitle = styled(Title) `
-    padding-top: 0vh;
-    background-image: linear-gradient(120deg,  rgba(144,0,255,0.7540603248259861), rgba(228,14,14,0.8213457076566125));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+const Selection = styled.select `
+    border-radius: 5px;
+    width: 10vw;
+    margin-top: 2vh;
+    box-shadow: 1px 1px 8px 1px rgba(58, 58, 58, 0.096);
+
+    transition: ease-out 0.2s;
+
+
+  &:hover {
+	border-color: #388cd1;
+}
 
 `
-
-const Popup = styled.div`
-  display: ${(props) => props.display};
-  width: 25%;
-  position: absolute;
-
-  left: 50%;
-  transform: translate(-50%);
-
-  padding-top: 12vh;
-`;
-
-const ImgToday = styled(img) `
-border-radius: 20px;
-width: 100%;
-box-shadow: 1px 1px 8px 6px rgba(58, 58, 58, 0.062);
-
-`
-
-const PopBtn = styled(Btn)`
-  border: none;
-
-  background-image: linear-gradient(
-    120deg,
-    rgba(144, 0, 255, 0.7540603248259861),
-    rgba(228, 14, 14, 0.8213457076566125)
-  );
-
-  margin-top: 1.5vh;
-
-  transition: ease-out 0.2s;
-`;
-
 
 
 export default function Kalender() {
   const [display, setDisplay] = useState("none");
   const [src, setSrc] = useState(24 - staticDay("dec 25, 2020 00:00:00"));
+  const [ugg, setUgg] = useState("093");
 console.log(src)
 
   return (
@@ -76,31 +49,23 @@ console.log(src)
     <GlobalStyle/>
 
     <Header/>
- 
-        <Popup display={display}>
-          <div>
-            <ImgToday
-              src={useDownloadUrl(`kalender/${src}.jpg`)}
-            />
-          </div>
-          <PopBtn onClick={() => setDisplay("none")}>Ok</PopBtn>
-        </Popup>
 
 
       <ContentBox>
-        <Funtitle>
+        <Title top="0vh">
         Provschema
-        </Funtitle>
-        <Title sub>
-        Här kan du snabbt kolla kommande prov
+        </Title>
+        <Title sub top="0vh">
+        Här kan du snabbt kolla kommande prov {ugg}
         </Title>
 
+      <Selection onChange={() => setUgg("092")}>
+      <option value="091">091</option>
+      <option>092</option>
+      <option value="093">093</option>
+      </Selection>
+
         <Calendar>{Hatches()}</Calendar>
-        <Btn 
-          onClick={() => setDisplay("")}
-        >
-          Dagens lucka
-        </Btn>
 
       </ContentBox>
     </>

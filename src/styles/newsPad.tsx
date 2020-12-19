@@ -18,4 +18,4 @@ const NewsPad = styled.div `
     }
 `
 
-export default NewsPad
+export default NewsPad  
