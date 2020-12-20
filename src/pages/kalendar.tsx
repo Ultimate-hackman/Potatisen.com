@@ -49,7 +49,7 @@ const Greet = (props)=> {
 export default function Kalender() {
   const [display, setDisplay] = useState("none");
   const [src, setSrc] = useState(24 - staticDay("dec 25, 2020 00:00:00"));
-  const [ugg, setUgg] = useState("091")
+  const [ugg, setUgg] = useState("alla")
 
   
 console.log(src)

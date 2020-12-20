@@ -93,16 +93,20 @@ export default function Hatches(props) {
 
   console.log(props)
 
+  
+
   if (props === "091") {
     return Array.from({ length: 24 }).map((_, index) => {
-      return <HatchMake key={index} i={  [(index + day), "091"] }/>;
+      return <HatchMake key={index} i={  [(index + day), props] }/>;
+    });
+  } else if (props ==="093") {
+    return Array.from({ length: 24 }).map((_, index) => {
+      return <HatchMake key={index * -1} i={  [(index + day), props] }/>;
     });
   } else if (props === "092") {
     return Array.from({ length: 24 }).map((_, index) => {
-      return <HatchMake key={index} i={  [(index + day), "092"] }/>;
+      return <HatchMake  i={  [(index + day), props] }/>;
     });
-  } else {
-    return <h1>poopy butthole</h1>
   }
 }
 
