@@ -6,10 +6,8 @@ const Bar = styled.ul `
     padding-bottom: 1.5vh;
 
     display: flex;
+    position: sticky;
     
-    
-
-
     backdrop-filter: blur(4px);
 
     top: 0px;
