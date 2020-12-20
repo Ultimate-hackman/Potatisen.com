@@ -1,4 +1,4 @@
-import React, { useState }from "react";
+import React, { Component, useState }from "react";
 import Hatches from "../components/hatches"; //
 import Header from '../components/header'
 
@@ -7,7 +7,7 @@ import Title from '../styles/title'
 import ContentBox from '../styles/contentBox' 
 import staticDay from "../lib/time/staticDayCount";
 import GlobalStyle from "../theme/GlobalStyles"
-
+import Btn from "../styles/button"
 
 
 
@@ -38,11 +38,23 @@ const Selection = styled.select `
 `
 
 
+const Greet = (props)=> {
+  console.log(props)
+  
+  return <h1>{props.ugg}</h1>
+}
+
+
+
 export default function Kalender() {
   const [display, setDisplay] = useState("none");
   const [src, setSrc] = useState(24 - staticDay("dec 25, 2020 00:00:00"));
-  const [ugg, setUgg] = useState("093");
+  const [ugg, setUgg] = useState("091")
+
+  
 console.log(src)
+
+
 
   return (
     <>
@@ -53,19 +65,20 @@ console.log(src)
 
       <ContentBox>
         <Title top="0vh">
-        Provschema
+        Provschema 
         </Title>
         <Title sub top="0vh">
-        Här kan du snabbt kolla kommande prov {ugg}
+          <Greet ugg={ugg}/>
+        Här kan du snabbt kolla kommande prov 
         </Title>
 
-      <Selection onChange={() => setUgg("092")}>
-      <option value="091">091</option>
-      <option>092</option>
-      <option value="093">093</option>
-      </Selection>
+      <button onClick={() => setUgg("091")} >091</button>
+      <button onClick={() => setUgg("092")} >092</button>
+      <button onClick={() => setUgg("093")}>093</button>
 
-        <Calendar>{Hatches()}</Calendar>
+
+
+        <Calendar>{Hatches(ugg)}</Calendar>
 
       </ContentBox>
     </>

@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import Link from 'next/link'
 
+
 const Bar = styled.ul `
     padding-top: 1.5vh;
     padding-bottom: 1.5vh;

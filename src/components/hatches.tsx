@@ -37,6 +37,8 @@ let day = new Date().getDate()
 const database = firebase.firestore();
 
 
+
+//
 function HatchMake({ i }) {
 
 let array: any = new Array()
@@ -50,7 +52,7 @@ const [color, setColor] = useState(undefined)
 const [start, setStart] = useState(undefined)
 const [end, setEnd] = useState(undefined)
 
-const date = monthCheck(i, currentMonth)
+const date = monthCheck(i[0], currentMonth)
 
 useEffect(() => {
   database.collection('prov').get().then((snapshot) =>{
@@ -63,7 +65,7 @@ useEffect(() => {
 array?.map((_, index) => {
   // checks if day has test
 
-  if (i === array[index][2]) {
+  if (i[0] === array[index][2] && i[1] === array[index][6]) {
     // sets info
     setInfo(array[index][5])
     setSubject(array[index][4])
@@ -81,16 +83,27 @@ array?.map((_, index) => {
 
 
     return (
-      <Hatch color = {color}>{date[0]} {months[date[1]]} {subject} <Alert> {info}  </Alert> {start} - {end} </Hatch>
+      <Hatch key={i} color = {color}>{date[0]} {months[date[1]]} {subject} <Alert> {info}  </Alert> {start} - {end}  {i[1]}  </Hatch>
     )
 
 
 }
 
-export default function Hatches() {
+export default function Hatches(props) {
 
-  return Array.from({ length: 24 }).map((_, index) => {
-    return <HatchMake i={  (index + day) } />;
-  });
+  console.log(props)
+
+  if (props === "091") {
+    return Array.from({ length: 24 }).map((_, index) => {
+      return <HatchMake key={index} i={  [(index + day), "091"] }/>;
+    });
+  } else if (props === "092") {
+    location.reload()
+    return Array.from({ length: 24 }).map((_, index) => {
+      return <HatchMake key={index} i={  [(index + day), "092"] }/>;
+    });
+  } else {
+    return <h1>poopy butthole</h1>
+  }
 }
 
