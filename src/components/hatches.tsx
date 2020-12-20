@@ -98,7 +98,6 @@ export default function Hatches(props) {
       return <HatchMake key={index} i={  [(index + day), "091"] }/>;
     });
   } else if (props === "092") {
-    location.reload()
     return Array.from({ length: 24 }).map((_, index) => {
       return <HatchMake key={index} i={  [(index + day), "092"] }/>;
     });
