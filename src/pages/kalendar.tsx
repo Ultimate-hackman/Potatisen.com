@@ -1,3 +1,4 @@
+
 import React, { Component, useState }from "react";
 import Hatches from "../components/hatches"; //
 import Header from '../components/header'
@@ -27,20 +28,14 @@ const Selection = styled.select `
     width: 10vw;
     margin-top: 2vh;
     box-shadow: 1px 1px 8px 1px rgba(58, 58, 58, 0.096);
-
     transition: ease-out 0.2s;
-
-
   &:hover {
 	border-color: #388cd1;
 }
-
 `
 
 
 const Greet = (props)=> {
-  console.log(props)
-  
   return <h1>{props.ugg}</h1>
 }
 
@@ -49,10 +44,8 @@ const Greet = (props)=> {
 export default function Kalender() {
   const [display, setDisplay] = useState("none");
   const [src, setSrc] = useState(24 - staticDay("dec 25, 2020 00:00:00"));
-  const [ugg, setUgg] = useState("alla")
+  const [ugg, setUgg] = useState("091")
 
-  
-console.log(src)
 
 
 
@@ -84,5 +77,3 @@ console.log(src)
     </>
   );
 }
-
-

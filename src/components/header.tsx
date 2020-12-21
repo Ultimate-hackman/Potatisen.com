@@ -48,7 +48,7 @@ export default function header() {
     <Link href="/"><Item>Hem</Item></Link>
     <Link href="/veckobrev"><Item>Veckobrev</Item></Link>
     <Link href="/about"><Item>Om oss</Item></Link>
-    <Link href="/kalendar"><Item>Kalender<small>🎅</small></Item></Link>
+    <Link href="/kalendar"><Item>Provschema<small>📅</small></Item></Link>
 
 
     <Potatisen>Potatisen</Potatisen>

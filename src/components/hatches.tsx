@@ -38,21 +38,32 @@ const database = firebase.firestore();
 
 
 
-//
-function HatchMake({ i }) {
 
-let array: any = new Array()
-let currentMonth = new Date().getMonth()
+function daySeparate(i, data, x) {
+  if ((i + day) === data[2]) {
+    return data[x]
+  } else {
+    return " "
+  }
+}
 
 
-// states
-const [info, setInfo] = useState(undefined);
-const [subject, setSubject] = useState(undefined);
-const [color, setColor] = useState(undefined)
-const [start, setStart] = useState(undefined)
-const [end, setEnd] = useState(undefined)
+export default function Hatches(props) {
+  let array = new Array()
+  
+  let dataArray = new Array()
+  let dataArray2 = new Array()
+  let dataArray3 = new Array()
 
-const date = monthCheck(i[0], currentMonth)
+  let graphLength: number = 24
+  let currentMonth = new Date().getMonth()
+
+
+  // states
+
+const [data, setData] = useState(new Array());
+const [data2, setData2] = useState(new Array());
+const [data3, setData3] = useState(new Array());
 
 useEffect(() => {
   database.collection('prov').get().then((snapshot) =>{
@@ -61,52 +72,58 @@ useEffect(() => {
 
     })
 
+  for (let i = 0; i < graphLength; i++) {
+    for (const c in array) {
+      if (i + day === array[c][2]) {
+        switch(array[c][6]) {
+          case "091":
+            console.log(array[c])
+            setData(array[c])
+            break;
+          case "092":
+            setData2(array[c])
+            break;
+          case "093":
+            setData3(array[c])
+            break;
+        }
+    
+      } 
+    }
+  }
 
-array?.map((_, index) => {
-  // checks if day has test
 
-  if (i[0] === array[index][2] && i[1] === array[index][6]) {
-    // sets info
-    setInfo(array[index][5])
-    setSubject(array[index][4])
-    setStart(array[index][3].start)
-    setEnd(array[index][3].end)
-
-    // color
-    setColor(colorFinder(array[index][4]))
-  } 
-
-})
 
 })
 }, []);
 
 
-    return (
-      <Hatch key={i} color = {color}>{date[0]} {months[date[1]]} {subject} <Alert> {info}  </Alert> {start} - {end}  {i[1]}  </Hatch>
-    )
 
+for (let i = 0; i < graphLength; i++) {
+  let currentMonth = new Date().getMonth()
+  let target: any[] = []
+  const date = monthCheck(i + day, currentMonth)
 
-}
-
-export default function Hatches(props) {
-
-  console.log(props)
-
-  
-
-  if (props === "091") {
-    return Array.from({ length: 24 }).map((_, index) => {
-      return <HatchMake key={index} i={  [(index + day), props] }/>;
-    });
-  } else if (props ==="093") {
-    return Array.from({ length: 24 }).map((_, index) => {
-      return <HatchMake key={index * -1} i={  [(index + day), props] }/>;
-    });
-  } else if (props === "092") {
-    return Array.from({ length: 24 }).map((_, index) => {
-      return <HatchMake  i={  [(index + day), props] }/>;
-    });
+  switch (props) {
+    case "091":
+      target.push(data)
+      break;
+    case "092":
+      target.push(data2)
+      break;
+    case "093":
+      target.push(data3)
+      break;
   }
+
+
+  array.push(<Hatch color={colorFinder(daySeparate(i, target[0], 4))} key={i}>{date[0]} {months[date[1]]} {daySeparate(i, target[0], 4)} <Alert>{daySeparate(i, target[0], 5)} </Alert></Hatch>)
+
+
+
 }
+
+return array
+}
+
 
