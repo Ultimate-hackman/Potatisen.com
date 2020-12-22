@@ -12,8 +12,19 @@ import Img from '../styles/img'
 import Btn from '../styles/btn'
 
 
+
 export default function Home() {
   let time = staticDayCount("dec 25, 2020 00:00:00")
+
+
+  function christmas() {
+    if (time === 0) {
+      return "Idag är det julafton."
+    } else {
+      return  time + " " + pluralCheck(time, 0, 0, 0)[0] + " " + "kvar till julafton."
+    }
+  }
+  
   return (
     <>
 
@@ -29,7 +40,7 @@ export default function Home() {
        </Link>
 
        <NewsPad>
-        <h1> {time} {pluralCheck(time, 0, 0, 0)[0]} kvar till julafton. God jul! 🎄</h1>
+        <h1> {christmas()} God jul! 🎄</h1>
        </NewsPad>
     </>
   )
