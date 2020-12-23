@@ -8,6 +8,8 @@ import firebase from '../lib/firebase/firebase'
 import months from '../lib/time/findMonth'
 import monthCheck from '../lib/time/monthUpdate'
 import countDown from '../lib/time/countDown'
+import pluralCheck from '../lib/time/pluralCheck'
+
 const Hatch = styled.div `
 box-shadow: 1px 1px 8px 6px rgba(58, 58, 58, 0.096);
 border-radius: 1.2rem;
@@ -38,9 +40,15 @@ const day = new Date().getDate()
 const currentMonth = new Date().getMonth()
 const database = firebase.firestore();
 let graphLength: number = 24
+let stressPT: number = 0
 
-
-
+function daysLeft(i) {
+  if ((day + i) - day === 0) {
+    return pluralCheck((day + i) -day, "", "", "")[0] 
+  } else {
+    return (day + i) -day + ' ' + pluralCheck((day + i) -day, "", "", "")[0] +' ' + 'kvar' 
+  }
+}
 
 function multiTest(data, i, date) {
   let target = new Array()
@@ -64,9 +72,10 @@ function multiTest(data, i, date) {
     return <Hatch key={i}>{date[0]} {months[date[1]]} {emoji} </Hatch>
   } else {
     if (day > i +day) {
-      return <Hatch color={colorFinder((target[0][4]), "10")} key={i}>{date[0]} {months[date[1]]} {target[0][4]} <Alert>{target[0][5]} ✔ </Alert> klart {emoji}</Hatch>
+      return <Hatch color={colorFinder((target[0][4]), "10")} key={i}>{date[0]} {months[date[1]]} {emoji} {target[0][4]} <Alert>{target[0][5]} ✔ </Alert> klart </Hatch>
     } else {
-      return <Hatch color={colorFinder((target[0][4]), "75")} key={i}>{date[0]} {months[date[1]]} {target[0][4]} <Alert>{target[0][5]} </Alert> {target[0][3].start} - {target[0][3].end} {emoji}</Hatch>
+      stressPT += 1
+      return <Hatch color={colorFinder((target[0][4]), "75")} key={i}>{date[0]} {months[date[1]]}  {target[0][4]} {emoji} <Alert>{target[0][5]} </Alert> {target[0][3].start}:00 - {target[0][3].end}:00 <p> {daysLeft(i)} </p>  </Hatch>// fix error later 
     }
   }
 
@@ -138,7 +147,8 @@ setTotalData(Data)
 }, []);
 
 
-return <>{calendarGen(props.props, totalData)}</>
-}
 
+
+return <>{calendarGen(props.ugg, totalData)} </> 
+}
 

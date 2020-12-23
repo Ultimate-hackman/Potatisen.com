@@ -3,7 +3,7 @@ import React, { Component, useState }from "react";
 import Hatches from "../components/hatches"; //
 import Header from '../components/header'
 import countDown from '../lib/time/countDown'
-
+import stressPt from '../components/hatches'
 import styled from "styled-components";
 import Title from '../styles/title'
 import ContentBox from '../styles/contentBox' 
@@ -44,9 +44,8 @@ const Greet = (props)=> {
 
 export default function Kalender() {
   const [display, setDisplay] = useState("none");
-  const [src, setSrc] = useState(24 - staticDay("dec 25, 2020 00:00:00"));
   const [ugg, setUgg] = useState("091")
-
+  const [language, setLanguage] = useState("sp")
 
 
 
@@ -63,7 +62,7 @@ export default function Kalender() {
         </Title>
         <Title sub top="0vh">
           <Greet ugg={ugg}/>
-        Här kan du snabbt kolla kommande prov {countDown("dec 24, 2020 00:00:00", false)[3]}
+        Här kan du snabbt kolla kommande prov  
         </Title>
 
       <button onClick={() => setUgg("091")}>091</button>
@@ -72,7 +71,7 @@ export default function Kalender() {
 
 
 
-        <Calendar><Hatches props={ugg}/></Calendar>
+        <Calendar><Hatches ugg={ugg}/></Calendar>
 
       </ContentBox>
     </>

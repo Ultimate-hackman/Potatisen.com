@@ -4,9 +4,9 @@ function pluralCheck(days, hours, minutes, seconds) {
   
     if(Math.abs(days) === 1) { 
         array.push("dag")
-    } else {
-        array.push("dagar")
-    }
+    } else if (Math.abs(days) === 0) {
+        array.push("Idag")
+    } else {array.push("dagar")}
   
     if(Math.abs(hours) === 1) {
         array.push("timme")
