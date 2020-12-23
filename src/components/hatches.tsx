@@ -6,7 +6,6 @@ import React, { useState, useEffect } from 'react';
 import colorFinder from '../lib/kalendar/colorFinder'
 import firebase from '../lib/firebase/firebase'
 import months from '../lib/time/findMonth'
-
 import monthCheck from '../lib/time/monthUpdate'
 
 const Hatch = styled.div `
@@ -33,37 +32,65 @@ const Alert = styled(Text) `
 font-size: 1.2vw;
 `
 
-let day = new Date().getDate()
+
+// stuff
+const day = new Date().getDate()
+const currentMonth = new Date().getMonth()
 const database = firebase.firestore();
+let graphLength: number = 24
 
 
 
 
-function daySeparate(i, data, x) {
-  if ((i + day) === data[2]) {
-    return data[x]
-  } else {
-    return " "
+function multiTest(data, i, date) {
+  let target = new Array()
+  for (const meme in data) {
+    if (i + day == data[meme][2] ) {
+      target[0] = data[meme]
+      return <Hatch color={colorFinder(target[0][4])} key={i}>{date[0]} {months[date[1]]} {target[0][4]} <Alert>{target[0][5]} </Alert></Hatch>
+    } else {target.push(undefined)}
   }
 }
 
+function hatch(data, i, array) {
+
+  const date = monthCheck(i + day, currentMonth)
+
+  if (multiTest(data, i, date) === undefined) {
+    array.push(<Hatch key={i}>{date[0]} {months[date[1]]} </Hatch>)
+  } else {
+    array.push(multiTest(data, i, date))
+  }
+}
+
+function calendarGen(props, totalData) {
+  let array: any[] = []
+
+  for (let i = 0; i < graphLength; i++) {
+  
+    switch (props) {
+      case "091":
+        hatch(totalData[0], i, array)
+        break;
+      case "092":
+        hatch(totalData[1], i, array)
+        break;
+      case "093":
+        hatch(totalData[2], i, array)
+        break;
+    }
+  
+  }
+  return array
+}
 
 export default function Hatches(props) {
   let array = new Array()
-  
-  let dataArray = new Array()
-  let dataArray2 = new Array()
-  let dataArray3 = new Array()
-
-  let graphLength: number = 24
-  let currentMonth = new Date().getMonth()
 
 
   // states
-
-const [data, setData] = useState(new Array());
-const [data2, setData2] = useState(new Array());
-const [data3, setData3] = useState(new Array());
+const [Data, setData] = useState(new Array(new Array(), new Array(), new Array()))
+const [totalData, setTotalData] = useState(new Array())
 
 useEffect(() => {
   database.collection('prov').get().then((snapshot) =>{
@@ -75,55 +102,30 @@ useEffect(() => {
   for (let i = 0; i < graphLength; i++) {
     for (const c in array) {
       if (i + day === array[c][2]) {
+
         switch(array[c][6]) {
           case "091":
-            console.log(array[c])
-            setData(array[c])
+            Data[0].push(array[c])
             break;
           case "092":
-            setData2(array[c])
+            Data[1].push(array[c])
             break;
           case "093":
-            setData3(array[c])
+            Data[2].push(array[c])
             break;
         }
-    
+
       } 
     }
   }
 
-
+setTotalData(Data)
 
 })
 }, []);
 
 
-
-for (let i = 0; i < graphLength; i++) {
-  let currentMonth = new Date().getMonth()
-  let target: any[] = []
-  const date = monthCheck(i + day, currentMonth)
-
-  switch (props) {
-    case "091":
-      target.push(data)
-      break;
-    case "092":
-      target.push(data2)
-      break;
-    case "093":
-      target.push(data3)
-      break;
-  }
-
-
-  array.push(<Hatch color={colorFinder(daySeparate(i, target[0], 4))} key={i}>{date[0]} {months[date[1]]} {daySeparate(i, target[0], 4)} <Alert>{daySeparate(i, target[0], 5)} </Alert></Hatch>)
-
-
-
-}
-
-return array
+return calendarGen(props, totalData)
 }
 
 
