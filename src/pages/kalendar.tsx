@@ -2,6 +2,7 @@
 import React, { Component, useState }from "react";
 import Hatches from "../components/hatches"; //
 import Header from '../components/header'
+import countDown from '../lib/time/countDown'
 
 import styled from "styled-components";
 import Title from '../styles/title'
@@ -62,16 +63,16 @@ export default function Kalender() {
         </Title>
         <Title sub top="0vh">
           <Greet ugg={ugg}/>
-        Här kan du snabbt kolla kommande prov 
+        Här kan du snabbt kolla kommande prov {countDown("dec 24, 2020 00:00:00", false)[3]}
         </Title>
 
-      <button onClick={() => setUgg("091")} >091</button>
-      <button onClick={() => setUgg("092")} >092</button>
+      <button onClick={() => setUgg("091")}>091</button>
+      <button onClick={() => setUgg("092")}>092</button>
       <button onClick={() => setUgg("093")}>093</button>
 
 
 
-        <Calendar>{Hatches(ugg)}</Calendar>
+        <Calendar><Hatches props={ugg}/></Calendar>
 
       </ContentBox>
     </>

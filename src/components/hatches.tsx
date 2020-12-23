@@ -7,10 +7,10 @@ import colorFinder from '../lib/kalendar/colorFinder'
 import firebase from '../lib/firebase/firebase'
 import months from '../lib/time/findMonth'
 import monthCheck from '../lib/time/monthUpdate'
-
+import countDown from '../lib/time/countDown'
 const Hatch = styled.div `
 box-shadow: 1px 1px 8px 6px rgba(58, 58, 58, 0.096);
-border-radius: 10px;
+border-radius: 1.2rem;
 width: 10vw;
 text-align: center;
 background-color: ${props => props.color} ;
@@ -44,16 +44,30 @@ let graphLength: number = 24
 
 function multiTest(data, i, date) {
   let target = new Array()
-g
-  for (const meme in data) {
-    if (i + day == data[meme][2] ) {
-      target[0] = data[meme]
-      return <Hatch color={colorFinder(target[0][4])} key={i}>{date[0]} {months[date[1]]} {target[0][4]} <Alert>{target[0][5]} </Alert></Hatch>
-    } else {console.log("daws")}
+  let emoji: string = " "
+
+  if (i + day === day) {
+    emoji += "📍"
   }
 
+  for (const item in data) {
+    if (i + day == data[item][2] ) {
+      target[0] = data[item]
+    }
+  }
+
+
+
+
+
   if (target[0] === undefined) {
-    return <Hatch key={i}>{date[0]} {months[date[1]]} </Hatch>
+    return <Hatch key={i}>{date[0]} {months[date[1]]} {emoji} </Hatch>
+  } else {
+    if (day > i +day) {
+      return <Hatch color={colorFinder((target[0][4]), "10")} key={i}>{date[0]} {months[date[1]]} {target[0][4]} <Alert>{target[0][5]} ✔ </Alert> klart {emoji}</Hatch>
+    } else {
+      return <Hatch color={colorFinder((target[0][4]), "75")} key={i}>{date[0]} {months[date[1]]} {target[0][4]} <Alert>{target[0][5]} </Alert> {target[0][3].start} - {target[0][3].end} {emoji}</Hatch>
+    }
   }
 
 }
@@ -64,7 +78,7 @@ function calendarGen(props, totalData) {
   let array: any[] = []
   
 
-  for (let i = 0; i < graphLength; i++) {
+  for (let i = -1; i < graphLength; i++) {
     const date = monthCheck(i + day, currentMonth)
   
     switch (props) {
@@ -98,7 +112,7 @@ useEffect(() => {
 
     })
 
-  for (let i = 0; i < graphLength; i++) {
+  for (let i = -1; i < graphLength; i++) {
     for (const c in array) {
       if (i + day === array[c][2]) {
 
@@ -124,7 +138,7 @@ setTotalData(Data)
 }, []);
 
 
-return calendarGen(props, totalData)
+return <>{calendarGen(props.props, totalData)}</>
 }
 
 
