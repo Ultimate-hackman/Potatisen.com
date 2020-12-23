@@ -44,39 +44,38 @@ let graphLength: number = 24
 
 function multiTest(data, i, date) {
   let target = new Array()
+g
   for (const meme in data) {
     if (i + day == data[meme][2] ) {
       target[0] = data[meme]
       return <Hatch color={colorFinder(target[0][4])} key={i}>{date[0]} {months[date[1]]} {target[0][4]} <Alert>{target[0][5]} </Alert></Hatch>
-    } else {target.push(undefined)}
+    } else {console.log("daws")}
   }
+
+  if (target[0] === undefined) {
+    return <Hatch key={i}>{date[0]} {months[date[1]]} </Hatch>
+  }
+
 }
 
-function hatch(data, i, array) {
 
-  const date = monthCheck(i + day, currentMonth)
-
-  if (multiTest(data, i, date) === undefined) {
-    array.push(<Hatch key={i}>{date[0]} {months[date[1]]} </Hatch>)
-  } else {
-    array.push(multiTest(data, i, date))
-  }
-}
 
 function calendarGen(props, totalData) {
   let array: any[] = []
+  
 
   for (let i = 0; i < graphLength; i++) {
+    const date = monthCheck(i + day, currentMonth)
   
     switch (props) {
       case "091":
-        hatch(totalData[0], i, array)
+        array.push(multiTest(totalData[0], i, date))
         break;
       case "092":
-        hatch(totalData[1], i, array)
+        array.push(multiTest(totalData[1], i, date))
         break;
       case "093":
-        hatch(totalData[2], i, array)
+        array.push(multiTest(totalData[2], i, date))
         break;
     }
   
