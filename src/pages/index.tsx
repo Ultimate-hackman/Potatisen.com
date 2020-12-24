@@ -14,19 +14,11 @@ import Btn from '../styles/btn'
 
 
 export default function Home() {
-  let time = staticDayCount("dec 25, 2020 00:00:00")
-  let time2 = staticDayCount("jan 11, 2020 00:00:00")
+
+  let time = staticDayCount("jan 11, 2020 00:00:00")
 
 
-  function christmas() {
-    if (time === 0) {
-      return  "Idag är det julafton"
-    } else if (time < 0) {
-      return  365 + time2 + " dagar kvar till skolstart."
-    } else {
-      return time + " " + pluralCheck(time, 0, 0, 0)[0] + " " + "kvar till julafton."
-    }
-  }
+
   
   return (
     <>
@@ -43,7 +35,7 @@ export default function Home() {
        </Link>
 
        <NewsPad>
-        <h1> {christmas()} God jul! 🎄</h1>
+        <h1> {time + " dagar kvar till skolstart."} God jul! 🎄</h1>
        </NewsPad>
     </>
   )

@@ -75,7 +75,7 @@ const PopBtn = styled(Btn)`
 
 export default function Kalender() {
   const [display, setDisplay] = useState("none");
-  const [src, setSrc] = useState(() => {if (24 - staticDay("dec 25, 2020 00:00:00") < 0) {
+  const [src, setSrc] = useState(() => {if (24 - staticDay("dec 25, 2020 00:00:00") > 0) {
     return 24
   } else {
     return 24 - staticDay("dec 25, 2020 00:00:00")
