@@ -31,7 +31,7 @@ function HatchMake({ i }) {
 
   const src = useDownloadUrl(`kalender/${i}.jpg`);
   
-  let day = mainTime().getDate()
+  let day = mainTime().getDate() 
 
 
   let emoji: string = "";
