@@ -1,6 +1,4 @@
-
-const monthsLenght = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-
+import monthsLenght from '../time/monthsLenght'
 
 export default function monthUpdate(i, currentMonth) {
   let array = new Array

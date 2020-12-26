@@ -6,29 +6,25 @@ import React, { useState, useEffect } from "react";
 import colorFinder from "../lib/kalendar/colorFinder";
 import firebase from "../lib/firebase/firebase";
 import months from "../lib/time/findMonth";
-import monthCheck from "../lib/time/monthUpdate";
-import countDown from "../lib/time/countDown";
+import monthCheck from "../lib/kalendar/monthUpdate";
 import pluralCheck from "../lib/time/pluralCheck";
+import monthsLenght from '../lib/time/monthsLenght'
 
 const Hatch = styled.div`
   box-shadow: 1px 1px 8px 6px rgba(58, 58, 58, 0.096);
-  border-radius: 1.2rem;
+  border-radius: 15px;
   width: 10vw;
+  height: auto;
+
   text-align: center;
   background-color: ${(props) => props.color};
 `;
 
-const HatchClose = styled(Hatch)`
-  background-image: linear-gradient(
-    120deg,
-    rgba(214, 22, 8, 0.658),
-    rgba(187, 6, 30, 0.616)
-  );
-  color: rgba(43, 43, 43, 0.836);
-`;
+
+
 
 const Text = styled(Title)`
-  font-size: 1.6vw;
+  font-size: ${props => props.size};
   padding-top: 0vh;
 `;
 
@@ -42,27 +38,27 @@ const currentMonth = new Date().getMonth();
 const database = firebase.firestore();
 const graphLength: number = 24;
 const graphStart: number = -1;
-let stressPT: number = 0;
+
+
 
 function daysLeft(i) {
   if (day + i - day === 0) {
     return pluralCheck(day + i - day, "", "", "")[0];
   } else {
     return (
-      day +
-      i -
-      day +
-      " " +
-      pluralCheck(day + i - day, "", "", "")[0] +
-      " " +
-      "kvar"
+      day + i - day  +" " + pluralCheck(day + i - day, "", "", "")[0] + " " + "kvar"
     );
   }
 }
 
 function multiTest(data, i, date) {
   let target = new Array();
-  let emoji: string = " ";
+  let emoji: string = "";
+
+
+
+  
+  
 
   if (i + day === day) {
     emoji += "📍";
@@ -71,6 +67,10 @@ function multiTest(data, i, date) {
   for (const item in data) {
     if (i + day == data[item][2]) {
       target[0] = data[item];
+    } else if (data[item][2] < day + graphStart ) {
+      if ( currentMonth - data[item][1] === 11 || currentMonth - data[item][1] === -1) {
+        data[item][2] = data[item][2] + monthsLenght[currentMonth]
+      }
     }
   }
 
@@ -83,19 +83,16 @@ function multiTest(data, i, date) {
   } else {
     if (day > i + day) {
       return (
-        <Hatch color={colorFinder(target[0][4], "10")} key={i}>
-          {date[0]} {months[date[1]]} {emoji} {target[0][4]}{" "}
-          <Alert>{target[0][5]} ✔ </Alert> klart{" "}
-        </Hatch>
+        <Hatch color={colorFinder(target[0][4], "10")} key={i}>{date[0]} {months[date[1]]} {emoji} {target[0][4]}{" "} <Alert>{target[0][5]} ✔ </Alert> klart{" "}</Hatch>
       );
     } else {
-      stressPT += 1;
+
       return (
-        <Hatch color={colorFinder(target[0][4], "75")} key={i}>
-          {date[0]} {months[date[1]]} {target[0][4]} {emoji}{" "}
-          <Alert>{target[0][5]} </Alert> {target[0][3].start}:00 -{" "}
-          {target[0][3].end}:00 <p> {daysLeft(i)} </p>{" "}
-        </Hatch>
+        
+        <>
+        
+        <Hatch color={colorFinder(target[0][4], "75")} key={i}> <Text size="1em"> {date[0]} {months[date[1]]} {target[0][4]}  </Text> <Alert>{target[0][5]}  </Alert> <Text size="0.5em">  {target[0][3].start}:00 -{" "} {target[0][3].end}:00 <p> {daysLeft(i)}  </p> </Text> </Hatch>
+        </>
       ); // fix error later
     }
   }
@@ -119,6 +116,7 @@ function calendarGen(props, totalData) {
         break;
     }
   }
+
   return array;
 }
 
@@ -140,9 +138,8 @@ export default function Hatches(props) {
           array.push(doc.data().prov);
         });
 
-        for (let i = graphStart; i < graphLength; i++) {
           for (const c in array) {
-            if (i + day === array[c][2]) {
+
               switch (array[c][6]) {
                 case "091":
                   Data[0].push(array[c]);
@@ -154,13 +151,16 @@ export default function Hatches(props) {
                   Data[2].push(array[c]);
                   break;
               }
-            }
+
           }
-        }
 
         setTotalData(Data);
+
       });
   }, []);
+  
+  return <>
+  
 
-  return <>{calendarGen(props.ugg, totalData)} </>;
+  {calendarGen(props.ugg, totalData)} </>;
 }

@@ -21,7 +21,7 @@ justify-content: center;
         
 grid-template-columns: repeat(7, 11vw);
 grid-template-rows: repeat(4, 6vw);
-grid-row-gap: 4vh;
+grid-row-gap: 3vh;
 `
 
 const Selection = styled.select `
@@ -62,7 +62,7 @@ export default function Kalender() {
         </Title>
         <Title sub top="0vh">
           <Greet ugg={ugg}/>
-        Här kan du snabbt kolla kommande prov  
+        Här kan du snabbt kolla kommande prov 
         </Title>
 
       <button onClick={() => setUgg("091")}>091</button>
@@ -71,7 +71,7 @@ export default function Kalender() {
 
 
 
-        <Calendar><Hatches ugg={ugg}/></Calendar>
+        <Calendar><Hatches ugg={ugg} /></Calendar>
 
       </ContentBox>
     </>
