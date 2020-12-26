@@ -51,9 +51,10 @@ function daysLeft(i) {
   }
 }
 
-function multiTest(data, i, date) {
+function multiTest(data, i) {
   let target = new Array();
   let emoji: string = "";
+  const date = monthCheck(i + day, currentMonth);
 
 
 
@@ -102,17 +103,17 @@ function calendarGen(props, totalData) {
   let array: any[] = [];
 
   for (let i = graphStart; i < graphLength; i++) {
-    const date = monthCheck(i + day, currentMonth);
+
 
     switch (props) {
       case "091":
-        array.push(multiTest(totalData[0], i, date));
+        array.push(multiTest(totalData[0], i));
         break;
       case "092":
-        array.push(multiTest(totalData[1], i, date));
+        array.push(multiTest(totalData[1], i));
         break;
       case "093":
-        array.push(multiTest(totalData[2], i, date));
+        array.push(multiTest(totalData[2], i));
         break;
     }
   }
