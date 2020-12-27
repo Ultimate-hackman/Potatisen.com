@@ -37,6 +37,7 @@ export default function Home() {
        <NewsPad>
         <h1> {time + " dagar kvar till skolstart."} God jul! 🎄</h1>
        </NewsPad>
+
     </>
   )
 }

@@ -6,7 +6,7 @@ import React, { useState, useEffect } from "react";
 import colorFinder from "../lib/kalendar/colorFinder";
 import firebase from "../lib/firebase/firebase";
 import months from "../lib/time/months";
-import monthCheck from "../lib/kalendar/monthUpdate";
+import monthCheck from "../lib/kalendar/monthCheck";
 import pluralCheck from "../lib/time/pluralCheck";
 import monthsLenght from "../lib/time/monthsLenght";
 
@@ -44,8 +44,8 @@ const Alert = styled(Text)`
 const day = new Date().getDate();
 const currentMonth = new Date().getMonth();
 const database = firebase.firestore();
-const graphLength: number = 24;
-const graphStart: number = -1;
+const graphLength: number = 25;
+const graphStart: number = 0;
 
 
 
@@ -97,20 +97,25 @@ function multiTest(data, i) {
     } else {
 
       return (
-        
         <>
-        
         <Hatch color={colorFinder(target[0][4], "75")} key={i}> <Text size="1em"> {date[0]} {months[date[1]]} {target[0][4]}  </Text> <Alert>{target[0][5]}  </Alert> <Text size="0.7em">  {target[0][3].start}:00 -{" "} {target[0][3].end}:00 <p> {daysLeft(i)}  </p> </Text> </Hatch>
         </>
       ); // fix error later
     }
-  }
+  }      
 }
 
 function calendarGen(props, totalData) {
   let array: any[] = [];
 
   for (let i = graphStart; i < graphLength; i++) {
+
+    if (i + day < 42 || i + day < 11) {
+      array.push(<Hatch key={i} color={colorFinder("Ma", "45")}> {monthCheck(i + day, currentMonth)[0]} {months[monthCheck(i + day, currentMonth)[1]]} <Alert>Jullov ☃️ </Alert></Hatch>)
+    } else {
+
+
+    
 
 
     switch (props) {
@@ -125,6 +130,7 @@ function calendarGen(props, totalData) {
         break;
     }
   }
+}
 
   return array;
 }

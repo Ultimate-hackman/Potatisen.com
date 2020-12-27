@@ -36,9 +36,7 @@ grid-row-gap: 2vw;
 const Selection = styled(Select) `
 
     width: 20%;
-  &:hover {
-	border-color: #388cd1;
-}
+    padding-top: 1vh;
 `
 
 
