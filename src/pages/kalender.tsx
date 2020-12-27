@@ -1,117 +1,80 @@
-import React, { useState } from "react";
-import Hatches from "../components/hatches"; 
-import useDownloadUrl from "../lib/firebase/useDownloadUrl";
-
+import React, { Component, useState }from "react";
+import Hatches from "../components/hatches"; //
 import Header from '../components/header'
-
+import stressPt from '../components/hatches'
 import styled from "styled-components";
-import Btn from '../styles/btn'
 import Title from '../styles/title'
 import ContentBox from '../styles/contentBox' 
 import staticDay from "../lib/time/staticDayCount";
 import GlobalStyle from "../theme/GlobalStyles"
+import Btn from "../styles/btn"
 
-import img from '../styles/img'
+import Select from 'react-select'
+
+const options = [
+  { value: '091', label: '091' },
+  { value: '092', label: '092' },
+  { value: '093', label: '093' }
+]
 
 const Calendar = styled.div `
-padding-top: 5vh;
+padding-top: 3vh;
 display: grid;
 justify-self: auto;
 justify-content: center;
         
-grid-template-columns: repeat(7, 11vw);
-grid-template-rows: repeat(4, 6vw);
-grid-row-gap: 4vh;
-`
-
-const Funtitle = styled(Title) `
-    padding-top: 0vh;
-    background-image: linear-gradient(120deg,  rgba(144,0,255,0.7540603248259861), rgba(228,14,14,0.8213457076566125));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-
-`
-
-const Popup = styled.div`
-  display: ${(props) => props.display};
-  
-  position: absolute;
-
-  left: 50%;
-  transform: translate(-50%);
-
-  padding-top: 12vh;
-`;
-
-const ImgToday = styled(img) `
-border-radius: 20px;
-height: 30rem;
-width: 30rem;
-
+grid-template-columns: repeat(7, 9vw);
+grid-template-rows: repeat(4, 5vw);
+grid-row-gap: 2vw;
 
 @media only screen and (max-height: 768px) {
-height: 15rem;
-width: 15rem;  
-}
-box-shadow: 1px 1px 8px 6px rgba(58, 58, 58, 0.062);
-
+  grid-template-columns: repeat(7, 11vw);
+     grid-template-rows: repeat(4, 7vw);  
+    }
 `
 
-const PopBtn = styled(Btn)`
-  border: none;
+const Selection = styled(Select) `
 
-  background-image: linear-gradient(
-    120deg,
-    rgba(144, 0, 255, 0.7540603248259861),
-    rgba(228, 14, 14, 0.8213457076566125)
-  );
+    width: 20%;
+  &:hover {
+	border-color: #388cd1;
+}
+`
 
-  margin-top: 1.5vh;
 
-  transition: ease-out 0.2s;
-`;
 
 
 
 export default function Kalender() {
   const [display, setDisplay] = useState("none");
-  const [src, setSrc] = useState(24);
-console.log(src)
+  const [ugg, setUgg] = useState("091")
+  const [language, setLanguage] = useState("sp")
+
+
 
   return (
     <>
-
     <GlobalStyle/>
 
-    <Header title="Kalender"/>
- 
-        <Popup display={display}>
-          <div>
-            <ImgToday
-              src={useDownloadUrl(`kalender/${src}.jpg`)}
-            />
-          </div>
-          <PopBtn onClick={() => setDisplay("none")}>Ok</PopBtn>
-        </Popup>
+    <Header/>
+
 
       <ContentBox>
-        <Funtitle>
-          Julkalendern
-        </Funtitle>
-        <Title sub>
-          Här kan du snabbt och enkelt kolla kalendern (limited edition)
+        <Title top="0vh">
+        Provschema 
+        </Title>
+        <Title sub top="0vh">
+        Här kan du snabbt kolla kommande prov ({ugg}) 
         </Title>
 
-        <Calendar>{Hatches()}</Calendar>
-        <Btn 
-          onClick={() => setDisplay("")}
-        >
-          Sista luckan
-        </Btn>
+
+      <Selection options={options} defaultValue={options[0]}  onChange={(prop) =>  setUgg(prop.value) } />
+
+
+
+        <Calendar><Hatches ugg={ugg} /></Calendar>
 
       </ContentBox>
     </>
   );
 }
-
-

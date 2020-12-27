@@ -54,7 +54,7 @@ export default function header(props) {
     <Link href="/"><Item>Hem</Item></Link>
     <Link href="/veckobrev"><Item>Veckobrev</Item></Link>
     <Link href="/about"><Item>Om oss</Item></Link>
-    <Link href="/kalender"><Item>Kalender<small>🎅</small></Item></Link>
+    <Link href="/kalender"><Item>Provschema<small>🕒</small></Item></Link>
 
 
     <Potatisen>Potatisen</Potatisen>
