@@ -4,17 +4,16 @@ export default function colorFinder(subject, opacity) {
   
   switch(subject.toUpperCase()) {
       case "NO":
-        color += "#15e715" + opacity
+        color += [21,	231, 21, + opacity]
         break;
       case "SO":
-          color += "#1d1b1b" + opacity
+          color += [29, 27, 27, + opacity]
           break;
       case "MA":
           color += [0, 120, 255, opacity]
           break;
       case "TY":
-        let bruh = 255
-        color += [bruh, 0, 0, opacity]
+        color += [225, 0, 0, opacity]
     }
   return color
 }

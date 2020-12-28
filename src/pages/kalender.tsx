@@ -17,10 +17,10 @@ const uggarOption = [
 ]
 
 const languageOption = [
-  { value: 'TY', label: 'TY' },
-  { value: 'FR', label: 'FR' },
-  { value: 'SP-A', label: 'SP-A' },
-  { value: 'SP-B', label: 'SP-B' }
+  { value: 'TY', label: 'Tyska' },
+  { value: 'FR', label: 'Franska' },
+  { value: 'SP-A', label: 'Spanska (AAV)' },
+  { value: 'SP-B', label: 'Spanska (CTH)' }
 ]
 const Calendar = styled.div `
 padding-top: 3vh;

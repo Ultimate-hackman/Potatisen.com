@@ -59,7 +59,7 @@ function daysLeft(i) {
   }
 }
 
-function multiTest(data, language, i) {
+function multiTest(data, language, ugg, i) {
   let target = new Array();
   let emoji: string = "";
   const date = monthCheck(i + day, currentMonth);
@@ -73,10 +73,10 @@ function multiTest(data, language, i) {
   for (const item in data) {
 
     if (i + day == data[item][2]) {
-      
+
       if (data[item][6] === "alla" && data[item][4] === language) {
         target[0] = data[item];
-      } else if (data[item][6] != "alla") {
+      } else if (data[item][6] != "alla" && data[item][6] === ugg) {
         target[0] = data[item];
       }
     } else if (data[item][2] < day + graphStart ) {
@@ -97,13 +97,13 @@ function multiTest(data, language, i) {
   } else {
     if (day > i + day) {
       return (
-        <Hatch color={colorFinder(target[0][4], "0.1")} key={i}>{date[0]} {months[date[1]]} {emoji} {target[0][4]}{" "} <Alert>{target[0][5]} ✔ </Alert> klart{" "}</Hatch>
+        <Hatch color={colorFinder(target[0][4], "0.1")} key={i}>{date[0]} {months[date[1]]} {emoji} {target[0][4]} <Alert>{target[0][5]} ✔ </Alert> klart{" "}</Hatch>
       );
     } else {
 
       return (
         <>
-        <Hatch color={colorFinder(target[0][4], "0.75")} key={i}> <Text size="1em"> {date[0]} {months[date[1]]} {target[0][4]}  </Text> <Alert>{target[0][5]}  </Alert> <Text size="0.7em">  {target[0][3].start}:00 -{" "} {target[0][3].end}:00 <p> {daysLeft(i)}  </p> </Text> </Hatch>
+        <Hatch color={colorFinder(target[0][4], "0.6")} key={i}> <Text size="1em"> {date[0]} {months[date[1]]} {target[0][4]}  </Text> <Alert>{target[0][5]}  </Alert> <Text size="0.7em">  {target[0][3].start}:00 -{" "} {target[0][3].end}:00 <p> {daysLeft(i)}  </p> </Text> </Hatch>
         </>
       ); // fix error later
     }
@@ -119,21 +119,7 @@ function calendarGen(ugg, language, totalData) {
       output.push(<Hatch key={i} color={colorFinder("Ma", "0.4")}> {monthCheck(i + day, currentMonth)[0]} {months[monthCheck(i + day, currentMonth)[1]]} <Alert>Jullov ☃️ </Alert></Hatch>)
     } else {
 
-
-    
-
-
-    switch (ugg) {
-      case "091":
-        output.push(multiTest(totalData[0], language,  i));
-        break;
-      case "092":
-        output.push(multiTest(totalData[1], language, i));
-        break;
-      case "093":
-        output.push(multiTest(totalData[2], language, i));
-        break;
-    }
+      output.push(multiTest(totalData, language, ugg, i));
   }
 }
 
@@ -159,26 +145,8 @@ export default function Hatches(props) {
         });
 
           for (const c in array) {
-
-              switch (array[c][6]) {
-                case "091":
-                  Data[0].push(array[c]);
-                  break;
-                case "092":
-                  Data[1].push(array[c]);
-                  break;
-                case "093":
-                  Data[2].push(array[c]);
-                  break;
-                case "alla":
-                  Data[0].push(array[c]);
-                  Data[1].push(array[c]);
-                  Data[2].push(array[c]);
-                  break;
-              }
-
+            Data.push(array[c])
           }
-
         setTotalData(Data);
 
       });
