@@ -7,16 +7,21 @@ import Title from '../styles/title'
 import ContentBox from '../styles/contentBox' 
 import staticDay from "../lib/time/staticDayCount";
 import GlobalStyle from "../theme/GlobalStyles"
-import Btn from "../styles/btn"
 
 import Select from 'react-select'
 
-const options = [
+const uggarOption = [
   { value: '091', label: '091' },
   { value: '092', label: '092' },
   { value: '093', label: '093' }
 ]
 
+const languageOption = [
+  { value: 'TY', label: 'TY' },
+  { value: 'FR', label: 'FR' },
+  { value: 'SP-A', label: 'SP-A' },
+  { value: 'SP-B', label: 'SP-B' }
+]
 const Calendar = styled.div `
 padding-top: 3vh;
 display: grid;
@@ -27,6 +32,7 @@ grid-template-columns: repeat(7, 9vw);
 grid-template-rows: repeat(4, 5vw);
 grid-row-gap: 2vw;
 
+
 @media only screen and (max-height: 768px) {
   grid-template-columns: repeat(7, 11vw);
      grid-template-rows: repeat(4, 7vw);  
@@ -34,7 +40,6 @@ grid-row-gap: 2vw;
 `
 
 const Selection = styled(Select) `
-
     width: 20%;
     padding-top: 1vh;
 `
@@ -44,9 +49,9 @@ const Selection = styled(Select) `
 
 
 export default function Kalender() {
-  const [display, setDisplay] = useState("none");
+
   const [ugg, setUgg] = useState("091")
-  const [language, setLanguage] = useState("sp")
+  const [language, setLanguage] = useState("TY")
 
 
 
@@ -66,11 +71,11 @@ export default function Kalender() {
         </Title>
 
 
-      <Selection options={options} defaultValue={options[0]}  onChange={(prop) =>  setUgg(prop.value) } />
+      <Selection options={uggarOption} defaultValue={uggarOption[0]}  onChange={(prop) =>  setUgg(prop.value) } />
+      <Selection options={languageOption} defaultValue={languageOption[0]}  onChange={(prop) =>  setLanguage(prop.value) } />
 
 
-
-        <Calendar><Hatches ugg={ugg} /></Calendar>
+        <Calendar><Hatches ugg={ugg} language={language} /></Calendar>
 
       </ContentBox>
     </>

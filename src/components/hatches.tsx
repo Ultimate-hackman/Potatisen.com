@@ -16,7 +16,7 @@ const Hatch = styled.div`
   width: 8vw;
   height: auto;
   text-align: center;
-  background-color: ${(props) => props.color};
+  background-color: rgba(${(props) => props.color});
 
   @media only screen and (max-height: 768px) {
     width: 10vw;
@@ -44,7 +44,7 @@ const Alert = styled(Text)`
 const day = new Date().getDate();
 const currentMonth = new Date().getMonth();
 const database = firebase.firestore();
-const graphLength: number = 25;
+const graphLength: number = 24;
 const graphStart: number = 0;
 
 
@@ -59,23 +59,25 @@ function daysLeft(i) {
   }
 }
 
-function multiTest(data, i) {
+function multiTest(data, language, i) {
   let target = new Array();
   let emoji: string = "";
   const date = monthCheck(i + day, currentMonth);
 
 
 
-  
-  
-
   if (i + day === day) {
     emoji += "📍";
   }
 
   for (const item in data) {
+
     if (i + day == data[item][2]) {
-      target[0] = data[item];
+      if (data[item][6] === "alla" && data[item][4] === language) {
+        target[0] = data[item];
+      } else if (data[item][6] != "alla") {
+        target[0] = data[item];
+      }
     } else if (data[item][2] < day + graphStart ) {
       if ( currentMonth - data[item][1] === 11 || currentMonth - data[item][1] === -1) {
         data[item][2] = data[item][2] + monthsLenght[currentMonth]
@@ -83,56 +85,58 @@ function multiTest(data, i) {
     }
   }
 
+  
+
   if (target[0] === undefined) {
     return (
       <Hatch key={i}>
-        {date[0]} {months[date[1]]} {emoji}{" "}
+        {date[0]} {months[date[1]]} {emoji} 
       </Hatch>
     );
   } else {
     if (day > i + day) {
       return (
-        <Hatch color={colorFinder(target[0][4], "10")} key={i}>{date[0]} {months[date[1]]} {emoji} {target[0][4]}{" "} <Alert>{target[0][5]} ✔ </Alert> klart{" "}</Hatch>
+        <Hatch color={colorFinder(target[0][4], "0.1")} key={i}>{date[0]} {months[date[1]]} {emoji} {target[0][4]}{" "} <Alert>{target[0][5]} ✔ </Alert> klart{" "}</Hatch>
       );
     } else {
 
       return (
         <>
-        <Hatch color={colorFinder(target[0][4], "75")} key={i}> <Text size="1em"> {date[0]} {months[date[1]]} {target[0][4]}  </Text> <Alert>{target[0][5]}  </Alert> <Text size="0.7em">  {target[0][3].start}:00 -{" "} {target[0][3].end}:00 <p> {daysLeft(i)}  </p> </Text> </Hatch>
+        <Hatch color={colorFinder(target[0][4], "0.75")} key={i}> <Text size="1em"> {date[0]} {months[date[1]]} {target[0][4]}  </Text> <Alert>{target[0][5]}  </Alert> <Text size="0.7em">  {target[0][3].start}:00 -{" "} {target[0][3].end}:00 <p> {daysLeft(i)}  </p> </Text> </Hatch>
         </>
       ); // fix error later
     }
   }      
 }
 
-function calendarGen(props, totalData) {
-  let array: any[] = [];
+function calendarGen(ugg, language, totalData) {
+  let output: any[] = [];
 
   for (let i = graphStart; i < graphLength; i++) {
 
-    if (i + day < 42 || i + day < 11) {
-      array.push(<Hatch key={i} color={colorFinder("Ma", "45")}> {monthCheck(i + day, currentMonth)[0]} {months[monthCheck(i + day, currentMonth)[1]]} <Alert>Jullov ☃️ </Alert></Hatch>)
+    if (i + day < 42 || i + day < 42) {
+      output.push(<Hatch key={i} color={colorFinder("Ma", "0.4")}> {monthCheck(i + day, currentMonth)[0]} {months[monthCheck(i + day, currentMonth)[1]]} <Alert>Jullov ☃️ </Alert></Hatch>)
     } else {
 
 
     
 
 
-    switch (props) {
+    switch (ugg) {
       case "091":
-        array.push(multiTest(totalData[0], i));
+        output.push(multiTest(totalData[0], language,  i));
         break;
       case "092":
-        array.push(multiTest(totalData[1], i));
+        output.push(multiTest(totalData[1], language, i));
         break;
       case "093":
-        array.push(multiTest(totalData[2], i));
+        output.push(multiTest(totalData[2], language, i));
         break;
     }
   }
 }
 
-  return array;
+  return output;
 }
 
 export default function Hatches(props) {
@@ -140,7 +144,7 @@ export default function Hatches(props) {
 
   // states
   const [Data, setData] = useState(
-    new Array(new Array(), new Array(), new Array())
+    new Array(new Array(), new Array(), new Array(), new Array(), new Array(), new Array(), new Array())
   );
   const [totalData, setTotalData] = useState(new Array());
 
@@ -165,6 +169,11 @@ export default function Hatches(props) {
                 case "093":
                   Data[2].push(array[c]);
                   break;
+                case "alla":
+                  Data[0].push(array[c]);
+                  Data[1].push(array[c]);
+                  Data[2].push(array[c]);
+                  break;
               }
 
           }
@@ -177,5 +186,5 @@ export default function Hatches(props) {
   return <>
   
 
-  {calendarGen(props.ugg, totalData)} </>;
+  {calendarGen(props.ugg, props.language, totalData)} </>;
 }

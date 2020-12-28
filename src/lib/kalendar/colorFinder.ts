@@ -10,10 +10,11 @@ export default function colorFinder(subject, opacity) {
           color += "#1d1b1b" + opacity
           break;
       case "MA":
-          color += "#4652ff" + opacity
+          color += [0, 120, 255, opacity]
           break;
-      case "OLD":
-        color += "#8080" + opacity
+      case "TY":
+        let bruh = 255
+        color += [bruh, 0, 0, opacity]
     }
   return color
 }
