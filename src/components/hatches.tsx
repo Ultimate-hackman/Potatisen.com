@@ -76,7 +76,7 @@ function multiTest(data, language, ugg, i) {
 
       if (data[item][6] === "alla" && data[item][4] === language) {
         target[0] = data[item];
-      } else if (data[item][6] != "alla" && data[item][6] === ugg) {
+      } else if (data[item][6] === ugg) {
         target[0] = data[item];
       }
     } else if (data[item][2] < day + graphStart ) {
