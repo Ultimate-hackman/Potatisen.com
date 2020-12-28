@@ -21,13 +21,13 @@ export default function colorFinder(subject, opacity) {
         color += [225, 0, 0, opacity]
         break;
       case "TY":
-        color += [255, 140, 0, opacity]
+        color += [255, 200, 0, opacity]
         break;
       case "SP":
-        color += [255, 140, 0, opacity]
+        color += [255, 200, 0, opacity]
         break;
       case "FR":
-        color += [255, 140, 0, opacity]
+        color += [255, 200, 0, opacity]
         break;
     }
   return color

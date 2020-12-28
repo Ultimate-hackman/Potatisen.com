@@ -97,13 +97,13 @@ function multiTest(data, language, ugg, i) {
   } else {
     if (day > i + day) {
       return (
-        <Hatch color={colorFinder(target[0][4], "0.1")} key={i}>{date[0]} {months[date[1]]} {emoji} {target[0][4]} <Alert>{target[0][5]} ✔ </Alert> klart{" "}</Hatch>
+        <Hatch color={colorFinder(target[0][4], "0.1")} key={i}>{date[0]} {months[date[1]]} {emoji} {target[0][4]} <Alert>{target[0][5]} ✔ </Alert> klart</Hatch>
       );
     } else {
 
       return (
         <>
-        <Hatch color={colorFinder(target[0][4], "0.6")} key={i}> <Text size="1em"> {date[0]} {months[date[1]]} {target[0][4]}  </Text> <Alert>{target[0][5]}  </Alert> <Text size="0.7em">  {target[0][3].start}:00 -{" "} {target[0][3].end}:00 <p> {daysLeft(i)}  </p> </Text> </Hatch>
+        <Hatch color={colorFinder(target[0][4], "0.6")} key={i}> <Text size="1em"> {date[0]} {months[date[1]]} {target[0][4]}  </Text> <Alert>{target[0][5]}  </Alert> <Text size="0.7em">  {target[0][3].start[0]}:{target[0][3].start[1]} - {target[0][3].end[0]}:{target[0][3].end[1]} <p> {daysLeft(i)}  </p> </Text> </Hatch>
         </>
       ); // fix error later
     }
