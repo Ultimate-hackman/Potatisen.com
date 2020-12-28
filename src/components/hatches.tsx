@@ -75,9 +75,9 @@ function multiTest(data, language, ugg, i) {
     if (i + day == data[item][2]) {
 
       if (data[item][6] === "MO" && data[item][4] === language) {
-        target[0] = data[item];
+        target = data[item];
       } else if (data[item][6] === ugg || data[item][6] === "alla" ) {
-        target[0] = data[item];
+        target = data[item];
       }
     } else if (data[item][2] < day + graphStart ) {
       if ( currentMonth - data[item][1] === 11 || currentMonth - data[item][1] === -1) {
@@ -97,13 +97,13 @@ function multiTest(data, language, ugg, i) {
   } else {
     if (day > i + day) {
       return (
-        <Hatch color={colorFinder(target[0][4], "0.1")} key={i}>{date[0]} {months[date[1]]} {emoji} {target[0][4]} <Alert>{target[0][5]} ✔ </Alert> klart</Hatch>
+        <Hatch color={colorFinder(target[4], "0.1")} key={i}>{date[0]} {months[date[1]]} {emoji} {target[4]} <Alert>{target[5]} ✔ </Alert> klart</Hatch>
       );
     } else {
 
       return (
         <>
-        <Hatch color={colorFinder(target[0][4], "0.6")} key={i}> <Text size="1em"> {date[0]} {months[date[1]]} {target[0][4]}  </Text> <Alert>{target[0][5]}  </Alert> <Text size="0.7em">  {target[0][3].start[0]}:{target[0][3].start[1]} - {target[0][3].end[0]}:{target[0][3].end[1]} <p> {daysLeft(i)}  </p> </Text> </Hatch>
+        <Hatch color={colorFinder(target[4], "0.6")} key={i}> <Text size="1em"> {date[0]} {months[date[1]]} {target[4]}  </Text> <Alert>{target[5]}  </Alert> <Text size="0.7em">  {target[3].start[0]}:{target[3].start[1]} - {target[3].end[0]}:{target[3].end[1]} <p> {daysLeft(i)}  </p> </Text> </Hatch>
         </>
       ); // fix error later
     }
