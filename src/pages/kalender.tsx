@@ -40,10 +40,17 @@ grid-row-gap: 2vw;
 `
 
 const Selection = styled(Select) `
+    position: relative;
     width: 20%;
     padding-top: 1vh;
+    margin-left: 1vw ;
 `
-
+const Bar = styled.ul `
+    
+    display: flex;
+    position: sticky;
+    
+`
 
 
 
@@ -52,8 +59,6 @@ export default function Kalender() {
 
   const [ugg, setUgg] = useState("091")
   const [language, setLanguage] = useState("TY")
-
-
 
   return (
     <>
@@ -71,9 +76,10 @@ export default function Kalender() {
         </Title>
 
 
+      <Bar> 
       <Selection options={uggarOption} defaultValue={uggarOption[0]}  onChange={(prop) =>  setUgg(prop.value) } />
       <Selection options={languageOption} defaultValue={languageOption[0]}  onChange={(prop) =>  setLanguage(prop.value) } />
-
+      </Bar>
 
         <Calendar><Hatches ugg={ugg} language={language} /></Calendar>
 
