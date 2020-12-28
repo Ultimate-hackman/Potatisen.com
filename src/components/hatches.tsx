@@ -74,9 +74,9 @@ function multiTest(data, language, ugg, i) {
 
     if (i + day == data[item][2]) {
 
-      if (data[item][6] === "alla" && data[item][4] === language) {
+      if (data[item][6] === "MO" && data[item][4] === language) {
         target[0] = data[item];
-      } else if (data[item][6] === ugg) {
+      } else if (data[item][6] === ugg || data[item][6] === "alla" ) {
         target[0] = data[item];
       }
     } else if (data[item][2] < day + graphStart ) {
@@ -118,7 +118,6 @@ function calendarGen(ugg, language, totalData) {
     if (i + day < 42 || i + day < 42) {
       output.push(<Hatch key={i} color={colorFinder("Ma", "0.4")}> {monthCheck(i + day, currentMonth)[0]} {months[monthCheck(i + day, currentMonth)[1]]} <Alert>Jullov ☃️ </Alert></Hatch>)
     } else {
-
       output.push(multiTest(totalData, language, ugg, i));
   }
 }
@@ -129,10 +128,6 @@ function calendarGen(ugg, language, totalData) {
 export default function Hatches(props) {
   let array = new Array();
 
-  // states
-  const [Data, setData] = useState(
-    new Array(new Array(), new Array(), new Array(), new Array(), new Array(), new Array(), new Array())
-  );
   const [totalData, setTotalData] = useState(new Array());
 
   useEffect(() => {
@@ -144,10 +139,7 @@ export default function Hatches(props) {
           array.push(doc.data().prov);
         });
 
-          for (const c in array) {
-            Data.push(array[c])
-          }
-        setTotalData(Data);
+        setTotalData(array);
 
       });
   }, []);

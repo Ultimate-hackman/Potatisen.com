@@ -11,9 +11,9 @@ import GlobalStyle from "../theme/GlobalStyles"
 import Select from 'react-select'
 
 const uggarOption = [
-  { value: '091', label: '091' },
-  { value: '092', label: '092' },
-  { value: '093', label: '093' }
+  { value: 'O91', label: 'O91' },
+  { value: 'O92', label: 'O92' },
+  { value: 'O93', label: 'O93' }
 ]
 
 const languageOption = [
@@ -57,7 +57,7 @@ const Bar = styled.ul `
 
 export default function Kalender() {
 
-  const [ugg, setUgg] = useState("091")
+  const [ugg, setUgg] = useState("O91")
   const [language, setLanguage] = useState("TY")
 
   return (
