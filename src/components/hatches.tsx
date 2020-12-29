@@ -12,6 +12,7 @@ import monthsLenght from "../lib/time/monthsLenght";
 import mainTime from "../lib/time/mainTime";
 import weekDays from '../lib/time/weekDay';
 import weekCount from '../lib/time/weekCount'
+import { Console } from "console";
 const Hatch = styled.div`
   box-shadow: 1px 1px 8px 6px rgba(58, 58, 58, 0.096);
   border-radius: 15px;
@@ -43,10 +44,11 @@ const Alert = styled(Text)`
 
 const currentMonth = mainTime().getMonth();
 const database = firebase.firestore();
-const monday: number = mainTime().getDay() - (mainTime().getDay() - 1)
+const monday: number = 2
 const graphLength: number = 24;
 const graphStart: number = 0;
-let day = mainTime().getDate(); 
+let day = mainTime().getDate() 
+console.log(monday) 
 day -= monday
 function daysLeft(i) {
   if (day + i - day === 0) {
@@ -117,8 +119,6 @@ function multiTest(data, language, ugg, weekday, i) {
 function calendarGen(ugg, language, totalData) {
   let output: any[] = [];
   let weekDay: number = mainTime().getDay() -1 + (-monday)
-  console.log(weekDay)
-
 
   for (let i = graphStart; i < graphLength; i++) {
     weekDay += 1

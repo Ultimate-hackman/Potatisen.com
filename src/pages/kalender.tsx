@@ -58,6 +58,18 @@ export default function Kalender() {
 
   const [ugg, setUgg] = useState("O91")
   const [language, setLanguage] = useState("TY")
+  let stress =stressPT(ugg, language)
+  function defcon(stress) {
+    let emoji = ""
+    if (stress < 200) { emoji += "😎" } 
+    if (stress < 400 && stress > 200) { emoji += "😃" } 
+    if (stress < 600 && stress > 400) { emoji += "🙂" }
+    if (stress < 800 && stress > 600) { emoji += "🙁" } 
+    if (stress < 1000 && stress > 800) { emoji += "😟" }
+    if (stress < 1200 && stress > 1000) { emoji += "💢" }
+    if (stress > 1200) { emoji += "🤬" }    
+    return emoji
+  }
 
   return (
     <>
@@ -71,7 +83,7 @@ export default function Kalender() {
         Provschema 
         </Title>
         <Title sub top="0vh">
-        Här kan du snabbt kolla kommande prov ({ugg}) stress nivå: {stressPT(ugg, language)}
+        Här kan du snabbt kolla kommande prov ({ugg}) stress nivå: {defcon(stress)} STP: {stress}
         </Title>
 
 
