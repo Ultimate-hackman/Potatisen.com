@@ -127,7 +127,7 @@ function calendarGen(ugg, language, totalData) {
     }
 
     if (weekDay === 6 || weekDay === 0) {
-      output.push(<Hatch key={i} color={colorFinder("So", "0.2")}> {monthCheck(i + day, currentMonth)[0]}  {months[monthCheck(i + day, currentMonth)[1]]}  <Alert>Jullov ☃️ </Alert>  {weekDays[weekDay]} <br></br>(helg) </Hatch>)
+      output.push(<Hatch key={i} color={colorFinder("en", "0.4")}> {monthCheck(i + day, currentMonth)[0]}  {months[monthCheck(i + day, currentMonth)[1]]}    <Alert>Helg🌴</Alert> {weekDays[weekDay]} </Hatch>)
     } else {
       if (i + day < 42 && i === monday) {
         output.push(<Hatch key={i} color={colorFinder("Ma", "0.4")}> {monthCheck(i + day, currentMonth)[0]}  {months[monthCheck(i + day, currentMonth)[1]]} 📍 <Alert>Jullov ☃️ </Alert>  {weekDays[weekDay]} </Hatch>)
