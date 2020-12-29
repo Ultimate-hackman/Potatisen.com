@@ -11,7 +11,7 @@ import pluralCheck from "../lib/time/pluralCheck";
 import monthsLenght from "../lib/time/monthsLenght";
 import mainTime from "../lib/time/mainTime";
 import weekDays from '../lib/time/weekDay';
-
+import weekCount from '../lib/time/weekCount'
 const Hatch = styled.div`
   box-shadow: 1px 1px 8px 6px rgba(58, 58, 58, 0.096);
   border-radius: 15px;
@@ -85,6 +85,8 @@ function multiTest(data, language, ugg, weekday, i) {
     }
   }
 
+
+
   
 
   if (target[0] === undefined) {
@@ -123,14 +125,21 @@ function calendarGen(ugg, language, totalData) {
     if (weekDay >= 7) {
       weekDay -= 7
     }
-    if (i + day < 42 && i === monday) {
-      output.push(<Hatch key={i} color={colorFinder("Ma", "0.4")}> {monthCheck(i + day, currentMonth)[0]}  {months[monthCheck(i + day, currentMonth)[1]]} 📍 <Alert>Jullov ☃️ </Alert>  {weekDays[weekDay]} </Hatch>)
-    } else  if (i + day < 42){
-      output.push(<Hatch key={i} color={colorFinder("Ma", "0.4")}> {monthCheck(i + day, currentMonth)[0]}  {months[monthCheck(i + day, currentMonth)[1]]} <Alert>Jullov ☃️ </Alert>  {weekDays[weekDay]} </Hatch>)
+
+    if (weekDay === 6 || weekDay === 0) {
+      output.push(<Hatch key={i} color={colorFinder("So", "0.2")}> {monthCheck(i + day, currentMonth)[0]}  {months[monthCheck(i + day, currentMonth)[1]]}  <Alert>Jullov ☃️ </Alert>  {weekDays[weekDay]} <br></br>(helg) </Hatch>)
     } else {
-      output.push(multiTest(totalData, language, ugg, weekDays[weekDay], i));
+      if (i + day < 42 && i === monday) {
+        output.push(<Hatch key={i} color={colorFinder("Ma", "0.4")}> {monthCheck(i + day, currentMonth)[0]}  {months[monthCheck(i + day, currentMonth)[1]]} 📍 <Alert>Jullov ☃️ </Alert>  {weekDays[weekDay]} </Hatch>)
+      } else  if (i + day < 42){
+        output.push(<Hatch key={i} color={colorFinder("Ma", "0.4")}> {monthCheck(i + day, currentMonth)[0]}  {months[monthCheck(i + day, currentMonth)[1]]} <Alert>Jullov ☃️ </Alert>  {weekDays[weekDay]} </Hatch>)
+      } else {
+        output.push(multiTest(totalData, language, ugg, weekDays[weekDay], i));
+      }
     }
   }
+
+
 
 
   return output;
@@ -157,7 +166,6 @@ export default function Hatches(props) {
   }, []);
   
   return <>
-  
 
   {calendarGen(props.ugg, props.language, totalData)} </>;
 }

@@ -7,7 +7,7 @@ import Title from '../styles/title'
 import ContentBox from '../styles/contentBox' 
 import stressPT from '../lib/kalendar/stressPT'
 import GlobalStyle from "../theme/GlobalStyles"
-
+import weekCount from '../lib/time/weekCount'
 import Select from 'react-select'
 
 const uggarOption = [
@@ -79,6 +79,7 @@ export default function Kalender() {
       <Selection options={uggarOption} defaultValue={uggarOption[0]}  onChange={(prop) =>  setUgg(prop.value) } />
       <Selection options={languageOption} defaultValue={languageOption[0]}  onChange={(prop) =>  setLanguage(prop.value) } />
       </Bar>
+
 
         <Calendar><Hatches ugg={ugg} language={language} /></Calendar>
 
