@@ -1,11 +1,11 @@
 import React, { Component, useState }from "react";
 import Hatches from "../components/hatches"; //
 import Header from '../components/header'
-import stressPt from '../components/hatches'
+
 import styled from "styled-components";
 import Title from '../styles/title'
 import ContentBox from '../styles/contentBox' 
-import staticDay from "../lib/time/staticDayCount";
+import stressPT from '../lib/kalendar/stressPT'
 import GlobalStyle from "../theme/GlobalStyles"
 
 import Select from 'react-select'
@@ -41,14 +41,13 @@ grid-row-gap: 2vw;
 
 const Selection = styled(Select) `
     position: relative;
-    width: 20%;
-    padding-top: 1vh;
+    width: 10%;
     margin-left: 1vw ;
 `
 const Bar = styled.ul `
-    
+    padding-top: 1vh;
     display: flex;
-    position: sticky;
+    padding-left: 20vw;
     
 `
 
@@ -64,7 +63,7 @@ export default function Kalender() {
     <>
     <GlobalStyle/>
 
-    <Header/>
+    <Header title="Provschema"/>
 
 
       <ContentBox>
@@ -72,7 +71,7 @@ export default function Kalender() {
         Provschema 
         </Title>
         <Title sub top="0vh">
-        Här kan du snabbt kolla kommande prov ({ugg}) 
+        Här kan du snabbt kolla kommande prov ({ugg}) stress nivå: {stressPT(ugg, language)}
         </Title>
 
 
