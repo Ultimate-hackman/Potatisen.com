@@ -40,14 +40,14 @@ const Alert = styled(Text)`
 `;
 
 // stuff
-const day = mainTime().getDate();
+
 const currentMonth = mainTime().getMonth();
 const database = firebase.firestore();
-
+const monday: number = mainTime().getDay() - (mainTime().getDay() - 1)
 const graphLength: number = 24;
 const graphStart: number = 0;
-
-
+let day = mainTime().getDate(); 
+day -= monday
 function daysLeft(i) {
   if (day + i - day === 0) {
     return pluralCheck(day + i - day, "", "", "")[0];
@@ -65,7 +65,7 @@ function multiTest(data, language, ugg, weekday, i) {
 
 
 
-  if (i + day === day) {
+  if (i === monday) {
     emoji += "📍";
   }
 
@@ -114,7 +114,7 @@ function multiTest(data, language, ugg, weekday, i) {
 
 function calendarGen(ugg, language, totalData) {
   let output: any[] = [];
-  let weekDay: number = mainTime().getDay() -1
+  let weekDay: number = mainTime().getDay() -1 + (-monday)
   console.log(weekDay)
 
 
@@ -123,12 +123,15 @@ function calendarGen(ugg, language, totalData) {
     if (weekDay >= 7) {
       weekDay -= 7
     }
-    if (i + day < 42 || i + day < 42) {
-      output.push(<Hatch key={i} color={colorFinder("Ma", "0.4")}> {monthCheck(i + day, currentMonth)[0]} {months[monthCheck(i + day, currentMonth)[1]]} <Alert>Jullov ☃️ </Alert>  {weekDays[weekDay]} </Hatch>)
+    if (i + day < 42 && i === monday) {
+      output.push(<Hatch key={i} color={colorFinder("Ma", "0.4")}> {monthCheck(i + day, currentMonth)[0]}  {months[monthCheck(i + day, currentMonth)[1]]} 📍 <Alert>Jullov ☃️ </Alert>  {weekDays[weekDay]} </Hatch>)
+    } else  if (i + day < 42){
+      output.push(<Hatch key={i} color={colorFinder("Ma", "0.4")}> {monthCheck(i + day, currentMonth)[0]}  {months[monthCheck(i + day, currentMonth)[1]]} <Alert>Jullov ☃️ </Alert>  {weekDays[weekDay]} </Hatch>)
     } else {
       output.push(multiTest(totalData, language, ugg, weekDays[weekDay], i));
+    }
   }
-}
+
 
   return output;
 }
