@@ -11,8 +11,7 @@ import pluralCheck from "../lib/time/pluralCheck";
 import monthsLenght from "../lib/time/monthsLenght";
 import mainTime from "../lib/time/mainTime";
 import weekDays from '../lib/time/weekDay';
-import weekCount from '../lib/time/weekCount'
-import { Console } from "console";
+
 const Hatch = styled.div`
   box-shadow: 1px 1px 8px 6px rgba(58, 58, 58, 0.096);
   border-radius: 15px;
@@ -52,10 +51,10 @@ const Alert = styled(Text)`
 
 const currentMonth = mainTime().getMonth();
 const database = firebase.firestore();
-const monday: number = 2
 const graphLength: number = 24;
 const graphStart: number = 0;
-let day = mainTime().getDate() 
+let day = mainTime().getDate()
+const monday: number = 7 - mainTime().getDay()
 console.log(monday) 
 day -= monday
 function daysLeft(i) {

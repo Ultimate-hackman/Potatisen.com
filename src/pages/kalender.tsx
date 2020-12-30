@@ -7,6 +7,9 @@ import stressPT from '../lib/kalendar/stressPT'
 import GlobalStyle from "../theme/GlobalStyles"
 import Select from 'react-select'
 import ChartGen from '../components/chart'
+
+import NewsPad from '../styles/newsPad'
+
 const uggarOption = [
   { value: 'O91', label: 'O91' },
   { value: 'O92', label: 'O92' },
@@ -30,12 +33,19 @@ grid-template-rows: repeat(4, 5vw);
 grid-row-gap: 2vw;
 
 
+
 @media only screen and (max-height: 768px) {
   grid-template-columns: repeat(7, 11vw);
      grid-template-rows: repeat(4, 7vw);  
     }
 `
+const Box = styled.div `
+width: 40vw;
+display: grid;
+grid-template-columns: repeat(2, 50vw);
+grid-template-rows: repeat(2, 5vw);
 
+`
 const Selection = styled(Select) `
     position: relative;
     width: 10vw;
@@ -81,8 +91,7 @@ export default function Kalender() {
     <GlobalStyle/>
 
     <Header title="Provschema"/>
-
-
+    
 
         <Title top="0vh">
         Provschema 
@@ -91,16 +100,18 @@ export default function Kalender() {
         Här kan du snabbt kolla kommande prov ({ugg}) Chill nivå: {defcon(stress)} STP: {stress}
         </Title>
 
-
+        
       <Bar> 
       <Selection options={uggarOption} defaultValue={uggarOption[0]}  onChange={(prop) =>  setUgg(prop.value) } />
       <Selection options={languageOption} defaultValue={languageOption[0]}  onChange={(prop) =>  setLanguage(prop.value) } />
       </Bar>
 
       
-
         <Calendar><Hatches ugg={ugg} language={language} /></Calendar>
+
         <ChartGen ugg={ugg} language={language}/>
+
+        
       
         
 
