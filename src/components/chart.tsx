@@ -1,12 +1,13 @@
 import stressPT from '../lib/kalendar/stressPT'
 import { Bar } from 'react-chartjs-2'
 import 'react-chartjs-2'
+
 export default function chartGen(props) {
     return <Bar 
     height={200} 
     width={600}
     options={{
-        matainAspectRatio: true,
+        matainAspectRatio: false,
         responsive: true,
         scales: {
             yAxes: [
@@ -19,10 +20,9 @@ export default function chartGen(props) {
         },
         legend: {
             labels: {
-                // This more specific font property overrides the global property
                 fontSize: 20,
                 fontColor: 'black',
-                fontFamily: 'Helvetica'	
+
             }
         },
         layout: {

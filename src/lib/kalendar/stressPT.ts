@@ -48,8 +48,10 @@ export default function stressPT(ugg, language) {
 
         console.log(distance + " " + totalData[c][5])
 
-        if (distance >= 0 && totalData[c][6] === ugg || totalData[c][4] === language) {
-          pT += 100 - distance
+        if (distance >= 0 && totalData[c][6] === ugg || totalData[c][4] === language ) {
+          if (distance < 100 && current <= target) {
+            pT += 100 - distance 
+          }
         }
 
     }

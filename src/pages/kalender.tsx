@@ -1,10 +1,8 @@
 import React, { Component, useState }from "react";
 import Hatches from "../components/hatches"; //
 import Header from '../components/header'
-
 import styled from "styled-components";
 import Title from '../styles/title'
-import ContentBox from '../styles/contentBox' 
 import stressPT from '../lib/kalendar/stressPT'
 import GlobalStyle from "../theme/GlobalStyles"
 import Select from 'react-select'
@@ -40,13 +38,22 @@ grid-row-gap: 2vw;
 
 const Selection = styled(Select) `
     position: relative;
-    width: 10%;
+    width: 10vw;
+
     margin-left: 1vw ;
+
+    @media only screen and (max-height: 768px) {
+      width: 15vw;
+    }
 `
 const Bar = styled.ul `
     padding-top: 1vh;
     display: flex;
     padding-left: 20vw;
+
+    @media only screen and (max-height: 768px) {
+      padding-left: 15vw;
+    }
     
 `
 
@@ -76,7 +83,7 @@ export default function Kalender() {
     <Header title="Provschema"/>
 
 
-      <ContentBox>
+
         <Title top="0vh">
         Provschema 
         </Title>
@@ -94,9 +101,10 @@ export default function Kalender() {
 
         <Calendar><Hatches ugg={ugg} language={language} /></Calendar>
         <ChartGen ugg={ugg} language={language}/>
+      
+        
 
 
-      </ContentBox>
     </>
   );
 }
