@@ -4,6 +4,15 @@ import React, { useState, useEffect } from "react";
 import mainTime from '../time/mainTime'
 import monthsLenght from '../time/monthsLenght'
 
+function totalMonth(num) {
+
+  let output: number = 0
+  for (let i = 0; i < num; i+=1) {
+    output += monthsLenght[i]
+  }
+  return output
+}
+
 export default function stressPT(ugg, language) {
     const database = firebase.firestore();
     let pT: number = 0
@@ -15,7 +24,6 @@ export default function stressPT(ugg, language) {
     let array = new Array();
 
     const [totalData, setTotalData] = useState(new Array());
-  
     useEffect(() => {
       database
         .collection("prov")
@@ -31,24 +39,20 @@ export default function stressPT(ugg, language) {
     }, []);
 
     for (const c in totalData) {
-        let distance: number = totalData[c][2]
 
-        if (totalData[c][1] < currentMonth && currentYear === totalData[c][0]) {
-          for (let i=totalData[c][1] + 1 ; i <= currentMonth -1;i+=1 ) {
-            distance += monthsLenght[i]
-          }
+        let current: number = day + (currentYear *365) + totalMonth(currentMonth);
+
+        let target: number = totalData[c][2] + (totalData[c][0] * 365) + totalMonth(totalData[c][1])
+  
+        let distance =  target - current
+
+        console.log(distance + " " + totalData[c][5])
+
+        if (distance >= 0 && totalData[c][6] === ugg || totalData[c][4] === language) {
+          pT += 100 - distance
         }
-        
-        if (totalData[c][1] === 0  && currentMonth === 11) {
-          distance += monthsLenght[11]
-        } 
-        
-        if (ugg === totalData[c][6] ||language === totalData[c][4]) {
-          pT += 100 - (distance- day)
-        }
+
     }
-
-
     return pT
     
 }

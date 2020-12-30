@@ -7,9 +7,8 @@ import Title from '../styles/title'
 import ContentBox from '../styles/contentBox' 
 import stressPT from '../lib/kalendar/stressPT'
 import GlobalStyle from "../theme/GlobalStyles"
-import weekCount from '../lib/time/weekCount'
 import Select from 'react-select'
-
+import ChartGen from '../components/chart'
 const uggarOption = [
   { value: 'O91', label: 'O91' },
   { value: 'O92', label: 'O92' },
@@ -61,13 +60,13 @@ export default function Kalender() {
   let stress =stressPT(ugg, language)
   function defcon(stress) {
     let emoji = ""
-    if (stress < 200) { emoji += "😎" } 
-    if (stress < 400 && stress > 200) { emoji += "😃" } 
-    if (stress < 600 && stress > 400) { emoji += "🙂" }
-    if (stress < 800 && stress > 600) { emoji += "🙁" } 
-    if (stress < 1000 && stress > 800) { emoji += "😟" }
-    if (stress < 1200 && stress > 1000) { emoji += "💢" }
-    if (stress > 1200) { emoji += "🤬" }    
+    if (stress <= 100) { emoji += "😎" } 
+    if (stress <= 200 && stress >= 150) { emoji += "😃" } 
+    if (stress <= 250 && stress >= 300) { emoji += "🙂" }
+    if (stress <= 350 && stress >= 400) { emoji += "🙁" } 
+    if (stress <= 450 && stress >= 400) { emoji += "😟" }
+    if (stress <= 500 && stress >= 550) { emoji += "💢" }
+    if (stress >= 550) { emoji += "🤬" }    
     return emoji
   }
 
@@ -91,6 +90,7 @@ export default function Kalender() {
       <Selection options={uggarOption} defaultValue={uggarOption[0]}  onChange={(prop) =>  setUgg(prop.value) } />
       <Selection options={languageOption} defaultValue={languageOption[0]}  onChange={(prop) =>  setLanguage(prop.value) } />
       </Bar>
+      <ChartGen ugg={ugg} language={language}/>
 
 
         <Calendar><Hatches ugg={ugg} language={language} /></Calendar>
