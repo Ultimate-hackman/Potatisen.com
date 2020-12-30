@@ -77,10 +77,14 @@ function multiTest(data, language, ugg, weekday, i) {
 
       if (data[item][6] === "MO" && data[item][4] === language) {
         target = data[item];
-      } else if (data[item][6] === ugg || data[item][6] === "alla" ) {
+      } 
+      
+      if (data[item][6] === ugg || data[item][6] === "alla" ) {
         target = data[item];
       }
-    } else if (data[item][2] < day + graphStart ) {
+    } 
+    
+    if (data[item][2] < day + graphStart ) {
       if ( currentMonth - data[item][1] === currentMonth || Math.abs(currentMonth - data[item][1]) != currentMonth) {
         data[item][2] = data[item][2] + monthsLenght[currentMonth]
       }
@@ -118,7 +122,7 @@ function multiTest(data, language, ugg, weekday, i) {
 
 function calendarGen(ugg, language, totalData) {
   let output: any[] = [];
-  let weekDay: number = mainTime().getDay() -1 + (-monday)
+  let weekDay: number = mainTime().getDay() -1 - monday
 
   for (let i = graphStart; i < graphLength; i++) {
     weekDay += 1

@@ -8,11 +8,7 @@ export default function weekFinder(weekday, hour) {
 
     let week: number = (Math.ceil(month * 30.5) / 7) + (day - day % 7) / 7
 
-    if ( weekday + (hour/24) < (day % 7) + nowHour/24 ) {
-        return Math.floor(week + 1)
-    } else {
-        return week 
-    }
+    return ( weekday + (hour/24) < (day % 7) + nowHour/24 ) ? Math.floor(week + 1) : week 
 
 
 
