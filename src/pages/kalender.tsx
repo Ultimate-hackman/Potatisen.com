@@ -52,7 +52,6 @@ const Bar = styled.ul `
 
 
 
-
 export default function Kalender() {
 
   const [ugg, setUgg] = useState("O91")
@@ -82,7 +81,7 @@ export default function Kalender() {
         Provschema 
         </Title>
         <Title sub top="0vh">
-        Här kan du snabbt kolla kommande prov ({ugg}) stress nivå: {defcon(stress)} STP: {stress}
+        Här kan du snabbt kolla kommande prov ({ugg}) Chill nivå: {defcon(stress)} STP: {stress}
         </Title>
 
 
@@ -90,10 +89,12 @@ export default function Kalender() {
       <Selection options={uggarOption} defaultValue={uggarOption[0]}  onChange={(prop) =>  setUgg(prop.value) } />
       <Selection options={languageOption} defaultValue={languageOption[0]}  onChange={(prop) =>  setLanguage(prop.value) } />
       </Bar>
-      <ChartGen ugg={ugg} language={language}/>
 
+      
 
         <Calendar><Hatches ugg={ugg} language={language} /></Calendar>
+        <ChartGen ugg={ugg} language={language}/>
+
 
       </ContentBox>
     </>

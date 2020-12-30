@@ -34,10 +34,18 @@ const Text = styled(Title)`
   font-size: ${props => props.size};
   padding-top: 0vh;
 
+  @media only screen and (max-height: 768px) {
+    font-size: 0.6rem;
+    }
+
 `;
 
 const Alert = styled(Text)`
   font-size: 1rem;
+
+  @media only screen and (max-height: 768px) {
+    font-size: 0.85rem;
+    }
 `;
 
 // stuff
