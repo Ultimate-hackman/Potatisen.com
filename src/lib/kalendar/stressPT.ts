@@ -46,7 +46,7 @@ export default function stressPT(ugg, language) {
   
         let distance =  target - current
 
-        console.log(distance + " " + totalData[c][5])
+
 
         if (distance >= 0 && totalData[c][6] === ugg || totalData[c][4] === language ) {
           if (distance < 100 && current <= target) {

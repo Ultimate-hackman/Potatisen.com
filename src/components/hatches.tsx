@@ -53,10 +53,12 @@ const currentMonth = mainTime().getMonth();
 const database = firebase.firestore();
 const graphLength: number = 24;
 const graphStart: number = 0;
-let day = mainTime().getDate()
-const monday: number = 7 - mainTime().getDay()
-console.log(monday) 
+let day = mainTime().getDate() +2
+const monday: number = (mainTime().getDay() - 1)
+
 day -= monday
+
+
 function daysLeft(i) {
   if (day + i - day === 0) {
     return pluralCheck(day + i - day, "", "", "")[0];
