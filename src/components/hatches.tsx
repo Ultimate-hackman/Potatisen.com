@@ -53,7 +53,7 @@ const currentMonth = mainTime().getMonth();
 const database = firebase.firestore();
 const graphLength: number = 24;
 const graphStart: number = 0;
-let day = mainTime().getDate() +2
+let day = mainTime().getDate() 
 const monday: number = (mainTime().getDay() - 1)
 
 day -= monday
