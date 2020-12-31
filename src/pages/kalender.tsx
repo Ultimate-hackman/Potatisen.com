@@ -77,13 +77,12 @@ export default function Kalender() {
     let emoji = ""
     
     const emojiArray = ['😎', '😃', '🙂', '🙁', '😟', '💢', '🤬']
-    let max = (incr * emojiArray.length) + base
     console.log(emojiArray.length)
 
     for (let i = 0; i <= emojiArray.length ; i+=1) {
       if (stress <= (incr * i) + base ) {
         return emojiArray[i]
-      } else if (stress > max) {
+      } else if (stress > (incr * emojiArray.length) + base) {
         return emojiArray[emojiArray.length - 1]
       }
     }
@@ -101,7 +100,7 @@ export default function Kalender() {
         Provschema 
         </Title>
         <Title sub top="0vh">
-        Här kan du snabbt kolla kommande prov ({ugg}) Chill nivå: {defcon(stress, 100, 50)} STP: {stress}
+        Här kan du snabbt kolla kommande prov ({ugg}) Chill nivå: {defcon(stress, 150, 50)} STP: {stress}
         </Title>
 
         
