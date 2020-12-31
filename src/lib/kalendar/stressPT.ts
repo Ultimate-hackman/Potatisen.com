@@ -56,7 +56,8 @@ export default function stressPT(ugg, language) {
         if (distance >= 0 && totalData[c][6] === ugg || totalData[c][4] === language ) {
           if (distance < 100 && current <= target) {
             pT.push(100 - distance )
-            time.push(day + distance)
+            
+            time.push(totalData[c][2] + ' jan') // test
             totalPt += 100 - distance 
           }
         }
