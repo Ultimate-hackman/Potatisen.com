@@ -6,9 +6,9 @@ import Title from '../styles/title'
 import stressPT from '../lib/kalendar/stressPT'
 import GlobalStyle from "../theme/GlobalStyles"
 import Select from 'react-select'
-import ChartGen from '../components/chart'
+import ClassChart from '../components/classChart'
+import LineChart from '../components/lineChart'
 
-import NewsPad from '../styles/newsPad'
 
 const uggarOption = [
   { value: 'O91', label: 'O91' },
@@ -67,23 +67,27 @@ const Bar = styled.ul `
     
 `
 
-
-
 export default function Kalender() {
 
   const [ugg, setUgg] = useState("O91")
   const [language, setLanguage] = useState("TY")
-  let stress =stressPT(ugg, language)
-  function defcon(stress) {
+  let stress = stressPT(ugg, language)[2]
+
+  function defcon(stress, base, incr) {
     let emoji = ""
-    if (stress <= 100) { emoji += "😎" } 
-    if (stress <= 200 && stress >= 150) { emoji += "😃" } 
-    if (stress <= 250 && stress >= 300) { emoji += "🙂" }
-    if (stress <= 350 && stress >= 400) { emoji += "🙁" } 
-    if (stress <= 450 && stress >= 400) { emoji += "😟" }
-    if (stress <= 500 && stress >= 550) { emoji += "💢" }
-    if (stress >= 550) { emoji += "🤬" }    
-    return emoji
+    
+    const emojiArray = ['😎', '😃', '🙂', '🙁', '😟', '💢', '🤬']
+    let max = (incr * emojiArray.length) + base
+    console.log(emojiArray.length)
+
+    for (let i = 0; i <= emojiArray.length ; i+=1) {
+      if (stress <= (incr * i) + base ) {
+        return emojiArray[i]
+      } else if (stress > max) {
+        return emojiArray[emojiArray.length - 1]
+      }
+    }
+
   }
 
   return (
@@ -97,7 +101,7 @@ export default function Kalender() {
         Provschema 
         </Title>
         <Title sub top="0vh">
-        Här kan du snabbt kolla kommande prov ({ugg}) Chill nivå: {defcon(stress)} STP: {stress}
+        Här kan du snabbt kolla kommande prov ({ugg}) Chill nivå: {defcon(stress, 100, 50)} STP: {stress}
         </Title>
 
         
@@ -109,7 +113,8 @@ export default function Kalender() {
       
         <Calendar><Hatches ugg={ugg} language={language} /></Calendar>
 
-        <ChartGen ugg={ugg} language={language}/>
+      <ClassChart ugg={ugg} language={language}/>
+       <LineChart ugg={ugg} language={language}/>
 
         
       
