@@ -40,7 +40,10 @@ export default function stressPT(ugg, language) {
         });
     }, []);
 
+
+
     for (const c in totalData) {
+      
 
         let current: number = day + (currentYear *365) + totalMonth(currentMonth);
 
@@ -53,11 +56,12 @@ export default function stressPT(ugg, language) {
         if (distance >= 0 && totalData[c][6] === ugg || totalData[c][4] === language ) {
           if (distance < 100 && current <= target) {
             pT.push(100 - distance )
-            time.push(distance)
+            time.push(day + distance)
             totalPt += 100 - distance 
           }
         }
 
+        
     }
     return [pT, time, totalPt]
     

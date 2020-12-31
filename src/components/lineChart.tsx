@@ -37,7 +37,7 @@ export default function classChart(props) {
         labels: x,
         datasets: [{
             lineTension: 0,
-            label: 'Stress över tid',
+            label: 'Stress tydligen inte över tid must fix',
             data: y[0],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
