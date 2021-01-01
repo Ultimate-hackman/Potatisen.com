@@ -2,9 +2,12 @@ import stressPT from '../lib/kalendar/stressPT'
 import { Line } from 'react-chartjs-2'
 import 'react-chartjs-2'
 
+
+
 export default function classChart(props) {
      let y = stressPT(props.ugg, props.language)
     let x = y[1]
+
     return <Line
     height={200} 
     width={600}

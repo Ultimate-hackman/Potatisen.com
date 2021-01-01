@@ -16,7 +16,7 @@ function totalMonth(num) {
 export default function stressPT(ugg, language) {
     const database = firebase.firestore();
     let pT: number[] = []
-    let time: number[] = []
+    let time = new Array()
     let totalPt: number = 0
     const currentMonth = mainTime().getMonth();
     const currentYear = mainTime().getFullYear();
@@ -57,13 +57,20 @@ export default function stressPT(ugg, language) {
           if (distance < 100 && current <= target) {
             pT.push(100 - distance )
             
-            time.push(totalData[c][2] + ' jan') // test
+            time.push(distance) // test
             totalPt += 100 - distance 
           }
         }
 
         
     }
+
+    function sortNumbers(a, b) {
+      return a - b;
+    }
+    
+    time.sort((a, b) => a- b)
+
     return [pT, time, totalPt]
     
 }
