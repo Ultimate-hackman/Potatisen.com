@@ -9,6 +9,7 @@ import Select from 'react-select'
 import ClassChart from '../components/classChart'
 import LineChart from '../components/lineChart'
 
+import mainTime from '../lib/time/mainTime'
 
 const uggarOption = [
   { value: 'O91', label: 'O91' },
@@ -68,10 +69,11 @@ const Bar = styled.ul `
 `
 
 export default function Kalender() {
+  let day = mainTime().getDate()
 
   const [ugg, setUgg] = useState("O91")
   const [language, setLanguage] = useState("TY")
-  let stress = stressPT(ugg, language)[2]
+  let stress = stressPT(ugg, language, 1)[1]
 
   function defcon(stress, base, incr) {
     let emoji = ""

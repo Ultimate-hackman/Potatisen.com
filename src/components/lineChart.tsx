@@ -2,11 +2,23 @@ import stressPT from '../lib/kalendar/stressPT'
 import { Line } from 'react-chartjs-2'
 import 'react-chartjs-2'
 
-
-
+import months from '../lib/time/months'
+import mainTime from '../lib/time/mainTime'
+import monthCheck from '../lib/kalendar/monthCheck'
 export default function classChart(props) {
-     let y = stressPT(props.ugg, props.language)
-    let x = y[1]
+    let day: number = mainTime().getDate()
+    let data = new Array()
+    let time = new Array()
+    let currentMonth = mainTime().getMonth()
+
+    for (let i: number = 0; i < 25; i+=1) {
+        data.push(stressPT(props.ugg, props.language, day + i)[1])
+        time.push(monthCheck(i + day, currentMonth)[0] + " " + months[monthCheck(i + day, currentMonth)[1]])
+    }
+
+    console.log(data)
+    let y = stressPT(props.ugg, props.language, day)
+    let x = y[0]
 
     return <Line
     height={200} 
@@ -37,11 +49,11 @@ export default function classChart(props) {
         }
     }} 
     data={{
-        labels: x,
+        labels: time,
         datasets: [{
             lineTension: 0,
-            label: 'Stress tydligen inte över tid must fix',
-            data: y[0],
+            label: 'Kommande arbets nivå',
+            data: data,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',

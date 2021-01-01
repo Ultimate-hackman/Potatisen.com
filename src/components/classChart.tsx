@@ -1,8 +1,9 @@
 import stressPT from '../lib/kalendar/stressPT'
 import { Bar } from 'react-chartjs-2'
 import 'react-chartjs-2'
-
+import mainTime from '../lib/time/mainTime'
 export default function classChart(props) {
+    let day = mainTime().getDate()
     return <Bar 
     height={200} 
     width={600}
@@ -35,7 +36,7 @@ export default function classChart(props) {
         labels:['O91', 'O92', '093'],
         datasets: [{
             label: 'Klasser',
-            data: [stressPT("O91", props.language)[2], stressPT("O92", props.language)[2], stressPT("O93", props.language)[2]],
+            data: [stressPT("O91", props.language, day)[1], stressPT("O92", props.language, day)[1], stressPT("O93", props.language, day)[1]],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
