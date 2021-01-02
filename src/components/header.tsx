@@ -43,7 +43,7 @@ export default function header(props) {
     if (props.title === undefined) {
         name += "Potatisen.com"
     } else {
-        name += "‧ Potatisen.com"
+        name += "• Potatisen.com"
     }
     return (
     <>

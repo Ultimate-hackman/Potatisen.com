@@ -69,17 +69,15 @@ const Bar = styled.ul `
 `
 
 export default function Kalender() {
-  let day = mainTime().getDate()
+
 
   const [ugg, setUgg] = useState("O91")
   const [language, setLanguage] = useState("TY")
   let stress = stressPT(ugg, language, 1)[1]
 
   function defcon(stress, base, incr) {
-    let emoji = ""
-    
-    const emojiArray = ['😎', '😃', '🙂', '🙁', '😟', '💢', '🤬']
-    console.log(emojiArray.length)
+
+    const emojiArray = ['😎', '😃', '🙂', '🙁', '😟', '😡', '🤬']
 
     for (let i = 0; i <= emojiArray.length ; i+=1) {
       if (stress <= (incr * i) + base ) {
@@ -102,7 +100,7 @@ export default function Kalender() {
         Provschema 
         </Title>
         <Title sub top="0vh">
-        Här kan du snabbt kolla kommande prov ({ugg}) Chill nivå: {defcon(stress, 150, 50)} STP: {stress}
+        Här kan du snabbt kolla kommande prov ({ugg}) Chill nivå: {defcon(stress, 150, 50)} ({stress})
         </Title>
 
         
@@ -115,7 +113,7 @@ export default function Kalender() {
         <Calendar><Hatches ugg={ugg} language={language} /></Calendar>
 
       <ClassChart ugg={ugg} language={language}/>
-       <LineChart ugg={ugg} language={language}/>
+      <LineChart ugg={ugg} language={language}/>
 
         
       

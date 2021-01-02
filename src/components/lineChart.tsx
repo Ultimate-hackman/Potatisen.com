@@ -13,7 +13,9 @@ export default function classChart(props) {
 
     for (let i: number = 0; i < 25; i+=1) {
         data.push(stressPT(props.ugg, props.language, day + i)[1])
-        time.push(monthCheck(i + day, currentMonth)[0] + " " + months[monthCheck(i + day, currentMonth)[1]])
+        if (data[i] != 0) {
+            time.push(monthCheck(i + day, currentMonth)[0] + " " + months[monthCheck(i + day, currentMonth)[1]])
+        }
     }
 
     console.log(data)
@@ -24,7 +26,7 @@ export default function classChart(props) {
     height={200} 
     width={600}
     options={{
-        matainAspectRatio: false,
+        matainAspectRatio: true,
         responsive: true,
         scales: {
             yAxes: [
@@ -52,7 +54,7 @@ export default function classChart(props) {
         labels: time,
         datasets: [{
             lineTension: 0,
-            label: 'Kommande arbets nivå',
+            label: `Kommande arbets nivå (${props.ugg}, ${props.language})`,
             data: data,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',

@@ -1,6 +1,5 @@
 
 import staticDayCount from '../lib/time/staticDayCount'
-import pluralCheck from '../lib/time/pluralCheck'
 
 import GlobalStyle from '../theme/GlobalStyles'
 import Link from 'next/link'
@@ -17,9 +16,6 @@ export default function Home() {
 
   let time = staticDayCount("jan 11, 2020 00:00:00")
 
-
-
-  
   return (
     <>
 
@@ -35,7 +31,7 @@ export default function Home() {
        </Link>
 
        <NewsPad>
-        <h1> {time + " dagar kvar till skolstart."} Glatt jullov! ☃️1</h1>
+        <h1> {time + " dagar kvar till skolstart."} Glatt jullov! ☃️</h1>
        </NewsPad>
 
     </>
