@@ -73,6 +73,8 @@ function multiTest(data, language, ugg, weekIndex, i) {
   let emoji: string = "";
   const date = monthCheck(i + day, currentMonth);
 
+  let multiples: number[] = []
+
   let weekDay = weekDays[weekIndex] 
 
 
@@ -128,8 +130,7 @@ function multiTest(data, language, ugg, weekIndex, i) {
 
       return (
         <>
-        <Hatch color={colorFinder(target[4], "0.5")} key={i}> <Text size="1em"> {date[0]} {months[date[1]]} {target[4]}  </Text> <Alert>{target[5]}  </Alert> <Text size="0.7em">  {target[3].start[0]}:{target[3].start[1]} - {target[3].end[0]}:{target[3].end[1]} <p> {daysLeft(i)} <br></br> {weekDay} </p>  </Text> </Hatch>
-        </>
+        <Hatch color={colorFinder(target[4], "0.5")} key={i}> <Text size="1em"> {date[0]} {months[date[1]]} {target[4]}  </Text> <Alert>{target[5]}  </Alert> <Text size="0.7em">  {target[3].start[0]}:{target[3].start[1]} - {target[3].end[0]}:{target[3].end[1]} <p> {daysLeft(i)} <br></br> {weekDay} </p>  </Text> </Hatch>        </>
       ); // fix error later
     }
   }      

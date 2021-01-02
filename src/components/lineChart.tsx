@@ -18,7 +18,6 @@ export default function classChart(props) {
         }
     }
 
-    console.log(data)
     let y = stressPT(props.ugg, props.language, day)
     let x = y[0]
 
