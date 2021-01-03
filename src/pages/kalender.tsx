@@ -1,13 +1,13 @@
 import React, { Component, useState }from "react";
-import Hatches from "../components/hatches"; //
+import Hatches from "../components/calendar/hatches"; //
 import Header from '../components/header'
 import styled from "styled-components";
 import Title from '../styles/title'
 import stressPT from '../lib/kalendar/stressPT'
 import GlobalStyle from "../theme/GlobalStyles"
 import Select from 'react-select'
-import ClassChart from '../components/classChart'
-import LineChart from '../components/lineChart'
+import ClassChart from '../components/calendar/classChart'
+import LineChart from '../components/calendar/lineChart'
 
 import mainTime from '../lib/time/mainTime'
 

@@ -1,31 +1,15 @@
-import stressPT from '../lib/kalendar/stressPT'
-import { Line } from 'react-chartjs-2'
+import stressPT from '../../lib/kalendar/stressPT'
+import { Bar } from 'react-chartjs-2'
 import 'react-chartjs-2'
+import mainTime from '../../lib/time/mainTime'
 
-import months from '../lib/time/months'
-import mainTime from '../lib/time/mainTime'
-import monthCheck from '../lib/kalendar/monthCheck'
 export default function classChart(props) {
-    let day: number = mainTime().getDate()
-    let data = new Array()
-    let time = new Array()
-    let currentMonth = mainTime().getMonth()
-
-    for (let i: number = 0; i < 25; i+=1) {
-        data.push(stressPT(props.ugg, props.language, day + i)[1])
-        if (data[i] != 0) {
-            time.push(monthCheck(i + day, currentMonth)[0] + " " + months[monthCheck(i + day, currentMonth)[1]])
-        }
-    }
-
-    let y = stressPT(props.ugg, props.language, day)
-    let x = y[0]
-
-    return <Line
+    let day = mainTime().getDate()
+    return <Bar 
     height={200} 
     width={600}
     options={{
-        matainAspectRatio: true,
+        matainAspectRatio: false,
         responsive: true,
         scales: {
             yAxes: [
@@ -50,11 +34,10 @@ export default function classChart(props) {
         }
     }} 
     data={{
-        labels: time,
+        labels:['O91', 'O92', '093'],
         datasets: [{
-            lineTension: 0,
-            label: `Kommande arbets nivå (${props.ugg}, ${props.language})`,
-            data: data,
+            label: 'Klasser',
+            data: [stressPT("O91", props.language, day)[1], stressPT("O92", props.language, day)[1], stressPT("O93", props.language, day)[1]],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',

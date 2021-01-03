@@ -1,16 +1,16 @@
 import "firebase/database";
 import styled from "styled-components";
-import Title from "../styles/title";
+import Title from "../../styles/title";
 import React, { useState, useEffect } from "react";
 
-import colorFinder from "../lib/kalendar/colorFinder";
-import firebase from "../lib/firebase/firebase";
-import months from "../lib/time/months";
-import monthCheck from "../lib/kalendar/monthCheck";
-import pluralCheck from "../lib/time/pluralCheck";
-import monthsLenght from "../lib/time/monthsLenght";
-import mainTime from "../lib/time/mainTime";
-import weekDays from '../lib/time/weekDay';
+import colorFinder from "../../lib/kalendar/colorFinder";
+import firebase from "../../lib/firebase/firebase";
+import months from "../../lib/time/months";
+import monthCheck from "../../lib/kalendar/monthCheck";
+import pluralCheck from "../../lib/time/pluralCheck";
+import monthsLenght from "../../lib/time/monthsLenght";
+import mainTime from "../../lib/time/mainTime";
+import weekDays from '../../lib/time/weekDay';
 
 const Hatch = styled.div`
   box-shadow: 1px 1px 8px 6px rgba(58, 58, 58, 0.096);
@@ -54,9 +54,8 @@ const database = firebase.firestore();
 const calendarStart: number = 24;
 const calendarEnd: number = 0;
 let day: number = mainTime().getDate() 
-const monday: number = (mainTime().getDay() - 1)
+const monday: number = (mainTime().getDay() -1)
 day -= monday
-
 
 function daysLeft(i) {
   if (day + i - day === 0) {
@@ -73,7 +72,7 @@ function multiTest(data, language, ugg, weekIndex, i) {
   let emoji: string = "";
   const date = monthCheck(i + day, currentMonth);
 
-  let multiples: number[] = []
+  
 
   let weekDay = weekDays[weekIndex] 
 
@@ -130,7 +129,7 @@ function multiTest(data, language, ugg, weekIndex, i) {
 
       return (
         <>
-        <Hatch color={colorFinder(target[4], "0.5")} key={i}> <Text size="1em"> {date[0]} {months[date[1]]} {target[4]}  </Text> <Alert>{target[5]}  </Alert> <Text size="0.7em">  {target[3].start[0]}:{target[3].start[1]} - {target[3].end[0]}:{target[3].end[1]} <p> {daysLeft(i)} <br></br> {weekDay} </p>  </Text> </Hatch>        </>
+        <Hatch onClick={() => alert("man")}color={colorFinder(target[4], "0.5")} key={i}> <Text size="1em"> {date[0]} {months[date[1]]} {target[4]}  </Text> <Alert>{target[5]}  </Alert> <Text size="0.7em">  {target[3].start[0]}:{target[3].start[1]} - {target[3].end[0]}:{target[3].end[1]} <p> {daysLeft(i)} <br></br> {weekDay} </p>  </Text> </Hatch>        </>
       ); // fix error later
     }
   }      
