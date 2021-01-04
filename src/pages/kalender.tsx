@@ -109,7 +109,7 @@ export default function Kalender() {
       <Selection options={languageOption} defaultValue={languageOption[0]}  onChange={(prop) =>  setLanguage(prop.value) } />
       </Bar>
 
-      
+
         <Calendar><Hatches ugg={ugg} language={language} /></Calendar>
 
       <ClassChart ugg={ugg} language={language}/>

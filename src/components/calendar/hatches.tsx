@@ -53,8 +53,9 @@ const currentMonth = mainTime().getMonth();
 const database = firebase.firestore();
 const calendarStart: number = 24;
 const calendarEnd: number = 0;
-let day: number = mainTime().getDate() 
+let day: number = mainTime().getDate()  
 const monday: number = (mainTime().getDay() -1)
+let mark: number[] = []
 day -= monday
 
 function daysLeft(i) {
@@ -125,11 +126,11 @@ function multiTest(data, language, ugg, weekIndex, i) {
     } 
     
     
-    if (day < i + day){
-
+    if (day <= i + day){
+      mark.push[i + day]
       return (
         <>
-        <Hatch onClick={() => alert("man")}color={colorFinder(target[4], "0.5")} key={i}> <Text size="1em"> {date[0]} {months[date[1]]} {target[4]}  </Text> <Alert>{target[5]}  </Alert> <Text size="0.7em">  {target[3].start[0]}:{target[3].start[1]} - {target[3].end[0]}:{target[3].end[1]} <p> {daysLeft(i)} <br></br> {weekDay} </p>  </Text> </Hatch>        </>
+        <Hatch onClick={() => alert("man")}color={colorFinder(target[4], "0.5")} key={i}>  <Text size="1em"> {date[0]} {months[date[1]]}  {emoji} {target[4]}  </Text> <Alert>{target[5]}  </Alert> <Text size="0.7em">  {target[3].start[0]}:{target[3].start[1]} - {target[3].end[0]}:{target[3].end[1]} <p> {daysLeft(i)} <br></br> {weekDay} </p>  </Text> </Hatch>        </>
       ); // fix error later
     }
   }      
@@ -154,12 +155,10 @@ function calendarGen(ugg, language, totalData) {
     if (weekDay === 6 || weekDay === 0) {
       output.push(<Hatch key={i} color={colorFinder("en", "0.4")}> {monthCheck(i + day, currentMonth)[0]}  {months[monthCheck(i + day, currentMonth)[1]]}   {bruh}  <Alert>Helg🌴</Alert> {weekDays[weekDay]} </Hatch>)
     } else {
-      if (i + day < 11){
-        output.push(<Hatch key={i} color={colorFinder("Ma", "0.4")}> {monthCheck(i + day, currentMonth)[0]}  {months[monthCheck(i + day, currentMonth)[1]]} <Alert>Jullov ☃️ </Alert>  {weekDays[weekDay]} </Hatch>)
-      } else {
         output.push(multiTest(totalData, language, ugg, weekDay, i));
+        
       }
-    }
+    
   }
 
 
