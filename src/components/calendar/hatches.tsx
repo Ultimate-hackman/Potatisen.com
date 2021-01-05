@@ -120,7 +120,7 @@ function multiTest(data, language, ugg, weekIndex, i, state) {
     let output = []
     for (const item in filterData) {
       if (filterData[item][2] === time) {
-        output.push( <Hatch color={colorFinder(filterData[item][4], "1")} > <Text size="1em"> {date[0]} {months[date[1]]}    </Text> <Alert>{filterData[item][5]}  </Alert> <Text size="0.7em">  {filterData[item][3].start[0]}:{filterData[item][3].start[1]} - {filterData[item][3].end[0]}:{filterData[item][3].end[1]} <p> {daysLeft(i)} <br></br> {weekDay} </p>  </Text> </Hatch>)
+        output.push( <Hatch color={colorFinder(filterData[item][4], "1")} > <Text size="1em"> {date[0]} {months[date[1]]}  {filterData[item][4]}   </Text> <Alert>{filterData[item][5]}  </Alert> <Text size="0.7em">  {filterData[item][3].start[0]}:{filterData[item][3].start[1]} - {filterData[item][3].end[0]}:{filterData[item][3].end[1]} <p> {daysLeft(i)} <br></br> {weekDay} </p>  </Text> </Hatch>)
       }
     }
 
