@@ -40,13 +40,15 @@ grid-row-gap: 2vw;
      grid-template-rows: repeat(4, 7vw);  
     }
 `
-const Box = styled.div `
-width: 40vw;
-display: grid;
-grid-template-columns: repeat(2, 50vw);
-grid-template-rows: repeat(2, 5vw);
+const Popup = styled.div`
+  display: ${(props) => props.display};
+  
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  padding-top: 12vh;
+`;
 
-`
 const Selection = styled(Select) `
     position: relative;
     width: 10vw;
@@ -69,6 +71,8 @@ const Bar = styled.ul `
 `
 
 export default function Kalender() {
+
+  const [msg, setMsg] = useState("none")
 
 
   const [ugg, setUgg] = useState("O91")
@@ -98,9 +102,9 @@ export default function Kalender() {
 
         <Title top="0vh">
         Provschema 
-        </Title>
+        </Title> 
         <Title sub top="0vh">
-        Här kan du snabbt kolla kommande prov ({ugg}) Chill nivå: {defcon(stress, 150, 50)} ({stress})
+        Här kan du snabbt kolla kommande prov ({ugg}) Chill nivå: {defcon(stress, 150, 50)} ({stress}) <small>beta* 🧪</small> 
         </Title>
 
         
@@ -109,11 +113,14 @@ export default function Kalender() {
       <Selection options={languageOption} defaultValue={languageOption[0]}  onChange={(prop) =>  setLanguage(prop.value) } />
       </Bar>
 
+      <Popup display={msg}>{msg} <button onClick={() => setMsg("none")}>Stäng</button></Popup>
+      
 
-        <Calendar><Hatches ugg={ugg} language={language} /></Calendar>
+
+        <Calendar><Hatches state={setMsg} ugg={ugg} language={language} /></Calendar>
 
       <ClassChart ugg={ugg} language={language}/>
-      <LineChart ugg={ugg} language={language}/>
+      <LineChart  ugg={ugg} language={language}/>
 
         
       

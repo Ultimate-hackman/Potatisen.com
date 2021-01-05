@@ -9,7 +9,6 @@ export default function monthUpdate(i, currentMonth) {
     count += monthsLenght[i]
   }
 
-  console.log(count - i)
 
   
     if (i > monthsLenght[currentMonth]) {

@@ -18,7 +18,6 @@ export default function classChart(props) {
     }
 
     let y = stressPT(props.ugg, props.language, day)
-    let x = y[0]
 
     return <Line
     height={200} 

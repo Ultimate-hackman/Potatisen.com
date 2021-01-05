@@ -55,7 +55,6 @@ const calendarStart: number = 24;
 const calendarEnd: number = 0;
 let day: number = mainTime().getDate()  
 const monday: number = (mainTime().getDay() -1)
-let mark: number[] = []
 day -= monday
 
 function daysLeft(i) {
@@ -68,14 +67,20 @@ function daysLeft(i) {
   }
 }
 
-function multiTest(data, language, ugg, weekIndex, i) {
+
+
+function multiTest(data, language, ugg, weekIndex, i, state) {
   let target = new Array();
   let emoji: string = "";
   const date = monthCheck(i + day, currentMonth);
+  let count: number = 0
 
+
+  
   
 
   let weekDay = weekDays[weekIndex] 
+
 
 
 
@@ -83,15 +88,21 @@ function multiTest(data, language, ugg, weekIndex, i) {
     emoji += "📍";
   }
 
+  let filterData: number[] = []
+
   for (const item in data) {
 
     if (i + day == data[item][2]) {
-
+      
       if (data[item][6] === "MO" && data[item][4] === language) {
+        count += 1
+        filterData.push(data[item])
         target = data[item];
       } 
       
       if (data[item][6] === ugg || data[item][6] === "alla" ) {
+        count += 1
+        filterData.push(data[item])
         target = data[item];
       }
     } 
@@ -105,14 +116,23 @@ function multiTest(data, language, ugg, weekIndex, i) {
     }
   }
 
+  function dup(time) {
+    let output = []
+    for (const item in filterData) {
+      if (filterData[item][2] === time) {
+        output.push( <Hatch color={colorFinder(filterData[item][4], "1")} > <Text size="1em"> {date[0]} {months[date[1]]}    </Text> <Alert>{filterData[item][5]}  </Alert> <Text size="0.7em">  {filterData[item][3].start[0]}:{filterData[item][3].start[1]} - {filterData[item][3].end[0]}:{filterData[item][3].end[1]} <p> {daysLeft(i)} <br></br> {weekDay} </p>  </Text> </Hatch>)
+      }
+    }
 
+    return output
+  }
 
   
 
   if (target[0] === undefined) {
     return (
       <>
-      <Hatch key={i}>
+      <Hatch   key={i}>
         {date[0]} {months[date[1]]} {emoji} <br></br>{weekDay}
       </Hatch>
       </>
@@ -121,24 +141,35 @@ function multiTest(data, language, ugg, weekIndex, i) {
   } else {
     if (day > i + day) {
       return (
-        <Hatch color={colorFinder(target[4], "0.1")} key={i}>{date[0]} {months[date[1]]} {emoji} {target[4]} <Alert>{target[5]} ✔ </Alert> klart  </Hatch>
+        <Hatch  color={colorFinder(target[4], "0.1")} key={i}>{date[0]} {months[date[1]]} {emoji} {target[4]} <Alert>{target[5]} ✔ </Alert> klart  </Hatch>
       );
     } 
     
     
     if (day <= i + day){
-      mark.push[i + day]
-      return (
-        <>
-        <Hatch onClick={() => alert("man")}color={colorFinder(target[4], "0.5")} key={i}>  <Text size="1em"> {date[0]} {months[date[1]]}  {emoji} {target[4]}  </Text> <Alert>{target[5]}  </Alert> <Text size="0.7em">  {target[3].start[0]}:{target[3].start[1]} - {target[3].end[0]}:{target[3].end[1]} <p> {daysLeft(i)} <br></br> {weekDay} </p>  </Text> </Hatch>        </>
-      ); // fix error later
+      if (count >= 2) {
+        return (
+          <>
+          
+          <Hatch onClick={() => state(dup(i + day))} color={colorFinder(target[4], "0.5")} key={i}>  <Text size="1em"> {date[0]} {months[date[1]]}  {emoji} {target[4]} ❗️ </Text> <Alert>{target[5]}  </Alert> <Text size="0.7em">  {target[3].start[0]}:{target[3].start[1]} - {target[3].end[0]}:{target[3].end[1]} <p> {daysLeft(i)} <br></br> {weekDay}</p> </Text> </Hatch>        </>
+        ); 
+      } 
+        return (
+          <>
+          
+          <Hatch  color={colorFinder(target[4], "0.5")} key={i}>  <Text size="1em"> {date[0]} {months[date[1]]}  {emoji} {target[4]}  </Text> <Alert>{target[5]}  </Alert> <Text size="0.7em">  {target[3].start[0]}:{target[3].start[1]} - {target[3].end[0]}:{target[3].end[1]} <p> {daysLeft(i)} <br></br> {weekDay}</p> </Text> </Hatch>        </>
+        ); 
+      
+// fix error later
     }
   }      
 }
 
-function calendarGen(ugg, language, totalData) {
+function calendarGen(ugg, language, totalData, state) {
   let output: any[] = [];
   let weekDay: number = mainTime().getDay() -1 - monday
+
+  
 
   for (let i = calendarEnd; i < calendarStart; i++) {
     weekDay += 1
@@ -150,12 +181,13 @@ function calendarGen(ugg, language, totalData) {
 
     if (i === monday) {
       bruh += "📍";
+
     }
 
     if (weekDay === 6 || weekDay === 0) {
       output.push(<Hatch key={i} color={colorFinder("en", "0.4")}> {monthCheck(i + day, currentMonth)[0]}  {months[monthCheck(i + day, currentMonth)[1]]}   {bruh}  <Alert>Helg🌴</Alert> {weekDays[weekDay]} </Hatch>)
     } else {
-        output.push(multiTest(totalData, language, ugg, weekDay, i));
+        output.push(multiTest(totalData, language, ugg, weekDay, i, state));
         
       }
     
@@ -188,6 +220,9 @@ export default function Hatches(props) {
   }, []);
   
   return <>
+  
 
-  {calendarGen(props.ugg, props.language, totalData)} </>;
+  
+
+  {calendarGen(props.ugg, props.language, totalData, props.state)} </>;
 }
