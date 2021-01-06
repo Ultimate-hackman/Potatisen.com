@@ -42,10 +42,9 @@ grid-row-gap: 2vw;
 const Popup = styled.div`
   display: ${(props) => props.display};
   
-  position: absolute;
+  position: fixed;
   left: 50%;
   transform: translate(-50%);
-  padding-top: 12vh;
   background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 1px 1px 8px 6px rgba(39, 39, 39, 0.096);
@@ -55,7 +54,7 @@ const Popup = styled.div`
 `;
 
 const Selection = styled(Select) `
-    position: relative;
+    position: static;
     width: 10vw;
 
     margin-left: 1vw ;
@@ -87,6 +86,7 @@ display:flex;
 export default function Kalender() {
 
   const [multiTest, setMultiTest] = useState("none")
+
 
 
   const [ugg, setUgg] = useState("O91")

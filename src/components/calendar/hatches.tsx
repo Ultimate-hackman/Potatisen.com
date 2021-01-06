@@ -16,7 +16,7 @@ const Hatch = styled.div`
   box-shadow: 1px 1px 8px 6px rgba(58, 58, 58, 0.096);
   border-radius: 1rem;
   width: 8vw;
-  height: 10vh;
+  height: auto;
   text-align: center;
   background-color: rgba(${(props) => props.color});
 
@@ -68,7 +68,7 @@ function daysLeft(i) {
 
 
 
-function multiTest(data, language, ugg, weekIndex, i, state) {
+function multiTest(data, language, ugg, weekIndex, i, state, bright) {
   let target = new Array();
   let emoji: string = "";
   const date = monthCheck(i + day, currentMonth);
@@ -87,27 +87,17 @@ function multiTest(data, language, ugg, weekIndex, i, state) {
     emoji += "📍";
   }
 
-  let filterData: number[] = []
+  let filterData: number[] = new Array()
 
   for (const item in data) {
 
-    if (i + day == data[item][2]) {
-      
-      if (data[item][6] === "MO" && data[item][4] === language) {
-        count += 1
-        filterData.push(data[item])
-        target = data[item];
-      } 
-      
-      if (data[item][6] === ugg || data[item][6] === "alla" ) {
-        count += 1
-        filterData.push(data[item])
-        target = data[item];
-      }
+    if (i + day == data[item][2] && (data[item][6] === ugg || data[item][6] === "alla"  || data[item][6] === "MO" && data[item][4] === language)) {
+      count += 1
+      filterData.push(data[item])
+      target = data[item];
     } 
     
     if (data[item][2] < day + calendarEnd ) {
-
       if ( currentMonth - data[item][1] === currentMonth || Math.abs(currentMonth - data[item][1]) != currentMonth) {
         data[item][2] = data[item][2] + monthsLenght[currentMonth]
       }
@@ -115,11 +105,11 @@ function multiTest(data, language, ugg, weekIndex, i, state) {
     }
   }
 
-  function dup(time) {
+  function duplicate(time) {
     let output = []
     for (const item in filterData) {
       if (filterData[item][2] === time) {
-        output.push( <Hatch color={colorFinder(filterData[item][4], "1")} > <Text size="1em"> {date[0]} {months[date[1]]}  {filterData[item][4]}   </Text> <Alert>{filterData[item][5]}  </Alert> <Text size="0.7em">  {filterData[item][3].start[0]}:{filterData[item][3].start[1]} - {filterData[item][3].end[0]}:{filterData[item][3].end[1]} <p> {daysLeft(i)} <br></br> {weekDay} </p>  </Text> </Hatch>)
+        output.push( <Hatch color={colorFinder(filterData[item][4], "1")} > <Text size="1rem"> {date[0]} {months[date[1]]}  {filterData[item][4]}   </Text> <Alert>{filterData[item][5]}  </Alert> <Text size="0.7rem">  {filterData[item][3].start[0]}:{filterData[item][3].start[1]} - {filterData[item][3].end[0]}:{filterData[item][3].end[1]} <p> {daysLeft(i)} <br></br> {weekDay} </p>  </Text> </Hatch>)
       }
     }
 
@@ -128,7 +118,7 @@ function multiTest(data, language, ugg, weekIndex, i, state) {
 
   
   if (weekIndex === 6 || weekIndex === 0) {
-    return <Hatch key={i} color={colorFinder("en", "0.5")}> {monthCheck(i + day, currentMonth)[0]}  {months[monthCheck(i + day, currentMonth)[1]]}   {emoji}  <Alert>Helg🌴</Alert> {weekDay} </Hatch>
+    return <Hatch key={i} color={colorFinder("en",  bright/2)}> {monthCheck(i + day, currentMonth)[0]}  {months[monthCheck(i + day, currentMonth)[1]]}   {emoji}  <Alert>Helg🌴</Alert> {weekDay} </Hatch>
   }
 
   
@@ -141,7 +131,7 @@ function multiTest(data, language, ugg, weekIndex, i, state) {
   } else {
     if (day > i + day) {
       return (
-        <Hatch  color={colorFinder(target[4], "0.1")} key={i}>{date[0]} {months[date[1]]} {emoji} {target[4]} <Alert>{target[5]} ✔ </Alert> klart  </Hatch>
+        <Hatch color={colorFinder(target[4],  bright/10)} key={i}>{date[0]} {months[date[1]]} {emoji} {target[4]} <Alert>{target[5]} ✔ </Alert> klart  </Hatch>
       );
     } 
     
@@ -151,13 +141,13 @@ function multiTest(data, language, ugg, weekIndex, i, state) {
         return (
           <>
           
-          <Hatch onClick={() => state(dup(i + day))} color={colorFinder(target[4], "0.5")} key={i}>  <Text size="1em"> {date[0]} {months[date[1]]}  {emoji} {target[4]} ❗️ </Text> <Alert>{target[5]}  </Alert> <Text size="0.7em">  {target[3].start[0]}:{target[3].start[1]} - {target[3].end[0]}:{target[3].end[1]} <p> {daysLeft(i)} <br></br> {weekDay}</p> </Text> </Hatch>        </>
+          <Hatch onClick={() => state(duplicate(i + day))} color={colorFinder(target[4], bright/2)} key={i}>  <Text size="1em"> {date[0]} {months[date[1]]}  {emoji} {target[4]} ❗️ </Text> <Alert>{target[5]}  </Alert> <Text size="0.7em">  {target[3].start[0]}:{target[3].start[1]} - {target[3].end[0]}:{target[3].end[1]} <p> {daysLeft(i)} <br></br> {weekDay}</p> </Text> </Hatch>        </>
         ); 
       } 
         return (
           <>
           
-          <Hatch  color={colorFinder(target[4], "0.5")} key={i}>  <Text size="1em"> {date[0]} {months[date[1]]}  {emoji} {target[4]}  </Text> <Alert>{target[5]}  </Alert> <Text size="0.7em">  {target[3].start[0]}:{target[3].start[1]} - {target[3].end[0]}:{target[3].end[1]} <p> {daysLeft(i)} <br></br> {weekDay}</p> </Text> </Hatch>        </>
+          <Hatch  color={colorFinder(target[4], bright/2)} key={i}>  <Text size="1em"> {date[0]} {months[date[1]]}  {emoji} {target[4]}  </Text> <Alert>{target[5]}  </Alert> <Text size="0.7em">  {target[3].start[0]}:{target[3].start[1]} - {target[3].end[0]}:{target[3].end[1]} <p> {daysLeft(i)} <br></br> {weekDay}</p> </Text> </Hatch>        </>
         ); 
       
     }
@@ -176,10 +166,7 @@ function calendarGen(ugg, language, totalData, state) {
       weekDay -= 7
     }
 
-    
-    output.push(multiTest(totalData, language, ugg, weekDay, i, state));
-        
- 
+    output.push(multiTest(totalData, language, ugg, weekDay, i, state, 1.1));
     
   }
 

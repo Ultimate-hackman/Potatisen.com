@@ -15,7 +15,6 @@ function totalMonth(num) {
 
 export default function stressPT(ugg, language, day) {
     const database = firebase.firestore();
-    let pT: number[] = []
     let time = new Array()
     let totalPt: number = 0
     const currentMonth = mainTime().getMonth();
@@ -44,7 +43,6 @@ export default function stressPT(ugg, language, day) {
 
     for (const c in totalData) {
       
-
         let current: number = day + (currentYear *365) + totalMonth(currentMonth);
 
         let target: number = totalData[c][2] + (totalData[c][0] * 365) + totalMonth(totalData[c][1])
@@ -52,13 +50,11 @@ export default function stressPT(ugg, language, day) {
         let distance =  target - current
 
 
-
-        if (distance >= 0 && totalData[c][6] === ugg || totalData[c][4] === language ) {
-          if (distance < 100 && current <= target) {
+        if (distance >= 0 && totalData[c][6] === ugg || totalData[c][4] === language &&(distance < 100 && current <= target) ) {
             
-            time.push(distance) // test
+            time.push(distance) 
             totalPt += 100 - distance 
-          }
+          
         }
 
         
