@@ -8,8 +8,7 @@ import GlobalStyle from "../theme/GlobalStyles"
 import Select from 'react-select'
 import ClassChart from '../components/calendar/classChart'
 import LineChart from '../components/calendar/lineChart'
-
-import mainTime from '../lib/time/mainTime'
+import Btn from '../styles/btn'
 
 const uggarOption = [
   { value: 'O91', label: 'O91' },
@@ -47,6 +46,12 @@ const Popup = styled.div`
   left: 50%;
   transform: translate(-50%);
   padding-top: 12vh;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 1px 1px 8px 6px rgba(39, 39, 39, 0.096);
+  padding: 1rem;
+
+  
 `;
 
 const Selection = styled(Select) `
@@ -70,9 +75,18 @@ const Bar = styled.ul `
     
 `
 
+const PadButton = styled(Btn) `
+margin-top: 1vh;
+padding: 1.5vh 1vw;
+font-size: 0.75em;
+`
+const Flex = styled.div `
+display:flex;
+`
+
 export default function Kalender() {
 
-  const [msg, setMsg] = useState("none")
+  const [multiTest, setMultiTest] = useState("none")
 
 
   const [ugg, setUgg] = useState("O91")
@@ -113,11 +127,11 @@ export default function Kalender() {
       <Selection options={languageOption} defaultValue={languageOption[0]}  onChange={(prop) =>  setLanguage(prop.value) } />
       </Bar>
 
-      <Popup display={msg}>{msg} <button onClick={() => setMsg("none")}>Stäng</button></Popup>
+      <Popup display={multiTest}> <Flex> {multiTest}</Flex> <PadButton onClick={() => setMultiTest("none")}>Stäng</PadButton></Popup>
       
 
 
-        <Calendar><Hatches state={setMsg} ugg={ugg} language={language} /></Calendar>
+        <Calendar><Hatches state={setMultiTest} ugg={ugg} language={language} /></Calendar>
 
       <ClassChart ugg={ugg} language={language}/>
       <LineChart  ugg={ugg} language={language}/>

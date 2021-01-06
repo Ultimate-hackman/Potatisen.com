@@ -11,10 +11,10 @@ import Img from '../styles/img'
 import Btn from '../styles/btn'
 
 
-
 export default function Home() {
 
   let time = staticDayCount("jan 11, 2020 00:00:00")
+
 
   return (
     <>
@@ -22,7 +22,7 @@ export default function Home() {
         <GlobalStyle/>
         <Header/>
         <Title>
-        Välkommen till Potatisen.com!
+        Välkommen till Potatisen.com! 
         </Title>
         <Img src="https://media.discordapp.net/attachments/688322560957743190/786279776468992071/shrek.png"></Img>
 

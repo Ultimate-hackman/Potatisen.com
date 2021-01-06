@@ -16,7 +16,7 @@ const Hatch = styled.div`
   box-shadow: 1px 1px 8px 6px rgba(58, 58, 58, 0.096);
   border-radius: 1rem;
   width: 8vw;
-  height: auto;
+  height: 10vh;
   text-align: center;
   background-color: rgba(${(props) => props.color});
 
@@ -53,9 +53,8 @@ const currentMonth = mainTime().getMonth();
 const database = firebase.firestore();
 const calendarStart: number = 24;
 const calendarEnd: number = 0;
-let day: number = mainTime().getDate()  
 const monday: number = (mainTime().getDay() -1)
-day -= monday
+let day: number = mainTime().getDate() - monday
 
 function daysLeft(i) {
   if (day + i - day === 0) {
@@ -128,14 +127,15 @@ function multiTest(data, language, ugg, weekIndex, i, state) {
   }
 
   
+  if (weekIndex === 6 || weekIndex === 0) {
+    return <Hatch key={i} color={colorFinder("en", "0.5")}> {monthCheck(i + day, currentMonth)[0]}  {months[monthCheck(i + day, currentMonth)[1]]}   {emoji}  <Alert>Helg🌴</Alert> {weekDay} </Hatch>
+  }
+
+  
 
   if (target[0] === undefined) {
-    return (
-      <>
-      <Hatch   key={i}>
-        {date[0]} {months[date[1]]} {emoji} <br></br>{weekDay}
-      </Hatch>
-      </>
+    return (<Hatch key={i}>{date[0]} {months[date[1]]} {emoji} <br></br>{weekDay}</Hatch>
+
 
     );
   } else {
@@ -160,7 +160,6 @@ function multiTest(data, language, ugg, weekIndex, i, state) {
           <Hatch  color={colorFinder(target[4], "0.5")} key={i}>  <Text size="1em"> {date[0]} {months[date[1]]}  {emoji} {target[4]}  </Text> <Alert>{target[5]}  </Alert> <Text size="0.7em">  {target[3].start[0]}:{target[3].start[1]} - {target[3].end[0]}:{target[3].end[1]} <p> {daysLeft(i)} <br></br> {weekDay}</p> </Text> </Hatch>        </>
         ); 
       
-// fix error later
     }
   }      
 }
@@ -177,19 +176,10 @@ function calendarGen(ugg, language, totalData, state) {
       weekDay -= 7
     }
 
-    let bruh = ""
-
-    if (i === monday) {
-      bruh += "📍";
-
-    }
-
-    if (weekDay === 6 || weekDay === 0) {
-      output.push(<Hatch key={i} color={colorFinder("en", "0.4")}> {monthCheck(i + day, currentMonth)[0]}  {months[monthCheck(i + day, currentMonth)[1]]}   {bruh}  <Alert>Helg🌴</Alert> {weekDays[weekDay]} </Hatch>)
-    } else {
-        output.push(multiTest(totalData, language, ugg, weekDay, i, state));
+    
+    output.push(multiTest(totalData, language, ugg, weekDay, i, state));
         
-      }
+ 
     
   }
 
