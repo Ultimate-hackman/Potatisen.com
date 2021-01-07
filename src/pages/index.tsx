@@ -31,7 +31,7 @@ export default function Home() {
        </Link>
 
        <NewsPad>
-        <h1> {time + " dagar kvar till skolstart."} Glatt jullov! ☃️</h1>
+        <h1> {time + 1 + " dagar kvar till skolstart."} Glatt jullov! ☃️</h1>
        </NewsPad>
 
     </>

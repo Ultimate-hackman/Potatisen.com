@@ -18,12 +18,14 @@ const Bar = styled.ul `
 
 const Item = styled.li`
     display: inline-block;
-    padding-left: 1.5vw;
+
     font-size: 1.7em;
+    margin-left: 1vw;
 
     color: rgba(5, 5, 5, 0.7);
 
     transition: ease-out 0.2s;
+    cursor: pointer;
 
 
     &:hover {
@@ -33,7 +35,7 @@ const Item = styled.li`
 
 
 const Potatisen = styled(Item) `
-
+    cursor: default;
     margin-left: auto;
     padding-right: 8vh;
     color: rgb(2, 2, 2);

@@ -16,9 +16,10 @@ const Hatch = styled.div`
   box-shadow: 1px 1px 8px 6px rgba(58, 58, 58, 0.096);
   border-radius: 1rem;
   width: 8vw;
-  height: auto;
+  height: 10vh;
   text-align: center;
   background-color: rgba(${(props) => props.color});
+  cursor: default;
 
   @media only screen and (max-height: 768px) {
     width: 10vw;
@@ -26,7 +27,9 @@ const Hatch = styled.div`
 
 `;
 
-
+const MultiHatch = styled(Hatch) `
+cursor: pointer;
+`
 
 
 const Text = styled(Title)`
@@ -70,24 +73,20 @@ function daysLeft(i) {
 
 function multiTest(data, language, ugg, weekIndex, i, state, bright) {
   let target = new Array();
-  let emoji: string = "";
+  let emoji: string[] = new Array();
   const date = monthCheck(i + day, currentMonth);
   let count: number = 0
 
-
-  
-  
-
   let weekDay = weekDays[weekIndex] 
 
-
-
-
   if (i === monday) {
-    emoji += "📍";
+    emoji.push("📍")
   }
 
+  
+
   let filterData: number[] = new Array()
+
 
   for (const item in data) {
 
@@ -124,31 +123,23 @@ function multiTest(data, language, ugg, weekIndex, i, state, bright) {
   
 
   if (target[0] === undefined) {
-    return (<Hatch key={i}>{date[0]} {months[date[1]]} {emoji} <br></br>{weekDay}</Hatch>
+    return (<Hatch key={i}>{date[0]} {months[date[1]]} {emoji[0]} <br></br>{weekDay}</Hatch>
 
 
     );
   } else {
     if (day > i + day) {
       return (
-        <Hatch color={colorFinder(target[4],  bright/10)} key={i}>{date[0]} {months[date[1]]} {emoji} {target[4]} <Alert>{target[5]} ✔ </Alert> klart  </Hatch>
+        <Hatch color={colorFinder(target[4],  bright/10)} key={i}>{date[0]} {months[date[1]]} {emoji[0]} {target[4]} <Alert>{target[5]} ✔ </Alert> klart  </Hatch>
       );
     } 
     
     
     if (day <= i + day){
       if (count >= 2) {
-        return (
-          <>
-          
-          <Hatch onClick={() => state(duplicate(i + day))} color={colorFinder(target[4], bright/2)} key={i}>  <Text size="1em"> {date[0]} {months[date[1]]}  {emoji} {target[4]} ❗️ </Text> <Alert>{target[5]}  </Alert> <Text size="0.7em">  {target[3].start[0]}:{target[3].start[1]} - {target[3].end[0]}:{target[3].end[1]} <p> {daysLeft(i)} <br></br> {weekDay}</p> </Text> </Hatch>        </>
-        ); 
+        return <MultiHatch onClick={() => state(duplicate(i + day))} color={colorFinder(target[4], bright/2)} key={i}>  <Text size="1em"> {date[0]} {months[date[1]]}  {emoji} {target[4]} ❗️ </Text> <Alert>{target[5]}  </Alert> <Text size="0.7em">  {target[3].start[0]}:{target[3].start[1]} - {target[3].end[0]}:{target[3].end[1]} <p> {daysLeft(i)} <br></br> {weekDay}</p> </Text> </MultiHatch>  
       } 
-        return (
-          <>
-          
-          <Hatch  color={colorFinder(target[4], bright/2)} key={i}>  <Text size="1em"> {date[0]} {months[date[1]]}  {emoji} {target[4]}  </Text> <Alert>{target[5]}  </Alert> <Text size="0.7em">  {target[3].start[0]}:{target[3].start[1]} - {target[3].end[0]}:{target[3].end[1]} <p> {daysLeft(i)} <br></br> {weekDay}</p> </Text> </Hatch>        </>
-        ); 
+        return <Hatch  color={colorFinder(target[4], bright/2)} key={i}>  <Text size="1em"> {date[0]} {months[date[1]]}  {emoji} {target[4]}  </Text> <Alert>{target[5]}  </Alert> <Text size="0.7em">  {target[3].start[0]}:{target[3].start[1]} - {target[3].end[0]}:{target[3].end[1]} <p> {daysLeft(i)} <br></br> {weekDay}</p> </Text> </Hatch> 
       
     }
   }      

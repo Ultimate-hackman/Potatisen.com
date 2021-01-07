@@ -14,6 +14,7 @@ const BigBtn = styled(Btn)`
     padding: 2vh;
 
     transition: linear 0.2s;
+    
 
     &:hover{
       background-image: linear-gradient(120deg,  rgba(144,0,255,0.7540603248259861), rgba(228,14,14,0.8213457076566125));

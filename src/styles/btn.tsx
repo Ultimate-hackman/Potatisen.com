@@ -15,6 +15,7 @@ const Btn = styled.button`
     margin-top: 3vh;
 
     transition: ease-out 0.2s;
+    cursor: pointer;
 
     &:hover {
     color: black;

@@ -29,7 +29,7 @@ justify-self: auto;
 justify-content: center;
         
 grid-template-columns: repeat(7, 9vw);
-grid-template-rows: repeat(4, 5vw);
+
 grid-row-gap: 2vw;
 
 
@@ -46,7 +46,7 @@ const Popup = styled.div`
   left: 50%;
   transform: translate(-50%);
   background-color: #ffffff;
-  border-radius: 10px;
+  border-radius: 1rem;
   box-shadow: 1px 1px 8px 6px rgba(39, 39, 39, 0.096);
   padding: 1rem;
 
@@ -118,7 +118,7 @@ export default function Kalender() {
         Provschema 
         </Title> 
         <Title sub top="0vh">
-        Här kan du snabbt kolla kommande prov ({ugg}) Chill nivå: {defcon(stress, 150, 50)} ({stress}) <small>beta* 🧪</small> 
+        Här kan du snabbt kolla kommande prov ({ugg}) Chill nivå: {defcon(stress, 150, 50)} ({stress}) <small>beta*🧪</small> 
         </Title>
 
         
