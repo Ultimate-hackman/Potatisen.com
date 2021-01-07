@@ -30,6 +30,7 @@ justify-content: center;
         
 grid-template-columns: repeat(7, 9vw);
 
+
 grid-row-gap: 2vw;
 
 
