@@ -28,18 +28,11 @@ display: grid;
 justify-self: auto;
 justify-content: center;
         
-grid-template-columns: repeat(7, 9vw);
+grid-template-columns: repeat(7, 17vh);
+grid-row-gap: 3vh;
 
-
-grid-row-gap: 2vw;
-
-
-
-@media only screen and (max-height: 768px) {
-  grid-template-columns: repeat(7, 11vw);
-     grid-template-rows: repeat(4, 7vw);  
-    }
 `
+
 const Popup = styled.div`
   display: ${(props) => props.display};
   
@@ -56,21 +49,19 @@ const Popup = styled.div`
 
 const Selection = styled(Select) `
     position: static;
-    width: 10vw;
+    width: 20vh;
 
-    margin-left: 1vw ;
+    margin-left: 1vh ;
 
-    @media only screen and (max-height: 768px) {
-      width: 15vw;
-    }
+
 `
 const Bar = styled.ul `
     padding-top: 1vh;
     display: flex;
-    padding-left: 20vw;
+    margin-left: 20vw;
 
     @media only screen and (max-height: 768px) {
-      padding-left: 15vw;
+      margin-left: 15vw;
     }
     
 `
