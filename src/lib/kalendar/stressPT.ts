@@ -46,10 +46,13 @@ export default function stressPT(ugg, language, day) {
         let distance =  target - current
 
 
-        if (distance >= 0 && totalData[c][6] === ugg || totalData[c][4] === language &&(distance < 100 && current <= target) ) {
+        if (distance >= 0 && totalData[c][6] === ugg || totalData[c][4] === language && current <= target ) {
             
             time.push(distance) 
-            totalPt += 100 - distance 
+            if (100 - distance > 0) {
+              totalPt += 100 - distance 
+            }
+
           
         }
 
