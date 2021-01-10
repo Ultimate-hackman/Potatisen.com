@@ -1,117 +1,145 @@
-import React, { useState } from "react";
-import Hatches from "../components/hatches"; 
-import useDownloadUrl from "../lib/firebase/useDownloadUrl";
-
+import React, { Component, useState }from "react";
+import Hatches from "../components/calendar/hatches"; //
 import Header from '../components/header'
-
 import styled from "styled-components";
-import Btn from '../styles/btn'
 import Title from '../styles/title'
-import ContentBox from '../styles/contentBox' 
-import staticDay from "../lib/time/staticDayCount";
+import stressPT from '../lib/kalendar/stressPT'
 import GlobalStyle from "../theme/GlobalStyles"
+import Select from 'react-select'
+import ClassChart from '../components/calendar/classChart'
+import LineChart from '../components/calendar/lineChart'
+import Btn from '../styles/btn'
 
-import img from '../styles/img'
+const uggarOption = [
+  { value: 'O91', label: 'O91' },
+  { value: 'O92', label: 'O92' },
+  { value: 'O93', label: 'O93' }
+]
 
+const languageOption = [
+  { value: 'TY', label: 'Tyska' },
+  { value: 'FR', label: 'Franska' },
+  { value: 'SP-A', label: 'Spanska (AAV)' },
+  { value: 'SP-B', label: 'Spanska (CTH)' }
+]
 const Calendar = styled.div `
-padding-top: 5vh;
+padding-top: 3vh;
 display: grid;
 justify-self: auto;
 justify-content: center;
         
-grid-template-columns: repeat(7, 11vw);
-grid-template-rows: repeat(4, 6vw);
-grid-row-gap: 4vh;
-`
-
-const Funtitle = styled(Title) `
-    padding-top: 0vh;
-    background-image: linear-gradient(120deg,  rgba(144,0,255,0.7540603248259861), rgba(228,14,14,0.8213457076566125));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+grid-template-columns: repeat(7, 17vh);
+grid-row-gap: 3vh;
 
 `
 
 const Popup = styled.div`
   display: ${(props) => props.display};
   
-  position: absolute;
-
+  position: fixed;
   left: 50%;
   transform: translate(-50%);
+  background-color: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 1px 1px 8px 6px rgba(39, 39, 39, 0.096);
+  padding: 1rem;
 
-  padding-top: 12vh;
+  
 `;
 
-const ImgToday = styled(img) `
-border-radius: 20px;
-height: 30rem;
-width: 30rem;
+const Selection = styled(Select) `
+    position: static;
+    width: 20vh;
 
+    margin-left: 1vh ;
 
-@media only screen and (max-height: 768px) {
-height: 15rem;
-width: 15rem;  
-}
-box-shadow: 1px 1px 8px 6px rgba(58, 58, 58, 0.062);
 
 `
+const Bar = styled.ul `
+    padding-top: 1vh;
+    display: flex;
+    margin-left: 20vw;
 
-const PopBtn = styled(Btn)`
-  border: none;
+    @media only screen and (max-height: 768px) {
+      margin-left: 15vw;
+    }
+    
+`
 
-  background-image: linear-gradient(
-    120deg,
-    rgba(144, 0, 255, 0.7540603248259861),
-    rgba(228, 14, 14, 0.8213457076566125)
-  );
+const PadButton = styled(Btn) `
+margin-top: 1vh;
+padding: 1.5vh 1vw;
+font-size: 0.75em;
+`
+const Flex = styled.div `
+display:flex;
+`
 
-  margin-top: 1.5vh;
-
-  transition: ease-out 0.2s;
-`;
-
-
+const Array = styled.div `
+display: flex;
+justify-self: auto;
+grid-column-gap: 2vh;
+ 
+`
 
 export default function Kalender() {
-  const [display, setDisplay] = useState("none");
-  const [src, setSrc] = useState(24);
-console.log(src)
+
+  const [multiTest, setMultiTest] = useState("none")
+
+
+
+  const [ugg, setUgg] = useState("O91")
+  const [language, setLanguage] = useState("TY")
+  let stress = stressPT(ugg, language, 1)[1]
+
+  function defcon(stress, base, incr) {
+
+    const emojiArray = ['😎', '😃', '🙂', '🙁', '😟', '😡', '🤬']
+
+    for (let i = 0; i <= emojiArray.length ; i+=1) {
+      if (stress <= (incr * i) + base ) {
+        return emojiArray[i]
+      } else if (stress > (incr * emojiArray.length) + base) {
+        return emojiArray[emojiArray.length - 1]
+      }
+    }
+
+  }
 
   return (
     <>
-
     <GlobalStyle/>
 
-    <Header title="Kalender"/>
- 
-        <Popup display={display}>
-          <div>
-            <ImgToday
-              src={useDownloadUrl(`kalender/${src}.jpg`)}
-            />
-          </div>
-          <PopBtn onClick={() => setDisplay("none")}>Ok</PopBtn>
-        </Popup>
+    <Header title="Provschema"/>
+    
 
-      <ContentBox>
-        <Funtitle>
-          Julkalendern
-        </Funtitle>
-        <Title sub>
-          Här kan du snabbt och enkelt kolla kalendern (limited edition)
+        <Title top="0vh">
+        Provschema 
+        </Title> 
+        <Title sub top="0vh">
+        Här kan du snabbt kolla kommande prov ({ugg}) Chill nivå: {defcon(stress, 150, 50)} ({stress}) <small>beta*🧪</small> 
         </Title>
 
-        <Calendar>{Hatches()}</Calendar>
-        <Btn 
-          onClick={() => setDisplay("")}
-        >
-          Sista luckan
-        </Btn>
+        
+      <Bar> 
+      <Selection options={uggarOption} defaultValue={uggarOption[0]}  onChange={(prop) =>  setUgg(prop.value) } />
+      <Selection options={languageOption} defaultValue={languageOption[0]}  onChange={(prop) =>  setLanguage(prop.value) } />
+      </Bar>
 
-      </ContentBox>
+      <Popup display={multiTest}>  <Array> {multiTest}</Array><PadButton onClick={() => setMultiTest("none")}>Stäng</PadButton></Popup>
+      
+
+
+        <Calendar><Hatches state={setMultiTest} ugg={ugg} language={language} /></Calendar>
+
+      <ClassChart ugg={ugg} language={language}/>
+      <LineChart  ugg={ugg} language={language}/>
+
+        
+      
+        
+
+
     </>
   );
 }
-
-

@@ -7,6 +7,7 @@ const Bar = styled.ul `
 
     display: flex;
     position: sticky;
+
     
     backdrop-filter: blur(4px);
 
@@ -17,12 +18,14 @@ const Bar = styled.ul `
 
 const Item = styled.li`
     display: inline-block;
-    padding-left: 1.5vw;
+
     font-size: 1.7em;
+    margin-left: 1vw;
 
     color: rgba(5, 5, 5, 0.7);
 
     transition: ease-out 0.2s;
+    cursor: pointer;
 
 
     &:hover {
@@ -32,7 +35,7 @@ const Item = styled.li`
 
 
 const Potatisen = styled(Item) `
-
+    cursor: default;
     margin-left: auto;
     padding-right: 8vh;
     color: rgb(2, 2, 2);
@@ -43,7 +46,7 @@ export default function header(props) {
     if (props.title === undefined) {
         name += "Potatisen.com"
     } else {
-        name += "‧ Potatisen.com"
+        name += "• Potatisen.com"
     }
     return (
     <>
@@ -54,7 +57,7 @@ export default function header(props) {
     <Link href="/"><Item>Hem</Item></Link>
     <Link href="/veckobrev"><Item>Veckobrev</Item></Link>
     <Link href="/about"><Item>Om oss</Item></Link>
-    <Link href="/kalender"><Item>Kalender<small>🎅</small></Item></Link>
+    <Link href="/kalender"><Item>Provschema<small>🕒</small></Item></Link>
 
 
     <Potatisen>Potatisen</Potatisen>

@@ -1,6 +1,5 @@
 
 import staticDayCount from '../lib/time/staticDayCount'
-import pluralCheck from '../lib/time/pluralCheck'
 
 import GlobalStyle from '../theme/GlobalStyles'
 import Link from 'next/link'
@@ -12,31 +11,31 @@ import Img from '../styles/img'
 import Btn from '../styles/btn'
 
 
-
 export default function Home() {
 
-  let time = staticDayCount("jan 11, 2020 00:00:00")
+  let time = staticDayCount("mar 1, 2020 00:00:00")
 
 
-
-  
   return (
     <>
 
         <GlobalStyle/>
         <Header/>
         <Title>
-        Välkommen till Potatisen.com!
+        Välkommen till Potatisen.com! 
         </Title>
-        <Img src="https://cdn.discordapp.com/attachments/688322560957743190/791456984146771988/shrek_chris.png"></Img>
+        <Img src="https://media.discordapp.net/attachments/688322560957743190/786279776468992071/shrek.png"></Img>
 
         <Link href="/veckobrev">
         <Btn>Veckobrev</Btn>
        </Link>
 
        <NewsPad>
-        <h1> {time +1 + " dagar kvar till skolstart."} God jul! 🎄</h1>
+
+        <h1> {time + 1 + " dagar kvar till sportlov 👟"} </h1>
+
        </NewsPad>
+
     </>
   )
 }

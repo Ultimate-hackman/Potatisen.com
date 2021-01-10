@@ -11,7 +11,7 @@ import Btn from '../styles/btn'
 
 
 
-const Question = styled(Img) `
+const QuestionImg = styled(Img) `
 width: 15%;
 `
 
@@ -28,7 +28,7 @@ export default function Home() {
         <Title sub>
         Sidan gick inte att hitta 
         </Title>
-        <Question src="https://media.discordapp.net/attachments/688322560957743190/788822693277335552/question.png"></Question>
+        <QuestionImg src="https://media.discordapp.net/attachments/688322560957743190/788822693277335552/question.png"></QuestionImg>
 
         <Link href="/">
         <Btn>Hem</Btn>

@@ -1,5 +1,4 @@
 import React, { useState, useEffect} from 'react';
-import pluralCheck from './pluralCheck'
 import mainTime from './mainTime'
 
 export default function Bruh(date: any, type: any) {
