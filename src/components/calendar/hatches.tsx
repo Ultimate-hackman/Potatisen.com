@@ -67,6 +67,8 @@ function multiTest(data, language, ugg, weekIndex, i, state, saturation) {
   const date = monthCheck(i + day, currentMonth);
   let count: number = 0
 
+
+
   let weekDay = weekDays[weekIndex] 
 
   if (i === monday) {
@@ -107,7 +109,7 @@ function multiTest(data, language, ugg, weekIndex, i, state, saturation) {
 
   
   if (weekIndex === 6 || weekIndex === 0) {
-    return <Hatch key={i} color={colorFinder("en",  saturation/2)}> {monthCheck(i + day, currentMonth)[0]}  {months[monthCheck(i + day, currentMonth)[1]]}   {emoji} <Text size="2vh">Helg🌴 </Text>  <Text size="1.5vh" weight="normal">{weekDay}</Text> </Hatch>
+    return <Hatch key={i} color={colorFinder("en",  saturation/2)}> {date[0]}  {months[date[1]]}   {emoji} <Text size="2vh">Helg🌴 </Text>  <Text size="1.5vh" weight="normal">{weekDay}</Text> </Hatch>
   }
 
   

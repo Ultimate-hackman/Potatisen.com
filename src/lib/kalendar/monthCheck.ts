@@ -24,7 +24,7 @@ export default function monthUpdate(i, currentMonth) {
 
       }
 
-      if ( i < monthsLenght[currentMonth] && i > 0) {
+      if ( i <= monthsLenght[currentMonth] && i > 0) {
         array.push(i)
         array.push(currentMonth)
       }
