@@ -14,7 +14,7 @@ import weekDays from '../../lib/time/weekDay';
 
 const Hatch = styled.div`
   box-shadow: 1px 1px 8px 6px rgba(58, 58, 58, 0.096);
-  border-radius: 1.25rem;
+  border-radius: 1.2rem;
   width: 15vh;
   min-height: 10vh;
   text-align: center;
@@ -46,7 +46,11 @@ const monday: number = (mainTime().getDay() -1)
 let day: number = mainTime().getDate() - monday
 
 function daysLeft(i) {
-  if (day + i - day === 0) {
+  if (monday === -1) {
+    i +=1
+  }
+
+  if (Math.abs(i) === 0) {
     return pluralCheck(day + i - day, "", "", "")[0];
   } else {
     return (
@@ -57,7 +61,7 @@ function daysLeft(i) {
 
 
 
-function multiTest(data, language, ugg, weekIndex, i, state, bright) {
+function multiTest(data, language, ugg, weekIndex, i, state, saturation) {
   let target = new Array();
   let emoji: string[] = new Array();
   const date = monthCheck(i + day, currentMonth);
@@ -103,27 +107,29 @@ function multiTest(data, language, ugg, weekIndex, i, state, bright) {
 
   
   if (weekIndex === 6 || weekIndex === 0) {
-    return <Hatch key={i} color={colorFinder("en",  bright/2)}> {monthCheck(i + day, currentMonth)[0]}  {months[monthCheck(i + day, currentMonth)[1]]}   {emoji} <Text size="2vh">Helg🌴 </Text>  <Text size="1.5vh" weight="normal">{weekDay}</Text> </Hatch>
+    return <Hatch key={i} color={colorFinder("en",  saturation/2)}> {monthCheck(i + day, currentMonth)[0]}  {months[monthCheck(i + day, currentMonth)[1]]}   {emoji} <Text size="2vh">Helg🌴 </Text>  <Text size="1.5vh" weight="normal">{weekDay}</Text> </Hatch>
   }
 
   
 
   if (target[0] === undefined) {
     return (<Hatch key={i}>{date[0]} {months[date[1]]}{emoji} <br></br> <Text size="2vh" weight="normal">{weekDay}</Text></Hatch>
+
+
     );
   } else {
     if (day > i + day) {
       return (
-        <Hatch color={colorFinder(target[4],  bright/10)} key={i}>{date[0]} {months[date[1]]}{emoji} {target[4]}  <Text size="1vh">{target[5]} ✔  </Text>klart  </Hatch>
+        <Hatch color={colorFinder(target[4],  saturation/10)} key={i}>{date[0]} {months[date[1]]}{emoji} {target[4]}  <Text size="1vh">{target[5]} ✔  </Text>klart  </Hatch>
       );
     } 
     
     
     if (day <= i + day){
       if (count >= 2) {
-        return <MultiHatch onClick={() => state(duplicate(i + day))} color={colorFinder(target[4], bright/2)} key={i}>  <Text size="2vh"> {date[0]} {months[date[1]]}  {emoji} {target[4]}❗️ </Text>  <Text size="2vh">{target[5]}  </Text> <Text size="1.2vh">  {target[3].start[0]}:{target[3].start[1]} - {target[3].end[0]}:{target[3].end[1]} <p> {daysLeft(i)} <br></br> {weekDay}</p> </Text> </MultiHatch>  
+        return <MultiHatch onClick={() => state(duplicate(i + day))} color={colorFinder(target[4], saturation/2)} key={i}>  <Text size="2vh"> {date[0]} {months[date[1]]}  {emoji} {target[4]}❗️ </Text>  <Text size="2vh">{target[5]}  </Text> <Text size="1.2vh">  {target[3].start[0]}:{target[3].start[1]} - {target[3].end[0]}:{target[3].end[1]} <p> {daysLeft(i)} <br></br> {weekDay}</p> </Text> </MultiHatch>  
       } 
-        return <Hatch  color={colorFinder(target[4], bright/2)} key={i}>  <Text size="2vh"> {date[0]} {months[date[1]]}{emoji[0]} {target[4]}  </Text> <Text size="2vh">{target[5]}  </Text> <Text size="1.2vh">  {target[3].start[0]}:{target[3].start[1]} - {target[3].end[0]}:{target[3].end[1]} <br></br> {daysLeft(i)}  <p>    {weekDay}</p>  </Text>   </Hatch> 
+        return <Hatch  color={colorFinder(target[4], saturation/2)} key={i}>  <Text size="2vh"> {date[0]} {months[date[1]]}{emoji[0]} {target[4]}  </Text> <Text size="2vh">{target[5]}  </Text> <Text size="1.2vh">  {target[3].start[0]}:{target[3].start[1]} - {target[3].end[0]}:{target[3].end[1]} <br></br> {daysLeft(i)}  <p>    {weekDay}</p>  </Text>   </Hatch> 
       
     }
   }      
