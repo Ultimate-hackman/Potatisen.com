@@ -11,17 +11,7 @@ import pluralCheck from "../../lib/time/pluralCheck";
 import monthsLenght from "../../lib/time/monthsLenght";
 import mainTime from "../../lib/time/mainTime";
 import weekDays from '../../lib/time/weekDay';
-
-const Hatch = styled.div`
-  box-shadow: 1px 1px 8px 6px rgba(58, 58, 58, 0.096);
-  border-radius: 1.2rem;
-  width: 15vh;
-  min-height: 10vh;
-  text-align: center;
-  background-color: rgba(${(props) => props.color});
-  cursor: default;
-
-`;
+import Hatch from "../../styles/hatch"
 
 const MultiHatch = styled(Hatch) `
 cursor: pointer;
@@ -109,13 +99,13 @@ function multiTest(data, language, ugg, weekIndex, i, state, saturation) {
 
   
   if (weekIndex === 6 || weekIndex === 0) {
-    return <Hatch key={i} color={colorFinder("en",  saturation/2)}> {date[0]}  {months[date[1]]}   {emoji} <Text size="2vh">Helg🌴 </Text>  <Text size="1.5vh" weight="normal">{weekDay}</Text> </Hatch>
+    return <Hatch key={i} color={colorFinder("en",  saturation/2)}>  <Text size="2vh" weight="normal"> {date[0]} {months[date[1]]}{emoji} </Text> <Text size="2vh">Helg🌴 </Text>  <Text size="1.5vh" weight="normal">{weekDay}</Text> </Hatch>
   }
 
   
 
   if (target[0] === undefined) {
-    return (<Hatch key={i}>{date[0]} {months[date[1]]}{emoji} <br></br> <Text size="2vh" weight="normal">{weekDay}</Text></Hatch>
+    return (<Hatch key={i}> <Text size="2vh" weight="normal"> {date[0]} {months[date[1]]}{emoji} </Text> <Text size="2vh" weight="normal">{weekDay}</Text></Hatch>
 
 
     );

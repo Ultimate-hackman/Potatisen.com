@@ -75,6 +75,13 @@ const Flex = styled.div `
 display:flex;
 `
 
+const Array = styled.div `
+display: flex;
+justify-self: auto;
+grid-column-gap: 2vh;
+ 
+`
+
 export default function Kalender() {
 
   const [multiTest, setMultiTest] = useState("none")
@@ -119,7 +126,7 @@ export default function Kalender() {
       <Selection options={languageOption} defaultValue={languageOption[0]}  onChange={(prop) =>  setLanguage(prop.value) } />
       </Bar>
 
-      <Popup display={multiTest}> <Flex> {multiTest}</Flex> <PadButton onClick={() => setMultiTest("none")}>Stäng</PadButton></Popup>
+      <Popup display={multiTest}>  <Array> {multiTest}</Array><PadButton onClick={() => setMultiTest("none")}>Stäng</PadButton></Popup>
       
 
 

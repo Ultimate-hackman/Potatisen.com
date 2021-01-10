@@ -3,11 +3,6 @@ import monthsLenght from '../time/monthsLenght'
 
 export default function monthUpdate(i, currentMonth) {
   let array = new Array
-  let count = i
-
-  for (let i = 0; i <= currentMonth -1; i+=1) {
-    count += monthsLenght[i]
-  }
 
 
   

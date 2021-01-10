@@ -14,7 +14,7 @@ const Btn = styled.button`
     margin-right: auto;
     margin-top: 3vh;
 
-    transition: ease-out 0.2s;
+    transition: ease-in 0.2s;
     cursor: pointer;
 
     &:hover {

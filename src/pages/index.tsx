@@ -13,7 +13,7 @@ import Btn from '../styles/btn'
 
 export default function Home() {
 
-  let time = staticDayCount("jan 11, 2020 00:00:00")
+  let time = staticDayCount("mar 1, 2020 00:00:00")
 
 
   return (
@@ -31,7 +31,7 @@ export default function Home() {
        </Link>
 
        <NewsPad>
-        <h1> {time + 1 + " dagar kvar till skolstart."} Glatt jullov! ☃️</h1>
+        <h1> {time + 1 + " dagar kvar till sportlov 👟"} </h1>
        </NewsPad>
 
     </>
