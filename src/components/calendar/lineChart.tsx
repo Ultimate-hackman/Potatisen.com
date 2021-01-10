@@ -13,7 +13,7 @@ export default function classChart(props) {
   
 
 
-    for (let i: number = 0; i < 20; i+=1) {
+    for (let i: number = 0; i < 24; i+=1) {
             data.push(stressPT(props.ugg, props.language, day + i)[1])
             time.push(monthCheck(i + day, currentMonth)[0] + " " + months[monthCheck(i + day, currentMonth)[1]])
         

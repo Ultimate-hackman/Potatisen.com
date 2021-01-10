@@ -3,15 +3,10 @@ import firebase from "../firebase/firebase";
 import React, { useState, useEffect } from "react";
 import mainTime from '../time/mainTime'
 import monthsLenght from '../time/monthsLenght'
+import totalMonth from '../time/totalMonth'
 
-function totalMonth(num) {
 
-  let output: number = 0
-  for (let i = 0; i < num; i+=1) {
-    output += monthsLenght[i]
-  }
-  return output
-}
+
 
 export default function stressPT(ugg, language, day) {
     const database = firebase.firestore();
@@ -46,7 +41,8 @@ export default function stressPT(ugg, language, day) {
         let current: number = day + (currentYear *365) + totalMonth(currentMonth);
 
         let target: number = totalData[c][2] + (totalData[c][0] * 365) + totalMonth(totalData[c][1])
-  
+
+
         let distance =  target - current
 
 

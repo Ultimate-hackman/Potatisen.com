@@ -3,6 +3,8 @@ import styled from "styled-components";
 import Title from "../../styles/title";
 import React, { useState, useEffect } from "react";
 
+
+import totalMonth from "../../lib/time/totalMonth"
 import colorFinder from "../../lib/kalendar/colorFinder";
 import firebase from "../../lib/firebase/firebase";
 import months from "../../lib/time/months";
@@ -57,6 +59,10 @@ function multiTest(data, language, ugg, weekIndex, i, state, saturation) {
   const date = monthCheck(i + day, currentMonth);
   let count: number = 0
 
+        
+  let current: number = mainTime().getDate() + (mainTime().getFullYear() *365) + totalMonth(currentMonth);
+
+
 
 
   let weekDay = weekDays[weekIndex] 
@@ -70,20 +76,21 @@ function multiTest(data, language, ugg, weekIndex, i, state, saturation) {
   let filterData: number[] = new Array()
 
 
-  for (const item in data) {
 
-    if (i + day == data[item][2] && (data[item][6] === ugg || data[item][6] === "alla"  || data[item][6] === "MO" && data[item][4] === language)) {
+  for (const item in data) {
+    
+    
+
+    let dataTime: number = data[item][2] + (data[item][0] * 365) + (totalMonth(data[item][1]) - 1)
+    
+    let distance =  dataTime - current
+
+    if (date[0] === data[item][2] && distance < 24 && distance > 0 && (data[item][6] === ugg || data[item][6] === "alla"  || data[item][6] === "MO" && data[item][4] === language)) {
       count += 1
       filterData.push(data[item])
       target = data[item];
-    } 
-    
-    if (data[item][2] < day + calendarEnd ) {
-      if ( currentMonth - data[item][1] === currentMonth || Math.abs(currentMonth - data[item][1]) != currentMonth) {
-        data[item][2] = data[item][2] + monthsLenght[currentMonth]
-      }
-      
     }
+
   }
 
   function duplicate(time) {
@@ -105,7 +112,7 @@ function multiTest(data, language, ugg, weekIndex, i, state, saturation) {
   
 
   if (target[0] === undefined) {
-    return (<Hatch key={i}> <Text size="2vh" weight="normal"> {date[0]} {months[date[1]]}{emoji} </Text> <Text size="2vh" weight="normal">{weekDay}</Text></Hatch>
+    return (<Hatch key={i}> <Text size="2vh" weight="normal"> {date[0]}  {months[date[1]]}{emoji} </Text> <Text size="2vh" weight="normal">{weekDay}</Text></Hatch>
 
 
     );
