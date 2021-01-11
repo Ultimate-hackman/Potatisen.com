@@ -1,7 +1,6 @@
 
 import monthsLenght from "../time/monthsLenght"
 
-import totalMonth from "../time/totalMonth"
 
 export default function monthUpdate(i, currentMonth) {
   let array = new Array

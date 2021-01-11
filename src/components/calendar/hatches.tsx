@@ -81,7 +81,7 @@ function multiTest(data, language, ugg, weekIndex, i, state, saturation) {
     
     
 
-    let dataTime: number = data[item][2] + (data[item][0] * 365) + (totalMonth(data[item][1]) - 1)
+    let dataTime: number = data[item][2] + (data[item][0] * 365) + (totalMonth(data[item][1]) +1 )
     
     let distance =  dataTime - current
 
@@ -97,7 +97,7 @@ function multiTest(data, language, ugg, weekIndex, i, state, saturation) {
     let output = []
     for (const item in filterData) {
       if (filterData[item][2] === time) {
-        output.push( <Hatch color={colorFinder(filterData[item][4], "1")} > <Text size="2vh"> {date[0]} {months[date[1]]}  {filterData[item][4]}   </Text>   <Text size="2vh">{filterData[item][5]}</Text>  <Text size="1.2vh">  {filterData[item][3].start[0]}:{filterData[item][3].start[1]} - {filterData[item][3].end[0]}:{filterData[item][3].end[1]} <p> {daysLeft(i)} <br></br> {weekDay} </p>  </Text> </Hatch>)
+        output.push( <Hatch color={colorFinder(filterData[item][4], "0.8")} > <Text size="2vh"> {date[0]} {months[date[1]]}  {filterData[item][4]}   </Text>   <Text size="2vh">{filterData[item][5]}</Text>  <Text size="1.2vh">  {filterData[item][3].start[0]}:{filterData[item][3].start[1]} - {filterData[item][3].end[0]}:{filterData[item][3].end[1]} <p> {daysLeft(i)} <br></br> {weekDay} </p>  </Text> </Hatch>)
       }
     }
 
@@ -126,9 +126,9 @@ function multiTest(data, language, ugg, weekIndex, i, state, saturation) {
     
     if (day <= i + day){
       if (count >= 2) {
-        return <MultiHatch onClick={() => state(duplicate(i + day))} color={colorFinder(target[4], saturation/2)} key={i}>  <Text size="2vh"> {date[0]} {months[date[1]]}  {emoji} {target[4]}❗️ </Text>  <Text size="2vh">{target[5]}  </Text> <Text size="1.2vh">  {target[3].start[0]}:{target[3].start[1]} - {target[3].end[0]}:{target[3].end[1]} <p> {daysLeft(i)} <br></br> {weekDay}</p> </Text> </MultiHatch>  
+        return <MultiHatch onClick={() => state(duplicate(i + day))} color={colorFinder(target[4], saturation/2)} key={i}>  <Text size="2vh"> {date[0]} {months[date[1]]}   {target[4]} {emoji} ❗️ </Text>  <Text size="2vh">{target[5]}  </Text> <Text size="1.2vh">  {target[3].start[0]}:{target[3].start[1]} - {target[3].end[0]}:{target[3].end[1]} <p> {daysLeft(i)} <br></br> {weekDay}</p> </Text> </MultiHatch>  
       } 
-        return <Hatch  color={colorFinder(target[4], saturation/2)} key={i}>  <Text size="2vh"> {date[0]} {months[date[1]]}{emoji[0]} {target[4]}  </Text> <Text size="2vh">{target[5]}  </Text> <Text size="1.2vh">  {target[3].start[0]}:{target[3].start[1]} - {target[3].end[0]}:{target[3].end[1]} <br></br> {daysLeft(i)}  <p>    {weekDay}</p>  </Text>   </Hatch> 
+        return <Hatch  color={colorFinder(target[4], saturation/2)} key={i}>  <Text size="2vh"> {date[0]} {months[date[1]]} {target[4]}{emoji}  </Text> <Text size="2vh">{target[5]}  </Text> <Text size="1.2vh">  {target[3].start[0]}:{target[3].start[1]} - {target[3].end[0]}:{target[3].end[1]} <br></br> {daysLeft(i)}  <p>    {weekDay}</p>  </Text>   </Hatch> 
       
     }
   }      
