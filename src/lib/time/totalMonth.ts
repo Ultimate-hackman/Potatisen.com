@@ -4,7 +4,7 @@ import monthsLenght from "./monthsLenght"
 function totalMonth(num) {
 
     let output: number = 0
-    for (let i = 0; i < num; i+=1) {
+    for (let i = 0; i < num; i++) {
       output += monthsLenght[i]
     }
     return output

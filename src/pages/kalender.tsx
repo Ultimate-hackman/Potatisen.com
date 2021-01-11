@@ -20,7 +20,8 @@ const languageOption = [
   { value: 'TY', label: 'Tyska' },
   { value: 'FR', label: 'Franska' },
   { value: 'SP-A', label: 'Spanska (AAV)' },
-  { value: 'SP-B', label: 'Spanska (CTH)' }
+  { value: 'SP-B', label: 'Spanska (CTH)' },
+  { value: 'ASVEN', label: 'ASVEN' }
 ]
 const Calendar = styled.div `
 padding-top: 3vh;
@@ -130,10 +131,10 @@ export default function Kalender() {
       
 
 
-        <Calendar><Hatches state={setMultiTest} ugg={ugg} language={language} /></Calendar>
+        <Calendar><Hatches len={24} state={setMultiTest} ugg={ugg} language={language} /></Calendar>
 
       <ClassChart ugg={ugg} language={language}/>
-      <LineChart  ugg={ugg} language={language}/>
+      <LineChart len={24} ugg={ugg} language={language}/>
 
         
       
