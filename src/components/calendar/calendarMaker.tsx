@@ -82,7 +82,7 @@ function dayMaker(itemData, saturation, i, date, weekIndex, count, duplicate, st
 
 
   }
-  return <Hatch cursor={cursor}onClick={() =>{ if (count >=2 ) {state(duplicate(i + day))}}}  color={colorFinder(color, saturation/2)} key={i}>  <Text weight={weight} size={sizes[0]}> {date[0]} {months[date[1]]} {itemData[5]}<small>{emoji}</small>  </Text> <Text weight={weight} size={sizes[0]}>{itemData[6]}  </Text> <Text weight={weight} size={sizes[1]}>  <Text size={sizes[1]}>{hours}</Text> {daysToGo}  ( {weekDay} )  </Text>   </Hatch>
+  return <Hatch cursor={cursor}onClick={() =>{ if (count >=2 ) {state(duplicate(i + day))}}}  color={colorFinder(color, saturation/2)} key={i}>  <Text weight={weight} size={sizes[0]}> {date[0]} {months[date[1]]} {itemData[5]}<small>{emoji}</small>  </Text> <Text weight={weight} size={sizes[0]}>{itemData[6]}  </Text> <Text weight={weight} size={sizes[1]}>  <Text size={sizes[1]}>{hours}</Text> {daysToGo}  {weekDay}   </Text>   </Hatch>
 }
 
 function daysLeft(i) {

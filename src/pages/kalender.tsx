@@ -80,6 +80,7 @@ const Array = styled.div `
 display: flex;
 justify-self: auto;
 grid-column-gap: 2vh;
+
  
 `
 
