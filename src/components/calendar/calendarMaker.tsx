@@ -26,8 +26,49 @@ const database = firebase.firestore();
 const monday: number = (mainTime().getDay() -1)
 let day: number = mainTime().getDate() - monday
 
-function daysLeft(i) {
 
+function dayMaker(itemData, saturation, i, date, weekIndex, count, duplicate, state) {
+  let weekDay = weekDays[weekIndex] 
+  let emoji: string[] = new Array();
+  let msg: string = ""
+  let color: string = ""
+  let cursor: string = ""
+
+  let sizes: string[] = ["2vh", "1.2vh"]
+
+  let daysToGo = daysLeft(i)
+  
+  if (daysToGo[0] === "-") {
+    daysToGo = ""
+    emoji.push("✔")
+    saturation /= 1.5
+  }
+
+  
+  if(weekIndex === 0 || weekIndex === 6) {
+    emoji.push("🌴")
+    msg += "helg"
+  } else {
+
+    if (itemData  === undefined) {
+      color += "noTest"
+
+    } else {
+      color += itemData[5]
+
+      if (count >= 2) {
+        emoji.push("❗️")
+        cursor +="pointer"
+      }
+    }
+
+
+  }
+  return <Hatch cursor={cursor}onClick={() => state(duplicate(i + day))}  color={colorFinder(color, saturation/2)} key={i}>  <Text size={sizes[0]}> {date[0]} {months[date[1]]} {itemData[5]}{emoji}  </Text> <Text size={sizes[0]}>{itemData[6]}  </Text> <Text size={sizes[1]}>  {itemData[3]}-{itemData[4]} <br></br> {daysToGo}  <p>  {weekDay}</p>  </Text>   </Hatch>
+}
+
+function daysLeft(i) {
+  i -= monday
   if (i === 0) {
     return pluralCheck(day + i - day, "", "", "")[0];
   } else {
@@ -46,7 +87,7 @@ function multiTest(data, language, ugg, weekIndex, i, state, saturation, len) {
   let count: number = 0
 
         
-  let current: number = mainTime().getDate() + (mainTime().getFullYear() * 365) + totalMonth(currentMonth);
+  let current: number = new Date().getDate() + (mainTime().getFullYear() * 365) + totalMonth(currentMonth);
 
 
 
@@ -57,22 +98,18 @@ function multiTest(data, language, ugg, weekIndex, i, state, saturation, len) {
     emoji.push("📍")
   }
 
-  
-
-  let filterData: number[] = []
-
-
-
+  let filterData = new Array()
   data.forEach (item =>
     {
       let dataTime: number = item[2] + (item[0] * 365) + (totalMonth(item[1]) +1 )
     
       let distance =  dataTime - current
   
-      if (date[0] === item[2] && distance < len && distance > 0 && (item[6] === ugg || item[6] === "alla"  || item[6] === "MO" && item[4] === language)) {
+      if (date[0] === item[2] && distance < len && distance > -monday && (item[7] === ugg || item[7] === "alla"  || item[7] === "MO" && item[5] === language)) {
         count += 1
-        filterData.push(data[item])
+        
         target = item;
+        filterData.push(target)
       }
     }
     
@@ -82,8 +119,8 @@ function multiTest(data, language, ugg, weekIndex, i, state, saturation, len) {
   function duplicate(time) {
     let output = []
     filterData.forEach (item =>
-      {if (filterData[item][2] === time) {
-        output.push( <Hatch color={colorFinder(filterData[item][4], "0.8")} > <Text size="2vh"> {date[0]} {months[date[1]]}  {filterData[item][4]}   </Text>   <Text size="2vh">{filterData[item][5]}</Text>  <Text size="1.2vh">  {filterData[item][3].start[0]}:{filterData[item][3].start[1]} - {filterData[item][3].end[0]}:{filterData[item][3].end[1]} <p> {daysLeft(i)} <br></br> {weekDay} </p>  </Text> </Hatch>)}
+      {if (item[2] === time) {
+        output.push( <Hatch  color={colorFinder(item[4], "0.8")} > <Text size="2vh"> {date[0]} {months[date[1]]}  {item[4]}   </Text>   <Text size="2vh">{item[5]}</Text>  <Text size="1.2vh">  {item[3].start[0]}:{item[3].start[1]} - {item[3].end[0]}:{item[3].end[1]} <p> {daysLeft(i)} <br></br> {weekDay} </p>  </Text> </Hatch>)}
       }      
       ) 
     return output
@@ -92,30 +129,18 @@ function multiTest(data, language, ugg, weekIndex, i, state, saturation, len) {
   
   if (weekIndex === 6 || weekIndex === 0) {
     return <Hatch key={i} color={colorFinder("en",  saturation/2)}>  <Text size="2vh" weight="normal"> {date[0]} {months[date[1]]}{emoji} </Text> <Text size="2vh">Helg🌴 </Text>  <Text size="1.5vh" weight="normal">{weekDay}</Text> </Hatch>
-  }
-
+  } else {
+    if (target[0] === undefined) {
+      return <Hatch> <Text size="2vh" weight="normal"> {date[0]} {months[date[1]]}{emoji} </Text>   <Text size="2vh" weight="normal">{weekDay}</Text>   </Hatch>
   
-
-  if (target[0] === undefined) {
-    return (<Hatch key={i}> <Text size="2vh" weight="normal"> {date[0]}  {months[date[1]]}{emoji} </Text> <Text size="2vh" weight="normal">{weekDay}</Text></Hatch>
-    );
-  } 
-
-    if (day > i + day) {
-      return (
-        <Hatch color={colorFinder(target[4],  saturation/10)} key={i}>{date[0]} {months[date[1]]}{emoji} {target[4]}  <Text size="1vh">{target[5]} ✔  </Text>klart  </Hatch>
-      );
-    } 
+    } else {
+          return dayMaker(target, saturation, i, date, weekIndex, count, duplicate, state)
+        } 
+  }
     
-    
-    if (day <= i + day){
-      if (count >= 2) {
-        return <Hatch pointer="pointer"onClick={() => state(duplicate(i + day))} color={colorFinder(target[4], saturation/2)} key={i}>  <Text size="2vh"> {date[0]} {months[date[1]]}   {target[4]} {emoji} ❗️ </Text>  <Text size="2vh">{target[5]}  </Text> <Text size="1.2vh">  {target[3].start[0]}:{target[3].start[1]} - {target[3].end[0]}:{target[3].end[1]} <p> {daysLeft(i)} <br></br> {weekDay}</p> </Text> </Hatch>  
-      } else {
-        return <Hatch  color={colorFinder(target[4], saturation/2)} key={i}>  <Text size="2vh"> {date[0]} {months[date[1]]} {target[4]}{emoji}  </Text> <Text size="2vh">{target[5]}  </Text> <Text size="1.2vh">  {target[3].start[0]}:{target[3].start[1]} - {target[3].end[0]}:{target[3].end[1]} <br></br> {daysLeft(i)}  <p>    {weekDay}</p>  </Text>   </Hatch>
-      } 
+  
       
-    }
+    
        
 }
 
