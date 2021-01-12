@@ -29,7 +29,7 @@ let day: number = mainTime().getDate() - monday
 
 function dayMaker(itemData, saturation, i, date, weekIndex, count, duplicate, state) {
   let weekDay = weekDays[weekIndex] 
-  let emoji: string[] = new Array();
+  let emoji: any[] = new Array();
   let msg: string = ""
   let color: string = ""
   let cursor: string = ""
