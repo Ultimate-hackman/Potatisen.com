@@ -82,7 +82,7 @@ function dayMaker(itemData, saturation, i, date, weekIndex, count, duplicate, st
 
 
   }
-  return <Hatch cursor={cursor}onClick={() => state(duplicate(i + day))}  color={colorFinder(color, saturation/2)} key={i}>  <Text weight={weight} size={sizes[0]}> {date[0]} {months[date[1]]} {itemData[5]}{emoji}  </Text> <Text weight={weight} size={sizes[0]}>{itemData[6]}  </Text> <Text weight={weight} size={sizes[1]}>  <Text size={sizes[1]}>{hours}</Text> {daysToGo}   {weekDay}  </Text>   </Hatch>
+  return <Hatch cursor={cursor}onClick={() =>{ if (count >=2 ) {state(duplicate(i + day))}}}  color={colorFinder(color, saturation/2)} key={i}>  <Text weight={weight} size={sizes[0]}> {date[0]} {months[date[1]]} {itemData[5]}{emoji}  </Text> <Text weight={weight} size={sizes[0]}>{itemData[6]}  </Text> <Text weight={weight} size={sizes[1]}>  <Text size={sizes[1]}>{hours}</Text> {daysToGo}   {weekDay}  </Text>   </Hatch>
 }
 
 function daysLeft(i) {
@@ -109,9 +109,6 @@ function multiTest(data, language, ugg, weekIndex, i, state, saturation, len) {
 
 
 
-
-  let weekDay = weekDays[weekIndex] 
-
   if (i === monday) {
     emoji.push("📍")
   }
@@ -123,7 +120,7 @@ function multiTest(data, language, ugg, weekIndex, i, state, saturation, len) {
     
       let distance =  dataTime - current
   
-      if (date[0] === item[2] && distance < len && distance > -monday && (item[7] === ugg || item[7] === "alla"  || item[7] === "MO" && item[5] === language)) {
+      if (date[0] === item[2] && distance < len && distance > -monday && (item[7] === ugg || item[7] === "alla" || (item[7] === "MO" && item[5] === language)) ) {
         count += 1
         target = item;
         filterData.push(target)
