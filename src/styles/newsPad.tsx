@@ -12,7 +12,6 @@ const NewsPad = styled.div `
 
 
     @media only screen and (max-height: 768px) {
-
         margin-top: -35%;        
     }
 

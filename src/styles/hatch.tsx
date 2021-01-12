@@ -7,7 +7,7 @@ const Hatch = styled.div `
   min-height: 10vh;
   text-align: center;
   background-color: rgba(${(props) => props.color});
-  cursor: default;
+  cursor: ${props => props.pointer ? props.pointer : "default"};
 `
 
 export default Hatch

@@ -14,11 +14,6 @@ import mainTime from "../../lib/time/mainTime";
 import weekDays from '../../lib/time/weekDay';
 import Hatch from "../../styles/hatch"
 
-const MultiHatch = styled(Hatch) `
-cursor: pointer;
-`
-
-
 const Text = styled(Title)`
   font-size: ${props => props.size};
   font-weight: ${props => props.weight};
@@ -44,7 +39,7 @@ function daysLeft(i) {
 
 
 
-function multiTest(data, language, ugg, weekIndex, i, state, saturation) {
+function multiTest(data, language, ugg, weekIndex, i, state, saturation, len) {
   let target = new Array();
   let emoji: string[] = new Array();
   const date = monthCheck(i + day, currentMonth);
@@ -64,7 +59,7 @@ function multiTest(data, language, ugg, weekIndex, i, state, saturation) {
 
   
 
-  let filterData: number[] = new Array()
+  let filterData: number[] = []
 
 
 
@@ -74,7 +69,7 @@ function multiTest(data, language, ugg, weekIndex, i, state, saturation) {
     
       let distance =  dataTime - current
   
-      if (date[0] === item[2] && distance < 24 && distance > 0 && (item[6] === ugg || item[6] === "alla"  || item[6] === "MO" && item[4] === language)) {
+      if (date[0] === item[2] && distance < len && distance > 0 && (item[6] === ugg || item[6] === "alla"  || item[6] === "MO" && item[4] === language)) {
         count += 1
         filterData.push(data[item])
         target = item;
@@ -88,7 +83,8 @@ function multiTest(data, language, ugg, weekIndex, i, state, saturation) {
     let output = []
     filterData.forEach (item =>
       {if (filterData[item][2] === time) {
-        output.push( <Hatch color={colorFinder(filterData[item][4], "0.8")} > <Text size="2vh"> {date[0]} {months[date[1]]}  {filterData[item][4]}   </Text>   <Text size="2vh">{filterData[item][5]}</Text>  <Text size="1.2vh">  {filterData[item][3].start[0]}:{filterData[item][3].start[1]} - {filterData[item][3].end[0]}:{filterData[item][3].end[1]} <p> {daysLeft(i)} <br></br> {weekDay} </p>  </Text> </Hatch>)}}      
+        output.push( <Hatch color={colorFinder(filterData[item][4], "0.8")} > <Text size="2vh"> {date[0]} {months[date[1]]}  {filterData[item][4]}   </Text>   <Text size="2vh">{filterData[item][5]}</Text>  <Text size="1.2vh">  {filterData[item][3].start[0]}:{filterData[item][3].start[1]} - {filterData[item][3].end[0]}:{filterData[item][3].end[1]} <p> {daysLeft(i)} <br></br> {weekDay} </p>  </Text> </Hatch>)}
+      }      
       ) 
     return output
   }
@@ -114,7 +110,7 @@ function multiTest(data, language, ugg, weekIndex, i, state, saturation) {
     
     if (day <= i + day){
       if (count >= 2) {
-        return <MultiHatch onClick={() => state(duplicate(i + day))} color={colorFinder(target[4], saturation/2)} key={i}>  <Text size="2vh"> {date[0]} {months[date[1]]}   {target[4]} {emoji} ❗️ </Text>  <Text size="2vh">{target[5]}  </Text> <Text size="1.2vh">  {target[3].start[0]}:{target[3].start[1]} - {target[3].end[0]}:{target[3].end[1]} <p> {daysLeft(i)} <br></br> {weekDay}</p> </Text> </MultiHatch>  
+        return <Hatch pointer="pointer"onClick={() => state(duplicate(i + day))} color={colorFinder(target[4], saturation/2)} key={i}>  <Text size="2vh"> {date[0]} {months[date[1]]}   {target[4]} {emoji} ❗️ </Text>  <Text size="2vh">{target[5]}  </Text> <Text size="1.2vh">  {target[3].start[0]}:{target[3].start[1]} - {target[3].end[0]}:{target[3].end[1]} <p> {daysLeft(i)} <br></br> {weekDay}</p> </Text> </Hatch>  
       } else {
         return <Hatch  color={colorFinder(target[4], saturation/2)} key={i}>  <Text size="2vh"> {date[0]} {months[date[1]]} {target[4]}{emoji}  </Text> <Text size="2vh">{target[5]}  </Text> <Text size="1.2vh">  {target[3].start[0]}:{target[3].start[1]} - {target[3].end[0]}:{target[3].end[1]} <br></br> {daysLeft(i)}  <p>    {weekDay}</p>  </Text>   </Hatch>
       } 
@@ -132,7 +128,7 @@ function calendarGen(ugg, language, totalData, state, len) {
     if (weekDay >= 7) {
       weekDay -= 7
     }
-    output.push(multiTest(totalData, language, ugg, weekDay, i, state, 1.1));
+    output.push(multiTest(totalData, language, ugg, weekDay, i, state, 1.1, len));
     
   }
 
