@@ -95,7 +95,7 @@ export default function Kalender() {
 
   function defcon(stress, base, incr) {
 
-    const emojiArray = ['😎', '😃', '🙂', '🙁', '😟', '😡', '🤬']
+    const emojiArray = ['😎', '🙂', '😕', '😬', '😟', '😡', '🤬', '😱']
 
     for (let i = 0; i <= emojiArray.length ; i+=1) {
       if (stress <= (incr * i) + base ) {
@@ -118,7 +118,7 @@ export default function Kalender() {
         Provschema 
         </Title> 
         <Title sub top="0vh">
-        Här kan du snabbt kolla kommande prov ({ugg}) {defcon(stress, 150, 50)} ({stress}) <small>beta*🧪</small> 
+        Här kan du snabbt kolla kommande prov ({ugg}) {defcon(stress, 125, 50)} ({stress}) <small>beta*🧪</small> 
         </Title>
 
         
