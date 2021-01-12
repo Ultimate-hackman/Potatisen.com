@@ -38,7 +38,7 @@ export default function stressPT(ugg, language, day) {
 
     for (const c in totalData) {
       
-        let current: number = day + (currentYear *365) + totalMonth(currentMonth);
+        let current: number = day + (currentYear * 365) + totalMonth(currentMonth);
 
         let target: number = totalData[c][2] + (totalData[c][0] * 365) + totalMonth(totalData[c][1])
 

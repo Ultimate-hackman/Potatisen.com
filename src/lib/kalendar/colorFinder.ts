@@ -29,7 +29,7 @@ export default function colorFinder(subject, opacity) {
       case "FR":
         color += [255, 200, 0, opacity]
         break;
-      case "noTest":
+      case "NOTEST":
         color += [0, 0, 0, 0]
         break;
       default: 
