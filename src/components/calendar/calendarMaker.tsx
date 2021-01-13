@@ -13,6 +13,7 @@ import pluralCheck from "../../lib/time/pluralCheck";
 import mainTime from "../../lib/time/mainTime";
 import weekDays from '../../lib/time/weekDay';
 import Hatch from "../../styles/hatch"
+import monthsLenght from "../../lib/time/monthsLenght";
 
 const Text = styled(Title)`
   font-size: ${props => props.size};
@@ -41,6 +42,9 @@ function dayMaker(itemData, saturation, i, date, weekIndex, count, duplicate, st
 
   let daysToGo = daysLeft(i)
   
+  if (date[0] === new Date().getDate()) {
+    emoji.push("📍") 
+  }
 
   
   if(weekIndex === 0 || weekIndex === 6) {
@@ -108,10 +112,6 @@ function multiTest(data, language, ugg, weekIndex, i, state, saturation, len) {
   let current: number = new Date().getDate() + (mainTime().getFullYear() * 365) + totalMonth(currentMonth);
 
 
-
-  if (i === monday) {
-    emoji.push("📍")
-  }
 
   let filterData = new Array()
   data.forEach (item =>
