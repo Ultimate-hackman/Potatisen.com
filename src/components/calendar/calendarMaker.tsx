@@ -116,8 +116,8 @@ function multiTest(data, language, ugg, weekIndex, i, state, saturation, len) {
   let filterData = new Array()
   data.forEach (item =>
     {
-      let dat = (item[0] + " ").split(',')[0]
-      let time = new Date(dat)
+      
+      let time = new Date((item[0] + " ").split(',')[0])
 
       let dataTime: number = time.getDate() + (time.getFullYear() * 365) + (totalMonth(time.getMonth()) +1 )
     

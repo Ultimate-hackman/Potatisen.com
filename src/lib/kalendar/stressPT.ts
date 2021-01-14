@@ -37,7 +37,7 @@ export default function stressPT(ugg, language, day) {
 
     for (const c in totalData) {
 
-      let testTime = new Date(totalData[c][0])
+      let testTime = new Date((totalData[c][0] + " ").split(',')[0])
 
       
         let current: number = day + (currentYear * 365) + totalMonth(currentMonth);
