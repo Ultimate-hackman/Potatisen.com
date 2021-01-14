@@ -32,7 +32,6 @@ function dayMaker(itemData, saturation, i, date, weekIndex, count, duplicate, st
   let emoji: any[] = new Array();
   let color: string = ""
   let cursor: string = ""
-  let testTime = new Date(itemData[0])
 
 
 
@@ -49,7 +48,7 @@ function dayMaker(itemData, saturation, i, date, weekIndex, count, duplicate, st
 
   
   if(weekIndex === 0 || weekIndex === 6) {
-    emoji.push(<> <br/><b>helg🌴</b> </>)
+    emoji.push(<> <br/> <Text size="2vh">helg🌴</Text></>)
     color += "en"
     daysToGo =""
     sizes[1] = "2vh"
@@ -88,7 +87,7 @@ function dayMaker(itemData, saturation, i, date, weekIndex, count, duplicate, st
 
 
   }
-  return <Hatch cursor={cursor}onClick={() =>{ if (count >=2 ) {state(duplicate(i + day))}}}  color={colorFinder(color, saturation/2)} key={i}>  <Text weight={weight} size={sizes[0]}> {date[0]} {months[date[1]]} {itemData[1]} {emoji}  </Text> <Text weight={weight} size={sizes[0]}>{itemData[2]}  </Text> <Text weight={weight} size={sizes[1]}>  <Text size={sizes[1]}>{hours}</Text> {daysToGo}  {weekDay}  </Text>   </Hatch>
+  return <Hatch cursor={cursor}onClick={() =>{ if (count >=2 ) {state(duplicate(i + day))}}}  color={colorFinder(color, saturation/2)} key={i}>  <Text weight={weight} size={sizes[0]}> {date[0]} {months[date[1]]}   {itemData[1]}<small>{emoji}</small> </Text> <Text weight={weight} size={sizes[0]}>{itemData[2]}  </Text> <Text weight={weight} size={sizes[1]}>  {itemData[0]?.split(',')[1]} <Text size={sizes[1]}>{hours}</Text> {daysToGo}  {weekDay}  </Text>   </Hatch>
 }
 
 function daysLeft(i) {
@@ -117,7 +116,8 @@ function multiTest(data, language, ugg, weekIndex, i, state, saturation, len) {
   let filterData = new Array()
   data.forEach (item =>
     {
-      let time = new Date(item[0])
+      let dat = (item[0] + " ").split(',')[0]
+      let time = new Date(dat)
 
       let dataTime: number = time.getDate() + (time.getFullYear() * 365) + (totalMonth(time.getMonth()) +1 )
     
