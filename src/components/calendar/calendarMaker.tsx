@@ -68,7 +68,7 @@ function dayMaker(itemData, saturation, i, date, weekIndex, count, duplicate, st
 
     } else {
       weight = "bold"
-      hours = `${testTime.getHours()}:${testTime.getMinutes()}`
+      hours = itemData[4]
 
 
       if (daysToGo[0] === "-") {
