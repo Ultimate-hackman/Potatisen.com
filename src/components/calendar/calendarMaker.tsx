@@ -10,7 +10,7 @@ import firebase from "../../lib/firebase/firebase";
 import months from "../../lib/time/months";
 import monthCheck from "../../lib/kalendar/monthCheck";
 import pluralCheck from "../../lib/time/pluralCheck";
-import mainTime from "../../lib/time/mainTime";
+
 import weekDays from '../../lib/time/weekDay';
 import Hatch from "../../styles/hatch"
 
@@ -20,11 +20,11 @@ const Text = styled(Title)`
   padding-top: 0vh;
 `;
 
-const currentMonth: number = mainTime().getMonth();
+const currentMonth: number = new Date().getMonth();
 const database = firebase.firestore();
 
-const monday: number = (mainTime().getDay() -1)
-let day: number = mainTime().getDate() - monday
+const monday: number = (new Date().getDay() -1)
+let day: number = new Date().getDate() - monday
 
 
 function dayMaker(itemData, saturation, i, date, weekIndex, count, duplicate, state) {
@@ -110,7 +110,7 @@ function multiTest(data, language, ugg, weekIndex, i, state, saturation, len) {
   let count: number = 0
 
         
-  let current: number = new Date().getDate() + (mainTime().getFullYear() * 365) + totalMonth(currentMonth);
+  let current: number = new Date().getDate() + (new Date().getFullYear() * 365) + totalMonth(currentMonth);
 
 
 
@@ -158,7 +158,7 @@ function multiTest(data, language, ugg, weekIndex, i, state, saturation, len) {
 
 function calendarGen(ugg, language, totalData, state, len) {
   let output: object[] = [];
-  let weekDay: number = mainTime().getDay() - monday - 1
+  let weekDay: number = new Date().getDay() - monday - 1
 
   for (let i = 0; i < len; i++) {
     weekDay += 1

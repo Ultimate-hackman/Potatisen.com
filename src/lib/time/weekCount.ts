@@ -1,10 +1,9 @@
-import mainTime from './mainTime'
 
 
 export default function weekFinder(weekday, hour) {
-    let month: number = mainTime().getMonth();
-    let day: number = mainTime().getDate();
-    let nowHour: number = mainTime().getHours();
+    let month: number = new Date().getMonth();
+    let day: number = new Date().getDate();
+    let nowHour: number = new Date().getHours();
 
     let week: number = (Math.ceil(month * 30.5) / 7) + (day - day % 7) / 7
 

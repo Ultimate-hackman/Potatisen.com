@@ -1,7 +1,6 @@
 import "firebase/database";
 import firebase from "../firebase/firebase";
 import React, { useState, useEffect } from "react";
-import mainTime from '../time/mainTime'
 
 import totalMonth from '../time/totalMonth'
 
@@ -12,8 +11,8 @@ export default function stressPT(ugg, language, day) {
     const database = firebase.firestore();
     let time = new Array()
     let totalPt: number = 0
-    const currentMonth = mainTime().getMonth();
-    const currentYear = mainTime().getFullYear();
+    const currentMonth = new Date().getMonth();
+    const currentYear = new Date().getFullYear();
 
     
 

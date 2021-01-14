@@ -1,10 +1,9 @@
 import stressPT from '../../lib/kalendar/stressPT'
 import { Bar } from 'react-chartjs-2'
 import 'react-chartjs-2'
-import mainTime from '../../lib/time/mainTime'
 
 export default function classChart(props) {
-    let day = mainTime().getDate()
+    let day = new Date().getDate()
     return <Bar 
     height={200} 
     width={600}

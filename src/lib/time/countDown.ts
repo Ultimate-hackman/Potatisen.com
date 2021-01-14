@@ -1,5 +1,4 @@
 import React, { useState, useEffect} from 'react';
-import mainTime from './mainTime'
 
 export default function Bruh(date: any, type: any) {
   const [text, setText] = useState("");
@@ -24,7 +23,7 @@ export default function Bruh(date: any, type: any) {
 function countDown(date, identity) {
   
     let past: number = new Date(date).getTime(); 
-    let now: number = mainTime().getTime();
+    let now: number = new Date().getTime();
   
     let difference: number = identity? now - past : past - now
 

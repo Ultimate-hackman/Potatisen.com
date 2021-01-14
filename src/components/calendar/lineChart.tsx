@@ -3,13 +3,12 @@ import { Line } from 'react-chartjs-2'
 import 'react-chartjs-2'
 
 import months from '../../lib/time/months'
-import mainTime from '../../lib/time/mainTime'
 import monthCheck from '../../lib/kalendar/monthCheck'
 export default function classChart(props) {
-    let day: number = mainTime().getDate()
+    let day: number = new Date().getDate()
     let data = new Array()
     let time = new Array()
-    let currentMonth = mainTime().getMonth()
+    let currentMonth = new Date().getMonth()
   
 
 
