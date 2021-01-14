@@ -2,7 +2,7 @@ import "firebase/database";
 import firebase from "../firebase/firebase";
 import React, { useState, useEffect } from "react";
 import mainTime from '../time/mainTime'
-import monthsLenght from '../time/monthsLenght'
+
 import totalMonth from '../time/totalMonth'
 
 
@@ -37,16 +37,19 @@ export default function stressPT(ugg, language, day) {
 
 
     for (const c in totalData) {
+
+      let testTime = new Date(totalData[c][0])
+
       
         let current: number = day + (currentYear * 365) + totalMonth(currentMonth);
 
-        let target: number = totalData[c][2] + (totalData[c][0] * 365) + totalMonth(totalData[c][1])
+        let target: number = testTime.getDate() + (testTime.getFullYear() * 365) + totalMonth(testTime.getMonth())
 
 
         let distance =  target - current
 
 
-        if (distance >= 0 && (totalData[c][6] === ugg || totalData[c][5] === language || totalData[c][7] === "alla")  && current <= target ) {
+        if (distance >= 0 && (totalData[c][3] === ugg || totalData[c][1] === language || totalData[c][3] === "alla")  && current <= target ) {
             
             time.push(distance) 
             if (100 - distance > 0) {

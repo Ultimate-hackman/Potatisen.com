@@ -96,7 +96,7 @@ export default function Kalender() {
 
   function defcon(stress, base, incr) {
 
-    const emojiArray = ['😎', '🙂', '😕', '😬', '😟', '😡', '🤬', '😱']
+    const emojiArray = ['😎', '🙂', '😕', '😬', '😟', '😡', '🤬']
 
     for (let i = 0; i <= emojiArray.length ; i+=1) {
       if (stress <= (incr * i) + base ) {

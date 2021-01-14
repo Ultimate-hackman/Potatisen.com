@@ -13,7 +13,6 @@ import pluralCheck from "../../lib/time/pluralCheck";
 import mainTime from "../../lib/time/mainTime";
 import weekDays from '../../lib/time/weekDay';
 import Hatch from "../../styles/hatch"
-import monthsLenght from "../../lib/time/monthsLenght";
 
 const Text = styled(Title)`
   font-size: ${props => props.size};
@@ -31,9 +30,11 @@ let day: number = mainTime().getDate() - monday
 function dayMaker(itemData, saturation, i, date, weekIndex, count, duplicate, state) {
   let weekDay = weekDays[weekIndex] 
   let emoji: any[] = new Array();
-  let msg: string = ""
   let color: string = ""
   let cursor: string = ""
+  let testTime = new Date(itemData[0])
+
+
 
   let weight: string = "normal"
 
@@ -42,7 +43,7 @@ function dayMaker(itemData, saturation, i, date, weekIndex, count, duplicate, st
 
   let daysToGo = daysLeft(i)
   
-  if (date[0] === new Date().getDate() && date[1] === currentMonth) {
+  if ( new Date().getDate() === i + day && date[1] === currentMonth) {
     emoji.push("📍") 
   }
 
@@ -59,15 +60,15 @@ function dayMaker(itemData, saturation, i, date, weekIndex, count, duplicate, st
 
     if (itemData[0]  === undefined) {
       color += "NOTEST"
-      console.log(color)
+
       sizes[1] = "2vh"
       daysToGo =""
-      
+
 
 
     } else {
       weight = "bold"
-      hours = `${itemData[3]}-${itemData[4]}`
+      hours = `${testTime.getHours()}:${testTime.getMinutes()}`
 
 
       if (daysToGo[0] === "-") {
@@ -77,7 +78,7 @@ function dayMaker(itemData, saturation, i, date, weekIndex, count, duplicate, st
       }
     
       
-      color += itemData[5]
+      color += itemData[1]
 
       if (count >= 2) {
         emoji.push("❗️")
@@ -87,7 +88,7 @@ function dayMaker(itemData, saturation, i, date, weekIndex, count, duplicate, st
 
 
   }
-  return <Hatch cursor={cursor}onClick={() =>{ if (count >=2 ) {state(duplicate(i + day))}}}  color={colorFinder(color, saturation/2)} key={i}>  <Text weight={weight} size={sizes[0]}> {date[0]} {months[date[1]]} {itemData[5]} {emoji}  </Text> <Text weight={weight} size={sizes[0]}>{itemData[6]}  </Text> <Text weight={weight} size={sizes[1]}>  <Text size={sizes[1]}>{hours}</Text> {daysToGo}  {weekDay}   </Text>   </Hatch>
+  return <Hatch cursor={cursor}onClick={() =>{ if (count >=2 ) {state(duplicate(i + day))}}}  color={colorFinder(color, saturation/2)} key={i}>  <Text weight={weight} size={sizes[0]}> {date[0]} {months[date[1]]} {itemData[1]} {emoji}  </Text> <Text weight={weight} size={sizes[0]}>{itemData[2]}  </Text> <Text weight={weight} size={sizes[1]}>  <Text size={sizes[1]}>{hours}</Text> {daysToGo}  {weekDay}  </Text>   </Hatch>
 }
 
 function daysLeft(i) {
@@ -105,7 +106,6 @@ function daysLeft(i) {
 
 function multiTest(data, language, ugg, weekIndex, i, state, saturation, len) {
   let target = new Array();
-  let emoji: string[] = new Array();
   const date = monthCheck(i + day, currentMonth);
   let count: number = 0
 
@@ -117,11 +117,14 @@ function multiTest(data, language, ugg, weekIndex, i, state, saturation, len) {
   let filterData = new Array()
   data.forEach (item =>
     {
-      let dataTime: number = item[2] + (item[0] * 365) + (totalMonth(item[1]) +1 )
+      let time = new Date(item[0])
+
+      let dataTime: number = time.getDate() + (time.getFullYear() * 365) + (totalMonth(time.getMonth()) +1 )
     
       let distance =  dataTime - current
+
   
-      if (date[0] === item[2] && distance < len && distance > -monday && (item[7] === ugg || item[7] === "alla" || (item[7] === "MO" && item[5] === language)) ) {
+      if (date[0] === time.getDate() && distance < len && distance > -monday && (item[3] === ugg || item[3] === "alla" || (item[3] === "MO" && item[1] === language)) ) {
         count += 1
         target = item;
         filterData.push(target)
@@ -134,7 +137,7 @@ function multiTest(data, language, ugg, weekIndex, i, state, saturation, len) {
   function duplicate(time) {
     let output = []
     filterData.forEach (item =>
-      {if (item[2] === time) {
+      {if (new Date(item[0]).getDate() === time) {
         output.push(dayMaker(item, saturation, i, date, weekIndex, count, duplicate, state))}
       }      
       ) 
@@ -171,7 +174,7 @@ function calendarGen(ugg, language, totalData, state, len) {
 
 
 export default function Hatches(props) {
-  let array = new Array();
+  let array = new Array()
 
   const [totalData, setTotalData] = useState(new Array());
 
@@ -188,11 +191,12 @@ export default function Hatches(props) {
 
       });
   }, []);
-  
+  console.log()
   return <>
   
 
   
 
   {calendarGen(props.ugg, props.language, totalData, props.state, props.len)} </>;
+
 }
