@@ -1,4 +1,4 @@
-import React, { Component, useState }from "react";
+import React, { Component, useState, useEffect }from "react";
 import Hatches from "../components/calendar/calendarMaker"; //
 import Header from '../components/header'
 import styled from "styled-components";
@@ -90,9 +90,22 @@ export default function Kalender() {
 
 
 
-  const [ugg, setUgg] = useState("O91")
-  const [language, setLanguage] = useState("TY")
+
+
+  const [ugg, setUgg] = useState(() => ugg === null? localStorage.getItem('UserUgg'):uggarOption[0].value)
+  const [language, setLanguage] = useState(() => language === null? localStorage.getItem('Userlanguage'):languageOption[0].value)
   let stress = stressPT(ugg, language, 1)[1]
+
+
+  
+
+  useEffect(() => {
+    localStorage.setItem('UserUgg', ugg)
+  }, [ugg])
+
+  useEffect(() => {
+    localStorage.setItem('UserLanguage', language)
+  }, [language])
 
   function defcon(stress, base, incr) {
 
@@ -124,8 +137,8 @@ export default function Kalender() {
 
         
       <Bar> 
-      <Selection isSearchable={ false } options={uggarOption} defaultValue={uggarOption[0]}  onChange={(prop) =>  setUgg(prop.value) } />
-      <Selection isSearchable={ false } options={languageOption} defaultValue={languageOption[0]}  onChange={(prop) =>  setLanguage(prop.value) } />
+      <Selection isSearchable={ false } options={uggarOption} defaultValue={{value: ugg, label: ugg}}  onChange={(prop) =>  setUgg(prop.value) } />
+      <Selection isSearchable={ false } options={languageOption} defaultValue={{value: language, label: language}}  onChange={(prop) =>  setLanguage(prop.value) } />
       </Bar>
 
       <Popup display={multiTest}>  <Array> {multiTest}</Array><PadButton onClick={() => setMultiTest("none")}>Stäng</PadButton></Popup>
