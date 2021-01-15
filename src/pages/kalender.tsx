@@ -97,15 +97,16 @@ export default function Kalender() {
     setUgg(() => localStorage.getItem('UserUgg') === null? uggarOption[0].value:localStorage.getItem('UserUgg'))
     setLanguage(() => localStorage.getItem('UserLanguage') === null? languageOption[0].value:localStorage.getItem('UserLanguage') )
 
-    useEffect(() => {
-      localStorage.setItem('UserUgg', ugg)
-    }, [ugg])
-  
-    useEffect(() => {
-      localStorage.setItem('UserLanguage', language)
-    }, [language])
   
   }, [])
+
+  useEffect(() => {
+    localStorage.setItem('UserUgg', ugg)
+  }, [ugg])
+
+  useEffect(() => {
+    localStorage.setItem('UserLanguage', language)
+  }, [language])
 
 
 
