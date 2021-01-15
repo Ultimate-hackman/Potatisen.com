@@ -84,6 +84,10 @@ grid-column-gap: 2vh;
  
 `
 
+function labelFind(lan) {
+  const list = [languageOption[0].value, languageOption[1].value, languageOption[2].value, languageOption[3].value, languageOption[4].value]
+  return list.indexOf(lan)
+}
 export default function Kalender() {
 
   const [multiTest, setMultiTest] = useState("none")
@@ -92,12 +96,9 @@ export default function Kalender() {
 
 
 
-  const [ugg, setUgg] = useState(() => ugg === null? localStorage.getItem('UserUgg'):uggarOption[0].value)
-  const [language, setLanguage] = useState(() => language === null? localStorage.getItem('Userlanguage'):languageOption[0].value)
+  const [ugg, setUgg] = useState(() => localStorage.getItem('UserUgg') === null? uggarOption[0].value:localStorage.getItem('UserUgg'))
+  const [language, setLanguage] = useState(() => localStorage.getItem('UserLanguage') === null? languageOption[0].value:localStorage.getItem('UserLanguage') )
   let stress = stressPT(ugg, language, 1)[1]
-
-
-  
 
   useEffect(() => {
     localStorage.setItem('UserUgg', ugg)
@@ -106,6 +107,9 @@ export default function Kalender() {
   useEffect(() => {
     localStorage.setItem('UserLanguage', language)
   }, [language])
+
+  
+
 
   function defcon(stress, base, incr) {
 
@@ -138,7 +142,7 @@ export default function Kalender() {
         
       <Bar> 
       <Selection isSearchable={ false } options={uggarOption} defaultValue={{value: ugg, label: ugg}}  onChange={(prop) =>  setUgg(prop.value) } />
-      <Selection isSearchable={ false } options={languageOption} defaultValue={{value: language, label: language}}  onChange={(prop) =>  setLanguage(prop.value) } />
+      <Selection isSearchable={ false } options={languageOption} defaultValue={{value: language, label: languageOption[labelFind(language)].label}}  onChange={(prop) =>  setLanguage(prop.value) } />
       </Bar>
 
       <Popup display={multiTest}>  <Array> {multiTest}</Array><PadButton onClick={() => setMultiTest("none")}>Stäng</PadButton></Popup>
