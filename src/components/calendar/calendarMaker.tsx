@@ -137,7 +137,7 @@ function multiTest(data, language, ugg, weekIndex, i, state, saturation, len) {
   function duplicate(time) {
     let output = []
     filterData.forEach (item =>
-      {if (new Date(item[0]).getDate() === time) {
+      {if (new Date(item[0].split(',')[0]).getDate() === time) {
         output.push(dayMaker(item, saturation, i, date, weekIndex, count, duplicate, state))}
       }      
       ) 
