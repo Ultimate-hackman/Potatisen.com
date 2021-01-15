@@ -91,22 +91,25 @@ function labelFind(lan) {
 export default function Kalender() {
 
   const [multiTest, setMultiTest] = useState("none")
+  const [ugg, setUgg] = useState("O91")
+  const [language, setLanguage] = useState("TY")
+  useEffect(() => {
+    setUgg(() => localStorage.getItem('UserUgg') === null? uggarOption[0].value:localStorage.getItem('UserUgg'))
+    setLanguage(() => localStorage.getItem('UserLanguage') === null? languageOption[0].value:localStorage.getItem('UserLanguage') )
+
+    useEffect(() => {
+      localStorage.setItem('UserUgg', ugg)
+    }, [ugg])
+  
+    useEffect(() => {
+      localStorage.setItem('UserLanguage', language)
+    }, [language])
+  
+  }, [])
 
 
 
-
-
-  const [ugg, setUgg] = useState(() => localStorage.getItem('UserUgg') === null? uggarOption[0].value:localStorage.getItem('UserUgg'))
-  const [language, setLanguage] = useState(() => localStorage.getItem('UserLanguage') === null? languageOption[0].value:localStorage.getItem('UserLanguage') )
   let stress = stressPT(ugg, language, 1)[1]
-
-  useEffect(() => {
-    localStorage.setItem('UserUgg', ugg)
-  }, [ugg])
-
-  useEffect(() => {
-    localStorage.setItem('UserLanguage', language)
-  }, [language])
 
   
 
