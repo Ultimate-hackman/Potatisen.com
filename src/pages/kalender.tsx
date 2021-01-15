@@ -128,7 +128,7 @@ export default function Kalender() {
         Provschema 
         </Title> 
         <Title sub top="0vh">
-        Här kan du snabbt kolla kommande prov ({ugg}) {defcon(stress, 125, 50)} ({stress}) <small>beta*🧪</small> 
+        Här kan du snabbt kolla kommande prov ({ugg}) {defcon(stress, 125, 50)} ({stress}) <small>beta*🧪</small> {localStorage.getItem('UserUgg')}
         </Title>
 
         
