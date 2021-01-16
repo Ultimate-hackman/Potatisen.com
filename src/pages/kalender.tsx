@@ -91,6 +91,7 @@ function labelFind(lan) {
 export default function Kalender() {
 
   const [multiTest, setMultiTest] = useState("none")
+  
   const [ugg, setUgg] = useState("O91")
   const [language, setLanguage] = useState("TY")
   
@@ -110,7 +111,6 @@ export default function Kalender() {
 
   useEffect(() => {
     localStorage.setItem('UserLanguage', language)
-
   }, [language])
 
   
@@ -155,8 +155,8 @@ export default function Kalender() {
         
       <Bar> 
 
-      <Selection isSearchable={ false } options={uggarOption} defaultValue={{label: localStorage.getItem('UserUgg')}} onChange={(prop) =>  setUgg(prop.value) } />
-      <Selection isSearchable={ false } options={languageOption} defaultValue={{value: localStorage.getItem('UserLanguage'), label: languageOption[labelFind(language)].label}}  onChange={(prop) =>  setLanguage(prop.value) } />
+      <Selection isSearchable={ false } options={uggarOption} value={{label: ugg}} onChange={(prop) =>  setUgg(prop.value) } />
+      <Selection isSearchable={ false } options={languageOption} value={{value: language, label: languageOption[labelFind(language)].label}}  onChange={(prop) =>  setLanguage(prop.value) } />
       </Bar>
 
       <Popup display={multiTest}>  <Array> {multiTest}</Array><PadButton onClick={() => setMultiTest("none")}>Stäng</PadButton></Popup>
