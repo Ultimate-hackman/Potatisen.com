@@ -106,10 +106,6 @@ export default function Kalender() {
     } else {
       setUgg(localStorage.getItem('UserUgg'))
     }
-
-    
-
-  
   }, [])
 
   useEffect(() => {
@@ -120,8 +116,6 @@ export default function Kalender() {
   
   useEffect(() => {
     localStorage.setItem('UserUgg', ugg)
-
-
   }, [ugg])
 
 
@@ -161,8 +155,8 @@ export default function Kalender() {
         
       <Bar> 
 
-      <Selection isSearchable={ false } options={uggarOption} defaultValue={{value: ugg, label: ugg}}  onChange={(prop) =>  setUgg(prop.value) } />
-      <Selection isSearchable={ false } options={languageOption} defaultValue={{value: language, label: languageOption[labelFind(language)].label}}  onChange={(prop) =>  setLanguage(prop.value) } />
+      <Selection isSearchable={ false } options={uggarOption} defaultValue={{label: localStorage.getItem('UserUgg')}} onChange={(prop) =>  setUgg(prop.value) } />
+      <Selection isSearchable={ false } options={languageOption} defaultValue={{value: localStorage.getItem('UserLanguage'), label: languageOption[labelFind(language)].label}}  onChange={(prop) =>  setLanguage(prop.value) } />
       </Bar>
 
       <Popup display={multiTest}>  <Array> {multiTest}</Array><PadButton onClick={() => setMultiTest("none")}>Stäng</PadButton></Popup>
