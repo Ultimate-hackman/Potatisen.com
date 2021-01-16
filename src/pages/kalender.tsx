@@ -34,7 +34,7 @@ grid-row-gap: 3vh;
 
 `
 
-const Popup = styled.div`
+const Popup = styled.div `
   display: ${(props) => props.display};
   
   position: fixed;
@@ -72,16 +72,11 @@ margin-top: 1vh;
 padding: 1.5vh 1vw;
 font-size: 0.75em;
 `
-const Flex = styled.div `
-display:flex;
-`
 
 const Array = styled.div `
 display: flex;
 justify-self: auto;
-grid-column-gap: 2vh;
-
- 
+grid-column-gap: 2vh; 
 `
 
 function labelFind(lan) {
@@ -97,13 +92,11 @@ export default function Kalender() {
   
   useEffect(() => {
     if (localStorage.getItem('UserLanguage') === null) {
-      setLanguage("FR")
     } else {
-      setLanguage(localStorage.getItem('UserLanguage') )
+      setLanguage(localStorage.getItem('UserLanguage'))
     }
 
     if (localStorage.getItem('UserUgg') === null) {
-      setUgg("O91")
     } else {
       setUgg(localStorage.getItem('UserUgg'))
     }
@@ -161,17 +154,10 @@ export default function Kalender() {
 
       <Popup display={multiTest}>  <Array> {multiTest}</Array><PadButton onClick={() => setMultiTest("none")}>Stäng</PadButton></Popup>
       
-
-
         <Calendar><Hatches len={24} state={setMultiTest} ugg={ugg} language={language} /></Calendar>
 
       <ClassChart ugg={ugg} language={language}/>
       <LineChart len={24} ugg={ugg} language={language}/>
-
-        
-      
-        
-
 
     </>
   );

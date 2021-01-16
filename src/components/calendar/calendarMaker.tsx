@@ -27,7 +27,7 @@ const monday: number = (new Date().getDay() -1)
 let day: number = new Date().getDate() - monday
 
 
-function dayMaker(itemData, saturation, i, date, weekIndex, count, duplicate, state) {
+function dayMaker(itemData, saturation, i, date, weekIndex, count, duplicate, state, duplicateChild) {
   let weekDay = weekDays[weekIndex] 
   let emoji: any[] = new Array();
   let color: string = ""
@@ -79,7 +79,7 @@ function dayMaker(itemData, saturation, i, date, weekIndex, count, duplicate, st
       
       color += itemData[1]
 
-      if (count >= 2) {
+      if (count >= 2 && duplicateChild === false) {
         emoji.push("❗️")
         cursor +="pointer"
       }
@@ -138,15 +138,14 @@ function multiTest(data, language, ugg, weekIndex, i, state, saturation, len) {
     let output = []
     filterData.forEach (item =>
       {if (new Date(item[0].split(',')[0]).getDate() === time) {
-        output.push(dayMaker(item, saturation, i, date, weekIndex, count, duplicate, state))}
-      }      
-      ) 
+        output.push(dayMaker(item, saturation, i, date, weekIndex, count, duplicate, state, true))}
+      }) 
     return output
   }
 
   
 
-    return dayMaker(target, saturation, i, date, weekIndex, count, duplicate, state)
+    return dayMaker(target, saturation, i, date, weekIndex, count, duplicate, state, false)
   
   
     
@@ -191,12 +190,7 @@ export default function Hatches(props) {
 
       });
   }, []);
-  console.log()
   return <>
-  
-
-  
-
   {calendarGen(props.ugg, props.language, totalData, props.state, props.len)} </>;
 
 }
