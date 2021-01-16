@@ -93,22 +93,36 @@ export default function Kalender() {
   const [multiTest, setMultiTest] = useState("none")
   const [ugg, setUgg] = useState("O91")
   const [language, setLanguage] = useState("TY")
+  
   useEffect(() => {
-    setUgg(() => localStorage.getItem('UserUgg') === null? uggarOption[0].value:localStorage.getItem('UserUgg'))
-    setLanguage(() => localStorage.getItem('UserLanguage') === null? languageOption[0].value:localStorage.getItem('UserLanguage') )
+    if (localStorage.getItem('UserLanguage') === null) {
+      setLanguage("FR")
+    } else {
+      setLanguage(localStorage.getItem('UserLanguage') )
+    }
+
+    if (localStorage.getItem('UserUgg') === null) {
+      setUgg("O91")
+    } else {
+      setUgg(localStorage.getItem('UserUgg'))
+    }
+
     
 
   
   }, [])
 
-      useEffect(() => {
-      localStorage.setItem('UserUgg', ugg)
-    }, [ugg])
-  
-    useEffect(() => {
-      localStorage.setItem('UserLanguage', language)
-    }, [language])
+  useEffect(() => {
+    localStorage.setItem('UserLanguage', language)
 
+  }, [language])
+
+  
+  useEffect(() => {
+    localStorage.setItem('UserUgg', ugg)
+
+
+  }, [ugg])
 
 
   let stress = stressPT(ugg, language, 1)[1]
@@ -141,11 +155,12 @@ export default function Kalender() {
         Provschema 
         </Title> 
         <Title sub top="0vh">
-        Här kan du snabbt kolla kommande prov ({ugg}) {defcon(stress, 125, 50)} ({stress}) <small>beta*🧪</small> 
+        Här kan du snabbt kolla kommande prov ({ugg}) {defcon(stress, 125, 50)} ({stress}) <small>beta*🧪</small> {languageOption[labelFind(language)].label}
         </Title>
 
         
       <Bar> 
+
       <Selection isSearchable={ false } options={uggarOption} defaultValue={{value: ugg, label: ugg}}  onChange={(prop) =>  setUgg(prop.value) } />
       <Selection isSearchable={ false } options={languageOption} defaultValue={{value: language, label: languageOption[labelFind(language)].label}}  onChange={(prop) =>  setLanguage(prop.value) } />
       </Bar>
