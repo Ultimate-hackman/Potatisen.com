@@ -59,7 +59,6 @@ function dayMaker(itemData, saturation, i, date, weekIndex, count, duplicate, st
 
     if (itemData[0]  === undefined) {
       color += "NOTEST"
-
       sizes[1] = "2vh"
       daysToGo =""
 
@@ -148,11 +147,7 @@ function multiTest(data, language, ugg, weekIndex, i, state, saturation, len) {
     return dayMaker(target, saturation, i, date, weekIndex, count, duplicate, state, false)
   
   
-    
-  
-      
-    
-       
+         
 }
 
 function calendarGen(ugg, language, totalData, state, len) {

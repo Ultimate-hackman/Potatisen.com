@@ -89,27 +89,25 @@ export default function Kalender() {
   
   const [ugg, setUgg] = useState("O91")
   const [language, setLanguage] = useState("TY")
+
+  let Json = {"studentValues": {
+    "ugg": ugg,
+    "language": language
+  }}
   
   useEffect(() => {
-    if (localStorage.getItem('UserLanguage') === null) {
-    } else {
-      setLanguage(localStorage.getItem('UserLanguage'))
-    }
+    if (localStorage.getItem('StudentData') !== null) {
+      let student_deserialized = JSON.parse(localStorage.getItem('StudentData')).studentValues
+      setLanguage(student_deserialized.language)
+      setUgg(student_deserialized.ugg)
+    } 
 
-    if (localStorage.getItem('UserUgg') === null) {
-    } else {
-      setUgg(localStorage.getItem('UserUgg'))
-    }
   }, [])
 
-  useEffect(() => {
-    localStorage.setItem('UserLanguage', language)
-  }, [language])
-
   
   useEffect(() => {
-    localStorage.setItem('UserUgg', ugg)
-  }, [ugg])
+    localStorage.setItem('StudentData', JSON.stringify(Json))
+  }, [[ugg, language]])
 
 
   let stress = stressPT(ugg, language, 1)[1]
@@ -149,7 +147,7 @@ export default function Kalender() {
       <Bar> 
 
       <Selection isSearchable={ false } options={uggarOption} value={{label: ugg}} onChange={(prop) =>  setUgg(prop.value) } />
-      <Selection isSearchable={ false } options={languageOption} value={{value: language, label: languageOption[labelFind(language)].label}}  onChange={(prop) =>  setLanguage(prop.value) } />
+      <Selection isSearchable={ false } options={languageOption} value={{label: languageOption[labelFind(language)].label}}  onChange={(prop) =>  setLanguage(prop.value) } />
       </Bar>
 
       <Popup display={multiTest}>  <Array> {multiTest}</Array><PadButton onClick={() => setMultiTest("none")}>Stäng</PadButton></Popup>
