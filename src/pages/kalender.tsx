@@ -90,7 +90,8 @@ export default function Kalender() {
   const [ugg, setUgg] = useState("O91")
   const [language, setLanguage] = useState("TY")
 
-  let Json = {"studentValues": {
+  //Json! (localStorage)
+  let temp_Json = {"studentValues": {
     "ugg": ugg,
     "language": language
   }}
@@ -106,7 +107,7 @@ export default function Kalender() {
 
   
   useEffect(() => {
-    localStorage.setItem('StudentData', JSON.stringify(Json))
+    localStorage.setItem('StudentData', JSON.stringify(temp_Json))
   }, [[ugg, language]])
 
 
@@ -135,14 +136,12 @@ export default function Kalender() {
 
     <Header title="Provschema"/>
     
-
         <Title top="0vh">
         Provschema 
         </Title> 
         <Title sub top="0vh">
-        Här kan du snabbt kolla kommande prov ({ugg}) {defcon(stress, 125, 50)} ({stress}) <small>beta*🧪</small> 
+        Här kan du snabbt kolla kommande prov {defcon(stress, 125, 50)} ({stress}) <small>beta*🧪</small> 
         </Title>
-
         
       <Bar> 
 
