@@ -1,15 +1,15 @@
-import React, { Component, useState, useEffect }from "react";
+import React, { useState, useEffect }from "react";
 import Hatches from "../components/calendar/calendarMaker"; //
 import Header from '../components/header'
 import styled from "styled-components";
 import Title from '../styles/title'
-import stressPT from '../lib/kalendar/stressPT'
+import stressPT from '../lib/calendar/stressPT'
 import GlobalStyle from "../theme/GlobalStyles"
 import Select from 'react-select'
 import ClassChart from '../components/calendar/classChart'
 import LineChart from '../components/calendar/lineChart'
 import Btn from '../styles/btn'
-
+import testData from '../lib/calendar/testData'
 const uggarOption = [
   { value: 'O91', label: 'O91' },
   { value: 'O92', label: 'O92' },
@@ -52,7 +52,7 @@ const Selection = styled(Select) `
     position: static;
     width: 20vh;
 
-    margin-left: 1vh ;
+    margin-left: 1rem ;
 
 
 `
@@ -108,12 +108,14 @@ export default function Kalender() {
   
   useEffect(() => {
     localStorage.setItem('StudentData', JSON.stringify(temp_Json))
-  }, [[ugg, language]])
-
-
-  let stress = stressPT(ugg, language, 1)[1]
-
+  }, [ugg, language])
   
+  let importTestData =testData()
+
+
+  let stress = stressPT(ugg, language, importTestData, 1)[1]
+
+
 
 
   function defcon(stress, base, incr) {
@@ -121,7 +123,7 @@ export default function Kalender() {
     const emojiArray = ['😎', '🙂', '😕', '😬', '😟', '😡', '🤬']
 
     for (let i = 0; i <= emojiArray.length ; i+=1) {
-      if (stress <= (incr * i) + base ) {
+      if (stress <= (incr * i) + base) {
         return emojiArray[i]
       } else if (stress > (incr * emojiArray.length) + base) {
         return emojiArray[emojiArray.length - 1]
@@ -140,7 +142,7 @@ export default function Kalender() {
         Provschema 
         </Title> 
         <Title sub top="0vh">
-        Här kan du snabbt kolla kommande prov {defcon(stress, 125, 50)} ({stress}) <small>beta*🧪</small> 
+        Här kan du snabbt kolla kommande prov {defcon(stress, 125, 50)} ({stress}) <small>beta*🧪</small>                           
         </Title>
         
       <Bar> 
@@ -151,10 +153,10 @@ export default function Kalender() {
 
       <Popup display={multiTest}>  <Array> {multiTest}</Array><PadButton onClick={() => setMultiTest("none")}>Stäng</PadButton></Popup>
       
-        <Calendar><Hatches len={24} state={setMultiTest} ugg={ugg} language={language} /></Calendar>
+        <Calendar><Hatches len={24} state={setMultiTest} data={importTestData} ugg={ugg} language={language} /></Calendar>
 
-      <ClassChart ugg={ugg} language={language}/>
-      <LineChart len={24} ugg={ugg} language={language}/>
+      <ClassChart data={importTestData} ugg={ugg} language={language}/>
+      <LineChart  data={importTestData} len={24} ugg={ugg} language={language}/>
 
     </>
   );

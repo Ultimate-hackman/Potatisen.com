@@ -5,10 +5,10 @@ import React, { useState, useEffect } from "react";
 
 
 import totalMonth from "../../lib/time/totalMonth"
-import colorFinder from "../../lib/kalendar/colorFinder";
+import colorFinder from "../../lib/calendar/colorFinder";
 import firebase from "../../lib/firebase/firebase";
 import months from "../../lib/time/months";
-import monthCheck from "../../lib/kalendar/monthCheck";
+import monthCheck from "../../lib/calendar/monthCheck";
 import pluralCheck from "../../lib/time/pluralCheck";
 
 import weekDays from '../../lib/time/weekDay';
@@ -68,15 +68,13 @@ function dayMaker(itemData, saturation, i, date, weekIndex, count, duplicate, st
       weight = "bold"
       hours = itemData[4]
 
+      color += itemData[1]
 
-      if (daysToGo[0] === "-") {
+      if (daysToGo > 0) {
         daysToGo = ""
         emoji.push("✔")
         saturation /= 1.5
       }
-    
-      
-      color += itemData[1]
 
       if (count >= 2 && duplicateChild === false) {
         emoji.push("❗️")
@@ -90,7 +88,7 @@ function dayMaker(itemData, saturation, i, date, weekIndex, count, duplicate, st
 }
 
 function daysLeft(i) {
-  i -= monday
+  i -= monday 
   if (i === 0) {
     return pluralCheck(day + i - day, "", "", "")[0];
   } else {
@@ -168,24 +166,7 @@ function calendarGen(ugg, language, totalData, state, len) {
 
 
 export default function Hatches(props) {
-  let array = new Array()
-
-  const [totalData, setTotalData] = useState(new Array());
-
-  useEffect(() => {
-    database
-      .collection("prov")
-      .get()
-      .then((snapshot) => {
-        snapshot.docs.forEach((doc) => {
-          array.push(doc.data().prov);
-        });
-
-        setTotalData(array);
-
-      });
-  }, []);
   return <>
-  {calendarGen(props.ugg, props.language, totalData, props.state, props.len)} </>;
+  {calendarGen(props.ugg, props.language, props.data, props.state, props.len)} </>;
 
 }

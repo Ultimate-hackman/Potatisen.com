@@ -42,12 +42,11 @@ const Potatisen = styled(Item) `
 `
 
 export default function header(props) {
-    let name: string =  ""
-    if (props.title === undefined) {
-        name += "Potatisen.com"
-    } else {
-        name += "• Potatisen.com"
-    }
+    let name: string = "Potatisen.com"
+    if (props.title !== undefined) {
+        name = "• Potatisen.com"
+    } 
+    
     return (
     <>
     <head>  
@@ -62,12 +61,7 @@ export default function header(props) {
 
     <Potatisen>Potatisen</Potatisen>
     </Bar>
-    
-        
-
-
-        
-        
+           
     </>    
         )
 }

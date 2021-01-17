@@ -1,38 +1,13 @@
-import "firebase/database";
-import firebase from "../firebase/firebase";
-import React, { useState, useEffect } from "react";
+
 
 import totalMonth from '../time/totalMonth'
 
 
-
-
-export default function stressPT(ugg, language, day) {
-    const database = firebase.firestore();
+export default function stressPT(ugg, language, totalData, day) {
     let time = new Array()
     let totalPt: number = 0
     const currentMonth = new Date().getMonth();
     const currentYear = new Date().getFullYear();
-
-    
-
-    let array = new Array();
-
-    const [totalData, setTotalData] = useState(new Array());
-    useEffect(() => {
-      database
-        .collection("prov")
-        .get()
-        .then((snapshot) => {
-          snapshot.docs.forEach((doc) => {
-            array.push(doc.data().prov);
-          });
-  
-          setTotalData(array);
-  
-        });
-    }, []);
-
 
 
     for (const c in totalData) {
@@ -54,16 +29,12 @@ export default function stressPT(ugg, language, day) {
             if (100 - distance > 0) {
               totalPt += 100 - distance 
             }
-
           
         }
-
         
     }
 
-    function sortNumbers(a, b) {
-      return a - b;
-    }
+ 
     
     time.sort((a, b) => a- b)
 

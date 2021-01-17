@@ -1,9 +1,9 @@
-import stressPT from '../../lib/kalendar/stressPT'
+import stressPT from '../../lib/calendar/stressPT'
 import { Line } from 'react-chartjs-2'
 import 'react-chartjs-2'
 
 import months from '../../lib/time/months'
-import monthCheck from '../../lib/kalendar/monthCheck'
+import monthCheck from '../../lib/calendar/monthCheck'
 export default function classChart(props) {
     let day: number = new Date().getDate()
     let data = new Array()
@@ -13,7 +13,7 @@ export default function classChart(props) {
 
 
     for (let i: number = 0; i < props.len; i++) {
-            data.push(stressPT(props.ugg, props.language, day + i)[1])
+            data.push(stressPT(props.ugg, props.language, props.data, day + i)[1])
             time.push(monthCheck(i + day, currentMonth)[0] + " " + months[monthCheck(i + day, currentMonth)[1]])
              
     }
