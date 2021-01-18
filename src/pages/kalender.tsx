@@ -110,10 +110,11 @@ export default function Kalender() {
     localStorage.setItem('StudentData', JSON.stringify(temp_Json))
   }, [ugg, language])
   
-  let importTestData =testData()
+  let importTestData = testData()
 
 
-  let stress = stressPT(ugg, language, importTestData, 1)[1]
+  let stress = stressPT(ugg, language, importTestData, new Date().getDate())[1]
+
 
 
 
@@ -142,7 +143,7 @@ export default function Kalender() {
         Provschema 
         </Title> 
         <Title sub top="0vh">
-        Här kan du snabbt kolla kommande prov {defcon(stress, 125, 50)} ({stress}) <small>beta*🧪</small>                           
+        Här kan du snabbt kolla kommande prov {defcon(stress, 125, 75)} ({stress}) <small>beta*🧪</small>                           
         </Title>
         
       <Bar> 

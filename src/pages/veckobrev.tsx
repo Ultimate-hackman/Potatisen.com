@@ -40,13 +40,18 @@ export default function veckobrev() {
     })
     }, []);
 
-    const url = useDownloadUrl(`veckobrev/${weekFinder(4, 17) + 1}.pdf`);
+    
+    const url = useDownloadUrl(`veckobrev/${weekFinder(4, 17) + 1}, ${new Date().getFullYear()}.pdf`)
 
     let weekMsg = new String()
-    if (url == undefined) {
-        weekMsg += "Veckobrevet hittades inte"
+    if (data == undefined) {
+        weekMsg += "Veckobrev vecka ?"
     } else {
-        weekMsg += "Veckobrev vecka " + (weekFinder(4, 17) + 1)
+        if (url !== undefined) {
+            weekMsg += "Veckobrev vecka " + (weekFinder(4, 17) + 1)
+        } else {
+            weekMsg += "Veckobrevet hittades inte"
+        }
     }
 
 
@@ -62,7 +67,7 @@ export default function veckobrev() {
         <NewsPad>
         <h1>Nyheter 📰🖊️</h1>  
         {data?.map((data, index) =>{
-         return <Bullet key={index} className="bullet-point">{data}</Bullet> 
+         return <Bullet key={index}>{data}</Bullet> 
       })}
   </NewsPad>
         </>

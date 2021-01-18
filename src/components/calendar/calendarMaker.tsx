@@ -1,16 +1,12 @@
 import "firebase/database";
 import styled from "styled-components";
 import Title from "../../styles/title";
-import React, { useState, useEffect } from "react";
-
 
 import totalMonth from "../../lib/time/totalMonth"
 import colorFinder from "../../lib/calendar/colorFinder";
-import firebase from "../../lib/firebase/firebase";
 import months from "../../lib/time/months";
 import monthCheck from "../../lib/calendar/monthCheck";
 import pluralCheck from "../../lib/time/pluralCheck";
-
 import weekDays from '../../lib/time/weekDay';
 import Hatch from "../../styles/hatch"
 
@@ -21,13 +17,12 @@ const Text = styled(Title)`
 `;
 
 const currentMonth: number = new Date().getMonth();
-const database = firebase.firestore();
 
 const monday: number = (new Date().getDay() -1)
 let day: number = new Date().getDate() - monday
 
 
-function dayMaker(itemData, saturation, i, date, weekIndex, count, duplicate, state, duplicateChild) {
+function dayMaker(itemData, saturation, i, date, weekIndex, count, duplicate, state, duplicateChild, data) {
   let weekDay = weekDays[weekIndex] 
   let emoji: any[] = new Array();
   let color: string = ""
@@ -61,7 +56,7 @@ function dayMaker(itemData, saturation, i, date, weekIndex, count, duplicate, st
       color += "NOTEST"
       sizes[1] = "2vh"
       daysToGo =""
-
+      
 
 
     } else {
@@ -80,6 +75,11 @@ function dayMaker(itemData, saturation, i, date, weekIndex, count, duplicate, st
         emoji.push("❗️")
         cursor +="pointer"
       }
+    }
+    
+    if (data[0] == undefined && (Math.floor(Math.random() * 15) == 1)) {
+      color = "So"
+      saturation = 0.3
     }
 
 
@@ -135,14 +135,14 @@ function multiTest(data, language, ugg, weekIndex, i, state, saturation, len) {
     let output = []
     filterData.forEach (item =>
       {if (new Date(item[0].split(',')[0]).getDate() === time) {
-        output.push(dayMaker(item, saturation, i, date, weekIndex, count, duplicate, state, true))}
+        output.push(dayMaker(item, saturation, i, date, weekIndex, count, duplicate, state, true, filterData))}
       }) 
     return output
   }
 
   
 
-    return dayMaker(target, saturation, i, date, weekIndex, count, duplicate, state, false)
+    return dayMaker(target, saturation, i, date, weekIndex, count, duplicate, state, false, data)
   
   
          
