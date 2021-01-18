@@ -40,8 +40,9 @@ export default function veckobrev() {
     })
     }, []);
 
-    
-    const url = useDownloadUrl(`veckobrev/${weekFinder(4, 17) + 1}, ${new Date().getFullYear()}.pdf`)
+
+    const url = useDownloadUrl(`veckobrev/${weekFinder(4, 17) + 1}, ${new Date().getFullYear()}.pdf`);
+
 
     let weekMsg = new String()
     if (data == undefined) {
