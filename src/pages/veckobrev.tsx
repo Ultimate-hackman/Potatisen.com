@@ -1,5 +1,5 @@
 
-import weekFinder from '../lib/time/weekCount'
+import weekCount from '../lib/time/weekCount'
 import React, { useState, useEffect } from 'react';
 import firebase from '../lib/firebase/firebase'
 import useDownloadUrl from '../lib/firebase/useDownloadUrl'
@@ -41,7 +41,7 @@ export default function veckobrev() {
     }, []);
 
 
-    const url = useDownloadUrl(`veckobrev/${weekFinder(4, 17) + 1}, ${new Date().getFullYear()}.pdf`);
+    const url = useDownloadUrl(`veckobrev/${weekCount(7, 17) + 1}, ${new Date().getFullYear()}.pdf`);
 
 
     let weekMsg = new String()
@@ -49,7 +49,7 @@ export default function veckobrev() {
         weekMsg += "Veckobrev vecka ?"
     } else {
         if (url !== undefined) {
-            weekMsg += "Veckobrev vecka " + (weekFinder(4, 17) + 1)
+            weekMsg += "Veckobrev vecka " + (weekCount(7, 17) + 1)
         } else {
             weekMsg += "Veckobrevet hittades inte"
         }

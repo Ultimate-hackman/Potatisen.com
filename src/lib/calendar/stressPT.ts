@@ -15,11 +15,11 @@ export default function stressPT(ugg, language, totalData, day) {
 
       let distance = distanceGen(testTime.getFullYear(), testTime.getMonth(),testTime.getDate(), new Date(), day)
 
-        if (distance >= 0 && (totalData[c][3] === ugg || totalData[c][1] === language || totalData[c][3] === "alla") && distance > 0) {
+        if (distance >= 0 && (totalData[c][3] === ugg || totalData[c][1] === language || totalData[c][3] === "alla") && distance) {
             
             time.push(distance) 
             if (100 - distance > 0) {
-              totalPt += 100 - distance 
+              totalPt += (100 - distance) 
             }
           
         }
