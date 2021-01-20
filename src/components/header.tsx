@@ -28,6 +28,7 @@ const Item = styled.li`
     cursor: pointer;
 
 
+
     &:hover {
         color: rgb(2, 2, 2);
     }
