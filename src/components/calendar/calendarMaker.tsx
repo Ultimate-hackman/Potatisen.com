@@ -140,7 +140,6 @@ function multiTest(data, language, ugg, weekIndex, i, state, saturation, len) {
     return output
   }
 
-  
 
     return dayMaker(target, saturation, i, date, weekIndex, count, duplicate, state, false, data)
   
@@ -153,6 +152,7 @@ function calendarGen(ugg, language, totalData, state, len) {
   let weekDay: number = new Date().getDay() - monday - 1
 
   for (let i = 0; i < len; i++) {
+
     weekDay += 1
     if (weekDay >= 7) {
       weekDay -= 7

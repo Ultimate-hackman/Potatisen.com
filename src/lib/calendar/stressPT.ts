@@ -1,6 +1,4 @@
 
-
-import totalMonth from '../time/totalMonth'
 import distanceGen from './distance'
 
 export default function stressPT(ugg, language, totalData, day) {
@@ -15,10 +13,10 @@ export default function stressPT(ugg, language, totalData, day) {
 
       let distance = distanceGen(testTime.getFullYear(), testTime.getMonth(),testTime.getDate(), new Date(), day)
 
-        if (distance >= 0 && (totalData[c][3] === ugg || totalData[c][1] === language || totalData[c][3] === "alla") && distance) {
+        if (distance >= 0 && (totalData[c][3] === ugg || totalData[c][1] === language || totalData[c][3] === "alla")) {
             
             time.push(distance) 
-            if (100 - distance > 0) {
+            if (100 - distance >= 0) {
               totalPt += (100 - distance) 
             }
           
