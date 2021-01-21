@@ -47,12 +47,8 @@ export default function veckobrev() {
     let weekMsg = new String()
     if (data == undefined) {
         weekMsg += "Veckobrev vecka ?"
-    } else {
-        if (url !== undefined) {
-            weekMsg += "Veckobrev vecka " + (weekCount(7, 17) + 1)
-        } else {
-            weekMsg += "Veckobrevet hittades inte"
-        }
+    } else {  
+      weekMsg += "Veckobrev vecka " + (weekCount(7, 17) + 1)
     }
 
 
