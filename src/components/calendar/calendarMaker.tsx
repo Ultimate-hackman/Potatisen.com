@@ -42,7 +42,7 @@ function dayMaker(itemData, saturation, i, date, weekIndex, count, duplicate, st
   }
 
   
-  if(weekIndex === 0 || weekIndex === 6) {
+  if((weekIndex === 0 || weekIndex === 6) && itemData[0]  === undefined) {
     emoji.push(<> <br/> <Text size="2vh">helg🌴</Text></>)
     color += "en"
     daysToGo =""
