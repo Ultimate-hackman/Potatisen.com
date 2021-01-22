@@ -16,7 +16,7 @@ const Bar = styled.ul `
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 `
 
-const Item = styled.li`
+const Item = styled.a`
     display: inline-block;
 
     font-size: 1.7em;

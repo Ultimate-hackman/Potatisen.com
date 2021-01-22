@@ -41,7 +41,7 @@ export default function veckobrev() {
     }, []);
 
 
-    const url = useDownloadUrl(`veckobrev/${weekCount(7, 17) + 1}, ${new Date().getFullYear()}.pdf`);
+    const url = useDownloadUrl(`veckobrev/${weekCount(5, 17) }, ${new Date().getFullYear()}.pdf`);
 
 
     let weekMsg = new String()
@@ -49,7 +49,7 @@ export default function veckobrev() {
         weekMsg += "Veckobrev vecka ?"
     } else {
         if (url !== undefined) {
-            weekMsg += "Veckobrev vecka " + (weekCount(7, 17) + 1)
+            weekMsg += "Veckobrev vecka " + (weekCount(5, 17) )
         } else {
             weekMsg += "Veckobrevet hittades inte"
         }
