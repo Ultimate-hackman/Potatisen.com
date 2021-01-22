@@ -121,7 +121,7 @@ function multiTest(data, language, ugg, weekIndex, i, state, saturation, len) {
       let distance =  dataTime - current
 
   
-      if (date[0] === time.getDate() && distance < len && distance > -monday && (item[3] === ugg || item[3] === "alla" || (item[3] === "MO" && item[1] === language)) ) {
+      if (date[0] === time.getDate() && distance < len && distance > -monday && (item[3] === ugg || item[3] === "alla" || (item[3] === "MO" && item[1] === language )) ) {
         count += 1
         target = item;
         filterData.push(target)
@@ -129,13 +129,14 @@ function multiTest(data, language, ugg, weekIndex, i, state, saturation, len) {
     }
     
     ) 
-    
- 
+  
+
+  // poop
   function duplicate(time) {
     let output = []
     filterData.forEach (item =>
       {if (new Date(item[0].split(',')[0]).getDate() === time) {
-        output.push(dayMaker(item, saturation, i, date, weekIndex, count, duplicate, state, true, filterData))}
+        output.push(dayMaker(item, saturation, i, date, weekIndex, count, duplicate, state, true, item))}
       }) 
     return output
   }

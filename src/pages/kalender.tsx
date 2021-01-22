@@ -19,8 +19,8 @@ const uggarOption = [
 const languageOption = [
   { value: 'TY', label: 'Tyska' },
   { value: 'FR', label: 'Franska' },
-  { value: 'SP-A', label: 'Spanska (AAV)' },
-  { value: 'SP-B', label: 'Spanska (CTH)' },
+  { value: 'SP', label: 'Spanska (AAV)' },
+  { value: 'SP', label: 'Spanska (CTH)' },
   { value: 'ASVEN', label: 'ASVEN' }
 ]
 const Calendar = styled.div `
