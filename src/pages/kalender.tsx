@@ -1,5 +1,5 @@
 import React, { useState, useEffect }from "react";
-import Hatches from "../components/calendar/calendarMaker"; //
+import Hatches from "../components/calendar/calendarMaker"; 
 import Header from '../components/header'
 import styled from "styled-components";
 import Title from '../styles/title'
@@ -10,6 +10,7 @@ import ClassChart from '../components/calendar/classChart'
 import LineChart from '../components/calendar/lineChart'
 import Btn from '../styles/btn'
 import testData from '../lib/calendar/testData'
+import NewsPad from '../styles/newsPad'
 const uggarOption = [
   { value: 'O91', label: 'O91' },
   { value: 'O92', label: 'O92' },
@@ -139,6 +140,8 @@ export default function Kalender() {
 
     <Header title="Provschema"/>
     
+
+    
         <Title top="0vh">
         Provschema 
         </Title> 
@@ -152,13 +155,19 @@ export default function Kalender() {
       <Selection isSearchable={ false } options={languageOption} value={{label: languageOption[labelFind(language)].label}}  onChange={(prop) =>  setLanguage(prop.value) } />
       </Bar>
 
+    
+
       <Popup display={multiTest}>  <Array> {multiTest}</Array><PadButton onClick={() => setMultiTest("none")}>Stäng</PadButton></Popup>
+
+
       
         <Calendar><Hatches len={24} state={setMultiTest} data={importTestData} ugg={ugg} language={language} /></Calendar>
 
+
+
       <ClassChart data={importTestData} ugg={ugg} language={language}/>
       <LineChart  data={importTestData} len={24} ugg={ugg} language={language}/>
-
+ 
     </>
   );
 }

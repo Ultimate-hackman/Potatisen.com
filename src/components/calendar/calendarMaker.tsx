@@ -65,8 +65,8 @@ function dayMaker(itemData, saturation, i, date, weekIndex, count, duplicate, st
 
       color += itemData[1]
 
-      if (daysToGo > 0) {
-        daysToGo = ""
+      if (daysLeft(i) >= 0) {
+        color += "So"
         emoji.push("✔")
         saturation /= 1.5
       }
@@ -89,11 +89,14 @@ function dayMaker(itemData, saturation, i, date, weekIndex, count, duplicate, st
 
 function daysLeft(i) {
   i -= monday 
+  if (i < 0) {
+    return ""
+  }
   if (i === 0) {
-    return pluralCheck(day + i - day, "", "", "")[0];
+    return pluralCheck( i , "", "", "")[0];
   } else {
     return (
-      day + i - day  +" " + pluralCheck(day + i - day, "", "", "")[0] + " " + "kvar"
+     i  +" " + pluralCheck(day + i - day, "", "", "")[0] + " " + "kvar"
     );
   }
 }
