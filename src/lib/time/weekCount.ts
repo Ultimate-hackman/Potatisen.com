@@ -1,5 +1,6 @@
 import totalMonth from './totalMonth'
 
+
 export default function weekFinder(weekday, hour) {
     let month: number = new Date().getMonth();
     let day: number = new Date().getDate();
