@@ -1,7 +1,7 @@
 import totalMonth from './totalMonth'
 
-import * as dayjs from 'dayjs'
-import * as isoWeek from 'dayjs/plugin/isoWeek'
+import dayjs from 'dayjs'
+import isoWeek from 'dayjs/plugin/isoWeek'
 
 dayjs.extend(isoWeek)
 
