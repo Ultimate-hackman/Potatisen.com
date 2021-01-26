@@ -14,6 +14,7 @@ import Img from '../styles/img'
 import BigBtn from '../styles/bigBtn'
 
 
+
 const VeckoImg = styled(Img) `
 width: 25%;
 padding-top: 15vh;
@@ -41,7 +42,7 @@ export default function veckobrev() {
     }, []);
 
 
-    const url = useDownloadUrl(`veckobrev/${weekCount(5, 17) +1}, ${new Date().getFullYear()}.pdf`);
+    const url = useDownloadUrl(`veckobrev/${weekCount(5, 17) }, ${new Date().getFullYear()}.pdf`);
 
 
     let weekMsg = new String()
@@ -49,9 +50,9 @@ export default function veckobrev() {
         weekMsg += "Veckobrev vecka ?"
     } else {
         if (url !== undefined) {
-            weekMsg += "Veckobrev vecka " + (weekCount(5, 17) +1)
-        } else {
-            weekMsg += "Veckobrevet hittades inte"
+            weekMsg += "Veckobrev vecka " + weekCount(5, 17)
+        } else if (url === undefined) {
+            weekMsg += "hittades inte"
         }
 
     }

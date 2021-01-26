@@ -3,7 +3,7 @@ import { Line } from 'react-chartjs-2'
 import 'react-chartjs-2'
 
 import months from '../../lib/time/months'
-import monthCheck from '../../lib/calendar/monthCheck'
+import monthCheck from '../../lib/calendar/monthUpdate'
 export default function classChart(props) {
     let day: number = new Date().getDate()
     let data = new Array()

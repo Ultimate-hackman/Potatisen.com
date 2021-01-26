@@ -61,6 +61,7 @@ const Bar = styled.ul `
     padding-top: 1vh;
     display: flex;
     margin-left: 20vw;
+    overflow: visible;
 
     @media only screen and (max-height: 768px) {
       margin-left: 15vw;

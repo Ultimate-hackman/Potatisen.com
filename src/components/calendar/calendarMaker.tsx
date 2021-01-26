@@ -5,10 +5,11 @@ import Title from "../../styles/title";
 import totalMonth from "../../lib/time/totalMonth"
 import colorFinder from "../../lib/calendar/colorFinder";
 import months from "../../lib/time/months";
-import monthCheck from "../../lib/calendar/monthCheck";
+import monthCheck from "../../lib/calendar/monthUpdate";
 import pluralCheck from "../../lib/time/pluralCheck";
 import weekDays from '../../lib/time/weekDay';
 import Hatch from "../../styles/hatch"
+import dayjs from 'dayjs'
 
 const Text = styled(Title)`
   font-size: ${props => props.size};

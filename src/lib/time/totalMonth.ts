@@ -1,11 +1,14 @@
-import monthsLenght from "./monthsLenght"
+
+import dayjs from 'dayjs'
 
 
 function totalMonth(num) {
+  let date = new Date()
 
     let output: number = 0
     for (let i = 0; i < num; i++) {
-      output += monthsLenght[i]
+      date.setMonth(i)
+      output += dayjs(date).daysInMonth() 
     }
     return output
   }
