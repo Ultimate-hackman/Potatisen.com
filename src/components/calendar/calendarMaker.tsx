@@ -9,8 +9,6 @@ import monthCheck from "../../lib/calendar/monthUpdate";
 import pluralCheck from "../../lib/time/pluralCheck";
 import weekDays from '../../lib/time/weekDay';
 import Hatch from "../../styles/hatch"
-import dayjs from 'dayjs'
-
 const Text = styled(Title)`
   font-size: ${props => props.size};
   font-weight: ${props => props.weight};

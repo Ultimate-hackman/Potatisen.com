@@ -50,7 +50,7 @@ const Popup = styled.div `
 `;
 
 const Selection = styled(Select) `
-    position: static;
+    position: fixed;
     width: 20vh;
 
     margin-left: 1rem ;
@@ -80,6 +80,8 @@ display: flex;
 justify-self: auto;
 grid-column-gap: 2vh; 
 `
+
+
 
 function labelFind(lan) {
   const list = [languageOption[0].value, languageOption[1].value, languageOption[2].value, languageOption[3].value, languageOption[4].value]
@@ -153,7 +155,7 @@ export default function Kalender() {
       <Bar> 
 
       <Selection isSearchable={ false } options={uggarOption} value={{label: ugg}} onChange={(prop) =>  setUgg(prop.value) } />
-      <Selection isSearchable={ false } options={languageOption} value={{label: languageOption[labelFind(language)].label}}  onChange={(prop) =>  setLanguage(prop.value) } />
+      <Selection  isSearchable={ false } options={languageOption} value={{label: languageOption[labelFind(language)].label}}  onChange={(prop) =>  setLanguage(prop.value) } />
       </Bar>
 
     
