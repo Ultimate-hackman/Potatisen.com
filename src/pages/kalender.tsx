@@ -50,7 +50,7 @@ const Popup = styled.div `
 `;
 
 const Selection = styled(Select) `
-    position: fixed;
+
     width: 20vh;
 
     margin-left: 1rem ;
