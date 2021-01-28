@@ -25,7 +25,6 @@ export default function stressPT(ugg, language, totalData, day) {
     }
     
     time.sort((a, b) => a- b)
-
     return [time, totalPt]
     
 }

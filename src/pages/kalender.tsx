@@ -10,7 +10,7 @@ import ClassChart from '../components/calendar/classChart'
 import LineChart from '../components/calendar/lineChart'
 import Btn from '../styles/btn'
 import testData from '../lib/calendar/testData'
-import NewsPad from '../styles/newsPad'
+
 const uggarOption = [
   { value: 'O91', label: 'O91' },
   { value: 'O92', label: 'O92' },
@@ -50,9 +50,7 @@ const Popup = styled.div `
 `;
 
 const Selection = styled(Select) `
-
     width: 20vh;
-
     margin-left: 1rem ;
 
 

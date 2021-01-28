@@ -9,6 +9,12 @@ import monthCheck from "../../lib/calendar/monthUpdate";
 import pluralCheck from "../../lib/time/pluralCheck";
 import weekDays from '../../lib/time/weekDay';
 import Hatch from "../../styles/hatch"
+
+
+
+
+
+
 const Text = styled(Title)`
   font-size: ${props => props.size};
   font-weight: ${props => props.weight};
@@ -47,8 +53,6 @@ function dayMaker(itemData, saturation, i, date, weekIndex, count, duplicate, st
     daysToGo =""
     sizes[1] = "2vh"
     sizes[0] = "2vh"
-  
-    
   } else {
 
     if (itemData[0]  === undefined) {
