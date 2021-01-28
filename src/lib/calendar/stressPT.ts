@@ -17,14 +17,16 @@ export default function stressPT(ugg, language, totalData, day) {
             
             time.push(distance) 
             if (100 - distance >= 0) {
-              totalPt += (100 - distance)
+              totalPt += (100- distance)
             }
           
         }
         
     }
     
+
     time.sort((a, b) => a- b)
+
     return [time, totalPt]
     
 }
