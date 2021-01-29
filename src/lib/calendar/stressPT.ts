@@ -19,7 +19,7 @@ export default function stressPT(ugg, language, totalData, day) {
             
             time.push(distance) 
             if (x >= 0) {
-              totalPt += (100 - (1.8 ** x))
+              totalPt += (100 - (1.6 ** x))
             }
           
         }
