@@ -82,7 +82,7 @@ function dayMaker(itemData, saturation, i, date, weekIndex, count, duplicate, st
     
     if (data[0] == undefined && (Math.floor(Math.random() * 15) == 1)) {
       color = "So"
-      saturation = 0.3
+      saturation = 1.3
     }
 
 
