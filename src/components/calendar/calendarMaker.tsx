@@ -71,7 +71,7 @@ function dayMaker(itemData, saturation, i, date, weekIndex, count, duplicate, st
       if (daysLeft(i) <= 0) {
         color += "So"
         emoji.push("✔")
-        saturation /= 2
+        saturation / 2
       }
 
       if (count >= 2 && duplicateChild === false) {
