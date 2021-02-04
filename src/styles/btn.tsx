@@ -22,6 +22,6 @@ const Btn = styled.button`
     background-color: rgba(255, 255, 255, 0);
     border: 1px solid rgb(0, 0, 0);
   }
-`
+`;
 
-export default Btn
+export default Btn;

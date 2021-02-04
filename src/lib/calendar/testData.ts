@@ -1,28 +1,54 @@
 import React, { useState, useEffect } from "react";
-import firebase from "../../lib/firebase/firebase";
+import firebase from "../firebase/firebase";
+import Language from "../types/Language";
+import Subject from "../types/Subject";
+import Ugg from "../types/Ugg";
 
-
-function testData() {
-    const database = firebase.firestore();
-let array = []
-const [totalData, setTotalData] = useState(new Array());
-
-useEffect(() => {
-  database
-    .collection("prov")
-    .get()
-
-    .then((snapshot) => {
-      snapshot.docs.forEach((doc) => {
-        array.push(doc.data().prov);
-      });
-
-      setTotalData(array);
-
-    });
-}, []);
-
-return totalData
+export interface Test {
+  timestamp: Date;
+  ugg?: Ugg;
+  language?: Language;
+  subject?: Subject;
+  title: string;
 }
 
-export default testData
+export type Tests = Test[];
+
+function useTestData(ugg?: Ugg, language?: Language): Test[] {
+  const database = firebase.firestore();
+  const [totalData, setTotalData] = useState<Test[]>([]);
+
+  useEffect(() => {
+    database
+      .collection("prov")
+      .get()
+
+      .then((snapshot) => {
+        setTotalData(snapshot.docs.map((doc): Test => {
+          const data = doc.data();
+
+          return {
+            timestamp: data.timestamp?.toDate(),
+            ugg: data.ugg,
+            language: data.language,
+            title: data.title,
+            subject: data.subject,
+          }
+        }));
+      });
+  }, []);
+
+  return totalData.filter((test) => {
+    if (ugg && test.ugg && test.ugg !== ugg) {
+      return false;
+    }
+
+    if (language && test.language && test.language !== language) {
+      return false;
+    }
+
+    return true;
+  });
+}
+
+export default useTestData;

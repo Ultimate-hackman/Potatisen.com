@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Btn from "./btn"
+import Btn from "./btn";
 
 const BigBtn = styled(Btn)`
     background-color: rgb(255, 255, 255); /* Black */
@@ -21,6 +21,6 @@ const BigBtn = styled(Btn)`
       color:white;
     }
     
-`
+`;
 
-export default BigBtn
+export default BigBtn;

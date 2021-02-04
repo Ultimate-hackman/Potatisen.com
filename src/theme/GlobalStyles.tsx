@@ -1,4 +1,4 @@
-import {createGlobalStyle} from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
 
@@ -8,7 +8,6 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: none;
 }
 
-`
+`;
 
-
-export default GlobalStyle
+export default GlobalStyle;

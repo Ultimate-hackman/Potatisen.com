@@ -1,42 +1,39 @@
 import styled from "styled-components";
 
-import GlobalStyle from '../theme/GlobalStyles'
-import Link from 'next/link'
-import Header from '../components/header'
+import Link from "next/link";
+import GlobalStyle from "../theme/GlobalStyles";
+import Header from "../components/header";
 
-import NewsPad from '../styles/newsPad'
-import Title from '../styles/title'
-import Img from '../styles/img'
-import Btn from '../styles/btn'
+import NewsPad from "../styles/newsPad";
+import Title from "../styles/title";
+import Img from "../styles/img";
+import Btn from "../styles/btn";
 
-
-
-const QuestionImg = styled(Img) `
+const QuestionImg = styled(Img)`
 width: 15%;
-`
+`;
 
 export default function Home() {
-
   return (
     <>
 
-        <GlobalStyle/>
-        <Header/>
-        <Title>
-        404 
-        </Title>
-        <Title sub>
-        Sidan gick inte att hitta 
-        </Title>
-        <QuestionImg src="https://media.discordapp.net/attachments/688322560957743190/788822693277335552/question.png"></QuestionImg>
+      <GlobalStyle />
+      <Header />
+      <Title>
+        404
+      </Title>
+      <Title sub>
+        Sidan gick inte att hitta
+      </Title>
+      <QuestionImg src="https://media.discordapp.net/attachments/688322560957743190/788822693277335552/question.png" />
 
-        <Link href="/">
+      <Link href="/">
         <Btn>Hem</Btn>
-       </Link>
+      </Link>
 
-       <NewsPad>
+      <NewsPad>
         <h1>Sidan gick inte att hitta </h1>
-       </NewsPad>
+      </NewsPad>
     </>
-  )
+  );
 }

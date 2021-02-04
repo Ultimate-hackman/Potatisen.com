@@ -1,5 +1,5 @@
+import styled from "styled-components";
 
-import styled  from "styled-components";
 const Img = styled.img`
     display: block;
     margin-left: auto;
@@ -12,4 +12,4 @@ const Img = styled.img`
     }
 `;
 
-export default Img
+export default Img;

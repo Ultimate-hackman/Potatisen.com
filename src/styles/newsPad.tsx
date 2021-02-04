@@ -1,6 +1,6 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
-const NewsPad = styled.div `
+const NewsPad = styled.div`
     width: 20%;
     background-color: rgba(255, 255, 255, 0.048);
     border-radius: 10px;
@@ -18,6 +18,6 @@ const NewsPad = styled.div `
     @media all and (max-width: 736px) {
         display: none;
     }
-`
+`;
 
-export default NewsPad
+export default NewsPad;

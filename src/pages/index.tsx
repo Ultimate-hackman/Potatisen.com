@@ -1,42 +1,42 @@
+import Link from "next/link";
+import staticDayCount from "../lib/time/staticDayCount";
 
-import staticDayCount from '../lib/time/staticDayCount'
+import GlobalStyle from "../theme/GlobalStyles";
+import Header from "../components/header";
 
-import GlobalStyle from '../theme/GlobalStyles'
-import Link from 'next/link'
-import Header from '../components/header'
-
-import NewsPad from '../styles/newsPad'
-import Title from '../styles/title'
-import Img from '../styles/img'
-import Btn from '../styles/btn'
-
+import NewsPad from "../styles/newsPad";
+import Title from "../styles/title";
+import Img from "../styles/img";
+import Btn from "../styles/btn";
 
 export default function Home() {
-
-  let time = staticDayCount("mar 1, 2020 00:00:00")
-
+  const time = staticDayCount("mar 1, 2020 00:00:00");
 
   return (
     <>
 
-        <GlobalStyle/>
-        <Header/>
-        <Title>
-        Välkommen till Potatisen.com! 
-        </Title>
+      <GlobalStyle />
+      <Header />
+      <Title>
+        Välkommen till Potatisen.com!
+      </Title>
 
-        <Img src="https://media.discordapp.net/attachments/688322560957743190/786279776468992071/shrek.png"></Img>
+      <Img src="https://media.discordapp.net/attachments/688322560957743190/786279776468992071/shrek.png" />
 
-        <Link href="/veckobrev">
+      <Link href="/veckobrev">
         <Btn>Veckobrev</Btn>
-       </Link>
+      </Link>
 
-       <NewsPad>
+      <NewsPad>
 
-        <h1> {time + 1 + " dagar kvar till sportlov 👟"} </h1>
+        <h1>
+          {" "}
+          {`${time + 1} dagar kvar till sportlov 👟`}
+          {" "}
+        </h1>
 
-       </NewsPad>
+      </NewsPad>
 
     </>
-  )
+  );
 }

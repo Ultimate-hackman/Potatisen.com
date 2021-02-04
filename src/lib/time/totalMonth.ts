@@ -1,16 +1,14 @@
-
-import dayjs from 'dayjs'
-
+import dayjs from "dayjs";
 
 function totalMonth(num) {
-  let date = new Date()
+  const date = new Date();
 
-    let output: number = 0
-    for (let i = 0; i < num; i++) {
-      date.setMonth(i)
-      output += dayjs(date).daysInMonth() 
-    }
-    return output
+  let output = 0;
+  for (let i = 0; i < num; i++) {
+    date.setMonth(i);
+    output += dayjs(date).daysInMonth();
   }
+  return output;
+}
 
-export default totalMonth
+export default totalMonth;

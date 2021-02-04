@@ -1,15 +1,13 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from "react";
 
 export default function Bruh(date: any, type: any) {
   const [text, setText] = useState("");
 
   useEffect(() => {
     const interval = setInterval(() => {
-
-      let text: any = countDown(date, type)
+      const text: any = countDown(date, type);
 
       setText(text);
-
     }, 1000);
     return () => clearInterval(interval);
   }, []);
@@ -19,26 +17,21 @@ export default function Bruh(date: any, type: any) {
   );
 }
 
-
 function countDown(date, identity) {
-  
-    let past: number = new Date(date).getTime(); 
-    let now: number = new Date().getTime();
-  
-    let difference: number = identity? now - past : past - now
+  const past: number = new Date(date).getTime();
+  const now: number = new Date().getTime();
 
-    let totalHour: number = Math.floor(difference / (1000 * 60 * 60));
-    let totalMinutes: number = Math.floor((difference / 1000) / 60);
-    let totaldays: number = Math.floor(difference / (1000 * 60 * 60 * 24));
-    let totalMonths: number = Math.floor(difference / (1000 * 60 * 60 * 24 * 31));
-    
-    
-    let days: number = Math.floor(difference / (1000 * 60 * 60 * 24) - totalMonths);
-    let hours: number = Math.floor((((difference / 1000) / 60) / 60) - totaldays * 24);
-    let minutes: number = Math.floor(((difference / 1000) / 60) - totalHour * 60);
-    let seconds: number = Math.floor((difference / 1000) - totalMinutes * 60);
+  const difference: number = identity ? now - past : past - now;
 
-  return new Array(days, hours, minutes, seconds)
+  const totalHour: number = Math.floor(difference / (1000 * 60 * 60));
+  const totalMinutes: number = Math.floor((difference / 1000) / 60);
+  const totaldays: number = Math.floor(difference / (1000 * 60 * 60 * 24));
+  const totalMonths: number = Math.floor(difference / (1000 * 60 * 60 * 24 * 31));
 
+  const days: number = Math.floor(difference / (1000 * 60 * 60 * 24) - totalMonths);
+  const hours: number = Math.floor((((difference / 1000) / 60) / 60) - totaldays * 24);
+  const minutes: number = Math.floor(((difference / 1000) / 60) - totalHour * 60);
+  const seconds: number = Math.floor((difference / 1000) - totalMinutes * 60);
+
+  return [days, hours, minutes, seconds];
 }
-
