@@ -58,7 +58,7 @@ const Calendar: FunctionComponent<CalendarProps> = ({
         {" "}
         <Text size="1vh">
           {" "}
-          {`${dayjs(localTest.timestamp).subtract(dayjs(), "date").date() - 1} dagar kvar `}
+          {`${dayjs(localTest.timestamp).diff(dayjs(), "day")} dagar kvar `}
           {dayjs(localTest.timestamp).locale("sv").format("dddd")}
           {" "}
 
@@ -67,7 +67,7 @@ const Calendar: FunctionComponent<CalendarProps> = ({
       </Hatch>
     ));
 
-    const dayLeft = date.subtract(dayjs(), "date").date() - 1;
+    const dayLeft = date.diff(dayjs(), "date") - 1;
 
     if (localTests.length > 1) {
       return (
