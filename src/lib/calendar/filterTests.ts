@@ -13,9 +13,5 @@ export default function filterTests(tests: Tests, ugg: Ugg, language: Language):
     }
 
     return true;
-
-    // if (totalData[c][3] === ugg || totalData[c][1] === language || totalData[c][3] === "alla")
   });
 }
-
-    

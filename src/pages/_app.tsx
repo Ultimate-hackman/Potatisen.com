@@ -1,8 +1,8 @@
-import {AppProps} from "next/app";
+import { AppProps } from "next/app";
 
 import "dayjs/locale/sv";
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({ Component }: AppProps) {
   return (
     <Component />
   )

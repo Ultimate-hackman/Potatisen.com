@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
-import firebase from "./firebase";
+import { useState, useEffect } from "react";
+import { storage } from "./firebase";
 
-export default function useDownloadUrl(path) {
+export default function useDownloadUrl(path): string {
   const [url, setUrl] = useState();
-  const storage = firebase.storage();
 
   useEffect(() => {
     storage.ref(path).getDownloadURL().then(setUrl);

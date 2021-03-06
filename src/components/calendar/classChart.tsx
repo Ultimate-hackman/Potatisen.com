@@ -1,9 +1,10 @@
 import dayjs from "dayjs";
+import React from "react";
 import { Bar } from "react-chartjs-2";
 import getStressPoints from "../../lib/calendar/getStressPoints";
 import useTestData from "../../lib/calendar/testData";
 
-export default function classChart(props) {
+export default function classChart(): JSX.Element {
   const o91 = useTestData("O91");
   const o92 = useTestData("O92");
   const o93 = useTestData("O93");

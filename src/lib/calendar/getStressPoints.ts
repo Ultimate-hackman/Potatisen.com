@@ -1,4 +1,4 @@
-import dayjs, { Dayjs } from "dayjs";
+import { Dayjs } from "dayjs";
 import { Test } from "./testData";
 
 export function stressPointsByDistance(distance: number): number {
@@ -10,11 +10,9 @@ export function stressPointsByDistance(distance: number): number {
 }
 
 export default function getStressPoints(tests: Test[], day: Dayjs): number {
-
   return tests.reduce((totalStressPoints, test) => {
     const distance = -day.diff(test.timestamp, "day");
-   
-    if (distance >= 0) {
+    if (distance >= 0 && test.timestamp !== undefined) {
       return totalStressPoints + Math.round(stressPointsByDistance(distance));
     }
 

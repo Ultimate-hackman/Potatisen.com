@@ -3,8 +3,7 @@ import isoWeek from "dayjs/plugin/isoWeek";
 
 dayjs.extend(isoWeek);
 
-export default function weekFinder(weekday, hour) {
-
+export default function weekFinder(weekday: number, hour: number): number {
   const nowHour: number = new Date().getHours();
   const week = dayjs().isoWeek();
 

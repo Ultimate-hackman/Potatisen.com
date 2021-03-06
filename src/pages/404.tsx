@@ -1,9 +1,8 @@
 import styled from "styled-components";
-
 import Link from "next/link";
+import React from "react";
 import GlobalStyle from "../theme/GlobalStyles";
 import Header from "../components/header";
-
 import NewsPad from "../styles/newsPad";
 import Title from "../styles/title";
 import Img from "../styles/img";
@@ -13,7 +12,7 @@ const QuestionImg = styled(Img)`
 width: 15%;
 `;
 
-export default function Home() {
+export default function Home(): JSX.Element {
   return (
     <>
 

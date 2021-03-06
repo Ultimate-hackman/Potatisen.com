@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import weekCount from "../lib/time/weekCount";
-import firebase from "../lib/firebase/firebase";
+import { firestore } from "../lib/firebase/firebase";
 import useDownloadUrl from "../lib/firebase/useDownloadUrl";
 
 import GlobalStyle from "../theme/GlobalStyles";
@@ -20,13 +20,12 @@ const Bullet = styled.li`
 list-style-type:none;
 `;
 
-export default function veckobrev() {
-  const database = firebase.firestore();
-  const array = [];
+export default function veckobrev(): JSX.Element {
   const [data, setData] = useState(undefined);
 
   useEffect(() => {
-    database.collection("news").get().then((snapshot) => {
+    const array: string[] = [];
+    firestore.collection("news").get().then((snapshot) => {
       snapshot.docs.forEach((doc) => {
         array.push(doc.data().name);
       });
@@ -35,13 +34,13 @@ export default function veckobrev() {
     });
   }, []);
 
-  const url = useDownloadUrl(`veckobrev/${weekCount(5, 17)}, ${new Date().getFullYear()}.pdf`);
+  const url = useDownloadUrl(`veckobrev/${weekCount(4, 17)}, ${new Date().getFullYear()}.pdf`);
 
-  let weekMsg = new String();
-  if (data == undefined) {
+  let weekMsg: String = new String();
+  if (data === undefined) {
     weekMsg += "Veckobrev vecka ?";
   } else if (url !== undefined) {
-    weekMsg += `Veckobrev vecka ${weekCount(5, 17)}`;
+    weekMsg += `Veckobrev vecka ${weekCount(4, 17)}`;
   } else if (url === undefined) {
     weekMsg += "hittades inte";
   }
@@ -60,7 +59,7 @@ export default function veckobrev() {
 
       <NewsPad>
         <h1>Nyheter 📰🖊️</h1>
-        {data?.map((data, index) => <Bullet key={index}>{data}</Bullet>)}
+        {data?.map((dataItem) => <Bullet>{dataItem}</Bullet>)}
       </NewsPad>
     </>
   );

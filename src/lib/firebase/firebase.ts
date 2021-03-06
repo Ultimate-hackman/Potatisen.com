@@ -3,7 +3,7 @@ import "firebase/auth";
 import "firebase/storage";
 import "firebase/firestore";
 
-const firebaseConfig: any = {
+const firebaseConfig = {
   apiKey: "AIzaSyCjcpVzSU2TLKdasOLYJv1LyHoiQb6v-kw",
   authDomain: "potatisen-704fb.firebaseapp.com",
   databaseURL: "https://potatisen-704fb.firebaseio.com",
@@ -14,4 +14,10 @@ const firebaseConfig: any = {
   measurementId: "G-9JPRYYJRND",
 };
 
-export default firebase.initializeApp(firebaseConfig);
+if (firebase.apps.length <= 0) {
+  firebase.initializeApp(firebaseConfig);
+}
+
+export const auth = firebase.auth();
+export const firestore = firebase.firestore();
+export const storage = firebase.storage();

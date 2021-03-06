@@ -1,13 +1,11 @@
 import { Line } from "react-chartjs-2";
-import getStressPoints from "../../lib/calendar/getStressPoints";
+import dayjs from "dayjs";
 
-import months from "../../lib/time/months";
-import monthCheck from "../../lib/calendar/monthUpdate";
-import { FunctionComponent } from "react";
+import React, { FunctionComponent } from "react";
+import getStressPoints from "../../lib/calendar/getStressPoints";
 import Ugg from "../../lib/types/Ugg";
 import Language from "../../lib/types/Language";
 import { Test } from "../../lib/calendar/testData";
-import dayjs from "dayjs";
 
 export interface LineChartProps {
   ugg: Ugg;
@@ -18,10 +16,8 @@ export interface LineChartProps {
 
 const LineChart: FunctionComponent<LineChartProps> = (props) => {
   const day = dayjs().locale("sv");
-  const time = [];
   const chartData = [];
   const labels = [];
-  const currentMonth = new Date().getMonth();
 
   const {
     ugg,
@@ -81,6 +77,6 @@ const LineChart: FunctionComponent<LineChartProps> = (props) => {
       }}
     />
   );
-}
+};
 
 export default LineChart;

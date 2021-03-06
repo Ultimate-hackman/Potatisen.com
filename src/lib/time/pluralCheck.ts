@@ -1,4 +1,4 @@
-function pluralCheck(days, hours, minutes, seconds) {
+function pluralCheck(days: number, hours: number, minutes: number, seconds: number): string[] {
   const array = [];
 
   if (Math.abs(days) === 1) {

@@ -1,23 +1,6 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
-export default function Bruh(date: any, type: any) {
-  const [text, setText] = useState("");
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const text: any = countDown(date, type);
-
-      setText(text);
-    }, 1000);
-    return () => clearInterval(interval);
-  }, []);
-
-  return (
-    text
-  );
-}
-
-function countDown(date, identity) {
+function countDown(date: string, identity: boolean): number[] {
   const past: number = new Date(date).getTime();
   const now: number = new Date().getTime();
 
@@ -34,4 +17,21 @@ function countDown(date, identity) {
   const seconds: number = Math.floor((difference / 1000) - totalMinutes * 60);
 
   return [days, hours, minutes, seconds];
+}
+
+export default function Bruh(date: string, identity: boolean): number[] {
+  const [text, setText] = useState([]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const output: number[] = countDown(date, identity);
+
+      setText(output);
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [date, identity]);
+
+  return (
+    text
+  );
 }

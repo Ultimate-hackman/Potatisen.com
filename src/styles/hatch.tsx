@@ -6,7 +6,7 @@ const Hatch = styled.div`
   width: 15vh;
   min-height: 10vh;
   text-align: center;
-  background-color: rgba(${(props) => props.color});
+  background-color: ${(props) => props.color};
   cursor: ${(props) => (props.cursor ? props.cursor : "default")};
 `;
 

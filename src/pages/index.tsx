@@ -1,6 +1,6 @@
 import Link from "next/link";
-import staticDayCount from "../lib/time/staticDayCount";
-
+import dayjs from "dayjs";
+import React from "react";
 import GlobalStyle from "../theme/GlobalStyles";
 import Header from "../components/header";
 
@@ -9,9 +9,7 @@ import Title from "../styles/title";
 import Img from "../styles/img";
 import Btn from "../styles/btn";
 
-export default function Home() {
-  const time = staticDayCount("mar 1, 2020 00:00:00");
-
+export default function Home(): JSX.Element {
   return (
     <>
 
@@ -20,7 +18,6 @@ export default function Home() {
       <Title>
         Välkommen till Potatisen.com!
       </Title>
-
       <Img src="https://media.discordapp.net/attachments/688322560957743190/786279776468992071/shrek.png" />
 
       <Link href="/veckobrev">
@@ -31,7 +28,7 @@ export default function Home() {
 
         <h1>
           {" "}
-          {`${time + 1} dagar kvar till sportlov 👟`}
+          {`${dayjs("apr 6, 2021 00:00:00").diff(dayjs(), "day")} dagar kvar till påsklov 🐤`}
           {" "}
         </h1>
 

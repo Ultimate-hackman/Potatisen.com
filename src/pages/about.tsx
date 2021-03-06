@@ -1,4 +1,5 @@
 import Link from "next/link";
+import React from "react";
 import styled from "styled-components";
 import pluralCheck from "../lib/time/pluralCheck";
 import countDown from "../lib/time/countDown";
@@ -7,7 +8,7 @@ import GlobalStyle from "../theme/GlobalStyles";
 import Header from "../components/header";
 import Img from "../styles/img";
 
-export default function About() {
+export default function About(): JSX.Element {
   const Container = styled.div`
     width: 50%;
     margin-left: auto;

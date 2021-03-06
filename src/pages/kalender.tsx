@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
+import dayjs from "dayjs";
 import styled from "styled-components";
 import Select from "react-select";
-import Hatches from "../components/calendar/calendarMaker";
 import Header from "../components/header";
 import Title from "../styles/title";
 import getStressPoints from "../lib/calendar/getStressPoints";
@@ -12,7 +12,7 @@ import Btn from "../styles/btn";
 import useTestData from "../lib/calendar/testData";
 import Ugg from "../lib/types/Ugg";
 import Language from "../lib/types/Language";
-import dayjs from "dayjs";
+import Calendar from "../components/calendar/Calendar";
 
 const uggarOption = [
   { value: "O91", label: "O91" },
@@ -27,16 +27,6 @@ const languageOption = [
   { value: "SP", label: "Spanska (CTH)" },
   { value: "ASVEN", label: "ASVEN" },
 ];
-const Calendar = styled.div`
-padding-top: 3vh;
-display: grid;
-justify-self: auto;
-justify-content: center;
-        
-grid-template-columns: repeat(7, 17vh);
-grid-row-gap: 3vh;
-
-`;
 
 const Popup = styled.div`
   display: ${(props) => props.display};
@@ -86,7 +76,7 @@ function labelFind(lan) {
   const list = [languageOption[0].value, languageOption[1].value, languageOption[2].value, languageOption[3].value, languageOption[4].value];
   return list.indexOf(lan);
 }
-export default function Kalender() {
+export default function Kalender(): JSX.Element {
   const [multiTest, setMultiTest] = useState("none");
 
   const [ugg, setUgg] = useState<Ugg>("O91");
@@ -102,9 +92,9 @@ export default function Kalender() {
 
   useEffect(() => {
     if (localStorage.getItem("StudentData") !== null) {
-      const student_deserialized = JSON.parse(localStorage.getItem("StudentData")).studentValues;
-      setLanguage(student_deserialized.language);
-      setUgg(student_deserialized.ugg);
+      const studentDeserialized = JSON.parse(localStorage.getItem("StudentData")).studentValues;
+      setLanguage(studentDeserialized.language);
+      setUgg(studentDeserialized.ugg);
     }
   }, []);
 
@@ -114,19 +104,17 @@ export default function Kalender() {
 
   const importTestData = useTestData(ugg, language);
 
-  console.log(importTestData);
-
   const stress = getStressPoints(importTestData, dayjs());
 
   type Emoji = "😎" | "🙂" | "😕" | "😬" | "😟" | "😡" | "🤬";
 
-  function defcon(stress: number, base: number, incr: number): Emoji {
+  function defcon(inputStress: number, base: number, incr: number): Emoji {
     const emojiArray: Emoji[] = ["😎", "🙂", "😕", "😬", "😟", "😡", "🤬"];
 
     for (let i = 0; i <= emojiArray.length; i += 1) {
-      if (stress <= (incr * i) + base) {
+      if (inputStress <= (incr * i) + base) {
         return emojiArray[i];
-      } if (stress > (incr * emojiArray.length) + base) {
+      } if (inputStress >= (incr * emojiArray.length) + base) {
         return emojiArray[emojiArray.length - 1];
       }
     }
@@ -144,7 +132,7 @@ export default function Kalender() {
       <Title sub top="0vh">
         Här kan du snabbt kolla kommande prov
         {" "}
-        {defcon(stress, 125, 75)}
+        {defcon(stress, 200, 200)}
         {" "}
         (
         {stress}
@@ -168,9 +156,9 @@ export default function Kalender() {
         <PadButton onClick={() => setMultiTest("none")}>Stäng</PadButton>
       </Popup>
 
-      <Calendar><Hatches len={24} state={setMultiTest} data={importTestData} ugg={ugg} language={language} /></Calendar>
+      <Calendar state={setMultiTest} data={importTestData} days={24} />
 
-      <ClassChart data={importTestData} ugg={ugg} language={language} />
+      <ClassChart data={importTestData} language={language} />
       <LineChart data={importTestData} span={24} ugg={ugg} language={language} />
 
     </>

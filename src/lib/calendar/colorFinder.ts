@@ -1,39 +1,26 @@
-export default function colorFinder(subject, opacity): string {
-  let color = new Array();
+export default function colorFinder(subject: string, opacity: number): string {
+  const choiceLanguage = `rgba(225, 200, 0, ${opacity})`;
 
-  switch (subject.toUpperCase()) {
+  switch (subject?.toUpperCase()) {
     case "NO":
-      color = [21,	231, 21, opacity];
-      break;
+      return `rgba(21, 231, 21, ${opacity})`;
     case "SO":
-      color = [29, 27, 27, opacity];
-      break;
+      return `rgba(29, 27, 27, ${opacity})`;
     case "MA":
-      color = [0, 120, 255, opacity];
-      break;
+      return `rgba(0, 120, 255, ${opacity})`;
     case "SV":
-      color = [255, 255, 51, opacity];
-      break;
-    case "ID":
-      color = [128, 0, 128, opacity];
+      return `rgba(255, 255, 51, ${opacity})`;
     case "EN":
-      color = [225, 0, 0, opacity];
-      break;
+      return `rgba(225, 0, 0, ${opacity})`;
     case "TY":
-      color = [255, 200, 0, opacity];
-      break;
+      return choiceLanguage;
     case "SP":
-      color = [255, 200, 0, opacity];
-      break;
+      return choiceLanguage;
     case "FR":
-      color = [255, 200, 0, opacity];
-      break;
+      return choiceLanguage;
     case "NOTEST":
-      color += [0, 0, 0, 0];
-      break;
+      return "rgba(0, 0, 0, 0)";
     default:
-      color += [255, 200, 0];
-      break;
+      return "rgba(255, 200, 0)";
   }
-  return color;
 }

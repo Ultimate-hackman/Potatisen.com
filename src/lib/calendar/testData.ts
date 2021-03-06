@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import firebase from "../firebase/firebase";
+import { useState, useEffect } from "react";
+import { firestore } from "../firebase/firebase";
 import Language from "../types/Language";
 import Subject from "../types/Subject";
 import Ugg from "../types/Ugg";
@@ -15,11 +15,10 @@ export interface Test {
 export type Tests = Test[];
 
 function useTestData(ugg?: Ugg, language?: Language): Test[] {
-  const database = firebase.firestore();
   const [totalData, setTotalData] = useState<Test[]>([]);
 
   useEffect(() => {
-    database
+    firestore
       .collection("prov")
       .get()
 
@@ -33,7 +32,7 @@ function useTestData(ugg?: Ugg, language?: Language): Test[] {
             language: data.language,
             title: data.title,
             subject: data.subject,
-          }
+          };
         }));
       });
   }, []);
