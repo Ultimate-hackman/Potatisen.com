@@ -45,9 +45,13 @@ const Potatisen = styled(Item)`
     color: rgb(2, 2, 2);
 `;
 
-export default function header(props) {
+export interface HeaderProps {
+  title: string
+}
+
+export default function Header({ title }): JSX.Element {
   let name = "Potatisen.com";
-  if (props.title !== undefined) {
+  if (title !== undefined) {
     name = "• Potatisen.com";
   }
 
@@ -55,7 +59,7 @@ export default function header(props) {
     <>
       <Head>
         <title>
-          {props.title}
+          {title}
           {" "}
           {name}
         </title>
@@ -67,7 +71,7 @@ export default function header(props) {
         <Link href="/kalender">
           <Item>
             Provschema
-            <small>🕒</small>
+            <span role="img" aria-label="clock">🕒</span>
           </Item>
         </Link>
 

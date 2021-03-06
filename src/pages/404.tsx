@@ -17,7 +17,7 @@ export default function Home(): JSX.Element {
     <>
 
       <GlobalStyle />
-      <Header />
+      <Header title="" />
       <Title>
         404
       </Title>

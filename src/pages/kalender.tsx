@@ -83,7 +83,7 @@ export default function Kalender(): JSX.Element {
   const [language, setLanguage] = useState<Language>("TY");
 
   // Json! (localStorage)
-  const temp_Json = {
+  const tempJson = {
     studentValues: {
       ugg,
       language,
@@ -99,7 +99,7 @@ export default function Kalender(): JSX.Element {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("StudentData", JSON.stringify(temp_Json));
+    localStorage.setItem("StudentData", JSON.stringify(tempJson));
   }, [ugg, language]);
 
   const importTestData = useTestData(ugg, language);
@@ -138,7 +138,7 @@ export default function Kalender(): JSX.Element {
         {stress}
         )
         {" "}
-        <small>beta*🧪</small>
+        <small><span role="img" aria-label="beta"> beta*🧪 </span></small>
       </Title>
 
       <Bar>
@@ -158,7 +158,7 @@ export default function Kalender(): JSX.Element {
 
       <Calendar state={setMultiTest} data={importTestData} days={24} />
 
-      <ClassChart data={importTestData} language={language} />
+      <ClassChart />
       <LineChart data={importTestData} span={24} ugg={ugg} language={language} />
 
     </>

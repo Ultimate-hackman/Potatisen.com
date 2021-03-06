@@ -1,6 +1,5 @@
 import { Line } from "react-chartjs-2";
 import dayjs from "dayjs";
-
 import React, { FunctionComponent } from "react";
 import getStressPoints from "../../lib/calendar/getStressPoints";
 import Ugg from "../../lib/types/Ugg";
@@ -26,7 +25,7 @@ const LineChart: FunctionComponent<LineChartProps> = (props) => {
     data,
   } = props;
 
-  for (let i = 0; i < span; i++) {
+  for (let i = 0; i < span; i += 1) {
     const date = day.add(i, "day");
 
     chartData.push(getStressPoints(data, date));

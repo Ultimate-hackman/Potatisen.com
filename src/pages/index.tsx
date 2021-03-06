@@ -14,7 +14,7 @@ export default function Home(): JSX.Element {
     <>
 
       <GlobalStyle />
-      <Header />
+      <Header title="" />
       <Title>
         Välkommen till Potatisen.com!
       </Title>

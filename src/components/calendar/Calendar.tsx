@@ -25,7 +25,7 @@ grid-row-gap: 3vh;
 export interface CalendarProps {
   data: Test[];
   days: number;
-  state: string[];
+  state
 }
 
 const Calendar: FunctionComponent<CalendarProps> = ({
@@ -67,11 +67,11 @@ const Calendar: FunctionComponent<CalendarProps> = ({
       </Hatch>
     ));
 
-    const dayLeft = date.diff(dayjs(), "date") - 1;
+    const dayLeft = date.diff(dayjs(), "day");
 
     if (localTests.length > 1) {
       return (
-        <Hatch onClick={() => { localTests.length > 1 ? state(localTests) : ""; }} color={colorFinder("en", 0.5)}>
+        <Hatch onClick={() => state(localTests)} color={colorFinder("en", 0.5)}>
           {" "}
           <Text size="2vh">
             {date.format("D MMM")}
@@ -111,7 +111,12 @@ const Calendar: FunctionComponent<CalendarProps> = ({
           {date.isSame(dayjs(), "day") ? "📍" : ""}
         </Text>
         {" "}
-        {date.day() === 6 || date.day() === 0 ? <Text size="2vh">helg🌴</Text> : "" }
+        {date.day() === 6 || date.day() === 0 ? (
+          <Text size="2vh">
+            helg
+            <span role="img" aria-label="palm">🌴</span>
+          </Text>
+        ) : "" }
         {date.format("dddd")}
       </Hatch>
     );

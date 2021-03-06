@@ -20,7 +20,7 @@ const Bullet = styled.li`
 list-style-type:none;
 `;
 
-export default function veckobrev(): JSX.Element {
+export default function Veckobrev(): JSX.Element {
   const [data, setData] = useState(undefined);
 
   useEffect(() => {
@@ -36,7 +36,7 @@ export default function veckobrev(): JSX.Element {
 
   const url = useDownloadUrl(`veckobrev/${weekCount(4, 17)}, ${new Date().getFullYear()}.pdf`);
 
-  let weekMsg: String = new String();
+  let weekMsg = "";
   if (data === undefined) {
     weekMsg += "Veckobrev vecka ?";
   } else if (url !== undefined) {
@@ -58,7 +58,7 @@ export default function veckobrev(): JSX.Element {
       </a>
 
       <NewsPad>
-        <h1>Nyheter 📰🖊️</h1>
+        <h1><span role="img" aria-label="note">Nyheter 📰🖊️</span></h1>
         {data?.map((dataItem) => <Bullet>{dataItem}</Bullet>)}
       </NewsPad>
     </>
