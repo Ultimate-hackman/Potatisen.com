@@ -37,6 +37,7 @@ const Calendar: FunctionComponent<CalendarProps> = ({
 
   function monthDay(i: number) {
     const date = day.add(i + 1 - dayjs().day(), "day");
+    const isHelg: boolean = date.day() === 6 || date.day() === 0;
     const localData: Test[] = data.filter((item: Test) => date?.isSame(item.timestamp, "day") && item?.timestamp !== undefined);
     const localTests: JSX.Element[] = localData.map((localTest) => (
       <Hatch color={colorFinder(localTest.subject, 0.5)}>
@@ -103,7 +104,7 @@ const Calendar: FunctionComponent<CalendarProps> = ({
       return localTests;
     }
     return (
-      <Hatch color={colorFinder(date.day() === 6 || date.day() === 0 ? "ma" : "NOTEST", 0.5)}>
+      <Hatch color={colorFinder(isHelg ? "ma" : "NOTEST", 0.5)}>
         {" "}
         <Text size="2vh" weight="normal">
           {date.format("D MMM")}
@@ -111,13 +112,13 @@ const Calendar: FunctionComponent<CalendarProps> = ({
           {date.isSame(dayjs(), "day") ? "📍" : ""}
         </Text>
         {" "}
-        {date.day() === 6 || date.day() === 0 ? (
+        {isHelg ? (
           <Text size="2vh">
             helg
             <span role="img" aria-label="palm">🌴</span>
           </Text>
         ) : "" }
-        {date.format("dddd")}
+        <Text size="2vh" weight="normal">{date.format("dddd")}</Text>
       </Hatch>
     );
   }
