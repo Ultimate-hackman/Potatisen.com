@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Link from "next/link";
 import Head from "next/head";
-import React from "react";
+import React, { FunctionComponent } from "react";
 
 const Bar = styled.ul`
     padding-top: 1.5vh;
@@ -49,19 +49,15 @@ export interface HeaderProps {
   title: string
 }
 
-export default function Header({ title }): JSX.Element {
-  let name = "Potatisen.com";
-  if (title !== undefined) {
-    name = "• Potatisen.com";
-  }
-
+const Header:FunctionComponent<HeaderProps> = (props) => {
+  const {
+    title,
+  } = props;
   return (
     <>
       <Head>
         <title>
-          {title}
-          {" "}
-          {name}
+          {title ? `${title} • Potatisen.com` : "Potatisen.com"}
         </title>
       </Head>
       <Bar>
@@ -80,4 +76,6 @@ export default function Header({ title }): JSX.Element {
 
     </>
   );
-}
+};
+
+export default Header;

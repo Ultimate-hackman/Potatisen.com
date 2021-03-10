@@ -4,6 +4,8 @@ export default function colorFinder(subject: string, opacity: number): string {
   switch (subject?.toUpperCase()) {
     case "NO":
       return `rgba(21, 231, 21, ${opacity})`;
+    case "TK":
+      return `rgba(38, 166, 91, ${opacity})`;
     case "SO":
       return `rgba(29, 27, 27, ${opacity})`;
     case "MA":
@@ -12,6 +14,8 @@ export default function colorFinder(subject: string, opacity: number): string {
       return `rgba(255, 255, 51, ${opacity})`;
     case "EN":
       return `rgba(225, 0, 0, ${opacity})`;
+    case "BI":
+      return `rgba(102, 51, 153, ${opacity})`;
     case "TY":
       return choiceLanguage;
     case "SP":
