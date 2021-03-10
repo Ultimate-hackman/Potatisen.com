@@ -54,7 +54,7 @@ const Calendar: FunctionComponent<CalendarProps> = ({
           {" "}
         </Text>
         {" "}
-        <Text size="1vh">{dayjs(localTest.timestamp).format("hh:HH")}</Text>
+        <Text size="1vh">{dayjs(localTest.timestamp).format("hh:mm")}</Text>
         {" "}
         <Text size="1vh">
           {" "}
