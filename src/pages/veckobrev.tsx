@@ -36,13 +36,14 @@ export default function Veckobrev(): JSX.Element {
 
   const url = useDownloadUrl(`veckobrev/${weekCount(4, 17)}, ${new Date().getFullYear()}.pdf`);
 
-  let weekMsg = "";
-  if (data === undefined) {
-    weekMsg += "Veckobrev vecka ?";
-  } else if (url !== undefined) {
-    weekMsg += `Veckobrev vecka ${weekCount(4, 17)}`;
-  } else if (url === undefined) {
-    weekMsg += "hittades inte";
+  function veckobrevText(data) {
+    if (data === undefined) {
+      return "Veckobrev vecka ?";
+    } if (url !== undefined) {
+      return `Veckobrev vecka ${weekCount(4, 17)}`;
+    } if (url === undefined) {
+      return "hittades inte";
+    }
   }
 
   return (
@@ -53,13 +54,18 @@ export default function Veckobrev(): JSX.Element {
       <VeckoImg src="https://cdn.discordapp.com/attachments/688322560957743190/786315067352154172/veckobrev.edcc5d03.png" />
       <a href={url}>
         {" "}
-        <BigBtn>{weekMsg}</BigBtn>
+        <BigBtn>{veckobrevText(data)}</BigBtn>
         {" "}
       </a>
 
       <NewsPad>
         <h1><span role="img" aria-label="note">Nyheter 📰🖊️</span></h1>
-        {data?.map((dataItem) => <Bullet>{dataItem}</Bullet>)}
+        {data?.map((dataItem) => (
+          <Bullet>
+            -
+            {dataItem}
+          </Bullet>
+        ))}
       </NewsPad>
     </>
   );

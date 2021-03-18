@@ -112,9 +112,9 @@ export default function Kalender(): JSX.Element {
     const emojiArray: Emoji[] = ["😎", "🙂", "😕", "😬", "😟", "😡", "🤬"];
 
     for (let i = 0; i <= emojiArray.length; i += 1) {
-      if (inputStress <= (incr * i) + base) {
+      if (inputStress <= incr * i + base) {
         return emojiArray[i];
-      } if (inputStress >= (incr * emojiArray.length) + base) {
+      } if (inputStress >= incr * (emojiArray.length - 1) + base) {
         return emojiArray[emojiArray.length - 1];
       }
     }
@@ -132,7 +132,7 @@ export default function Kalender(): JSX.Element {
       <Title sub top="0vh">
         Här kan du snabbt kolla kommande prov
         {" "}
-        {defcon(stress, 200, 200)}
+        {defcon(stress, 200, 300)}
         {" "}
         (
         {stress}

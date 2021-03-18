@@ -59,7 +59,7 @@ const Calendar: FunctionComponent<CalendarProps> = ({
         {" "}
         <Text size="1vh">
           {" "}
-          {`${dayjs(localTest.timestamp).diff(dayjs(), "day")} dagar kvar `}
+          {dayjs(localTest.timestamp).diff(dayjs(), "day") > 0 ? `${dayjs(localTest.timestamp).diff(dayjs(), "day")} ${dayjs(localTest.timestamp).diff(dayjs(), "day") === 1 ? "imorgon" : "dagar kvar"} ` : " "}
           {dayjs(localTest.timestamp).locale("sv").format("dddd")}
           {" "}
 
