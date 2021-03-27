@@ -4,13 +4,7 @@ import styled from "styled-components";
 import Hatch from "../../styles/hatch";
 import { Test } from "../../lib/calendar/testData";
 import colorFinder from "../../lib/calendar/colorFinder";
-import Title from "../../styles/title";
-
-const Text = styled(Title)`
-  font-size: ${(props) => props.size};
-  font-weight: ${(props) => props.weight};
-  padding-top: 0vh;
-`;
+import Text from "../../styles/text";
 
 const Grid = styled.div`
 padding-top: 3vh;
@@ -59,7 +53,7 @@ const Calendar: FunctionComponent<CalendarProps> = ({
         {" "}
         <Text size="1vh">
           {" "}
-          {dayjs(localTest.timestamp).diff(dayjs(), "day") > 0 ? `${dayjs(localTest.timestamp).diff(dayjs(), "day")} ${dayjs(localTest.timestamp).diff(dayjs(), "day") === 1 ? "imorgon" : "dagar kvar"} ` : " "}
+          {dayjs(localTest.timestamp).diff(dayjs(), "day") > 0 ? ` ${dayjs(localTest.timestamp).diff(dayjs(), "day") === 0 ? "imorgon" : ` ${dayjs(localTest.timestamp).diff(dayjs(), "day") + 1} dagar kvar`} ` : " "}
           {dayjs(localTest.timestamp).locale("sv").format("dddd")}
           {" "}
 

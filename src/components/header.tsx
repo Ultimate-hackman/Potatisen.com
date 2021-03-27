@@ -6,11 +6,8 @@ import React, { FunctionComponent } from "react";
 const Bar = styled.ul`
     padding-top: 1.5vh;
     padding-bottom: 1.5vh;
-
     display: flex;
     position: sticky;
-
-    
     backdrop-filter: blur(4px);
 
     top: 0px;
@@ -62,7 +59,7 @@ const Header:FunctionComponent<HeaderProps> = (props) => {
       </Head>
       <Bar>
         <Link href="/"><Item>Hem</Item></Link>
-        <Link href="/veckobrev"><Item>Veckobrev</Item></Link>
+        <Link href="/news"><Item>Veckobrev</Item></Link>
         <Link href="/about"><Item>Om oss</Item></Link>
         <Link href="/kalender">
           <Item>

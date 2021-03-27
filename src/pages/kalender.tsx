@@ -142,7 +142,6 @@ export default function Kalender(): JSX.Element {
       </Title>
 
       <Bar>
-
         <Selection isSearchable={false} options={uggarOption} value={{ label: ugg }} onChange={(prop) => setUgg(prop.value)} />
         <Selection isSearchable={false} options={languageOption} value={{ label: languageOption[labelFind(language)].label }} onChange={(prop) => setLanguage(prop.value)} />
       </Bar>

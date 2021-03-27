@@ -3,7 +3,7 @@ import Link from "next/link";
 import React from "react";
 import GlobalStyle from "../theme/GlobalStyles";
 import Header from "../components/header";
-import NewsPad from "../styles/newsPad";
+import InfoPad from "../styles/infoPad";
 import Title from "../styles/title";
 import Img from "../styles/img";
 import Btn from "../styles/btn";
@@ -15,7 +15,6 @@ width: 15%;
 export default function Home(): JSX.Element {
   return (
     <>
-
       <GlobalStyle />
       <Header title="Okänd" />
       <Title>
@@ -30,9 +29,9 @@ export default function Home(): JSX.Element {
         <Btn>Hem</Btn>
       </Link>
 
-      <NewsPad>
+      <InfoPad>
         <h1>Sidan gick inte att hitta </h1>
-      </NewsPad>
+      </InfoPad>
     </>
   );
 }

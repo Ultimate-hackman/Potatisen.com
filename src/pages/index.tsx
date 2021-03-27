@@ -4,7 +4,7 @@ import React from "react";
 import GlobalStyle from "../theme/GlobalStyles";
 import Header from "../components/header";
 
-import NewsPad from "../styles/newsPad";
+import InfoPad from "../styles/infoPad";
 import Title from "../styles/title";
 import Img from "../styles/img";
 import Btn from "../styles/btn";
@@ -24,15 +24,15 @@ export default function Home(): JSX.Element {
         <Btn>Veckobrev</Btn>
       </Link>
 
-      <NewsPad>
+      <InfoPad>
 
         <h1>
           {" "}
-          {`${dayjs("apr 6, 2021 00:00:00").diff(dayjs(), "day")} dagar kvar till påsklov 🐤`}
+          {`${dayjs("apr 2, 2021 00:00:00").diff(dayjs(), "day") + 1} dagar kvar till påsklov 🐤`}
           {" "}
         </h1>
 
-      </NewsPad>
+      </InfoPad>
 
     </>
   );

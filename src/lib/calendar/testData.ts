@@ -10,6 +10,7 @@ export interface Test {
   language?: Language;
   subject?: Subject;
   title: string;
+  bias?: number;
 }
 
 export type Tests = Test[];
@@ -32,6 +33,7 @@ function useTestData(ugg?: Ugg, language?: Language): Test[] {
             language: data.language,
             title: data.title,
             subject: data.subject,
+            bias: data.bias,
           };
         }));
       });
