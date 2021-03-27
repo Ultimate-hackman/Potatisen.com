@@ -34,7 +34,7 @@ function weekBox(i: number, letterWeek: number): JSX.Element {
     <a href={url}>
       <LetterBox>
         {" "}
-        <Text size="2vh" deap={0.9}>
+        <Text size="2vh" deep={0.9}>
           Vecka
           {" "}
           {week}

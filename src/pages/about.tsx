@@ -40,6 +40,7 @@ export default function About(): JSX.Element {
         <p> Potatisen.com grundades i september 2020 med målet att hjälpa samtliga elever på södermalmsskolan genom att skapa användbara funktioner som löser problem. Mer kommer komma. Ingen reklam sedan 2020.</p>
         {" "}
         Online sedan:
+        {" "}
         {time[0]}
         {" "}
         {plural[0]}

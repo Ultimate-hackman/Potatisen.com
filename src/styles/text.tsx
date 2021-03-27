@@ -7,7 +7,7 @@ const Text = styled(Title)`
   padding-top: 0vh;
   text-decoration: none;
 
-  color: rgba(5, 5, 5, ${(props) => props.deap});
+  color: rgba(5, 5, 5, ${(props) => props.deep});
 `;
 
 export default Text;

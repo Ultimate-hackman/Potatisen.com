@@ -6,7 +6,6 @@ dayjs.extend(isoWeek);
 export default function weekFinder(weekday: number, hour: number): number {
   const nowHour: number = dayjs().hour();
   const week = dayjs().isoWeek();
-  const day = dayjs().locale("sv");
-  console.log(nowHour)
-  return (weekday + (hour / 24) >= day.day() + nowHour ? week : week + 1);
+  const day = dayjs().day() === 0 ? 7 : 8
+  return (weekday + (hour / 24) >= day + nowHour ? week : week + 1);
 }

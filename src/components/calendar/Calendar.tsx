@@ -16,6 +16,11 @@ grid-template-columns: repeat(7, 17vh);
 grid-row-gap: 3vh;
 `;
 
+function daysLeftText(timestamp) {
+  let daysLeft = dayjs(timestamp).diff(dayjs(), "day")
+  
+  return dayjs(timestamp).diff(dayjs(), "day") > 0 ? ` ${dayjs(timestamp).diff(dayjs(), "day") === 0 ? "imorgon" : ` ${dayjs(timestamp).diff(dayjs(), "day") + 1} dagar kvar`} ` : " ";
+}
 export interface CalendarProps {
   data: Test[];
   days: number;
@@ -33,7 +38,7 @@ const Calendar: FunctionComponent<CalendarProps> = ({
     const date = day.add(i + 1 - dayjs().day(), "day");
     const isHelg: boolean = date.day() === 6 || date.day() === 0;
     const localData: Test[] = data.filter((item: Test) => date?.isSame(item.timestamp, "day") && item?.timestamp !== undefined);
-    const localTests: JSX.Element[] = localData.map((localTest) => (
+    const localTests: JSX.Element[] = localData.map((localTest) => { 
       <Hatch color={colorFinder(localTest.subject, 0.5)}>
         {" "}
         <Text size="2vh">
