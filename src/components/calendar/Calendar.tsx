@@ -5,6 +5,7 @@ import Hatch from "../../styles/hatch";
 import { Test } from "../../lib/calendar/testData";
 import colorFinder from "../../lib/calendar/colorFinder";
 import Text from "../../styles/text";
+import daysLeftText from "../../lib/calendar/daysLeftText";
 
 const Grid = styled.div`
 padding-top: 3vh;
@@ -16,12 +17,7 @@ grid-template-columns: repeat(7, 17vh);
 grid-row-gap: 3vh;
 `;
 
-function daysLeftText(timestamp) {
-  let daysLeft = dayjs(timestamp).diff(dayjs(), "day")
-  
-  return dayjs(timestamp).diff(dayjs(), "day") > 0 ? ` ${dayjs(timestamp).diff(dayjs(), "day") === 0 ? "imorgon" : ` ${dayjs(timestamp).diff(dayjs(), "day") + 1} dagar kvar`} ` : " ";
-}
-export interface CalendarProps {
+interface CalendarProps {
   data: Test[];
   days: number;
   state
@@ -38,7 +34,7 @@ const Calendar: FunctionComponent<CalendarProps> = ({
     const date = day.add(i + 1 - dayjs().day(), "day");
     const isHelg: boolean = date.day() === 6 || date.day() === 0;
     const localData: Test[] = data.filter((item: Test) => date?.isSame(item.timestamp, "day") && item?.timestamp !== undefined);
-    const localTests: JSX.Element[] = localData.map((localTest) => { 
+    const localTests: JSX.Element[] = localData.map((localTest) => (
       <Hatch color={colorFinder(localTest.subject, 0.5)}>
         {" "}
         <Text size="2vh">
@@ -58,7 +54,8 @@ const Calendar: FunctionComponent<CalendarProps> = ({
         {" "}
         <Text size="1vh">
           {" "}
-          {dayjs(localTest.timestamp).diff(dayjs(), "day") > 0 ? ` ${dayjs(localTest.timestamp).diff(dayjs(), "day") === 0 ? "imorgon" : ` ${dayjs(localTest.timestamp).diff(dayjs(), "day") + 1} dagar kvar`} ` : " "}
+          {daysLeftText(localTest.timestamp)}
+          {" "}
           {dayjs(localTest.timestamp).locale("sv").format("dddd")}
           {" "}
 
@@ -89,7 +86,7 @@ const Calendar: FunctionComponent<CalendarProps> = ({
             {" "}
             {dayLeft}
             {" "}
-            {dayLeft === 1 ? "imorgon" : "dagar kvar"}
+            {daysLeftText(date)}
             {" "}
             {date.format("dddd")}
             {" "}
