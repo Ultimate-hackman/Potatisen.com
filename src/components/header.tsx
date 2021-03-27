@@ -27,9 +27,6 @@ const Item = styled.a`
 
     transition: ease-out 0.2s;
     cursor: pointer;
-
-
-
     &:hover {
         color: rgb(2, 2, 2);
     }
