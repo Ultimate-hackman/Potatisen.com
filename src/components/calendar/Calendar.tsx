@@ -83,9 +83,6 @@ const Calendar: FunctionComponent<CalendarProps> = ({
           </Text>
           {" "}
           <Text size="1vh">
-            {" "}
-            {dayLeft}
-            {" "}
             {daysLeftText(date)}
             {" "}
             {date.format("dddd")}
