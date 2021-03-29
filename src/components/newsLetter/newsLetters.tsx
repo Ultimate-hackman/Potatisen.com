@@ -31,8 +31,8 @@ function weekBox(i: number, letterWeek: number): JSX.Element {
   const week = letterWeek - 1 - i;
   const url = UseDownloadUrl(`veckobrev/${week}, ${new Date().getFullYear()}.pdf`);
   const box = (
-    <a href={url}>
-      <LetterBox>
+    <LetterBox>
+      <a href={url}>
         {" "}
         <Text size="2vh" deep={0.9}>
           Vecka
@@ -40,8 +40,8 @@ function weekBox(i: number, letterWeek: number): JSX.Element {
           {week}
         </Text>
         {" "}
-      </LetterBox>
-    </a>
+      </a>
+    </LetterBox>
   );
 
   if (url !== undefined) {
