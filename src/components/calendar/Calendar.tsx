@@ -3,7 +3,6 @@ import dayjs from "dayjs";
 import styled from "styled-components";
 import Hatch from "../../styles/hatch";
 import { Test } from "../../lib/calendar/testData";
-import { Holiday } from "../../lib/calendar/holidayData";
 import colorFinder from "../../lib/calendar/colorFinder";
 import Text from "../../styles/text";
 import daysLeftText from "../../lib/calendar/daysLeftText";
@@ -20,14 +19,12 @@ grid-row-gap: 3vh;
 
 interface CalendarProps {
   testData: Test[];
-  holidayData: Holiday[]
   days: number;
   state
 }
 
 const Calendar: FunctionComponent<CalendarProps> = ({
   testData: tests,
-  holidayData: holidays,
   days,
   state,
 }) => {
