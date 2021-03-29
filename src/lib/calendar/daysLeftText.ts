@@ -1,7 +1,8 @@
 import dayjs from "dayjs";
 
 function daysLeftText(timestamp: any): string {
-  const daysLeft = Math.ceil(dayjs(timestamp).diff(dayjs(), "day", true));
+  const daysLeft = dayjs(timestamp).diff(dayjs(), "day", true) < 1 ? 0 : Math.ceil(dayjs(timestamp).diff(dayjs(), "day", true));
+  console.log(daysLeft);
   if (daysLeft > -2) {
     switch (daysLeft) {
       case -2:

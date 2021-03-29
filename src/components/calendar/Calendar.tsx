@@ -3,6 +3,7 @@ import dayjs from "dayjs";
 import styled from "styled-components";
 import Hatch from "../../styles/hatch";
 import { Test } from "../../lib/calendar/testData";
+import { Holiday } from "../../lib/calendar/holidayData";
 import colorFinder from "../../lib/calendar/colorFinder";
 import Text from "../../styles/text";
 import daysLeftText from "../../lib/calendar/daysLeftText";
@@ -18,13 +19,15 @@ grid-row-gap: 3vh;
 `;
 
 interface CalendarProps {
-  data: Test[];
+  testData: Test[];
+  holidayData: Holiday[]
   days: number;
   state
 }
 
 const Calendar: FunctionComponent<CalendarProps> = ({
-  data,
+  testData: tests,
+  holidayData: holidays,
   days,
   state,
 }) => {
@@ -33,7 +36,7 @@ const Calendar: FunctionComponent<CalendarProps> = ({
   function monthDay(i: number) {
     const date = day.add(i + 1 - dayjs().day(), "day");
     const isHelg: boolean = date.day() === 6 || date.day() === 0;
-    const localData: Test[] = data.filter((item: Test) => date?.isSame(item.timestamp, "day") && item?.timestamp !== undefined);
+    const localData: Test[] = tests.filter((item: Test) => date?.isSame(item.timestamp, "day") && item?.timestamp !== undefined);
     const localTests: JSX.Element[] = localData.map((localTest) => (
       <Hatch color={colorFinder(localTest.subject, 0.5)}>
         {" "}
@@ -63,8 +66,6 @@ const Calendar: FunctionComponent<CalendarProps> = ({
         {" "}
       </Hatch>
     ));
-
-    const dayLeft = date.diff(dayjs(), "day");
 
     if (localTests.length > 1) {
       return (

@@ -155,7 +155,7 @@ export default function Kalender(): JSX.Element {
         <PadButton onClick={() => setMultiTest("none")}>Stäng</PadButton>
       </Popup>
 
-      <Calendar state={setMultiTest} data={importTestData} days={24} />
+      <Calendar state={setMultiTest} testData={importTestData} days={24} />
 
       <ClassChart />
       <LineChart data={importTestData} span={24} ugg={ugg} language={language} />
