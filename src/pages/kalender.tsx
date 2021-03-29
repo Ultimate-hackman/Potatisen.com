@@ -10,6 +10,7 @@ import ClassChart from "../components/calendar/classChart";
 import LineChart from "../components/calendar/lineChart";
 import Btn from "../styles/btn";
 import useTestData from "../lib/calendar/testData";
+import useHolidayData from "../lib/calendar/holidayData";
 import Ugg from "../lib/types/Ugg";
 import Language from "../lib/types/Language";
 import Calendar from "../components/calendar/Calendar";
@@ -155,7 +156,7 @@ export default function Kalender(): JSX.Element {
         <PadButton onClick={() => setMultiTest("none")}>Stäng</PadButton>
       </Popup>
 
-      <Calendar state={setMultiTest} testData={importTestData} days={24} />
+      <Calendar state={setMultiTest} holidayData={useHolidayData()} testData={importTestData} days={24} />
 
       <ClassChart />
       <LineChart data={importTestData} span={24} ugg={ugg} language={language} />

@@ -1,7 +1,7 @@
 import dayjs from "dayjs";
 
 function daysLeftText(timestamp: any): string {
-  const daysLeft = dayjs(timestamp).diff(dayjs(), "day", true);
+  const daysLeft = dayjs(timestamp).set("hour", 24).diff(dayjs(), "day", true);
   const daysLeftAdapted = daysLeft < 1 ? Math.floor(daysLeft) : Math.ceil(daysLeft);
   if (daysLeftAdapted > -2) {
     switch (daysLeftAdapted) {

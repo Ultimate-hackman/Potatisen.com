@@ -3,6 +3,7 @@ import { firestore } from "../firebase/firebase";
 import Language from "../types/Language";
 import Subject from "../types/Subject";
 import Ugg from "../types/Ugg";
+import filterTests from "./filterTests";
 
 export interface Test {
   timestamp: Date;
@@ -39,17 +40,7 @@ function useTestData(ugg?: Ugg, language?: Language): Test[] {
       });
   }, []);
 
-  return totalData.filter((test) => {
-    if (ugg && test.ugg && test.ugg !== ugg) {
-      return false;
-    }
-
-    if (language && test.language && test.language !== language) {
-      return false;
-    }
-
-    return true;
-  });
+  return totalData.filter((test) => filterTests(test, ugg, language));
 }
 
 export default useTestData;

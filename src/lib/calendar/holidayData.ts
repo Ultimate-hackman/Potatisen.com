@@ -9,7 +9,7 @@ export interface Holiday {
 export type Holidays = Holiday[];
 
 function useHolidayData(): Holiday[] {
-  const [totalData, setTotalData] = useState<Holiday[]>([]);
+  const [totalData, setTotalData] = useState<Holiday[]>();
 
   useEffect(() => {
     firestore
@@ -19,8 +19,6 @@ function useHolidayData(): Holiday[] {
       .then((snapshot) => {
         setTotalData(snapshot.docs.map((doc): Holiday => {
           const data = doc.data();
-          console.log("sadaas");
-
           return {
             start: data.start?.toDate(),
             end: data.end?.toDate(),
