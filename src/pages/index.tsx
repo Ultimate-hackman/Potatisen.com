@@ -3,13 +3,14 @@ import dayjs from "dayjs";
 import React from "react";
 import GlobalStyle from "../theme/GlobalStyles";
 import Header from "../components/header";
-
+import pluralCheck from "../lib/time/pluralCheck";
 import InfoPad from "../styles/infoPad";
 import Title from "../styles/title";
 import Img from "../styles/img";
 import Btn from "../styles/btn";
 
 export default function Home(): JSX.Element {
+  const dayDiff = dayjs("juni 11, 2021 12:00:00").diff(dayjs(), "day");
   return (
     <>
 
@@ -28,7 +29,7 @@ export default function Home(): JSX.Element {
 
         <h1>
           {" "}
-          {`${dayjs("apr 2, 2021 00:00:00").diff(dayjs(), "day") + 1} dagar kvar till påsklov 🐤`}
+          {`${dayDiff} ${pluralCheck(dayDiff, undefined, undefined, undefined)[0]} kvar till skolavslutningen 🌴`}
           {" "}
         </h1>
 

@@ -99,7 +99,6 @@ const Calendar: FunctionComponent<CalendarProps> = ({
     if (localTests.length === 1) {
       return localTests;
     }
-    
     return (
       <Hatch color={colorFinder(isHelg ? "ma" : "NOTEST", 0.5)}>
         {" "}
