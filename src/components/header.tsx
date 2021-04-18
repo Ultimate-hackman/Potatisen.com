@@ -58,7 +58,7 @@ const Header:FunctionComponent<HeaderProps> = (props) => {
         <Link href="/"><Item>Hem</Item></Link>
         <Link href="/news"><Item>Veckobrev</Item></Link>
         <Link href="/about"><Item>Om oss</Item></Link>
-        <Link href="/kalender">
+        <Link href="/calender">
           <Item>
             Provschema
             <span role="img" aria-label="clock">🕒</span>

@@ -1,35 +1,29 @@
 import { useState, useEffect } from "react";
+import dayjs, { Dayjs } from "dayjs";
+function countDown(date: string): number[] {
+  const now: Dayjs = dayjs();
 
-function countDown(date: string, identity: boolean): number[] {
-  const past: number = new Date(date).getTime();
-  const now: number = new Date().getTime();
+  const past: Dayjs = dayjs(date);
 
-  const difference: number = identity ? now - past : past - now;
-
-  const totalHour: number = Math.floor(difference / (1000 * 60 * 60));
-  const totalMinutes: number = Math.floor((difference / 1000) / 60);
-  const totaldays: number = Math.floor(difference / (1000 * 60 * 60 * 24));
-  const totalMonths: number = Math.floor(difference / (1000 * 60 * 60 * 24 * 31));
-
-  const days: number = Math.floor(difference / (1000 * 60 * 60 * 24) - totalMonths);
-  const hours: number = Math.floor((((difference / 1000) / 60) / 60) - totaldays * 24);
-  const minutes: number = Math.floor(((difference / 1000) / 60) - totalHour * 60);
-  const seconds: number = Math.floor((difference / 1000) - totalMinutes * 60);
+  const days: number = now.diff(past, "day");
+  const hours: number = now.diff(past, "hour") - days * 24;
+  const minutes: number = now.diff(past, "minute") - (hours * 60 + (days * 24) * 60);
+  const seconds: number = now.diff(past, "second") - (minutes * 60 + (hours * 60 + (days * 24) * 60) * 60);
 
   return [days, hours, minutes, seconds];
 }
 
-export default function Bruh(date: string, identity: boolean): number[] {
+export default function Bruh(date: string): number[] {
   const [text, setText] = useState([]);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const output: number[] = countDown(date, identity);
+      const output: number[] = countDown(date);
 
       setText(output);
     }, 1000);
     return () => clearInterval(interval);
-  }, [date, identity]);
+  }, [date]);
 
   return (
     text

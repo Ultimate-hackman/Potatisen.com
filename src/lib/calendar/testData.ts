@@ -4,9 +4,10 @@ import Language from "../types/Language";
 import Subject from "../types/Subject";
 import Ugg from "../types/Ugg";
 import filterTests from "./filterTests";
+import dayjs from 'dayjs';
 
 export interface Test {
-  timestamp: Date;
+  timestamp: Dayjs;
   ugg?: Ugg;
   language?: Language;
   subject?: Subject;

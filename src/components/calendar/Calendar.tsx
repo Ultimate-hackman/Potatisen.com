@@ -6,7 +6,6 @@ import { Test } from "../../lib/calendar/testData";
 import colorFinder from "../../lib/calendar/colorFinder";
 import Text from "../../styles/text";
 import daysLeftText from "../../lib/calendar/daysLeftText";
-import { Holiday } from "../../lib/calendar/holidayData";
 
 const Grid = styled.div`
 padding-top: 3vh;
@@ -20,24 +19,22 @@ grid-row-gap: 3vh;
 
 interface CalendarProps {
   testData: Test[];
-  holidayData: Holiday[];
   days: number;
   state
 }
 
 const Calendar: FunctionComponent<CalendarProps> = ({
   testData: tests,
-  holidayData: holidays,
   days,
   state,
 }) => {
   const day = dayjs().locale("sv");
 
   function monthDay(i: number) {
-    console.log(holidays);
     const date = day.add(i + 1 - dayjs().day(), "day");
     const isHelg: boolean = date.day() === 6 || date.day() === 0;
     const localData: Test[] = tests.filter((item: Test) => date?.isSame(item.timestamp, "day") && item?.timestamp !== undefined);
+
 
     const localTests: JSX.Element[] = localData.map((localTest) => (
       <Hatch color={colorFinder(localTest.subject, 0.5)}>
@@ -55,7 +52,7 @@ const Calendar: FunctionComponent<CalendarProps> = ({
           {" "}
         </Text>
         {" "}
-        <Text size="1vh">{dayjs(localTest.timestamp).format("hh:mm")}</Text>
+        <Text size="1vh">{dayjs(localTest.timestamp).format("HH:mm")}</Text>
         {" "}
         <Text size="1vh">
           {" "}
