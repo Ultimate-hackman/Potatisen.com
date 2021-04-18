@@ -1,7 +1,7 @@
 import Link from "next/link";
 import dayjs from "dayjs";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import GlobalStyle from "../theme/GlobalStyles";
 import Header from "../components/header";
 import pluralCheck from "../lib/time/pluralCheck";
@@ -11,9 +11,7 @@ import Img from "../styles/img";
 import Btn from "../styles/btn";
 
 export default function Home(): JSX.Element {
-  const dayDiff = dayjs("juni 11, 2021 12:00:00").diff(dayjs(), "day");
-  const [text, setText] = useState("");
-
+  const dayDiff = dayjs("2021-06-11T12:00:00+02:00").diff(dayjs(), "day");
   return (
     <>
 
@@ -32,7 +30,7 @@ export default function Home(): JSX.Element {
 
         <h1>
           {" "}
-          {`${dayDiff} ${pluralCheck(dayDiff, undefined, undefined, undefined)[0]} kvar till skolavslutningen 🌴 ${text}`}
+          {`${dayDiff} ${pluralCheck(dayDiff, undefined, undefined, undefined)[0]} kvar till skolavslutningen 🌴`}
           {" "}
         </h1>
 
