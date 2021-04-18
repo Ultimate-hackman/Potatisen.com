@@ -12,6 +12,7 @@ import Btn from "../styles/btn";
 
 export default function Home(): JSX.Element {
   const dayDiff = dayjs("2021-06-11T12:00:00+02:00").diff(dayjs(), "day");
+
   return (
     <>
 
