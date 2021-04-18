@@ -1,6 +1,5 @@
 import { TextChannel, Client } from "discord.js";
 
-
 async function getTextChannel(id: string): Promise<TextChannel> {
   const client = new Client();
 

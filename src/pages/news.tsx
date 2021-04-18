@@ -19,7 +19,7 @@ list-style-type:none;
 
 export default function Veckobrev(): JSX.Element {
   const news = useData("/api/news");
-  const letters: any[] = useData("/api/letters");
+  const letters = useData("/api/letters");
 
   return (
     <>
@@ -36,7 +36,7 @@ export default function Veckobrev(): JSX.Element {
           <Bullet>
             {" "}
             -
-            {item.text}
+            {item?.text}
           </Bullet>
         ))}
       </InfoPad>

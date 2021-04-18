@@ -19,7 +19,7 @@ export default function About(): JSX.Element {
         width: 75%;     
     }
     `;
-  const time = countDown("sep 13, 2020 18:27:00", true);
+  const time = countDown("sep 13, 2020 18:27:00");
   const plural = pluralCheck(time[0], time[1], time[2], time[3]);
 
   const AboutImg = styled(Img)`

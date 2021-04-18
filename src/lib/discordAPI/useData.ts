@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-function useData(url): string[] {
+function useData(url: string): any[] {
   const [item, setItem] = useState([]);
   useEffect(() => {
     async function apiFetch() {
