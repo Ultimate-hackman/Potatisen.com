@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const InfoPad = styled.div`
     position: fixed;
-    left: 80%;
+    left: 78%;
     top: 30%;
 
     width: 20%;
