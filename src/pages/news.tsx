@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import styled from "styled-components";
 import GlobalStyle from "../theme/GlobalStyles";
 import NewsLetters from "../components/newsLetter/newsLetters";
@@ -21,6 +21,13 @@ export default function Veckobrev(): JSX.Element {
   const news = useData("/api/news");
   const letters = useData("/api/letters");
 
+  function VeckobrevLoad(item) {
+    if (item === undefined) {
+      return "laddar...";
+    }
+    return item.title;
+  }
+
   return (
     <>
 
@@ -28,7 +35,7 @@ export default function Veckobrev(): JSX.Element {
       <Header title="Veckobrev" />
       <VeckoImg src="https://cdn.discordapp.com/attachments/688322560957743190/786315067352154172/veckobrev.edcc5d03.png" />
       <a href={letters[0]?.url}>
-        <BigBtn>{letters[0]?.title}</BigBtn>
+        <BigBtn>{VeckobrevLoad(letters[0])}</BigBtn>
       </a>
       <InfoPad>
         <h1><span role="img" aria-label="note">Nyheter 📰🖊️</span></h1>
