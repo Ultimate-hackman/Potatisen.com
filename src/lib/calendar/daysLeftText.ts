@@ -7,16 +7,15 @@ function daysLeftText(timestamp: any): string {
   if (daysLeftAdapted >= förrgårCase) {
     switch (daysLeftAdapted) {
       case förrgårCase:
-        return "förrgår";
+        return "Förrgår";
       case -1:
-        return "igår";
+        return "Igår";
       case 0:
-        return "idag";
+        return "Idag";
       case 1:
-        return "imorgon";
+        return "Imorgon";
       case 2:
-        return "övermorgon";
-
+        return "Övermorgon";
       default:
         return `${daysLeftAdapted} dagar kvar`;
     }
