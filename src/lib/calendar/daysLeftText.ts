@@ -2,9 +2,9 @@ import dayjs from "dayjs";
 
 function daysLeftText(timestamp: any): string {
   const daysLeft = dayjs(timestamp).set("hour", 24).diff(dayjs(), "day", true);
-  const daysLeftAdapted = daysLeft < 1 ? Math.floor(daysLeft) : Math.ceil(daysLeft);
+  const daysLeftAdapted = daysLeft < 0 ? Math.floor(daysLeft) : Math.floor(daysLeft);
   const förrgårCase = -2;
-  if (daysLeftAdapted > förrgårCase) {
+  if (daysLeftAdapted >= förrgårCase) {
     switch (daysLeftAdapted) {
       case förrgårCase:
         return "förrgår";
@@ -16,6 +16,7 @@ function daysLeftText(timestamp: any): string {
         return "imorgon";
       case 2:
         return "övermorgon";
+
       default:
         return `${daysLeftAdapted} dagar kvar`;
     }
