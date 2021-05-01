@@ -23,7 +23,7 @@ export default function Home(): JSX.Element {
       </Title>
       <Img src="https://media.discordapp.net/attachments/688322560957743190/786279776468992071/shrek.png" />
 
-      <Link href="/news">
+      <Link href="/veckobrev">
         <Btn>Veckobrev</Btn>
       </Link>
 
