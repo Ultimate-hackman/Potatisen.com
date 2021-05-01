@@ -1,6 +1,6 @@
 import dayjs from "dayjs";
 
-function daysLeftText(timestamp: any): string {
+export default function daysLeftText(timestamp: Date): string {
   const daysLeft = dayjs(timestamp).set("hour", 24).diff(dayjs(), "day", true);
   const daysLeftAdapted = daysLeft < 0 ? Math.floor(daysLeft) : Math.floor(daysLeft);
   const förrgårCase = -2;
@@ -22,4 +22,3 @@ function daysLeftText(timestamp: any): string {
   }
 }
 
-export default daysLeftText;
