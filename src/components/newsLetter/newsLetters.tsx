@@ -10,6 +10,8 @@ display: grid;
 width: 50%;
 justify-content: center;
 
+transition: linear 0.2s;
+
 background-image: linear-gradient(to bottom, #630303);
 grid-template-columns: repeat(4, 15em);
 
@@ -19,6 +21,7 @@ grid-template-columns: repeat(4, 15em);
 grid-column-gap: 2em;
 grid-row-gap: 2em;
 `;
+
 const LetterBox = styled.div`
 cursor: pointer;
 border-radius: 10px;
@@ -36,6 +39,7 @@ border: 1px solid rgba(0, 0, 0, 0.137);
 export interface WeekLetterProps {
   data: any[],
   textLen: number,
+  active: boolean,
 }
 
 const WeekLetter: FunctionComponent<WeekLetterProps> = ({

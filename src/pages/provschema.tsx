@@ -118,6 +118,7 @@ export default function Kalender(): JSX.Element {
         return emojiArray[emojiArray.length - 1];
       }
     }
+    return emojiArray[0];
   }
 
   return (

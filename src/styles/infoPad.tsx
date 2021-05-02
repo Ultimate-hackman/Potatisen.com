@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+
 const InfoPad = styled.div`
     position: fixed;
     left: 78%;

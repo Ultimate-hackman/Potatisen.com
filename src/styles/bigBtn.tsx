@@ -10,15 +10,14 @@ const BigBtn = styled(Btn)`
     border-radius: 10px;
     
     width: 40%;
-    border: 1px solid rgb(0, 0, 0);
+    border: 1px solid rgb(0, 0, 0, 0.4 );
     padding: 2vh;
 
     transition: linear 0.2s;
-    
+
 
     &:hover{
-      background-image: linear-gradient(120deg,  rgba(144,0,255,0.7540603248259861), rgba(228,14,14,0.8213457076566125));
-      color:white;
+      border: 1px solid rgb(0, 0, 0);
     }
     
 `;
