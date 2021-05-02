@@ -20,7 +20,6 @@ list-style-type:none;
 export default function Veckobrev(): JSX.Element {
   const news = useData("/api/news");
   const letters = useData("/api/letters");
-  const lettersIsImport = !(letters[0] === undefined);
  
   const letterOffsett = 1;
 
@@ -38,9 +37,9 @@ export default function Veckobrev(): JSX.Element {
       <Header title="Veckobrev" />
       <VeckoImg src="https://cdn.discordapp.com/attachments/688322560957743190/786315067352154172/veckobrev.edcc5d03.png" />
       <a href={letters[0]?.url}>
-        <BigBtn active={lettersIsImport}>{VeckobrevLoad(letters[0])}</BigBtn>
+        <BigBtn>{VeckobrevLoad(letters[0])}</BigBtn>
       </a>
-      <InfoPad active={lettersIsImport}>
+      <InfoPad>
         <h1><span role="img" aria-label="note">Nyheter 📰🖊️</span></h1>
         {news.map((item) => (
           <Bullet>

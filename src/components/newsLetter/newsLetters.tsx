@@ -39,7 +39,6 @@ border: 1px solid rgba(0, 0, 0, 0.137);
 export interface WeekLetterProps {
   data: any[],
   textLen: number,
-  active: boolean,
 }
 
 const WeekLetter: FunctionComponent<WeekLetterProps> = ({
