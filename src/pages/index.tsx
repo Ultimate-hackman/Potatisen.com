@@ -13,6 +13,7 @@ import Btn from "../styles/btn";
 import Text from "../styles/text"
 export default function Home(): JSX.Element {
   const dayDiff = dayjs("2021-06-11T12:00:00+02:00").diff(dayjs(), "day");
+  const bruuh = ">;";
 
   return (
     <>
@@ -20,7 +21,8 @@ export default function Home(): JSX.Element {
       <GlobalStyle />
       <Header title="" />
       <Title>
-        End of an era >;
+        End of an era
+        {bruuh}
       </Title>
 
       <Text size="2vh" weight="normal">
