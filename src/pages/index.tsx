@@ -26,7 +26,7 @@ export default function Home(): JSX.Element {
       </Title>
 
       <Text size="2vh" weight="normal">
-        Skolan är snart över. <br></br> Hemsidan får ett nytt syfte senare. <br></br> Time to die. 💀
+        Skolan är snart över. <br></br> Hemsidan får ett kanske nytt syfte senare. <br></br> Bruh?
       </Text>
       <Img src="https://media.discordapp.net/attachments/782333556704673822/851868693553741874/sad3.png?width=1365&height=1365" />
 
