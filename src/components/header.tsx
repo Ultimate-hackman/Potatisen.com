@@ -58,12 +58,6 @@ const Header:FunctionComponent<HeaderProps> = (props) => {
         <Link href="/"><Item>Hem</Item></Link>
         <Link href="/veckobrev"><Item>Veckobrev</Item></Link>
         <Link href="/om"><Item>Om oss</Item></Link>
-        <Link href="/provschema">
-          <Item>
-            Provschema
-            <span role="img" aria-label="clock">🕒</span>
-          </Item>
-        </Link>
 
         <Potatisen>Potatisen</Potatisen>
       </Bar>
