@@ -30,7 +30,7 @@ const Pad = styled.div`
 
 export default function Home(): JSX.Element {
   const dayDiff = dayjs("2021-06-11T12:00:00+02:00").diff(dayjs(), "day") + 1;
-  const bruuh = ">;";
+
   const news = useData("/api/art");
 
   return (
@@ -39,8 +39,7 @@ export default function Home(): JSX.Element {
       <GlobalStyle />
       <Header title="" />
       <Title>
-        End of an era
-        {bruuh}
+        Slutet är nära
       </Title>
 
       <Text size="2vh" weight="normal">
@@ -70,7 +69,7 @@ export default function Home(): JSX.Element {
       </Link>
       <Pad>
         <Text size="5vh">Strange art </Text>
-        <Text size="2vh" weight="normal">Im a cool kid on the internet and you can't stop me</Text>
+        <Text size="2vh" weight="normal">Im an insomiac boy on the internet and you can't stop me</Text>
 
         <ArtDeck data={news} />
       </Pad>
