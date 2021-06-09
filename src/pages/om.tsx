@@ -37,7 +37,7 @@ export default function About(): JSX.Element {
       <Header title="Om oss" />
       <Container>
         <AboutImg src="https://cdn.discordapp.com/attachments/688322560957743190/786656997482823680/om-oss.png" className="om-oss-img" alt="om-oss" />
-        <p> Potatisen.com grundades i september 2020 med målet att hjälpa samtliga elever på södermalmsskolan genom att skapa användbara funktioner som löser problem. Mer kommer komma. Ingen reklam sedan 2020.</p>
+        <p> Potatisen.com grundades i september 2020 med målet att hjälpa samtliga elever på södermalmsskolan genom att skapa användbara funktioner som löser problem. Nu vet jag inte vad som händer. Ingen reklam sedan 2020.</p>
         {" "}
         Online sedan:
         {" "}
