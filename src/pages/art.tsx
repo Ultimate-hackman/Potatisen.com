@@ -29,10 +29,10 @@ export default function art(): JSX.Element {
       <GlobalStyle />
       <Header title="" />
 
-        <Text size="5vh">Illustrationer</Text>
-        <Text size="2vh" weight="normal">I have chronic insomia okay?</Text>
+      <Text size="5vh">Illustrationer</Text>
+      <Text size="2vh" weight="normal">I have chronic insomia okay?</Text>
 
-        <ArtDeck data={news} />
+      <ArtDeck data={news} />
 
     </>
   );
