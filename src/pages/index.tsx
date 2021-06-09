@@ -10,23 +10,11 @@ import InfoPad from "../styles/infoPad";
 import Title from "../styles/title";
 import Img from "../styles/img";
 import Btn from "../styles/btn";
-import ArtDeck from "../components/artDeck/artDeck";
 import useData from "../lib/discordAPI/useData";
 
 import Text from "../styles/text";
 
-const Pad = styled.div`
 
-    background-color: rgb(255, 255, 255);
-    border-radius: 50px;
-    margin-top: 10px;
-
-    border: 1px solid gray;
-
-    
-    
-    box-shadow: 1px 1px 8px 6px rgba(58, 58, 58, 0.096);
-`;
 
 export default function Home(): JSX.Element {
   const dayDiff = dayjs("2021-06-11T12:00:00+02:00").diff(dayjs(), "day") + 1;
@@ -67,12 +55,7 @@ export default function Home(): JSX.Element {
       <Link href="/veckobrev">
         <Btn>Veckobrev</Btn>
       </Link>
-      <Pad>
-        <Text size="5vh">Strange art </Text>
-        <Text size="2vh" weight="normal">Im an insomiac boy on the internet and you can't stop me</Text>
 
-        <ArtDeck data={news} />
-      </Pad>
 
     </>
   );
