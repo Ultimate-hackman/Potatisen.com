@@ -12,7 +12,7 @@ const Btn = styled.button`
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 3vh;
+    margin-bottom: 4vh;
 
     transition: ease-in 0.2s;
     cursor: pointer;

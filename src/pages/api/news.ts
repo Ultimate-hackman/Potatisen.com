@@ -15,7 +15,7 @@ const handler: NextApiHandler = async (req, res) => {
       } = message;
 
       return {
-        text: content.split("-")[0],
+        text: content,
         createdAt,
         id: index,
       };
