@@ -70,7 +70,7 @@ export default function Home(): JSX.Element {
       </Link>
       <Pad>
         <Text size="5vh">Strange art </Text>
-        <Text size="2vh" weight="normal">Im a weird kid on the internet and you can't stop me</Text>
+        <Text size="2vh" weight="normal">Im a cool kid on the internet and you can't stop me</Text>
 
         <ArtDeck data={news} />
       </Pad>
