@@ -17,7 +17,7 @@ import Text from "../styles/text";
 
 
 export default function Home(): JSX.Element {
-  const dayDiff = dayjs("2021-06-11T12:00:00+02:00").diff(dayjs(), "day");
+
 
   const news = useData("/api/art");
 
@@ -57,7 +57,7 @@ export default function Home(): JSX.Element {
       </Link>
 
       <Text size="5vh">Illustrationer</Text>
-      <Text size="2vh" weight="normal">I am a crazy kid okay?</Text>
+      <Text size="2vh" weight="normal">I am an insomniac with 3d software okay?</Text>
 
       <ArtDeck data={news} />
 
