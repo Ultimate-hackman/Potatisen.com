@@ -57,7 +57,7 @@ export default function Home(): JSX.Element {
       </Link>
 
       <Text size="5vh">Illustrationer</Text>
-      <Text size="2vh" weight="normal">I have chronic insomia okay?</Text>
+      <Text size="2vh" weight="normal">I have crazy kid okay?</Text>
 
       <ArtDeck data={news} />
 
