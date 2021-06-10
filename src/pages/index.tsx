@@ -47,7 +47,7 @@ export default function Home(): JSX.Element {
 
         <h1>
           {" "}
-          {`${dayDiff} ${pluralCheck(dayDiff, undefined, undefined, undefined)[0]} kvar till skolavslutningen 🌴`}
+          {`imorgon 🌴`}
           {" "}
         </h1>
 
@@ -57,7 +57,7 @@ export default function Home(): JSX.Element {
       </Link>
 
       <Text size="5vh">Illustrationer</Text>
-      <Text size="2vh" weight="normal">I have crazy kid okay?</Text>
+      <Text size="2vh" weight="normal">I am a crazy kid okay?</Text>
 
       <ArtDeck data={news} />
 
