@@ -1,6 +1,6 @@
 import Link from "next/link";
 import dayjs from "dayjs";
-
+import ArtDeck from "../components/artDeck/artDeck"
 import React from "react";
 import styled from "styled-components";
 import GlobalStyle from "../theme/GlobalStyles";
@@ -17,7 +17,7 @@ import Text from "../styles/text";
 
 
 export default function Home(): JSX.Element {
-  const dayDiff = dayjs("2021-06-11T12:00:00+02:00").diff(dayjs(), "day") + 1;
+  const dayDiff = dayjs("2021-06-11T12:00:00+02:00").diff(dayjs(), "day");
 
   const news = useData("/api/art");
 
@@ -55,6 +55,11 @@ export default function Home(): JSX.Element {
       <Link href="/veckobrev">
         <Btn>Veckobrev</Btn>
       </Link>
+
+      <Text size="5vh">Illustrationer</Text>
+      <Text size="2vh" weight="normal">I have chronic insomia okay?</Text>
+
+      <ArtDeck data={news} />
 
 
     </>
