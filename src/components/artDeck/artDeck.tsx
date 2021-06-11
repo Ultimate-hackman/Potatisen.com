@@ -11,9 +11,7 @@ padding-bottom: 5vh;
 
 transition: linear 0.2s;
 grid-template-columns: repeat(3, 35em);
-@media only screen and (max-height: 768px) {
-  grid-template-columns: repeat(3, 1em);
-}
+
 `;
 
 const ArtImg = styled(Img)`

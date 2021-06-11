@@ -47,7 +47,7 @@ export default function Home(): JSX.Element {
 
         <h1>
           {" "}
-          {`imorgon 🌴`}
+          {`idag 🌴`}
           {" "}
         </h1>
 
