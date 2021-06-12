@@ -27,7 +27,7 @@ export default function Home(): JSX.Element {
       <GlobalStyle />
       <Header title="" />
       <Title>
-        Slutet är nära
+        Slutet är här
       </Title>
 
       <Text size="2vh" weight="normal">
