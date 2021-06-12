@@ -56,7 +56,6 @@ const Header:FunctionComponent<HeaderProps> = (props) => {
       </Head>
       <Bar>
         <Link href="/"><Item>Hem</Item></Link>
-        <Link href="/veckobrev"><Item>Veckobrev</Item></Link>
         <Link href="/om"><Item>Om oss</Item></Link>
 
         <Potatisen>Potatisen</Potatisen>

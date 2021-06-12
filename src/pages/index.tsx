@@ -31,7 +31,7 @@ export default function Home(): JSX.Element {
       </Title>
 
       <Text size="2vh" weight="normal">
-        Skolan är snart över.
+        Skolan är över.
         {" "}
         <br />
         {" "}
@@ -47,7 +47,7 @@ export default function Home(): JSX.Element {
 
         <h1>
           {" "}
-          {`idag 🌴`}
+          {`Lycka till! 🙏`}
           {" "}
         </h1>
 
