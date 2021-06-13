@@ -52,9 +52,7 @@ export default function Home(): JSX.Element {
         </h1>
 
       </InfoPad>
-      <Link href="/veckobrev">
-        <Btn>Veckobrev</Btn>
-      </Link>
+
 
       <Text size="5vh">Illustrationer</Text>
       <Text size="2vh" weight="normal">I am an insomniac with 3d software okay?</Text>
